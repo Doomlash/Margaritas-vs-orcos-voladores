@@ -1,11 +1,13 @@
 package logica.mapa;
 
 import logica.juego.niveles.*;
+import logica.mapa.elementosMapa.destruibles.Piedra;
+import logica.mapa.elementosMapa.temporales.Agua;
 import logica.disparo.*;
 import logica.itemsPremio.*;
 import java.util.List;
 import java.util.ArrayList;
-
+import java.util.Random;
 import logica.comprables.*;
 
 public class Mapa{
@@ -25,7 +27,25 @@ public class Mapa{
 	}
 	
 	public void cargarMapa(){
-		
+		Random r=new Random();
+		int piedras=0;
+		while(piedras<2){
+			int fila=r.nextInt()%6;
+			int columna=(r.nextInt()%10)+1;
+			if(celdas[fila][columna].getElementos().isEmpty()){
+				celdas[fila][columna].agregarElemento(new Piedra());
+			piedras++;
+			}
+		}
+		int lagos=0;
+		while(lagos<2){
+			int fila=r.nextInt()%6;
+			int columna=(r.nextInt()%10)+1;
+			if(celdas[fila][columna].getElementos().isEmpty()){
+				celdas[fila][columna].agregarElemento(new Agua());
+			lagos++;
+			}
+		}
 	}
 	
 	public List<Disparo> getDisparos(){
