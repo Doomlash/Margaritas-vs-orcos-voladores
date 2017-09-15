@@ -10,7 +10,7 @@ public class Celda{
 	private List<Elemento> lista;
 
 	public void agregarElemento(Elemento e) {
-		lista.add(e);
+		lista.add(e);//completar
 	}
 
 	public List<Elemento> getElementos() {

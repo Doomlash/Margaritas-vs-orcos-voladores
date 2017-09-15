@@ -26,7 +26,7 @@ public class Mapa{
 		cargarMapa();
 	}
 	
-	public void cargarMapa(){
+	public void cargarMapa(){//genera mapa con 2 piedras y 2 lagos. ninguno de estos pueden estar en la primera fila
 		Random r=new Random();
 		int piedras=0;
 		while(piedras<2){
