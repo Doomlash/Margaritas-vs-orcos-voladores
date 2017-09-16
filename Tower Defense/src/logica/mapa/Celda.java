@@ -1,10 +1,7 @@
 package logica.mapa;
 
-import java.util.List;
-
-import logica.disparo.Disparo;
 import logica.gameObjects.*;
-import logica.mapa.elementosMapa.destruibles.Piedra;
+import java.util.List;
 
 public class Celda{
 	private List<Elemento> lista;

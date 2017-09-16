@@ -48,6 +48,15 @@ public class Mapa{
 		}
 	}
 	
+	public Celda[][] getCeldas(){
+		return celdas;
+	}
+	public Celda getCelda(int x, int y){
+		if((x>=0)&&(x<celdas[0].length))
+			if((y>=0)&&(y<celdas.length))
+				return celdas[y][x];
+		return null;
+	}
 	public List<Disparo> getDisparos(){
 		return disparos;
 	}
