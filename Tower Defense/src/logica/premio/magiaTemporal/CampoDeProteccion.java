@@ -1,5 +1,12 @@
 package logica.premio.magiaTemporal;
 
-public class CampoDeProteccion {
+import logica.entidad.Entidad;
 
+public class CampoDeProteccion {
+	private Entidad entidad;
+	
+	
+	public void destroy(){
+		entidad.setCP(null);
+	}
 }
