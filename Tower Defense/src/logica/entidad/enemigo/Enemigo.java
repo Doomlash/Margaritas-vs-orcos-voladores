@@ -14,9 +14,13 @@ public abstract class Enemigo extends Entidad{
 	protected int monedas;
 	
 	public Enemigo(){
-		
+		visitorColision = new VisitorColisionEnemigo();
+		visitorAtaque = new VisitorAtaqueEnemigo(this);
 	}
-
+	public void accept(VisitorInteraccion v){
+		v.visit(this);
+	}
+	
 	public Elemento chequearColision(int k, int f){
 		List<Elemento> list = null;
 		Elemento ele;
@@ -36,5 +40,8 @@ public abstract class Enemigo extends Entidad{
 		if(hayColision)
 			return list.get(pos-1);
 		else return null;
+	}
+	public boolean accept(VisitorColision v){
+		return v.visit(this);
 	}
 }

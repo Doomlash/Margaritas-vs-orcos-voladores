@@ -2,7 +2,7 @@ package logica.entidad.aliado;
 
 import logica.entidad.*;
 import logica.gameObjects.*;
-import logica.Visitor.VisitorColisiones.VisitorColision;
+import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
 import logica.comprables.*;
 import logica.premio.magiaTemporal.*;
@@ -15,6 +15,8 @@ public abstract class Aliado extends Entidad implements  Comprable{
 	protected PowerBooster booster;
 	
 	public Aliado(){
+		visitorColision = new VisitorColisionAliado();
+		visitorAtaque = new VisitorAtaqueAliado(this);
 	}
 	
 	public void accept(VisitorInteraccion v){
