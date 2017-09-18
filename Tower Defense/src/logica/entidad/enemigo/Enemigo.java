@@ -3,7 +3,7 @@ package logica.entidad.enemigo;
 import logica.entidad.*;
 import logica.gameObjects.Elemento;
 
-import java.util.List;
+//import java.util.List;
 
 import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
@@ -22,6 +22,19 @@ public abstract class Enemigo extends Entidad{
 	}
 	
 	public Elemento chequearColision(int k, int f){
+		Iterable<Elemento> list = null;
+		boolean hayColision= false;
+		for(int i=k;(i<=f)&&(!hayColision);i++){
+			list=map.getCelda(i, this.y).getElementos();
+			for(Elemento e : list){
+				if(!hayColision){
+					hayColision = e.accept(visitorColision);
+					return e;
+				}
+			}
+		}
+		return null;
+		/*
 		List<Elemento> list = null;
 		Elemento ele;
 		int pos=0;
@@ -40,6 +53,7 @@ public abstract class Enemigo extends Entidad{
 		if(hayColision)
 			return list.get(pos-1);
 		else return null;
+		*/
 	}
 	public boolean accept(VisitorColision v){
 		return v.visit(this);

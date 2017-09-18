@@ -30,7 +30,7 @@ public class Mapa{
 	 * @param p: Entero que representa la cantidad de piedras a agregar.
 	 * @param a: Entero que representa la cantidad de lagos a agregar
 	 */
-	public void agregarObstaculos(int p, int a){
+	public void agregarObstaculos(int p, int l){
 		Random r=new Random();
 		int fila;
 		int columna;
@@ -38,7 +38,7 @@ public class Mapa{
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
 			System.out.println(fila+"-"+ columna);
-			if(celdas[fila][columna].getElementos().isEmpty()){
+			if(celdas[fila][columna].isEmpty()){
 				int posX[] = new int[1];
 				posX[0] = columna;
 				celdas[fila][columna].agregarElemento(new Piedra(posX,fila));
@@ -47,18 +47,18 @@ public class Mapa{
 			}
 			System.out.println(p);
 		}
-		while(celdasVacias()&&(a>0)){
+		while(celdasVacias()&&(l>0)){
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
 			System.out.println(fila+"-"+ columna);
-			if(celdas[fila][columna].getElementos().isEmpty()){
+			if(celdas[fila][columna].isEmpty()){
 				int posX[] = new int[1];
 				posX[0] = columna;
 				celdas[fila][columna].agregarElemento(new Agua(posX,fila));
 				nivel.getJuego().getGui().add(celdas[fila][columna].getElementos().get(0).getGraphic().getGrafico());
-				a--;
+				l--;
 			}
-			System.out.println(a);
+			System.out.println(l);
 		}
 		System.out.println("why?");
 	}
@@ -77,7 +77,7 @@ public class Mapa{
 		boolean vacia=false;
 		for(int i=0;(i<celdas.length)&&!vacia;i++)
 			for(int j=0;(j<celdas[i].length)&&(!vacia);j++)
-				vacia= celdas[i][j].getElementos().isEmpty();
+				vacia= celdas[i][j].isEmpty();
 		return vacia;
 	}
 }

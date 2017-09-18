@@ -11,15 +11,22 @@ public abstract class Disparo extends GameObject{
 	
 	public abstract void move();
 	public void move(int nextX){
-		List<Elemento> list= map.getCelda(nextX, y).getElementos();
+		Iterable<Elemento> list= map.getCelda(nextX, y).getElementos();
+//		List<Elemento> list= map.getCelda(nextX, y).getElementos();
 		boolean hayColision=false;
 		int pos=0;
+		for(Elemento e : list){
+			if(!hayColision){
+				hayColision = e.accept(visitor);
+			}
+		}
+		/*
 		if(!list.isEmpty()){
 			while(!hayColision&&(pos<list.size())){
 				hayColision= list.get(pos).accept(visitor);
 				pos++;
 			}
-		}
+		}*/
 	}
 	public void setImpactos(int i){
 		if(i<=0){

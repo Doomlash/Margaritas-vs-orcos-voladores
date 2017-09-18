@@ -6,8 +6,7 @@ import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
 import logica.comprables.*;
 import logica.premio.magiaTemporal.*;
-
-import java.util.List;
+//import java.util.List;
 
 public abstract class Aliado extends Entidad implements  Comprable{
 	protected int precio;
@@ -35,10 +34,23 @@ public abstract class Aliado extends Entidad implements  Comprable{
 	}
 	
 	public Elemento chequearColision(int k, int f){
+		Iterable<Elemento> list = null;
+		boolean hayColision= false;
+		for(int i=k;(i<=f)&&(!hayColision);i++){
+			list=map.getCelda(i, this.y).getElementos();
+			for(Elemento e : list){
+				if(!hayColision){
+					hayColision = e.accept(visitorColision);
+					return e;
+				}
+			}
+		}
+		return null;
+		/*
 		List<Elemento> list = null;
+		boolean hayColision= false;
 		Elemento ele;
 		int pos=0;
-		boolean hayColision= false;
 		for(int i=k;(i<=f)&&(!hayColision);i++){
 			list=map.getCelda(i, y).getElementos();
 			if(!list.isEmpty()){
@@ -53,6 +65,7 @@ public abstract class Aliado extends Entidad implements  Comprable{
 		if(hayColision)
 			return list.get(pos-1);
 		else return null;
+		*/
 	}
 	public void atacar(){
 		Elemento ele= chequearColision(x[x.length-1],x[x.length-1]+rango);
