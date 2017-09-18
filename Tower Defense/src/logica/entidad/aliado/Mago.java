@@ -1,5 +1,13 @@
 package logica.entidad.aliado;
 
-public class Mago extends Aliado{
+import grafica.entidad.aliado.*;
+import logica.mapa.*;
 
+public class Mago extends Aliado{
+	
+	public Mago(int x, int y, Mapa m){
+		super(x,y,1,m);
+		grafico = new GraphicMago(x,y);
+		m.getMapaGrafico().addGraphicElemento(grafico);
+	}
 }

@@ -1,5 +1,13 @@
 package logica.entidad.aliado;
 
-public class Catapulta extends Aliado{
+import logica.mapa.Mapa;
+import grafica.entidad.aliado.*;
 
+public class Catapulta extends Aliado{
+	
+	public Catapulta(int x, int y, Mapa m){
+		super(x,y,2,m);
+		grafico = new GraphicCatapulta(x,y);
+		m.getMapaGrafico().addGraphicElemento(grafico);
+	}
 }

@@ -1,6 +1,7 @@
 package logica.disparo;
 
 import logica.gameObjects.*;
+import logica.mapa.Mapa;
 import logica.Visitor.VisitorColisiones.*;
 import java.util.List;
 
@@ -9,6 +10,10 @@ public abstract class Disparo extends GameObject{
 	protected VisitorColision visitor;
 	protected int danio,velocidad,impactos;
 	
+
+	public Disparo(int x,int y, int dx, Mapa m){
+		super(x,y,dx,m);
+	}
 	public abstract void move();
 	public void move(int nextX){
 		Iterable<Elemento> list= map.getCelda(nextX, y).getElementos();

@@ -2,23 +2,73 @@ package logica.entidad.enemigo;
 
 import logica.entidad.*;
 import logica.gameObjects.Elemento;
+import logica.mapa.*;
 
 //import java.util.List;
 
 import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
 
-public abstract class Enemigo extends Entidad{
+public abstract class Enemigo extends Entidad implements Runnable{
 	protected int velocidad;
 	protected int puntaje;
 	protected int monedas;
+	protected volatile boolean execute;
 	
-	public Enemigo(){
+	public Enemigo(int x, int y, int dx, Mapa m){
+		super(x,y,dx,m);
 		visitorColision = new VisitorColisionEnemigo();
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
+		this.execute=true;
 	}
 	public void accept(VisitorInteraccion v){
 		v.visit(this);
+	}
+	public void terminate(){
+		execute=false;
+	}
+	public void move() throws InterruptedException{
+		if(x-1>=0){
+			int aux= grafico.getPos().x-grafico.getWidth();
+			System.out.println(aux);
+			while(grafico.getPos().x>aux){
+				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
+				Thread.sleep(500);
+				grafico.getGrafico().repaint();
+//				map.getNivel().getJuego().getGui().repaint();
+			}
+			map.getCelda(x-1, y).agregarElemento(this);
+			map.getCelda(x, y).deleteElemento(this);
+		}
+	}
+	
+	public boolean canMove(){
+		int nextX = x-1,pos=0;
+		boolean hayColision=false;
+		Iterable<Elemento> list = map.getCelda(nextX, y).getElementos();
+		if(nextX>=0){
+			if(map.getCelda(nextX, y).isEmpty()){
+				hayColision=true;
+			}
+			for(Elemento e : list){
+				if(!hayColision){
+					hayColision = e.accept(visitorColision);
+				}
+			}
+		}
+		return hayColision;
+//		List<Elemento> list = map.getCelda(nextX, y).getElementos();
+//		if(nextX>=0){
+//			if(!list.isEmpty()){
+//				while(pos<list.size()&&!hayColision){
+//					hayColision = list.get(pos).accept(visitorColision);
+//					pos++;
+//				}
+//			}
+//			else
+//				hayColision=true;
+//		}
+//		return hayColision;
 	}
 	
 	public Elemento chequearColision(int k, int f){

@@ -3,26 +3,31 @@ package logica.mapa;
 import logica.juego.niveles.*;
 import logica.mapa.elementosMapa.destruibles.Piedra;
 import logica.mapa.elementosMapa.temporales.Agua;
+import grafica.mapa.*;
+
 import java.util.Random;
 import logica.entidad.aliado.*;
+import logica.entidad.enemigo.Goblin;
 
 public class Mapa{
 	private Nivel nivel;
 	private Celda[][] celdas;
+	private GraphicMapa grafico;
 	
 	public Mapa(Nivel n){
+		grafico = new GraphicMapa(n);
 		nivel=n;
 		celdas = new Celda[6][10];
 		for(int i=0;i<celdas.length;i++)
 			for(int j=0;j<celdas[i].length;j++)
 				celdas[i][j] = new Celda();
-		
-		int p[] = new int[1];
-		p[0] = 0;
-		Arquero ar= new Arquero(p,0);
+		Arquero ar= new Arquero(0,0,this);
 		celdas[0][0].agregarElemento(ar);
-		nivel.getJuego().getGui().add(celdas[0][0].getElementos().get(0).getGraphic().getGrafico());
 		agregarObstaculos(2,2);
+		Goblin g= new Goblin(9,2,this);
+		celdas[2][9].agregarElemento(g);
+		Thread t = new Thread(g);
+		t.start();
 	}
 	
 	/**
@@ -37,32 +42,29 @@ public class Mapa{
 		while(celdasVacias()&&(p>0)){
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
-			System.out.println(fila+"-"+ columna);
+
 			if(celdas[fila][columna].isEmpty()){
-				int posX[] = new int[1];
-				posX[0] = columna;
-				celdas[fila][columna].agregarElemento(new Piedra(posX,fila));
-				nivel.getJuego().getGui().add(celdas[fila][columna].getElementos().get(0).getGraphic().getGrafico());
+				celdas[fila][columna].agregarElemento(new Piedra(columna,fila,this));
 				p--;
+
 			}
-			System.out.println(p);
 		}
 		while(celdasVacias()&&(l>0)){
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
-			System.out.println(fila+"-"+ columna);
 			if(celdas[fila][columna].isEmpty()){
-				int posX[] = new int[1];
-				posX[0] = columna;
-				celdas[fila][columna].agregarElemento(new Agua(posX,fila));
-				nivel.getJuego().getGui().add(celdas[fila][columna].getElementos().get(0).getGraphic().getGrafico());
+				celdas[fila][columna].agregarElemento(new Agua(columna,fila,this));
 				l--;
 			}
-			System.out.println(l);
 		}
-		System.out.println("why?");
 	}
 	
+	public Nivel getNivel(){
+		return nivel;
+	}
+	public GraphicMapa getMapaGrafico(){
+		return grafico;
+	}
 	public Celda[][] getCeldas(){
 		return celdas;
 	}
