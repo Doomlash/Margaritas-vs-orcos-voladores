@@ -48,26 +48,6 @@ public abstract class Aliado extends Entidad implements  Comprable{
 			}
 		}
 		return null;
-		/*
-		List<Elemento> list = null;
-		boolean hayColision= false;
-		Elemento ele;
-		int pos=0;
-		for(int i=k;(i<=f)&&(!hayColision);i++){
-			list=map.getCelda(i, y).getElementos();
-			if(!list.isEmpty()){
-				ele=list.get(pos);
-				while((pos<list.size())&&(!hayColision)){
-					hayColision= ele.accept(visitorColision);
-					pos++;
-					ele=list.get(pos);
-				}
-			}
-		}
-		if(hayColision)
-			return list.get(pos-1);
-		else return null;
-		*/
 	}
 	public void atacar(){
 		Elemento ele= chequearColision(x+dimensionX-1,x+dimensionX+rango);

@@ -35,7 +35,6 @@ public abstract class Enemigo extends Entidad implements Runnable{
 				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
 				Thread.sleep(500);
 				grafico.getGrafico().repaint();
-//				map.getNivel().getJuego().getGui().repaint();
 			}
 			map.getCelda(x-1, y).agregarElemento(this);
 			if(x<10)
@@ -44,32 +43,17 @@ public abstract class Enemigo extends Entidad implements Runnable{
 	}
 	
 	public boolean canMove(){
-		int nextX = x-1,pos=0;
+		int nextX = x-1;
 		boolean hayColision=false;
 		Iterable<Elemento> list = map.getCelda(nextX, y).getElementos();
 		if(nextX>=0){
-			if(map.getCelda(nextX, y).isEmpty()){
-				hayColision=true;
-			}
 			for(Elemento e : list){
 				if(!hayColision){
 					hayColision = e.accept(visitorColision);
 				}
 			}
 		}
-		return hayColision;
-//		List<Elemento> list = map.getCelda(nextX, y).getElementos();
-//		if(nextX>=0){
-//			if(!list.isEmpty()){
-//				while(pos<list.size()&&!hayColision){
-//					hayColision = list.get(pos).accept(visitorColision);
-//					pos++;
-//				}
-//			}
-//			else
-//				hayColision=true;
-//		}
-//		return hayColision;
+		return !hayColision;
 	}
 	
 	public Elemento chequearColision(int k, int f){

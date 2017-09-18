@@ -6,7 +6,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -76,6 +80,24 @@ public class GUI extends JFrame {
 	private void panelInferior(){
 		panelInferior = new JPanel();
 		panelInferior.setBackground(Color.GRAY);
-		panelInferior.setPreferredSize(new Dimension(AnchoVentana,80));
+		panelInferior.setPreferredSize(new Dimension(AnchoVentana,60));
+		panelInferior.setLayout(new GridLayout(1,5));
+		
+		String bot[] = {"Agregar caballero","Agregar arquero","Agregar sargento","Agregar mago","Agregar catapulta"};
+		JButton botones[] = new JButton[5];
+		OyenteAgregar oyAgr = new OyenteAgregar();
+		for(int i=0;i<botones.length;i++){
+			botones[i] = new JButton(bot[i]);
+			botones[i].addActionListener(oyAgr);
+			botones[i].setFocusable(false);
+			panelInferior.add(botones[i]);
+		}
+	}
+	
+	private class OyenteAgregar implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			String s =e.getActionCommand();
+			System.out.println(s);
+		}
 	}
 }
