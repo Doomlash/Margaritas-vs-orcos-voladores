@@ -16,7 +16,7 @@ public class VisitorDisparoEnemigo {
 			a.getCP().destroy();
 		}
 		else{
-			a.setVida(a.getVida()-d.getDaño());
+			a.setVida(a.getVida()-d.getDanio());
 		}
 		d.setImpactos(d.getImpactos()-1);
 		return true;
@@ -25,12 +25,12 @@ public class VisitorDisparoEnemigo {
 		return false;
 	}
 	public boolean visit(Barricada b){
-		b.setVida(b.getVida()-d.getDaño());
+		b.setVida(b.getVida()-d.getDanio());
 		d.setImpactos(d.getImpactos()-1);
 		return true;
 	}
 	public boolean visit(Piedra p){
-		p.setVida(p.getVida()-d.getDaño());
+		p.setVida(p.getVida()-d.getDanio());
 		d.setImpactos(d.getImpactos()-1);
 		return true;
 	}
