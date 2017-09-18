@@ -1,33 +1,40 @@
 package logica.juego;
 
 import logica.juego.niveles.*;
-import logica.comprables.*;
-import logica.mapa.*;
 import grafica.gui.*;
-
-import java.util.List;
-import java.util.ArrayList;
 
 public class Juego{
 	private GUI gui;
 	private Nivel nivel;
-	private List<Comprable> listaComprables;
 	
+	/**
+	 * Se inicializa el juego con el nivel 1.
+	 * @param g : GUI - Se recibe la GUI asociada.
+	 */
 	public Juego(GUI g){
 		gui=g;
 		nivel= new Nivel1(this);
-		listaComprables = new ArrayList<Comprable>();
 	}
 	
+	/**
+	 * Se avanza al siguiente nivel del juego.
+	 */
 	public void siguienteNivel(){
 		nivel= nivel.getSiguiente();
 	}
-	public List<Comprable> getComprables(){
-		return listaComprables;
-	}
+	
+	/**
+	 * 
+	 * @return GUI - Retorna la gui asociada al juego.
+	 */
 	public GUI getGui(){
 		return gui;
 	}
+	
+	/**
+	 * 
+	 * @return Nivel - Retorna el nivel actual del juego.
+	 */
 	public Nivel getNivel(){
 		return nivel;
 	}

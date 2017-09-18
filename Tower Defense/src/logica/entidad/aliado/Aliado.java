@@ -14,12 +14,22 @@ public abstract class Aliado extends Entidad implements  Comprable{
 	protected CabezaDeDragon dragon;
 	protected PowerBooster booster;
 	
+	/**
+	 * Crea los visitor asociados a las clases Aliado.
+	 * @param x : int
+	 * @param y : int
+	 * @param dX : int - Indica la dimension del objeto en cuando a ancho
+	 * @param m : Mapa
+	 */
 	public Aliado(int x, int y, int dX, Mapa m){
 		super(x,y,dX,m);
 		visitorColision = new VisitorColisionAliado();
 		visitorAtaque = new VisitorAtaqueAliado(this);
 	}
 	
+	/**
+	 * Invoca al visit del Visitor con su tipo (Aliado)
+	 */
 	public void accept(VisitorInteraccion v){
 		v.visit(this);
 	}
@@ -27,14 +37,23 @@ public abstract class Aliado extends Entidad implements  Comprable{
 	public int getPrecio(){
 		return precio;
 	}
+	
+	/**
+	 *  Invoca al visit del Visitor con su tipo (Aliado)
+	 *  @return boolean
+	 */
 	public boolean accept(VisitorColision v){
 		return v.visit(this);
 	}
-	public boolean accept(CabezaDeDragon c){
-		dragon=c;
-		return true;
-	}
 	
+	/**
+	 * Chequea si dentro del rango de ataque hay un elemento que puede ser atacado por un aliado.
+	 * Si hay un elemento a ser atacado, retorn dicho elemento, sino retorna nulo.
+	 * Se chequea el rango de izquierda a derecha.
+	 * @param k : int - Inicio de rango
+	 * @param f : int - Fin de rango
+	 * @return Elemento
+	 */
 	public Elemento chequearColision(int k, int f){
 		Iterable<Elemento> list = null;
 		boolean hayColision= false;
@@ -49,9 +68,6 @@ public abstract class Aliado extends Entidad implements  Comprable{
 		}
 		return null;
 	}
-	public void atacar(){
-		Elemento ele= chequearColision(x+dimensionX-1,x+dimensionX+rango);
-		if(ele!=null)
-			ele.accept(visitorAtaque);
-	}
+	
+//	public abstract void atacar();
 }

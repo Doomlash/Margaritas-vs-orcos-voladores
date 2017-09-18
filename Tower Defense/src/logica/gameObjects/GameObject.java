@@ -8,6 +8,14 @@ public abstract class GameObject{
 	protected Mapa map;
 	protected GraphicGameObject grafico;
 	
+	/**
+	 * Se inicializa la columna inicial dentro de la matriz del mapa con x, la fila con y, se 
+	 * vincula el mapa a la clase y se determina el ancho del objeto con dx.
+	 * @param x : int - Columna inicial
+	 * @param y : int - Fila
+	 * @param dx : int - Ancho del objeto
+	 * @param m : Mapa - Mapa al cual el objeto pertenece.
+	 */
 	public GameObject(int x, int y, int dx, Mapa m){
 		map=m;
 		this.x=x;
@@ -25,6 +33,10 @@ public abstract class GameObject{
 		return dimensionX;
 	}
 	
+	/**
+	 * Retorna el elemento grafico asociado a la clase.
+	 * @return GraphicGameObject
+	 */
 	public GraphicGameObject getGraphic(){
 		return grafico;
 	}

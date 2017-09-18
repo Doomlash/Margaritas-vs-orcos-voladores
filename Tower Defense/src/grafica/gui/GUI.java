@@ -112,7 +112,7 @@ public class GUI extends JFrame {
 				a= new Arquero(columna,fila,j.getNivel().getMapa());
 			}
 			if(s=="Agregar sargento"){
-				a= new Sargento(columna,fila,j.getNivel().getMapa());
+				a= new Monje(columna,fila,j.getNivel().getMapa());
 			}
 			if(s=="Agregar catapulta"){
 				a= new Catapulta(columna,fila,j.getNivel().getMapa());

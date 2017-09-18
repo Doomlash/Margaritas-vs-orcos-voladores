@@ -9,6 +9,13 @@ import logica.premio.objetoPrecioso.*;
 
 public class VisitorColisionAliado extends VisitorColision{
 	
+	/*
+	 * Cada metodo retorna un booleano que determina si el tipo recibido es atacable o no
+	 * por un aliado.
+	 * (non-Javadoc)
+	 * @see logica.Visitor.VisitorColisiones.VisitorColision#visit(logica.entidad.aliado.Aliado)
+	 */
+	
 	public boolean visit(Aliado a){
 		return false;
 	}

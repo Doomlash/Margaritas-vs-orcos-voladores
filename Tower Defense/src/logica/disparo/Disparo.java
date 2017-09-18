@@ -7,7 +7,7 @@ import logica.Visitor.VisitorColisiones.*;
 
 public abstract class Disparo extends GameObject{
 	protected VisitorColision visitor;
-	protected int danio,velocidad,impactos;
+	protected int damage,velocidad,impactos;
 	
 
 	public Disparo(int x,int y, int dx, Mapa m){
@@ -38,8 +38,8 @@ public abstract class Disparo extends GameObject{
 	public int getVelocidad(){
 		return velocidad;
 	}
-	public int getDanio(){
-		return danio;
+	public int getDamage(){
+		return damage;
 	}
 	public int getImpactos(){
 		return impactos;

@@ -11,6 +11,10 @@ public class Celda{
 		lista = new ArrayList<Elemento>();
 	}
 	
+	/**
+	 * Agrega el elemento e a la lista.
+	 * @param e : Elemento
+	 */
 	public void agregarElemento(Elemento e){
 		lista.add(e);
 	}
@@ -27,12 +31,16 @@ public class Celda{
 	 * metodo para eleminar elementos de la celda
 	 * 
 	 * @param e elemento a remover
-	 * @return TRUE si se pudo eliniar, FALSE caso contrario
+	 * @return TRUE si se pudo eliminar, FALSE caso contrario
 	 */
 	public boolean remover(Elemento e){
 		return lista.remove(e);
 	}
 	
+	/**
+	 * Determina si la celda se encuentra o no vacía
+	 * @return : boolean - TRUE = vacia, FALSE = no vacía.
+	 */
 	public boolean isEmpty(){
 		return lista.isEmpty();
 	}

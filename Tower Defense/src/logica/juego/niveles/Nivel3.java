@@ -11,6 +11,7 @@ public class Nivel3 extends Nivel{
 	public void crearHordas(){
 		
 	}
+	
 	public Nivel getSiguiente(){
 		return null;
 	}

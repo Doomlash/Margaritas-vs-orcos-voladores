@@ -30,6 +30,11 @@ public abstract class Nivel{
 	public Horda[] getHordas(){
 		return hordas;
 	}
+	
+	/**
+	 * 
+	 * @return Nivel - Retorna el siguiente Nivel al actual. Nulo si el actual no contiene siguiente.
+	 */
 	public abstract Nivel getSiguiente();
 	public int getPresupuesto(){
 		return presupuesto;

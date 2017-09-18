@@ -8,7 +8,13 @@ import logica.comprables.*;
 import logica.premio.objetoPrecioso.*;
 
 public class VisitorColisionEnemigo extends VisitorColision{
-
+	
+	/*
+	 * Cada método retorna un booleano indicando si el tipo recibido es atacable o no por un enemigo.
+	 * (non-Javadoc)
+	 * @see logica.Visitor.VisitorColisiones.VisitorColision#visit(logica.entidad.aliado.Aliado)
+	 */
+	
 	public boolean visit(Aliado a){
 		return true;
 	}
