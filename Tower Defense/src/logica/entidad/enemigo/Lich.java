@@ -8,7 +8,7 @@ public class Lich extends Enemigo{
 	public Lich(int x, int y, Mapa m){
 		super(x,y,1,m);
 		velocidad=8;
-		grafico = new GraphicLich(x,y,velocidad);
+		grafico = new GraphicLich(x,y);
 	}
 	public void run(){
 		while(execute){

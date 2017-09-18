@@ -7,6 +7,7 @@ import grafica.mapa.*;
 
 import java.util.Random;
 import logica.entidad.aliado.*;
+import logica.entidad.enemigo.Goblin;
 
 public class Mapa{
 	private Nivel nivel;
@@ -24,6 +25,11 @@ public class Mapa{
 		celdas[0][0].agregarElemento(ar);
 		grafico.addGraphicElemento(celdas[0][0].getElementos().get(0));	
 		agregarObstaculos(2,2);
+		Goblin g= new Goblin(9,2,this);
+		celdas[2][9].agregarElemento(g);
+		grafico.addGraphicElemento(celdas[2][9].getElementos().get(0));
+		Thread t = new Thread(g);
+		t.start();
 	}
 	
 	/**
@@ -54,6 +60,9 @@ public class Mapa{
 		}
 	}
 	
+	public Nivel getNivel(){
+		return nivel;
+	}
 	public GraphicMapa getMapaGrafico(){
 		return grafico;
 	}

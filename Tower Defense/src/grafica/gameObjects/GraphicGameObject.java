@@ -13,8 +13,21 @@ public abstract class GraphicGameObject{
 	protected Point pos;
 	
 	public GraphicGameObject(int x, int y){
-		this.pos = new Point(x,y);
+		this.pos = new Point(x*width+5,y*height+80);
 	}
+	
+	public void cambiarBorde(int newX, int newY){
+		grafico.setBounds(newX, newY, width, height);
+		System.out.println("( "+newX+"/"+newY+" )");
+	}
+	public void cambiarPos(int newX, int newY){
+		pos.setLocation(newX, newY);
+		cambiarGrafico();
+	}
+	private void cambiarGrafico(){
+		grafico.setBounds(pos.x, pos.y, width, height);
+	}
+	
 	public Point getPos(){
 		return pos;
 	}
@@ -27,7 +40,7 @@ public abstract class GraphicGameObject{
 	public JLabel getGrafico(){
 		if(this.grafico==null){
 			this.grafico = new JLabel(imagenes[0]);
-			this.grafico.setBounds(this.pos.x*width+5,this.pos.y*height+80,width,height);
+			this.grafico.setBounds(this.pos.x,this.pos.y,width,height);
 		}
 		return this.grafico;
 	}

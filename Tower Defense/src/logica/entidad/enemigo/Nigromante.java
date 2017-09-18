@@ -8,7 +8,7 @@ public class Nigromante extends Enemigo{
 	public Nigromante(int x, int y, Mapa m){
 		super(x,y,1,m);
 		velocidad=8;
-		grafico = new GraphicNigromante(x,y,velocidad);
+		grafico = new GraphicNigromante(x,y);
 	}
 	public void run(){
 		while(execute){

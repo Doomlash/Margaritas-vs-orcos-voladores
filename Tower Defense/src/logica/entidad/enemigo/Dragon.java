@@ -8,7 +8,7 @@ public class Dragon extends Enemigo{
 	public Dragon(int x, int y, Mapa m){
 		super(x,y,2,m);
 		velocidad=8;
-		grafico = new GraphicDragon(x,y,velocidad);
+		grafico = new GraphicDragon(x,y);
 	}
 	public void run(){
 		while(execute){

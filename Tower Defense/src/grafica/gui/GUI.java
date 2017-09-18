@@ -18,6 +18,7 @@ public class GUI extends JFrame {
 	private static int AnchoVentana, AltoVentana;
 	private JPanel contentPane,panelSuperior,panelInferior;
 	private Juego j;
+	private ContadorTiempo t;
 
 	/**
 	 * Launch the application.
@@ -38,7 +39,8 @@ public class GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUI() {
+	public GUI(){
+		super("Tower Defense");
 		AnchoVentana= 1000; AltoVentana= 600;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 40, AnchoVentana, AltoVentana);

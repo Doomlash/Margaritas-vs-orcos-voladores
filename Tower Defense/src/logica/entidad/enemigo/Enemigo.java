@@ -19,6 +19,7 @@ public abstract class Enemigo extends Entidad implements Runnable{
 		super(x,y,dx,m);
 		visitorColision = new VisitorColisionEnemigo();
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
+		this.execute=true;
 	}
 	public void accept(VisitorInteraccion v){
 		v.visit(this);
@@ -26,6 +27,21 @@ public abstract class Enemigo extends Entidad implements Runnable{
 	public void terminate(){
 		execute=false;
 	}
+	public void move() throws InterruptedException{
+		if(x-1>=0){
+			int aux= grafico.getPos().x-grafico.getWidth();
+			System.out.println(aux);
+			while(grafico.getPos().x>aux){
+				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
+				Thread.sleep(500);
+				grafico.getGrafico().repaint();
+//				map.getNivel().getJuego().getGui().repaint();
+			}
+			map.getCelda(x-1, y).agregarElemento(this);
+			map.getCelda(x, y).deleteElemento(this);
+		}
+	}
+	
 	public boolean canMove(){
 		int nextX = x-1,pos=0;
 		boolean hayColision=false;
@@ -37,6 +53,8 @@ public abstract class Enemigo extends Entidad implements Runnable{
 					pos++;
 				}
 			}
+			else
+				hayColision=true;
 		}
 		return hayColision;
 	}
