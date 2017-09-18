@@ -7,7 +7,7 @@ import java.util.List;
 
 public abstract class Disparo extends GameObject{
 	protected VisitorColision visitor;
-	protected int daño,velocidad,impactos;
+	protected int danio,velocidad,impactos;
 	
 	public abstract void move();
 	public void move(int nextX){
@@ -36,8 +36,8 @@ public abstract class Disparo extends GameObject{
 	public int getVelocidad(){
 		return velocidad;
 	}
-	public int getDaño(){
-		return daño;
+	public int getDanio(){
+		return danio;
 	}
 	public int getImpactos(){
 		return impactos;

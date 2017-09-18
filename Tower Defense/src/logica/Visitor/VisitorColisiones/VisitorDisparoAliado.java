@@ -19,7 +19,7 @@ public class VisitorDisparoAliado extends VisitorColision{
 			e.getCP().destroy();
 		}
 		else{
-			e.setVida(e.getVida()-d.getDaño());
+			e.setVida(e.getVida()-d.getDanio());
 		}
 		d.setImpactos(d.getImpactos()-1);
 		return true;
@@ -28,7 +28,7 @@ public class VisitorDisparoAliado extends VisitorColision{
 		return false;
 	}
 	public boolean visit(Piedra p){
-		p.setVida(p.getVida()-d.getDaño());
+		p.setVida(p.getVida()-d.getDanio());
 		d.setImpactos(d.getImpactos()-1);
 		return true;
 	}
