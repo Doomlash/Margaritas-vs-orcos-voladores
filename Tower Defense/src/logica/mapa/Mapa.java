@@ -3,49 +3,64 @@ package logica.mapa;
 import logica.juego.niveles.*;
 import logica.mapa.elementosMapa.destruibles.Piedra;
 import logica.mapa.elementosMapa.temporales.Agua;
-import logica.disparo.*;
-import logica.itemsPremio.*;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Random;
-import logica.comprables.*;
+import logica.entidad.aliado.*;
 
 public class Mapa{
 	private Nivel nivel;
 	private Celda[][] celdas;
-	private List<Disparo> disparos;
-	private List<ItemPremio> items;
-	private List<CampoDeCuracion> cc;
 	
 	public Mapa(Nivel n){
 		nivel=n;
 		celdas = new Celda[6][10];
-		disparos= new ArrayList<Disparo>();
-		items= new ArrayList<ItemPremio>();
-		cc= new ArrayList<CampoDeCuracion>();
-		cargarMapa();
+		for(int i=0;i<celdas.length;i++)
+			for(int j=0;j<celdas[i].length;j++)
+				celdas[i][j] = new Celda();
+		
+		int p[] = new int[1];
+		p[0] = 0;
+		Arquero ar= new Arquero(p,0);
+		celdas[0][0].agregarElemento(ar);
+		nivel.getJuego().getGui().add(celdas[0][0].getElementos().get(0).getGraphic().getGrafico());
+		agregarObstaculos(2,2);
 	}
 	
-	public void cargarMapa(){//genera mapa con 2 piedras y 2 lagos. ninguno de estos pueden estar en la primera fila
+	/**
+	 * Agrega al mapa p piedras y a lagos. Ninguno de estos pueden estar en la primera fila
+	 * @param p: Entero que representa la cantidad de piedras a agregar.
+	 * @param a: Entero que representa la cantidad de lagos a agregar
+	 */
+	public void agregarObstaculos(int p, int a){
 		Random r=new Random();
-		int piedras=0;
-		while(piedras<2){
-			int fila=r.nextInt()%6;
-			int columna=(r.nextInt()%10)+1;
+		int fila;
+		int columna;
+		while(celdasVacias()&&(p>0)){
+			fila=r.nextInt(6);
+			columna=r.nextInt(9)+1;
+			System.out.println(fila+"-"+ columna);
 			if(celdas[fila][columna].getElementos().isEmpty()){
-				celdas[fila][columna].agregarElemento(new Piedra());
-			piedras++;
+				int posX[] = new int[1];
+				posX[0] = columna;
+				celdas[fila][columna].agregarElemento(new Piedra(posX,fila));
+				nivel.getJuego().getGui().add(celdas[fila][columna].getElementos().get(0).getGraphic().getGrafico());
+				p--;
 			}
+			System.out.println(p);
 		}
-		int lagos=0;
-		while(lagos<2){
-			int fila=r.nextInt()%6;
-			int columna=(r.nextInt()%10)+1;
+		while(celdasVacias()&&(a>0)){
+			fila=r.nextInt(6);
+			columna=r.nextInt(9)+1;
+			System.out.println(fila+"-"+ columna);
 			if(celdas[fila][columna].getElementos().isEmpty()){
-				celdas[fila][columna].agregarElemento(new Agua());
-			lagos++;
+				int posX[] = new int[1];
+				posX[0] = columna;
+				celdas[fila][columna].agregarElemento(new Agua(posX,fila));
+				nivel.getJuego().getGui().add(celdas[fila][columna].getElementos().get(0).getGraphic().getGrafico());
+				a--;
 			}
+			System.out.println(a);
 		}
+		System.out.println("why?");
 	}
 	
 	public Celda[][] getCeldas(){
@@ -57,13 +72,12 @@ public class Mapa{
 				return celdas[y][x];
 		return null;
 	}
-	public List<Disparo> getDisparos(){
-		return disparos;
-	}
-	public List<ItemPremio> getItems(){
-		return items;
-	}
-	public List<CampoDeCuracion> getCC(){
-		return cc;
+	
+	private boolean celdasVacias(){
+		boolean vacia=false;
+		for(int i=0;(i<celdas.length)&&!vacia;i++)
+			for(int j=0;(j<celdas[i].length)&&(!vacia);j++)
+				vacia= celdas[i][j].getElementos().isEmpty();
+		return vacia;
 	}
 }

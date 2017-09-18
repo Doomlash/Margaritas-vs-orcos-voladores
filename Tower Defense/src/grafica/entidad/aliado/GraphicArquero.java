@@ -1,8 +1,12 @@
 package grafica.entidad.aliado;
 
+import javax.swing.ImageIcon;
+
 public class GraphicArquero extends GraphicAliado{
 
 	public GraphicArquero(int x, int y){
 		super(x,y);
+		
+		imagenes[0] = new ImageIcon("src/Sprites/Arquero1.png");
 	}
 }

@@ -1,9 +1,10 @@
 package grafica.entidad.aliado;
 
-import grafica.elemento.*;
 import javax.swing.ImageIcon;
 
-public abstract class GraphicAliado extends GraphicElemento{
+import grafica.gameObjects.*;
+
+public abstract class GraphicAliado extends GraphicGameObject{
 	
 	public GraphicAliado(int x, int y){
 		super(x,y);

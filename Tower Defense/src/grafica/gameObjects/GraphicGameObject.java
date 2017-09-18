@@ -1,18 +1,18 @@
-package grafica.elemento;
+package grafica.gameObjects;
 
 import java.awt.Point;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
-public abstract class GraphicElemento {
+public abstract class GraphicGameObject{
 	protected JLabel grafico;
 	protected Icon[] imagenes;
-	protected final int width = 40;
-	protected final int height = 40;
+	protected final int width = 46;
+	protected final int height = 46;
 	
 	protected Point pos;
 	
-	public GraphicElemento(int x, int y){
+	public GraphicGameObject(int x, int y){
 		this.pos = new Point(x,y);
 	}
 	public Point getPos(){
@@ -22,7 +22,7 @@ public abstract class GraphicElemento {
 	public JLabel getGrafico(){
 		if(this.grafico==null){
 			this.grafico = new JLabel(imagenes[0]);
-			this.grafico.setBounds(this.pos.x,this.pos.y,width,height);
+			this.grafico.setBounds(this.pos.x*width,this.pos.y*height,width,height);
 		}
 		return this.grafico;
 	}

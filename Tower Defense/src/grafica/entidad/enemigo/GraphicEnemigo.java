@@ -1,8 +1,8 @@
 package grafica.entidad.enemigo;
 
-import grafica.elemento.*;
+import grafica.gameObjects.*;
 
-public abstract class GraphicEnemigo extends GraphicElemento{
+public abstract class GraphicEnemigo extends GraphicGameObject{
 	protected int velocidad;
 	
 	public GraphicEnemigo(int x, int y, int velocidad){
