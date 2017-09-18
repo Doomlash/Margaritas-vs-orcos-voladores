@@ -13,10 +13,10 @@ public class Ciclope extends Enemigo{
 	}
 	public void run(){
 		while(execute){
-			move();
+				try {
+					move();
+				} catch (InterruptedException e) {
+				}
 		}
-	}
-	public void move(){
-		
 	}
 }
