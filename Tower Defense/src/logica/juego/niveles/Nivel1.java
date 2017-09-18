@@ -1,6 +1,9 @@
 package logica.juego.niveles;
 
+import logica.entidad.enemigo.*;
 import logica.juego.*;
+
+import java.util.Random;
 
 public class Nivel1 extends Nivel{
 	
@@ -9,8 +12,24 @@ public class Nivel1 extends Nivel{
 	}
 	
 	public void crearHordas(){
-		for(int i=0;i<8;i++){
-//			hordas[0].agregarIntermedio(new );
+
+		Random r = new Random();
+		int aux;
+		for(int i=0;i<3;i++){
+			aux = r.nextInt(6);
+			hordas[0].agregarIntermedio(new Goblin(10,aux,map));
+			aux = r.nextInt(6);
+			hordas[1].agregarIntermedio(new Goblin(10,aux,map));
+			aux = r.nextInt(6);
+			hordas[2].agregarIntermedio(new Goblin(10,aux,map));
+		}
+		for(int i=0;i<5;i++){
+			aux = r.nextInt(6);
+			hordas[0].agregarFinal(new Goblin(10,aux,map));
+			aux = r.nextInt(6);
+			hordas[1].agregarFinal(new Goblin(10,aux,map));
+			aux = r.nextInt(6);
+			hordas[2].agregarFinal(new Goblin(10,aux,map));
 		}
 	}
 	

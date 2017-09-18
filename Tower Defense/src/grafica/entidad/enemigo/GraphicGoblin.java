@@ -8,6 +8,6 @@ public class GraphicGoblin extends GraphicEnemigo{
 		super(x,y);
 		
 		imagenes = new ImageIcon[3];
-		imagenes[0] = new ImageIcon("src/Sprites/Goblin.png");
+		imagenes[0] = new ImageIcon(dir+"Goblin"+ext);
 	}
 }

@@ -9,6 +9,6 @@ public class GraphicPiedra extends GraphicGameObject{
 		super(x,y);
 		
 		imagenes = new ImageIcon[1];
-		imagenes[0] = new ImageIcon("src/Sprites/Piedra.png");
+		imagenes[0] = new ImageIcon(dir+"Piedra"+ext);
 	}
 }

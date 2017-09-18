@@ -9,6 +9,6 @@ public class GraphicAgua extends GraphicGameObject{
 		super(x,y);
 		
 		imagenes = new ImageIcon[2];
-		imagenes[0] = new ImageIcon("src/Sprites/Agua.png");
+		imagenes[0] = new ImageIcon(dir+"Agua"+ext);
 	}
 }

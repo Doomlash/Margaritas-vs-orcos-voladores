@@ -10,11 +10,12 @@ public abstract class GraphicGameObject{
 	protected Icon[] imagenes;
 	protected final int width = 46;
 	protected final int height = 46;
+	protected final String dir = "src/Sprites/",ext=".png";
 	
 	protected Point pos;
 	
 	public GraphicGameObject(int x, int y){
-		this.pos = new Point(x*width+5,y*height+80);
+		this.pos = new Point(x*width+(x*5),y*height+80+(y*5));
 		imagenes = new ImageIcon[1];
 	}
 	

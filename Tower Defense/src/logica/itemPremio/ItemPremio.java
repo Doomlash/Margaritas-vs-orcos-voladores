@@ -1,4 +1,4 @@
-package logica.itemsPremio;
+package logica.itemPremio;
 
 import logica.gameObjects.*;
 import logica.mapa.*;

@@ -38,7 +38,8 @@ public abstract class Enemigo extends Entidad implements Runnable{
 //				map.getNivel().getJuego().getGui().repaint();
 			}
 			map.getCelda(x-1, y).agregarElemento(this);
-			map.getCelda(x, y).deleteElemento(this);
+			if(x<10)
+				map.getCelda(x, y).deleteElemento(this);
 		}
 	}
 	
