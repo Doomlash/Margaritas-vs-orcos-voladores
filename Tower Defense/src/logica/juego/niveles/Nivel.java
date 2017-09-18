@@ -14,6 +14,8 @@ public abstract class Nivel{
 		presupuesto= 400;
 		juego=j;
 		hordas= new Horda[3];
+		for(int i=0;i<hordas.length;i++)
+			hordas[i] = new Horda();
 		map= new Mapa(this);
 	}
 	

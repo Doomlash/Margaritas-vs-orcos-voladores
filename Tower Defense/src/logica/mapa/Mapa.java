@@ -23,11 +23,9 @@ public class Mapa{
 				celdas[i][j] = new Celda();
 		Arquero ar= new Arquero(0,0,this);
 		celdas[0][0].agregarElemento(ar);
-		grafico.addGraphicElemento(celdas[0][0].getElementos().get(0));	
 		agregarObstaculos(2,2);
 		Goblin g= new Goblin(9,2,this);
 		celdas[2][9].agregarElemento(g);
-		grafico.addGraphicElemento(celdas[2][9].getElementos().get(0));
 		Thread t = new Thread(g);
 		t.start();
 	}
@@ -45,8 +43,7 @@ public class Mapa{
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
 			if(celdas[fila][columna].getElementos().isEmpty()){
-				celdas[fila][columna].agregarElemento(new Piedra(columna,fila,this));
-				grafico.addGraphicElemento(celdas[fila][columna].getElementos().get(0));				p--;
+				celdas[fila][columna].agregarElemento(new Piedra(columna,fila,this));				p--;
 			}
 		}
 		while(celdasVacias()&&(a>0)){
@@ -54,7 +51,6 @@ public class Mapa{
 			columna=r.nextInt(9)+1;
 			if(celdas[fila][columna].getElementos().isEmpty()){
 				celdas[fila][columna].agregarElemento(new Agua(columna,fila,this));
-				grafico.addGraphicElemento(celdas[fila][columna].getElementos().get(0));	
 				a--;
 			}
 		}

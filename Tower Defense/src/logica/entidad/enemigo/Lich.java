@@ -9,6 +9,7 @@ public class Lich extends Enemigo{
 		super(x,y,1,m);
 		velocidad=8;
 		grafico = new GraphicLich(x,y);
+		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void run(){
 		while(execute){

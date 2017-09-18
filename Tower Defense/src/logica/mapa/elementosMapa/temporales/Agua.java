@@ -11,6 +11,7 @@ public class Agua extends Elemento{
 	public Agua(int x,int y, Mapa m){
 		super(x,y,1,m);
 		grafico = new GraphicAgua(x,y);
+		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void accept(VisitorInteraccion v){
 		v.visit(this);

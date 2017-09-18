@@ -2,6 +2,7 @@ package grafica.gameObjects;
 
 import java.awt.Point;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public abstract class GraphicGameObject{
@@ -14,6 +15,7 @@ public abstract class GraphicGameObject{
 	
 	public GraphicGameObject(int x, int y){
 		this.pos = new Point(x*width+5,y*height+80);
+		imagenes = new ImageIcon[1];
 	}
 	
 	public void cambiarBorde(int newX, int newY){

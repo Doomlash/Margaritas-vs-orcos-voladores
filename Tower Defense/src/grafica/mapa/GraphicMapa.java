@@ -1,6 +1,6 @@
 package grafica.mapa;
 
-import logica.gameObjects.*;
+import grafica.gameObjects.*;
 import logica.juego.niveles.*;
 
 public class GraphicMapa{
@@ -11,7 +11,7 @@ public class GraphicMapa{
 		this.nivel = n;
 	}
 	
-	public void addGraphicElemento(GameObject g){
-		nivel.getJuego().getGui().add(g.getGraphic().getGrafico());
+	public void addGraphicElemento(GraphicGameObject g){
+		nivel.getJuego().getGui().add(g.getGrafico());
 	}
 }

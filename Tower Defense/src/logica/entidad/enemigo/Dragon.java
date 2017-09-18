@@ -9,6 +9,7 @@ public class Dragon extends Enemigo{
 		super(x,y,2,m);
 		velocidad=8;
 		grafico = new GraphicDragon(x,y);
+		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void run(){
 		while(execute){

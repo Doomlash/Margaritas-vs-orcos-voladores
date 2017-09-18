@@ -9,7 +9,9 @@ public class Nivel1 extends Nivel{
 	}
 	
 	public void crearHordas(){
-		
+		for(int i=0;i<8;i++){
+			hordas[0].agregarIntermedio(new );
+		}
 	}
 	
 	public Nivel getSiguiente(){
