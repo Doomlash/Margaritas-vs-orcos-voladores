@@ -2,7 +2,9 @@ package logica.juego;
 
 import logica.juego.niveles.*;
 import logica.comprables.*;
+import logica.mapa.*;
 import grafica.gui.*;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -25,5 +27,8 @@ public class Juego{
 	}
 	public GUI getGui(){
 		return gui;
+	}
+	public Nivel getNivel(){
+		return nivel;
 	}
 }

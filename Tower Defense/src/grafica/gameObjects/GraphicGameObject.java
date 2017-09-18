@@ -22,7 +22,7 @@ public abstract class GraphicGameObject{
 	public JLabel getGrafico(){
 		if(this.grafico==null){
 			this.grafico = new JLabel(imagenes[0]);
-			this.grafico.setBounds(this.pos.x*width,this.pos.y*height,width,height);
+			this.grafico.setBounds(this.pos.x*width+5,this.pos.y*height+80,width,height);
 		}
 		return this.grafico;
 	}

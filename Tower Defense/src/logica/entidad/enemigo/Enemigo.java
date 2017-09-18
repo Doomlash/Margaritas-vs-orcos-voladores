@@ -8,17 +8,26 @@ import java.util.List;
 import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
 
-public abstract class Enemigo extends Entidad{
+public abstract class Enemigo extends Entidad implements Runnable{
 	protected int velocidad;
 	protected int puntaje;
 	protected int monedas;
+	protected volatile boolean execute;
 	
-	public Enemigo(){
+	public Enemigo(int x, int y){
+		this.x=x;
+		this.y=y;
 		visitorColision = new VisitorColisionEnemigo();
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
 	}
 	public void accept(VisitorInteraccion v){
 		v.visit(this);
+	}
+	public void terminate(){
+		execute=false;
+	}
+	public void move(){
+		int nextX = x-1;
 	}
 	
 	public Elemento chequearColision(int k, int f){

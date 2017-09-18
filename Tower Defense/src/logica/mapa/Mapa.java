@@ -3,14 +3,18 @@ package logica.mapa;
 import logica.juego.niveles.*;
 import logica.mapa.elementosMapa.destruibles.Piedra;
 import logica.mapa.elementosMapa.temporales.Agua;
+import grafica.mapa.*;
+
 import java.util.Random;
 import logica.entidad.aliado.*;
 
 public class Mapa{
 	private Nivel nivel;
 	private Celda[][] celdas;
+	private GraphicMapa grafico;
 	
 	public Mapa(Nivel n){
+		grafico = new GraphicMapa(n);
 		nivel=n;
 		celdas = new Celda[6][10];
 		for(int i=0;i<celdas.length;i++)
@@ -21,7 +25,7 @@ public class Mapa{
 		p[0] = 0;
 		Arquero ar= new Arquero(p,0);
 		celdas[0][0].agregarElemento(ar);
-		nivel.getJuego().getGui().add(celdas[0][0].getElementos().get(0).getGraphic().getGrafico());
+		grafico.addGraphicElemento(celdas[0][0].getElementos().get(0));	
 		agregarObstaculos(2,2);
 	}
 	
@@ -37,32 +41,29 @@ public class Mapa{
 		while(celdasVacias()&&(p>0)){
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
-			System.out.println(fila+"-"+ columna);
 			if(celdas[fila][columna].getElementos().isEmpty()){
 				int posX[] = new int[1];
 				posX[0] = columna;
 				celdas[fila][columna].agregarElemento(new Piedra(posX,fila));
-				nivel.getJuego().getGui().add(celdas[fila][columna].getElementos().get(0).getGraphic().getGrafico());
-				p--;
+				grafico.addGraphicElemento(celdas[fila][columna].getElementos().get(0));				p--;
 			}
-			System.out.println(p);
 		}
 		while(celdasVacias()&&(a>0)){
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
-			System.out.println(fila+"-"+ columna);
 			if(celdas[fila][columna].getElementos().isEmpty()){
 				int posX[] = new int[1];
 				posX[0] = columna;
 				celdas[fila][columna].agregarElemento(new Agua(posX,fila));
-				nivel.getJuego().getGui().add(celdas[fila][columna].getElementos().get(0).getGraphic().getGrafico());
+				grafico.addGraphicElemento(celdas[fila][columna].getElementos().get(0));	
 				a--;
 			}
-			System.out.println(a);
 		}
-		System.out.println("why?");
 	}
 	
+	public GraphicMapa getMapaGrafico(){
+		return grafico;
+	}
 	public Celda[][] getCeldas(){
 		return celdas;
 	}
