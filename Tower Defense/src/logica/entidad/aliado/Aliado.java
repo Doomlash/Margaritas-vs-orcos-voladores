@@ -6,6 +6,7 @@ import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
 import logica.comprables.*;
 import logica.premio.magiaTemporal.*;
+import logica.mapa.*;
 
 import java.util.List;
 
@@ -14,7 +15,8 @@ public abstract class Aliado extends Entidad implements  Comprable{
 	protected CabezaDeDragon dragon;
 	protected PowerBooster booster;
 	
-	public Aliado(){
+	public Aliado(int x, int y, int dX, Mapa m){
+		super(x,y,dX,m);
 		visitorColision = new VisitorColisionAliado();
 		visitorAtaque = new VisitorAtaqueAliado(this);
 	}
@@ -55,7 +57,7 @@ public abstract class Aliado extends Entidad implements  Comprable{
 		else return null;
 	}
 	public void atacar(){
-		Elemento ele= chequearColision(x[x.length-1],x[x.length-1]+rango);
+		Elemento ele= chequearColision(x+dimensionX-1,x+dimensionX+rango);
 		if(ele!=null)
 			ele.accept(visitorAtaque);
 	}

@@ -15,6 +15,19 @@ public class Celda{
 	public void agregarElemento(Elemento e){
 		lista.add(e);
 	}
+	public void deleteElemento(Elemento e){
+		int pos=0;
+		boolean eliminado=false;
+		if(!lista.isEmpty()){
+			while(!eliminado&&pos<lista.size()){
+				if(lista.get(pos)==e){
+					lista.remove(pos);
+					eliminado=true;
+				}
+				pos++;
+			}
+		}
+	}
 
 	public List<Elemento> getElementos() {
 		return lista;

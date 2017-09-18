@@ -3,14 +3,14 @@ package logica.mapa.elementosMapa.destruibles;
 import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
 import logica.gameObjects.*;
+import logica.mapa.*;
 import grafica.mapa.GraphicElementosMapa.GraphicDestruibles.*;
 
 public class Piedra extends Obstaculo{
 	
-	public Piedra(int x[], int y){
-		this.x=x;
-		this.y=y;
-		grafico = new GraphicPiedra(x[0],y);
+	public Piedra(int x, int y, Mapa m){
+		super(x,y,1,m);
+		grafico = new GraphicPiedra(x,y);
 	}
 	public void accept(VisitorInteraccion v){
 		v.visit(this);

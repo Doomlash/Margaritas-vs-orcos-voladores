@@ -18,7 +18,12 @@ public abstract class GraphicGameObject{
 	public Point getPos(){
 		return pos;
 	}
-	
+	public int getWidth(){
+		return width;
+	}
+	public int getHeight(){
+		return height;
+	}
 	public JLabel getGrafico(){
 		if(this.grafico==null){
 			this.grafico = new JLabel(imagenes[0]);

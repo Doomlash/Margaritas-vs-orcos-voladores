@@ -8,6 +8,13 @@ public abstract class GameObject{
 	protected Mapa map;
 	protected GraphicGameObject grafico;
 	
+	public GameObject(int x, int y, int dx, Mapa m){
+		map=m;
+		this.x=x;
+		this.y=y;
+		dimensionX=dx;
+	}
+	
 	public int getX(){
 		return x;
 	}

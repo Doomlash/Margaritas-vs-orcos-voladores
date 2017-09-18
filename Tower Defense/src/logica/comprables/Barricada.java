@@ -2,11 +2,15 @@ package logica.comprables;
 
 import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
+import logica.mapa.*;
 import logica.gameObjects.*;
 
 public class Barricada extends Obstaculo implements Comprable{
 	private int precio;
-	
+
+	public Barricada(int x,int y, Mapa m){
+		super(x,y,1,m);
+	}
 	public void accept(VisitorInteraccion v){
 		v.visit(this);
 	}

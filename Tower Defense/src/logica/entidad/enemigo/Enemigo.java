@@ -2,6 +2,7 @@ package logica.entidad.enemigo;
 
 import logica.entidad.*;
 import logica.gameObjects.Elemento;
+import logica.mapa.*;
 
 import java.util.List;
 
@@ -14,9 +15,8 @@ public abstract class Enemigo extends Entidad implements Runnable{
 	protected int monedas;
 	protected volatile boolean execute;
 	
-	public Enemigo(int x, int y){
-		this.x=x;
-		this.y=y;
+	public Enemigo(int x, int y, int dx, Mapa m){
+		super(x,y,dx,m);
 		visitorColision = new VisitorColisionEnemigo();
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
 	}
@@ -26,8 +26,19 @@ public abstract class Enemigo extends Entidad implements Runnable{
 	public void terminate(){
 		execute=false;
 	}
-	public void move(){
-		int nextX = x-1;
+	public boolean canMove(){
+		int nextX = x-1,pos=0;
+		boolean hayColision=false;
+		List<Elemento> list = map.getCelda(nextX, y).getElementos();
+		if(nextX>=0){
+			if(!list.isEmpty()){
+				while(pos<list.size()&&!hayColision){
+					hayColision = list.get(pos).accept(visitorColision);
+					pos++;
+				}
+			}
+		}
+		return hayColision;
 	}
 	
 	public Elemento chequearColision(int k, int f){

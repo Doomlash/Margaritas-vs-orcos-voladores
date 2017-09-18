@@ -20,10 +20,7 @@ public class Mapa{
 		for(int i=0;i<celdas.length;i++)
 			for(int j=0;j<celdas[i].length;j++)
 				celdas[i][j] = new Celda();
-		
-		int p[] = new int[1];
-		p[0] = 0;
-		Arquero ar= new Arquero(p,0);
+		Arquero ar= new Arquero(0,0,this);
 		celdas[0][0].agregarElemento(ar);
 		grafico.addGraphicElemento(celdas[0][0].getElementos().get(0));	
 		agregarObstaculos(2,2);
@@ -42,9 +39,7 @@ public class Mapa{
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
 			if(celdas[fila][columna].getElementos().isEmpty()){
-				int posX[] = new int[1];
-				posX[0] = columna;
-				celdas[fila][columna].agregarElemento(new Piedra(posX,fila));
+				celdas[fila][columna].agregarElemento(new Piedra(columna,fila,this));
 				grafico.addGraphicElemento(celdas[fila][columna].getElementos().get(0));				p--;
 			}
 		}
@@ -52,9 +47,7 @@ public class Mapa{
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
 			if(celdas[fila][columna].getElementos().isEmpty()){
-				int posX[] = new int[1];
-				posX[0] = columna;
-				celdas[fila][columna].agregarElemento(new Agua(posX,fila));
+				celdas[fila][columna].agregarElemento(new Agua(columna,fila,this));
 				grafico.addGraphicElemento(celdas[fila][columna].getElementos().get(0));	
 				a--;
 			}
