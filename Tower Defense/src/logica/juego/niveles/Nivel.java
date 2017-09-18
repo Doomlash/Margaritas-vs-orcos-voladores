@@ -24,6 +24,9 @@ public abstract class Nivel{
 		presupuesto = p;
 	}
 	
+	public Mapa getMapa(){
+		return map;
+	}
 	public Horda[] getHordas(){
 		return hordas;
 	}

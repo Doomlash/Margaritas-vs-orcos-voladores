@@ -1,5 +1,6 @@
 package grafica.gui;
 
+import logica.entidad.aliado.*;
 import logica.juego.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,6 +10,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -98,6 +100,27 @@ public class GUI extends JFrame {
 		public void actionPerformed(ActionEvent e){
 			String s =e.getActionCommand();
 			System.out.println(s);
+			Random r = new Random();
+			int fila, columna;
+			Aliado a = null;
+			fila = r.nextInt(6);
+			columna = r.nextInt(10);
+			if(s=="Agregar caballero"){
+				a= new Caballero(columna,fila,j.getNivel().getMapa());
+			}
+			if(s=="Agregar arquero"){
+				a= new Arquero(columna,fila,j.getNivel().getMapa());
+			}
+			if(s=="Agregar sargento"){
+				a= new Sargento(columna,fila,j.getNivel().getMapa());
+			}
+			if(s=="Agregar catapulta"){
+				a= new Catapulta(columna,fila,j.getNivel().getMapa());
+			}
+			if(s=="Agregar mago"){
+				a= new Mago(columna,fila,j.getNivel().getMapa());
+			}
+			j.getNivel().getMapa().agregarElemento(a.getX(), a.getY(), a);
 		}
 	}
 }

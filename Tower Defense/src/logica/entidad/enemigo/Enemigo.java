@@ -30,7 +30,6 @@ public abstract class Enemigo extends Entidad implements Runnable{
 	public void move() throws InterruptedException{
 		if(x-1>=0){
 			int aux= grafico.getPos().x-grafico.getWidth();
-			System.out.println(aux);
 			while(grafico.getPos().x>aux){
 				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
 				Thread.sleep(500);
@@ -38,7 +37,7 @@ public abstract class Enemigo extends Entidad implements Runnable{
 			}
 			map.getCelda(x-1, y).agregarElemento(this);
 			if(x<10)
-				map.getCelda(x, y).deleteElemento(this);
+				map.getCelda(x, y).remover(this);
 		}
 	}
 	

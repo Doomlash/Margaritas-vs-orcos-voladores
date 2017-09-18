@@ -8,6 +8,7 @@ import grafica.mapa.*;
 import java.util.Random;
 import logica.entidad.aliado.*;
 import logica.entidad.enemigo.Goblin;
+import logica.gameObjects.Elemento;
 
 public class Mapa{
 	private Nivel nivel;
@@ -42,7 +43,6 @@ public class Mapa{
 		while(celdasVacias()&&(p>0)){
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
-
 			if(celdas[fila][columna].isEmpty()){
 				celdas[fila][columna].agregarElemento(new Piedra(columna,fila,this));
 				p--;
@@ -57,6 +57,10 @@ public class Mapa{
 				l--;
 			}
 		}
+	}
+	public void agregarElemento(int x, int y, Elemento e){
+		celdas[y][x].agregarElemento(e);
+		e.getGraphic().getGrafico().repaint();
 	}
 	
 	public Nivel getNivel(){
