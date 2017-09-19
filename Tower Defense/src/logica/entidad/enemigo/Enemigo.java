@@ -52,9 +52,9 @@ public abstract class Enemigo extends Entidad implements Runnable{
 			int aux= grafico.getPos().x-grafico.getWidth();
 			while(grafico.getPos().x>aux){
 				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
-				Thread.sleep(500);
-//				grafico.getGrafico().repaint();
 				map.getMapaGrafico().repaint();
+				Thread.sleep(100);
+//				grafico.getGrafico().repaint();
 			}
 			map.getCelda(x-1, y).agregarElemento(this);
 			if(x<10)
