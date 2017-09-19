@@ -22,9 +22,9 @@ public class Mapa{
 		for(int i=0;i<celdas.length;i++)
 			for(int j=0;j<celdas[i].length;j++)
 				celdas[i][j] = new Celda();
+		agregarObstaculos(2,2);
 		Arquero ar= new Arquero(0,0,this);
 		celdas[0][0].agregarElemento(ar);
-		agregarObstaculos(2,2);
 		Ogro g= new Ogro(9,2,this);
 		Thread t = new Thread(g);
 		t.start();

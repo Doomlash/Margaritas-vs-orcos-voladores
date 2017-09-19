@@ -12,8 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -65,7 +63,6 @@ public class GUI extends JFrame {
 		contentPane.add(panelSuperior, BorderLayout.NORTH);
 		contentPane.add(j.getNivel().getMapa().getMapaGrafico(),BorderLayout.CENTER);
 		contentPane.add(panelInferior, BorderLayout.SOUTH);
-
 		
 	}
 	private void panelSuperior(){
@@ -105,7 +102,6 @@ public class GUI extends JFrame {
 	private class OyenteAgregar implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String s =e.getActionCommand();
-			System.out.println(s);
 			Random r = new Random();
 			int fila, columna;
 			Aliado a = null;
@@ -126,7 +122,9 @@ public class GUI extends JFrame {
 			if(s=="Mago"){
 				a= new Mago(columna,fila,j.getNivel().getMapa());
 			}
-			j.getNivel().getMapa().agregarElemento(a.getX(), a.getY(), a);
+			for(int i=a.getX();i<(a.getDimensionX()+a.getX());i++){
+				j.getNivel().getMapa().agregarElemento(a.getX(), a.getY(), a);
+			}
 		}
 	}
 }

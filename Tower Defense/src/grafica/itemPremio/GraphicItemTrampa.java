@@ -8,6 +8,6 @@ public class GraphicItemTrampa extends GraphicGameObject{
 	public GraphicItemTrampa(int x, int y){
 		super(x,y,2);
 
-		imagenes[0] = new ImageIcon(dir+"ItemTrampa.png").getImage();
+		imagenes[0] = new ImageIcon(dir+"ItemTrampa.png");
 	}
 }

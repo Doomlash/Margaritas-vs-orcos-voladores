@@ -7,6 +7,6 @@ public class GraphicOgro extends GraphicEnemigo{
 	public GraphicOgro(int x, int y){
 		super(x,y);
 
-		imagenes[0] = new ImageIcon(dir+"Ogre/Caminar.gif").getImage();
+		imagenes[0] = new ImageIcon(dir+"Ogre/Caminar.gif");
 	}
 }
