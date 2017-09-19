@@ -1,18 +1,22 @@
 package grafica.mapa;
 
-import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import grafica.gameObjects.*;
 
 public class GraphicMapa extends JPanel{
 	private static final long serialVersionUID = 1L;
+	private Image fondo;
 	
 	public GraphicMapa(){
 		this.setLayout(null);
 		this.setPreferredSize(new Dimension(1000,480));
-		this.setBackground(Color.LIGHT_GRAY);
+		fondo = new ImageIcon("src/Sprites/FondoMapa.png").getImage();
 	}
 	
 	public void addGraphicElemento(GraphicGameObject g){
@@ -21,7 +25,12 @@ public class GraphicMapa extends JPanel{
 			this.setComponentZOrder(g.getGrafico(), getComponentCount()-1);
 		if(g.getPrioridad()==1)
 			this.setComponentZOrder(g.getGrafico(), 0);
-		System.out.println(getComponentCount());
 		repaint();
+	}
+	
+	public void paint(Graphics g){
+		g.drawImage(fondo, 0, 0, getWidth(), getHeight(), this);
+		setOpaque(false);
+		super.paint(g);
 	}
 }
