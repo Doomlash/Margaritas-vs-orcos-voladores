@@ -1,16 +1,18 @@
 package grafica.gameObjects;
 
+import java.awt.Image;
 import java.awt.Point;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public abstract class GraphicGameObject{
-	protected JLabel grafico;
-	protected Icon[] imagenes;
-	protected final int width = 46;
-	protected final int height = 46;
-	protected final String dir = "src/Sprites/",ext=".png";
+	protected Image grafico;
+	protected Image[] imagenes;
+	protected final int width = 80;
+	protected final int height = 90;
+	protected final String dir = "src/Sprites/";
+	protected int prioridad;
 	
 	protected Point pos;
 	
@@ -20,9 +22,10 @@ public abstract class GraphicGameObject{
 	 * @param x : int - Columna inicial de la matriz del mapa.
 	 * @param y : int - Fila de la matriz del mapa
 	 */
-	public GraphicGameObject(int x, int y){
-		this.pos = new Point(x*width+(x*5),y*height+80+(y*5));
-		imagenes = new ImageIcon[1];
+	public GraphicGameObject(int x, int y, int p){
+		this.pos = new Point(x*width+90,y*height);
+		imagenes = new Image[1];
+		prioridad=p;
 	}
 	
 	/**
@@ -32,16 +35,19 @@ public abstract class GraphicGameObject{
 	 */
 	public void cambiarPos(int newX, int newY){
 		pos.setLocation(newX, newY);
-		cambiarGrafico();
+//		cambiarGrafico();
 	}
 	
 	/**
 	 * Se modifica el grafico.
 	 */
-	private void cambiarGrafico(){
-		grafico.setBounds(pos.x, pos.y, width, height);
-	}
+//	private void cambiarGrafico(){
+//		grafico.setBounds(pos.x, pos.y, width, height);
+//	}
 	
+	public int getPrioridad(){
+		return prioridad;
+	}
 	public Point getPos(){
 		return pos;
 	}
@@ -57,10 +63,9 @@ public abstract class GraphicGameObject{
 	 * @return JLabel - Se retorna el grafico (JLabel) actual de la clase grafica.
 	 * Se inicializa con el primer ícono del arreglo de íconos en caso de que el grafico sea nulo.
 	 */
-	public JLabel getGrafico(){
+	public Image getGrafico(){
 		if(this.grafico==null){
-			this.grafico = new JLabel(imagenes[0]);
-			this.grafico.setBounds(this.pos.x,this.pos.y,width,height);
+			this.grafico = imagenes[0];
 		}
 		return this.grafico;
 	}

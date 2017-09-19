@@ -6,7 +6,7 @@ public class GraphicCaballero extends GraphicAliado{
 	
 	public GraphicCaballero(int x, int y){
 		super(x,y);
-
-		imagenes[0] = new ImageIcon(dir+"Caballero"+ext);
+		
+		imagenes[0] = new ImageIcon(dir+"Estaticas Aliados/SwordmanIdle.png").getImage();
 	}
 }

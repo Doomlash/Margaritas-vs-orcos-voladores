@@ -6,8 +6,8 @@ import javax.swing.ImageIcon;
 public class GraphicItemPowerBooster extends GraphicGameObject{
 	
 	public GraphicItemPowerBooster(int x, int y){
-		super(x,y);
+		super(x,y,2);
 
-		imagenes[0] = new ImageIcon(dir+"ItemPowerBooster"+ext);
+		imagenes[0] = new ImageIcon(dir+"ItemPowerBooster.png").getImage();
 	}
 }

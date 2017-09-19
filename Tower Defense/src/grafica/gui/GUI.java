@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -47,9 +49,10 @@ public class GUI extends JFrame {
 	 */
 	public GUI(){
 		super("Tower Defense");
-		AnchoVentana= 1000; AltoVentana= 600;
+		this.setResizable(false);
+		AnchoVentana= 1180; AltoVentana= 680;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(200, 40, AnchoVentana, AltoVentana);
+		setBounds(130, 20, AnchoVentana, AltoVentana);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout());
@@ -60,13 +63,16 @@ public class GUI extends JFrame {
 		panelSuperior();
 		panelInferior();
 		contentPane.add(panelSuperior, BorderLayout.NORTH);
+		contentPane.add(j.getNivel().getMapa().getMapaGrafico(),BorderLayout.CENTER);
 		contentPane.add(panelInferior, BorderLayout.SOUTH);
+
+		
 	}
 	private void panelSuperior(){
 		panelSuperior = new JPanel();
 		panelSuperior.setBackground(Color.GRAY);
 		panelSuperior.setLayout(new BorderLayout());
-		panelSuperior.setPreferredSize(new Dimension(AnchoVentana,70));
+		panelSuperior.setPreferredSize(new Dimension(AnchoVentana,65));
 		
 		JLabel presupuesto = new JLabel();
 		presupuesto.setPreferredSize(new Dimension(150,70));
@@ -82,10 +88,10 @@ public class GUI extends JFrame {
 	private void panelInferior(){
 		panelInferior = new JPanel();
 		panelInferior.setBackground(Color.GRAY);
-		panelInferior.setPreferredSize(new Dimension(AnchoVentana,60));
+		panelInferior.setPreferredSize(new Dimension(AnchoVentana,40));
 		panelInferior.setLayout(new GridLayout(1,5));
 		
-		String bot[] = {"Agregar caballero","Agregar arquero","Agregar sargento","Agregar mago","Agregar catapulta"};
+		String bot[] = {"Caballero","Arquero","Monje","Mago","Catapulta"};
 		JButton botones[] = new JButton[5];
 		OyenteAgregar oyAgr = new OyenteAgregar();
 		for(int i=0;i<botones.length;i++){
@@ -105,19 +111,19 @@ public class GUI extends JFrame {
 			Aliado a = null;
 			fila = r.nextInt(6);
 			columna = r.nextInt(10);
-			if(s=="Agregar caballero"){
+			if(s=="Caballero"){
 				a= new Caballero(columna,fila,j.getNivel().getMapa());
 			}
-			if(s=="Agregar arquero"){
+			if(s=="Arquero"){
 				a= new Arquero(columna,fila,j.getNivel().getMapa());
 			}
-			if(s=="Agregar sargento"){
+			if(s=="Monje"){
 				a= new Monje(columna,fila,j.getNivel().getMapa());
 			}
-			if(s=="Agregar catapulta"){
+			if(s=="Catapulta"){
 				a= new Catapulta(columna,fila,j.getNivel().getMapa());
 			}
-			if(s=="Agregar mago"){
+			if(s=="Mago"){
 				a= new Mago(columna,fila,j.getNivel().getMapa());
 			}
 			j.getNivel().getMapa().agregarElemento(a.getX(), a.getY(), a);
