@@ -4,7 +4,7 @@ import logica.mapa.Mapa;
 
 public class ItemCampoDeProteccion extends ItemPremio{
 
-	public ItemCampoDeProteccion(int x, int y, int dx, Mapa m){
-		super(x,y,dx,m);
+	public ItemCampoDeProteccion(int x, int y, Mapa m){
+		super(x,y,1,m);
 	}
 }

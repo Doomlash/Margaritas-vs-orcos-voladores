@@ -28,4 +28,5 @@ public abstract class Entidad extends Obstaculo{
 	public CampoDeProteccion getCP(){
 		return escudo;
 	}
+	public abstract Elemento chequearColision(int k, int f);
 }
