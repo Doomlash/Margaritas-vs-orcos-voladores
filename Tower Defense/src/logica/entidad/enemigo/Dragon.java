@@ -13,7 +13,9 @@ public class Dragon extends Enemigo{
 	 */
 	public Dragon(int x, int y, Mapa m){
 		super(x,y,2,m);
-		velocidad=8;
+		velocidad=6;
+		puntaje=180;
+		monedas=50;
 		grafico = new GraphicDragon(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}

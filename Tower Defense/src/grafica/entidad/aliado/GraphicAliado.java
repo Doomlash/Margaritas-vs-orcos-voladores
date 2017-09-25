@@ -6,8 +6,8 @@ import grafica.gameObjects.*;
 
 public abstract class GraphicAliado extends GraphicGameObject{
 	
-	public GraphicAliado(int x, int y){
-		super(x,y,1);
+	public GraphicAliado(int x, int y, int a){
+		super(x,y,1,a);
 		imagenes= new Icon[3];
 	}
 }

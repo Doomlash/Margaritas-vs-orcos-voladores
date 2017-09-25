@@ -13,7 +13,9 @@ public class Lich extends Enemigo{
 	 */
 	public Lich(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=8;
+		velocidad=5;
+		puntaje=70;
+		monedas=15;
 		grafico = new GraphicLich(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}

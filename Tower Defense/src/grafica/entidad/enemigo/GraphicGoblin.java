@@ -5,8 +5,8 @@ import javax.swing.ImageIcon;
 public class GraphicGoblin extends GraphicEnemigo{
 	
 	public GraphicGoblin(int x, int y){
-		super(x,y);
+		super(x,y,1);
 		
-		imagenes[0] = new ImageIcon(dir+"Goblin.png");
+		imagenes[0] = new ImageIcon(dir+"Enemigos/Goblin/GoblinMovimiento.gif");
 	}
 }

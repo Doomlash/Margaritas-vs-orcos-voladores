@@ -40,4 +40,5 @@ public abstract class GameObject{
 	public GraphicGameObject getGraphic(){
 		return grafico;
 	}
+	public abstract void kill();
 }

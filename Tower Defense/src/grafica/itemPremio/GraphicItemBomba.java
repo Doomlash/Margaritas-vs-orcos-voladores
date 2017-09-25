@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 public class GraphicItemBomba extends GraphicGameObject{
 	
 	public GraphicItemBomba(int x, int y){
-		super(x,y,2);
+		super(x,y,1,1);
 
 		imagenes[0] = new ImageIcon(dir+"ItemBomba.png");
 	}

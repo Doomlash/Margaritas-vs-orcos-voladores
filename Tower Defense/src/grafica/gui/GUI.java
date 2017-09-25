@@ -1,6 +1,7 @@
 package grafica.gui;
 
 import logica.entidad.aliado.*;
+import logica.entidad.enemigo.*;
 import logica.juego.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,9 +23,10 @@ import javax.swing.border.LineBorder;
 public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static int AnchoVentana, AltoVentana;
-	private JPanel contentPane,panelSuperior,panelInferior;
+	private JPanel contentPane,panelSuperior,panelIzquierda,panelDerecha;
 	private Juego j;
-	private ContadorTiempo t;
+	private JLabel presupuesto, puntaje;
+	private Enemigo[] ene;
 
 	/**
 	 * Launch the application.
@@ -48,9 +50,9 @@ public class GUI extends JFrame {
 	public GUI(){
 		super("Tower Defense");
 		this.setResizable(false);
-		AnchoVentana= 1180; AltoVentana= 680;
+		AnchoVentana= 1200; AltoVentana= 680;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(130, 20, AnchoVentana, AltoVentana);
+		setBounds(110, 20, AnchoVentana, AltoVentana);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout());
@@ -60,71 +62,208 @@ public class GUI extends JFrame {
 		
 		panelSuperior();
 		panelInferior();
+		panelDerecha();
 		contentPane.add(panelSuperior, BorderLayout.NORTH);
 		contentPane.add(j.getNivel().getMapa().getMapaGrafico(),BorderLayout.CENTER);
-		contentPane.add(panelInferior, BorderLayout.SOUTH);
+		contentPane.add(panelIzquierda, BorderLayout.WEST);
+		contentPane.add(panelDerecha, BorderLayout.EAST);
 		
 	}
 	private void panelSuperior(){
 		panelSuperior = new JPanel();
 		panelSuperior.setBackground(Color.GRAY);
-		panelSuperior.setLayout(new BorderLayout());
+		panelSuperior.setLayout(null);
 		panelSuperior.setPreferredSize(new Dimension(AnchoVentana,65));
 		
-		JLabel presupuesto = new JLabel();
-		presupuesto.setPreferredSize(new Dimension(150,70));
+
+		
+		puntaje = new JLabel();
+		puntaje.setBounds(AnchoVentana-300,0,150,70);
+		puntaje.setText("Puntaje: "+j.getPuntaje());
+		puntaje.setHorizontalAlignment(JLabel.LEFT);
+		puntaje.setVerticalAlignment(JLabel.CENTER);
+		puntaje.setForeground(Color.WHITE);
+		puntaje.setFont(new Font("Arial",Font.ITALIC,20));
+		
+		presupuesto = new JLabel();
+		presupuesto.setBounds(AnchoVentana-150,0,150,70);
 		presupuesto.setBorder(new LineBorder(Color.WHITE));
-		presupuesto.setText(""+j.getNivel().getPresupuesto());
+		presupuesto.setText("$ "+j.getNivel().getPresupuesto());
 		presupuesto.setHorizontalAlignment(JLabel.CENTER);
 		presupuesto.setVerticalAlignment(JLabel.CENTER);
 		presupuesto.setForeground(Color.WHITE);
 		presupuesto.setFont(new Font("Arial",Font.ITALIC,20));
 		
-		panelSuperior.add(presupuesto,BorderLayout.EAST);
+		panelSuperior.add(puntaje);
+		panelSuperior.add(presupuesto);
 	}
 	private void panelInferior(){
-		panelInferior = new JPanel();
-		panelInferior.setBackground(Color.GRAY);
-		panelInferior.setPreferredSize(new Dimension(AnchoVentana,40));
-		panelInferior.setLayout(new GridLayout(1,5));
+		panelIzquierda = new JPanel();
+		panelIzquierda.setBackground(Color.GRAY);
+		panelIzquierda.setPreferredSize(new Dimension(AnchoVentana/12,AltoVentana));
+		panelIzquierda.setLayout(null);
 		
-		String bot[] = {"Caballero","Arquero","Monje","Mago","Catapulta"};
-		JButton botones[] = new JButton[5];
+		String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta"};
+		//"Barricada","Dragon","Armadura","Curacion","Booster","Escudo","Bomba","Trampa"};
+		JButton colocables[] = new JButton[c.length];
 		OyenteAgregar oyAgr = new OyenteAgregar();
-		for(int i=0;i<botones.length;i++){
-			botones[i] = new JButton(bot[i]);
-			botones[i].addActionListener(oyAgr);
-			botones[i].setFocusable(false);
-			panelInferior.add(botones[i]);
+		for(int i=0;i<colocables.length;i++){
+			colocables[i] = new JButton(c[i]);
+			colocables[i].setBounds(0,i*AltoVentana/15,AnchoVentana/12,AltoVentana/15);
+			colocables[i].addActionListener(oyAgr);
+			colocables[i].setFocusable(false);
+			panelIzquierda.add(colocables[i]);
 		}
 	}
+	private void panelDerecha(){
+		panelDerecha = new JPanel();
+		panelDerecha.setBackground(Color.DARK_GRAY);
+		panelDerecha.setPreferredSize(new Dimension(AnchoVentana/12,AltoVentana));
+		panelDerecha.setLayout(null);
+		
+		ene = new Enemigo[6];
+		
+		String e[] = {"Ciclope","Dragon","Goblin","Lich","Nigromante","Ogro"};
+		JButton enemigos[] = new JButton[e.length];
+		OyenteEnemigo oy = new OyenteEnemigo();
+		for(int i=0;i<enemigos.length;i++){
+			enemigos[i] = new JButton(e[i]);
+			enemigos[i].setBounds(0,i*AltoVentana/15,AnchoVentana/12,AltoVentana/15);
+			enemigos[i].addActionListener(oy);
+			enemigos[i].setFocusable(false);
+			panelDerecha.add(enemigos[i]);
+		}
+	}
+	
 	
 	private class OyenteAgregar implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String s =e.getActionCommand();
+			if(j.getNivel().getMapa().celdasVacias()){
+				Random r = new Random();
+				int fila, columna;
+				Aliado a = null;
+				fila = r.nextInt(6);
+				columna = r.nextInt(10);
+				while(!j.getNivel().getMapa().getCelda(columna, fila).isEmpty()){
+					fila = r.nextInt(6);
+					columna = r.nextInt(10);
+				}
+				if(s=="Caballero"){
+					a= new Caballero(columna,fila,j.getNivel().getMapa());
+				}
+				if(s=="Arquero"){
+					a= new Arquero(columna,fila,j.getNivel().getMapa());
+				}
+				if(s=="Monje"){
+					a= new Monje(columna,fila,j.getNivel().getMapa());
+				}
+				if(s=="Catapulta"){
+					a= new Catapulta(columna,fila,j.getNivel().getMapa());
+				}
+				if(s=="Mago"){
+					a= new Mago(columna,fila,j.getNivel().getMapa());
+				}
+				for(int i=a.getX();i<(a.getDimensionX()+a.getX());i++){
+					j.getNivel().getMapa().agregarElemento(a.getX(), a.getY(), a);
+				}
+			}
+		}
+	}
+	
+	private class OyenteEnemigo implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			String s= e.getActionCommand();
 			Random r = new Random();
-			int fila, columna;
-			Aliado a = null;
-			fila = r.nextInt(6);
-			columna = r.nextInt(10);
-			if(s=="Caballero"){
-				a= new Caballero(columna,fila,j.getNivel().getMapa());
+			int fila= r.nextInt(6);
+			switch(s){
+				case "Ciclope":{
+					if(ene[0]==null){
+						ene[0] = new Ciclope(9,fila,j.getNivel().getMapa());
+						Thread t = new Thread(ene[0]);
+						t.start();
+						j.getNivel().getMapa().agregarElemento(ene[0].getX(), ene[0].getY(), ene[0]);
+					}
+					else{
+						ene[0].terminate();
+						ene[0].kill();
+						ene[0]=null;
+					}
+					break;
+				}
+				case "Dragon":{
+					if(ene[1]==null){
+						ene[1] = new Dragon(9,fila,j.getNivel().getMapa());
+						Thread t = new Thread(ene[1]);
+						t.start();
+						j.getNivel().getMapa().agregarElemento(ene[1].getX(), ene[1].getY(), ene[1]);
+					}
+					else{
+						ene[1].terminate();
+						ene[1].kill();
+						ene[1]=null;
+					}
+					break;
+				}
+				case "Goblin":{
+					if(ene[2]==null){
+						ene[2] = new Goblin(9,fila,j.getNivel().getMapa());
+						Thread t = new Thread(ene[2]);
+						t.start();
+						j.getNivel().getMapa().agregarElemento(ene[2].getX(), ene[2].getY(), ene[2]);
+					}
+					else{
+						ene[2].terminate();
+						ene[2].kill();
+						ene[2]=null;
+					}
+					break;
+				}
+				case "Lich":{
+					if(ene[3]==null){
+						ene[3] = new Lich(9,fila,j.getNivel().getMapa());
+						Thread t = new Thread(ene[3]);
+						t.start();
+						j.getNivel().getMapa().agregarElemento(ene[3].getX(), ene[3].getY(), ene[3]);
+					}
+					else{
+						ene[3].terminate();
+						ene[3].kill();
+						ene[3]=null;
+					}
+					break;
+				}
+				case "Nigromante":{
+					if(ene[4]==null){
+						ene[4] = new Nigromante(9,fila,j.getNivel().getMapa());
+						Thread t = new Thread(ene[4]);
+						t.start();
+						j.getNivel().getMapa().agregarElemento(ene[4].getX(), ene[4].getY(), ene[4]);
+					}
+					else{
+						ene[4].terminate();
+						ene[4].kill();
+						ene[4]=null;
+					}
+					break;
+				}
+				case "Ogro":{
+					if(ene[5]==null){
+						ene[5] = new Ogro(9,fila,j.getNivel().getMapa());
+						Thread t = new Thread(ene[5]);
+						t.start();
+						j.getNivel().getMapa().agregarElemento(ene[5].getX(), ene[5].getY(), ene[5]);
+					}
+					else{
+						ene[5].terminate();
+						ene[5].kill();
+						ene[5]=null;
+					}
+					break;
+				}
 			}
-			if(s=="Arquero"){
-				a= new Arquero(columna,fila,j.getNivel().getMapa());
-			}
-			if(s=="Monje"){
-				a= new Monje(columna,fila,j.getNivel().getMapa());
-			}
-			if(s=="Catapulta"){
-				a= new Catapulta(columna,fila,j.getNivel().getMapa());
-			}
-			if(s=="Mago"){
-				a= new Mago(columna,fila,j.getNivel().getMapa());
-			}
-			for(int i=a.getX();i<(a.getDimensionX()+a.getX());i++){
-				j.getNivel().getMapa().agregarElemento(a.getX(), a.getY(), a);
-			}
+			presupuesto.setText("$ "+j.getNivel().getPresupuesto());			
+			puntaje.setText("Puntaje: "+j.getPuntaje());
 		}
 	}
 }

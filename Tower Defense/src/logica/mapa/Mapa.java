@@ -6,8 +6,6 @@ import logica.mapa.elementosMapa.temporales.Agua;
 import grafica.mapa.*;
 
 import java.util.Random;
-import logica.entidad.aliado.*;
-import logica.entidad.enemigo.*;
 import logica.gameObjects.Elemento;
 
 public class Mapa{
@@ -23,12 +21,6 @@ public class Mapa{
 			for(int j=0;j<celdas[i].length;j++)
 				celdas[i][j] = new Celda();
 		agregarObstaculos(2,2);
-		Arquero ar= new Arquero(0,0,this);
-		celdas[0][0].agregarElemento(ar);
-		Ogro g= new Ogro(9,2,this);
-		Thread t = new Thread(g);
-		t.start();
-		agregarElemento(9,2,g);
 	}
 	
 	/**
@@ -63,6 +55,9 @@ public class Mapa{
 		grafico.addGraphicElemento(e.getGraphic());
 //		e.getGraphic().getGrafico().repaint();
 	}
+	public void eliminarElemento(int x, int y, Elemento e){
+		celdas[y][x].remover(e);
+	}
 	
 	public Nivel getNivel(){
 		return nivel;
@@ -80,7 +75,7 @@ public class Mapa{
 		return null;
 	}
 	
-	private boolean celdasVacias(){
+	public boolean celdasVacias(){
 		boolean vacia=false;
 		for(int i=0;(i<celdas.length)&&!vacia;i++)
 			for(int j=0;(j<celdas[i].length)&&(!vacia);j++)

@@ -1,3 +1,4 @@
+
 package logica.entidad.enemigo;
 
 import logica.entidad.*;
@@ -48,7 +49,7 @@ public abstract class Enemigo extends Entidad implements Runnable{
 	 * @throws InterruptedException
 	 */
 	public void move() throws InterruptedException{
-		if(x-1>=0){
+		if(x-1>=0&&execute){
 			int aux= grafico.getPos().x-grafico.getWidth();
 			while(grafico.getPos().x>aux){
 				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
@@ -106,5 +107,12 @@ public abstract class Enemigo extends Entidad implements Runnable{
 	 */
 	public boolean accept(VisitorColision v){
 		return v.visit(this);
+	}
+	public void kill(){
+		map.getNivel().getJuego().aumentarPuntaje(puntaje);
+		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);
+		map.eliminarElemento(x, y, this);
+		map.getMapaGrafico().remove(this.grafico.getGrafico());
+		map.getMapaGrafico().repaint();
 	}
 }

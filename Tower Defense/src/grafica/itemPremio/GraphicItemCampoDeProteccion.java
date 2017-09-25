@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 public class GraphicItemCampoDeProteccion extends GraphicGameObject{
 	
 	public GraphicItemCampoDeProteccion(int x, int y){
-		super(x,y,2);
+		super(x,y,1,1);
 
 		imagenes[0] = new ImageIcon(dir+"ItemCampoDeProteccion.png");
 	}

@@ -13,7 +13,9 @@ public class Goblin extends Enemigo{
 	 */
 	public Goblin(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=8;
+		velocidad=6;
+		puntaje=50;
+		monedas=5;
 		grafico = new GraphicGoblin(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}

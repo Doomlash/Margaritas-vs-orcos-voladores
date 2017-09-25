@@ -14,6 +14,8 @@ public class Ogro extends Enemigo{
 	public Ogro(int x, int y, Mapa m){
 		super(x,y,1,m);
 		velocidad=3;
+		puntaje=100;
+		monedas=20;
 		grafico = new GraphicOgro(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}

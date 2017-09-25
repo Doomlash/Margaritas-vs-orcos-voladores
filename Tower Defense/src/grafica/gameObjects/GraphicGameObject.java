@@ -7,8 +7,8 @@ import javax.swing.JLabel;
 public abstract class GraphicGameObject{
 	protected JLabel grafico;
 	protected Icon[] imagenes;
-	protected final int width = 80;
-	protected final int height = 90;
+	protected final int width;
+	protected final int height = 95;
 	protected final String dir = "src/Sprites/";
 	protected int prioridad;
 	
@@ -20,8 +20,9 @@ public abstract class GraphicGameObject{
 	 * @param x : int - Columna inicial de la matriz del mapa.
 	 * @param y : int - Fila de la matriz del mapa
 	 */
-	public GraphicGameObject(int x, int y, int p){
-		this.pos = new Point(x*width+90,y*height);
+	public GraphicGameObject(int x, int y, int p, int ancho){
+		width=90*ancho;
+		this.pos = new Point(x*90,y*height);
 		imagenes = new Icon[1];
 		prioridad=p;
 	}

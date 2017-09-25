@@ -6,6 +6,7 @@ import grafica.gui.*;
 public class Juego{
 	private GUI gui;
 	private Nivel nivel;
+	private int puntaje;
 	
 	/**
 	 * Se inicializa el juego con el nivel 1.
@@ -14,11 +15,15 @@ public class Juego{
 	public Juego(GUI g){
 		gui=g;
 		nivel= new Nivel1(this);
+		puntaje=0;
 	}
 	
 	/**
 	 * Se avanza al siguiente nivel del juego.
 	 */
+	public void aumentarPuntaje(int p){
+		puntaje+=p;
+	}
 	public void siguienteNivel(){
 		nivel= nivel.getSiguiente();
 	}
@@ -37,5 +42,8 @@ public class Juego{
 	 */
 	public Nivel getNivel(){
 		return nivel;
+	}
+	public int getPuntaje(){
+		return puntaje;
 	}
 }

@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class GraphicPiedra extends GraphicGameObject{
 	
 	public GraphicPiedra(int x, int y){
-		super(x,y,1);
+		super(x,y,1,1);
 		
 		imagenes[0] = new ImageIcon(dir+"Piedra.png");
 	}
