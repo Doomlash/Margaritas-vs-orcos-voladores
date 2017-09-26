@@ -18,14 +18,6 @@ public class Celda{
 	public void agregarElemento(Elemento e){
 		lista.add(e);
 	}
-	/**
-	 * Retorno la coleccion de elementos almacenados en esta celda
-	 * 
-	 * @return coleccion iterable de elementos
-	 */
-	public Iterable<Elemento> getElementos() {
-		return lista;
-	}
 	
 	/**
 	 * metodo para eleminar elementos de la celda

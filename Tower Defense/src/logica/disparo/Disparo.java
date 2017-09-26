@@ -13,16 +13,6 @@ public abstract class Disparo extends GameObject{
 	public Disparo(int x,int y, int dx, Mapa m){
 		super(x,y,dx,m);
 	}
-	public abstract void move();
-	public void move(int nextX){
-		Iterable<Elemento> list= map.getCelda(nextX, y).getElementos();
-		boolean hayColision=false;
-		for(Elemento e : list){
-			if(!hayColision){
-				hayColision = e.accept(visitor);
-			}
-		}
-	}
 	public void setImpactos(int i){
 		if(i<=0){
 			impactos=0;

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Horda{
 	private List<Enemigo> intermedios;
 	private List<Enemigo> finales;
+	private int in,fin;
 	
 	/**
 	 * Inicializa dos listas de enemigos.
@@ -18,6 +19,8 @@ public class Horda{
 	public Horda(){
 		intermedios = new ArrayList<Enemigo>();
 		finales = new ArrayList<Enemigo>();
+		in = 0;
+		fin = 0;
 	}
 	
 	/**
@@ -38,19 +41,33 @@ public class Horda{
 	
 	/**
 	 * 
-	 * @return Iterable<Enemigo> - Retorna un iterable de enemigos conteniendo aquellos enemigos 
-	 * que conforman la oleada intermedia de la horda.
+	 * @return Enemigo : El siguiente enemigo a agregar de la oleada intermedia. Nulo si ya se 
+	 * agregaron todos los enemigos de la lista intermedios.
 	 */
-	public Iterable<Enemigo> getIntermedios(){
-		return intermedios;
+	public Enemigo getSiguienteIntermedio(){
+		Enemigo e=null;
+		if(in<intermedios.size()){
+			e = intermedios.get(in);
+			in++;
+		}
+		return e;
 	}
 	
 	/**
 	 * 
-	 * @return Iterable<Enemigo> - Retorna un iterable de enemigos conteniendo aquellos enemigos 
-	 * pertenecientes al final de la horda.
+	 * @return Enemigo : El siguiente enemigo a agregar de la oleada final. Nulo si ya se 
+	 * agregaron todos los enemigos de la lista finales.
 	 */
-	public Iterable<Enemigo> getFinales(){
-		return finales;
+	public Enemigo getSiguienteFinal(){
+		Enemigo e=null;
+		if(fin<finales.size()){
+			e = finales.get(fin);
+			fin++;
+		}
+		return e;
+	}
+	
+	public boolean completed(){
+		return finales.isEmpty();
 	}
 }

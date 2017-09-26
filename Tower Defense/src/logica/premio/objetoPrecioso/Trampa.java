@@ -17,4 +17,10 @@ public class Trampa extends Obstaculo{
 	public boolean accept(VisitorColision v){
 		return v.visit(this);
 	}
+	
+	public void kill(){
+		map.eliminarElemento(x, y, this);
+		map.getMapaGrafico().remove(this.grafico.getGrafico());
+		map.getMapaGrafico().repaint();
+	}
 }

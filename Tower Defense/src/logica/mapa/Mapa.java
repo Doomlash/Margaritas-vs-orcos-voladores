@@ -45,7 +45,10 @@ public class Mapa{
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
 			if(celdas[fila][columna].isEmpty()){
-				celdas[fila][columna].agregarElemento(new Agua(columna,fila,this));
+				Agua a = new Agua(columna,fila,this);
+				Thread t = new Thread(a);
+				t.start();
+				celdas[fila][columna].agregarElemento(a);
 				l--;
 			}
 		}
@@ -56,7 +59,9 @@ public class Mapa{
 //		e.getGraphic().getGrafico().repaint();
 	}
 	public void eliminarElemento(int x, int y, Elemento e){
-		celdas[y][x].remover(e);
+		if(x>=0&&x<celdas[0].length)
+			if(y>=0&&y<celdas.length)
+				celdas[y][x].remover(e);
 	}
 	
 	public Nivel getNivel(){

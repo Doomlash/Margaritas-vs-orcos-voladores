@@ -9,7 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,7 +24,7 @@ public class TesterGui extends JFrame{
 	private JPanel contentPane, p1, p2;
 	private int ancho=1200, alto=600;
 	private Color c;
-	private JLabel etiquetaMouse;
+	private JLabel etiquetaMouse, item;
 	private JLabel[][] me;
 
 	/**
@@ -66,20 +68,27 @@ public class TesterGui extends JFrame{
 	
 	public void panelSuperior(){
 		p2= new JPanel();
-		p2.setLayout(new GridLayout(3,6));
+		p2.setLayout(null);
+//		p2.setLayout(new GridLayout(3,6));
+//		
+//		me = new JLabel[3][6];
+//		for(int i=0;i<me.length;i++)
+//			for(int j=0;j<me[i].length;j++){
+//				me[i][j] = new JLabel();
+//				me[i][j].setBorder(new LineBorder(Color.WHITE,1));
+//				me[i][j].setHorizontalAlignment(JLabel.CENTER);
+//				p2.add(me[i][j]);
+//			}
+//		
+//		OyenteMouse oy = new OyenteMouse();
 		
-		me = new JLabel[3][6];
-		for(int i=0;i<me.length;i++)
-			for(int j=0;j<me[i].length;j++){
-				me[i][j] = new JLabel();
-				me[i][j].setBorder(new LineBorder(Color.WHITE,1));
-				me[i][j].setHorizontalAlignment(JLabel.CENTER);
-				p2.add(me[i][j]);
-			}
+		item = new JLabel(new ImageIcon("src/Sprites/Granada.png"));
+		item.setBounds(100,100,100,100);
+		item.addMouseListener(new ItemListener());
 		
-		OyenteMouse oy = new OyenteMouse();
+		p2.add(item);
 		
-		p2.addMouseListener(oy);
+//		p2.addMouseListener(oy);
 	}
 	
 	public void panelInferior(){
@@ -116,6 +125,28 @@ public class TesterGui extends JFrame{
 			}
 			etiquetaMouse.setText("Color seleccionado: "+s);
 			etiquetaMouse.setForeground(Color.WHITE);
+		}
+		
+	}
+	
+	private class ItemListener implements MouseListener{
+		
+		public void mouseClicked(MouseEvent e){
+			item.setIcon(new ImageIcon("src/Sprites/Agua.png"));
+		}
+		
+		public void mouseEntered(MouseEvent e){
+			item.setIcon(new ImageIcon("src/Sprites/Piedra.png"));
+		}
+		
+		public void mouseExited(MouseEvent e){
+			item.setIcon(new ImageIcon("src/Sprites/Granada.png"));
+		}
+		
+		public void mousePressed(MouseEvent e){
+		}
+		
+		public void mouseReleased(MouseEvent e){
 		}
 		
 	}

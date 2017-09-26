@@ -1,7 +1,6 @@
 package logica.entidad.aliado;
 
 import logica.entidad.*;
-import logica.gameObjects.*;
 import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
 import logica.comprables.*;
@@ -46,27 +45,11 @@ public abstract class Aliado extends Entidad implements  Comprable{
 		return v.visit(this);
 	}
 	
-	/**
-	 * Chequea si dentro del rango de ataque hay un elemento que puede ser atacado por un aliado.
-	 * Si hay un elemento a ser atacado, retorn dicho elemento, sino retorna nulo.
-	 * Se chequea el rango de izquierda a derecha.
-	 * @param k : int - Inicio de rango
-	 * @param f : int - Fin de rango
-	 * @return Elemento
-	 */
-	public Elemento chequearColision(int k, int f){
-		Iterable<Elemento> list = null;
-		boolean hayColision= false;
-		for(int i=k;(i<=f)&&(!hayColision);i++){
-			list=map.getCelda(i, this.y).getElementos();
-			for(Elemento e : list){
-				if(!hayColision){
-					hayColision = e.accept(visitorColision);
-					return e;
-				}
-			}
-		}
-		return null;
+	public void kill(){
+		for(int i=0;i<dimensionX;i++)
+			map.eliminarElemento(x+i, y, this);
+		map.getMapaGrafico().remove(this.grafico.getGrafico());
+		map.getMapaGrafico().repaint();
 	}
 	
 //	public abstract void atacar();

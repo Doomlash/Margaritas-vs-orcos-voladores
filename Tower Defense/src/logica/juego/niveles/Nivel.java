@@ -5,7 +5,7 @@ import logica.juego.*;
 
 public abstract class Nivel{
 	protected Mapa map;
-	protected int presupuesto;
+	protected int presupuesto, hordaActual;
 	protected Horda[] hordas;
 	protected Nivel siguiente;
 	protected Juego juego;
@@ -13,6 +13,7 @@ public abstract class Nivel{
 	public Nivel(Juego j){
 		presupuesto= 400;
 		juego=j;
+		hordaActual=0;
 		hordas= new Horda[3];
 		for(int i=0;i<hordas.length;i++)
 			hordas[i] = new Horda();
@@ -23,12 +24,13 @@ public abstract class Nivel{
 	public void modificarPresupueto(int p){
 		presupuesto = p;
 	}
+	public void siguienteHorda(){
+		if(hordaActual<hordas.length)
+			hordaActual++;
+	}
 	
 	public Mapa getMapa(){
 		return map;
-	}
-	public Horda[] getHordas(){
-		return hordas;
 	}
 	
 	/**
@@ -41,5 +43,11 @@ public abstract class Nivel{
 	}
 	public Juego getJuego(){
 		return juego;
+	}
+	public Horda getHordaActual(){
+		if(hordaActual<hordas.length)
+			return hordas[hordaActual];
+		else
+			return null;
 	}
 }

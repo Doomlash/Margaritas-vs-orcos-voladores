@@ -8,7 +8,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -50,9 +49,9 @@ public class GUI extends JFrame {
 	public GUI(){
 		super("Tower Defense");
 		this.setResizable(false);
-		AnchoVentana= 1200; AltoVentana= 680;
+		AnchoVentana= 1240; AltoVentana= 680;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(110, 20, AnchoVentana, AltoVentana);
+		setBounds(90, 20, AnchoVentana, AltoVentana);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout());
@@ -61,7 +60,7 @@ public class GUI extends JFrame {
 		j= new Juego(this);
 		
 		panelSuperior();
-		panelInferior();
+		panelIzquierda();
 		panelDerecha();
 		contentPane.add(panelSuperior, BorderLayout.NORTH);
 		contentPane.add(j.getNivel().getMapa().getMapaGrafico(),BorderLayout.CENTER);
@@ -97,7 +96,7 @@ public class GUI extends JFrame {
 		panelSuperior.add(puntaje);
 		panelSuperior.add(presupuesto);
 	}
-	private void panelInferior(){
+	private void panelIzquierda(){
 		panelIzquierda = new JPanel();
 		panelIzquierda.setBackground(Color.GRAY);
 		panelIzquierda.setPreferredSize(new Dimension(AnchoVentana/12,AltoVentana));
@@ -113,6 +112,17 @@ public class GUI extends JFrame {
 			colocables[i].addActionListener(oyAgr);
 			colocables[i].setFocusable(false);
 			panelIzquierda.add(colocables[i]);
+		}
+		
+		JButton eliminar[] = new JButton[c.length];
+		OyenteEliminar oyE = new OyenteEliminar();
+		for(int i=0;i<eliminar.length;i++){
+			eliminar[i] = new JButton(c[i]);
+			eliminar[i].setBounds(0,(i+7)*AltoVentana/15,AnchoVentana/12,AltoVentana/15);
+			eliminar[i].addActionListener(oyE);
+			eliminar[i].setFocusable(false);
+			eliminar[i].setBackground(Color.ORANGE);
+			panelIzquierda.add(eliminar[i]);
 		}
 	}
 	private void panelDerecha(){
@@ -168,6 +178,12 @@ public class GUI extends JFrame {
 					j.getNivel().getMapa().agregarElemento(a.getX(), a.getY(), a);
 				}
 			}
+		}
+	}
+	
+	private class OyenteEliminar implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			
 		}
 	}
 	
@@ -262,7 +278,7 @@ public class GUI extends JFrame {
 					break;
 				}
 			}
-			presupuesto.setText("$ "+j.getNivel().getPresupuesto());			
+			presupuesto.setText("$ "+j.getNivel().getPresupuesto());
 			puntaje.setText("Puntaje: "+j.getPuntaje());
 		}
 	}

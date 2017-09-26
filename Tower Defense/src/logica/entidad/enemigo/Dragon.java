@@ -13,7 +13,7 @@ public class Dragon extends Enemigo{
 	 */
 	public Dragon(int x, int y, Mapa m){
 		super(x,y,2,m);
-		velocidad=6;
+		velocidad=4;
 		puntaje=180;
 		monedas=50;
 		grafico = new GraphicDragon(x,y);
