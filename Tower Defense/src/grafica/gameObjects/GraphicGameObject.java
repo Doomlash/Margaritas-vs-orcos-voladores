@@ -34,14 +34,15 @@ public abstract class GraphicGameObject{
 	 */
 	public void cambiarPos(int newX, int newY){
 		pos.setLocation(newX, newY);
-		cambiarGrafico();
+		grafico.setBounds(pos.x, pos.y, width, height);
 	}
 	
 	/**
 	 * Se modifica el grafico.
 	 */
-	private void cambiarGrafico(){
-		grafico.setBounds(pos.x, pos.y, width, height);
+	public void cambiarGrafico(int i){
+		if(i<imagenes.length)
+			grafico.setIcon(imagenes[i]);
 	}
 	
 	public int getPrioridad(){

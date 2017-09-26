@@ -1,12 +1,11 @@
 package grafica.itemPremio;
 
-import grafica.gameObjects.*;
 import javax.swing.ImageIcon;
 
-public class GraphicItemTrampa extends GraphicGameObject{
+public class GraphicItemTrampa extends GraphicItemPremio{
 	
 	public GraphicItemTrampa(int x, int y){
-		super(x,y,1,1);
+		super(x,y);
 
 		imagenes[0] = new ImageIcon(dir+"ItemTrampa.png");
 	}

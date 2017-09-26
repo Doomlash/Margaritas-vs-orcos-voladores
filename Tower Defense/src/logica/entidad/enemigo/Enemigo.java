@@ -3,9 +3,6 @@ package logica.entidad.enemigo;
 
 import logica.entidad.*;
 import logica.mapa.*;
-
-//import java.util.List;
-
 import logica.Visitor.VisitorColisiones.*;
 import logica.Visitor.VisitorInteraccion.*;
 

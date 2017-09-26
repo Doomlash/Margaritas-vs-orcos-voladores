@@ -1,12 +1,11 @@
 package grafica.itemPremio;
 
-import grafica.gameObjects.*;
 import javax.swing.ImageIcon;
 
-public class GraphicItemPowerBooster extends GraphicGameObject{
+public class GraphicItemPowerBooster extends GraphicItemPremio{
 	
 	public GraphicItemPowerBooster(int x, int y){
-		super(x,y,1,1);
+		super(x,y);
 
 		imagenes[0] = new ImageIcon(dir+"ItemPowerBooster.png");
 	}

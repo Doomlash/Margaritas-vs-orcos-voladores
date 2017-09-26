@@ -17,5 +17,7 @@ public abstract class ItemPremio extends GameObject implements Runnable{
 		kill();
 	}
 	
-	protected int tiempo;
+	public void kill(){
+		
+	}
 }

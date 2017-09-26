@@ -1,13 +1,13 @@
 package grafica.itemPremio;
 
-import grafica.gameObjects.*;
 import javax.swing.ImageIcon;
 
-public class GraphicItemBomba extends GraphicGameObject{
+public class GraphicItemBomba extends GraphicItemPremio{
 	
 	public GraphicItemBomba(int x, int y){
-		super(x,y,1,1);
+		super(x,y);
 
-		imagenes[0] = new ImageIcon(dir+"ItemBomba.png");
+		imagenes[0] = new ImageIcon(dir+"Granada.png");
+		imagenes[1] = new ImageIcon(dir+"Diamante.png");
 	}
 }

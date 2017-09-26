@@ -1,12 +1,11 @@
 package grafica.itemPremio;
 
-import grafica.gameObjects.*;
 import javax.swing.ImageIcon;
 
-public class GraphicItemCampoDeProteccion extends GraphicGameObject{
+public class GraphicItemCampoDeProteccion extends GraphicItemPremio{
 	
 	public GraphicItemCampoDeProteccion(int x, int y){
-		super(x,y,1,1);
+		super(x,y);
 
 		imagenes[0] = new ImageIcon(dir+"ItemCampoDeProteccion.png");
 	}
