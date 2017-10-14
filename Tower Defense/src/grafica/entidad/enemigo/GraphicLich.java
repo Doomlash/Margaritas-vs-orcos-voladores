@@ -8,5 +8,6 @@ public class GraphicLich extends GraphicEnemigo{
 		super(x,y,1);
 
 		imagenes[0] = new ImageIcon(dir+"Enemigos/Lich/LichCaminar.gif");
+		imagenes[1] = new ImageIcon(dir+"Enemigos/Lich/LichAtaque.gif");
 	}
 }

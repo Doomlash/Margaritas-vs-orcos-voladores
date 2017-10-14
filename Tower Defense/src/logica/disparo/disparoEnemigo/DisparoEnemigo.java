@@ -3,7 +3,7 @@ package logica.disparo.disparoEnemigo;
 import logica.disparo.*;
 import logica.mapa.*;
 
-public class DisparoEnemigo extends Disparo{
+public abstract class DisparoEnemigo extends Disparo{
 
 	public DisparoEnemigo(int x,int y, Mapa m){
 		super(x,y,1,m);

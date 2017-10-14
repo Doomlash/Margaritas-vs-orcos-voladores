@@ -7,6 +7,7 @@ public class GraphicArquero extends GraphicAliado{
 	public GraphicArquero(int x, int y){
 		super(x,y,1);
 		
-		imagenes[0] = new ImageIcon(dir+"Estaticas Aliados/ArqueroIdle.png");
+		imagenes[0] = new ImageIcon(dir+"Aliados/Arquero/ArqueroIdle.png");
+		imagenes[1] = new ImageIcon(dir+"Aliados/Arquero/ArqueroAtaque.gif");
 	}
 }

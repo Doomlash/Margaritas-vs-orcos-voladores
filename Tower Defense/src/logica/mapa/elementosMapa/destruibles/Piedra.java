@@ -1,26 +1,25 @@
 package logica.mapa.elementosMapa.destruibles;
 
-import logica.Visitor.VisitorColisiones.*;
-import logica.Visitor.VisitorInteraccion.*;
 import logica.gameObjects.*;
 import logica.mapa.*;
+import logica.visitor.*;
 import grafica.mapa.GraphicElementosMapa.GraphicDestruibles.*;
+import grafica.gameObjects.*;
 
 public class Piedra extends Obstaculo{
+	private GraphicPiedra grafico;
 	
 	public Piedra(int x, int y, Mapa m){
 		super(x,y,1,m);
 		grafico = new GraphicPiedra(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
-	public void accept(VisitorInteraccion v){
+	public void accept(Visitor v){
 		v.visit(this);
 	}
-	
-	public boolean accept(VisitorColision v){
-		return v.visit(this);
+	public GraphicGameObject getGraphic(){
+		return grafico;
 	}
-	
 	public void kill(){
 		map.eliminarElemento(x, y, this);
 		map.getMapaGrafico().remove(this.grafico.getGrafico());

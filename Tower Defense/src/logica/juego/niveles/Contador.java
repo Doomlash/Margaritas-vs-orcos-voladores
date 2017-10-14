@@ -19,8 +19,6 @@ public class Contador extends Thread{
 			Horda h = this.n.getHordaActual();
 				Enemigo e= h.getSiguienteIntermedio();
 				if(e!=null){
-					Thread t = new Thread(e);
-					t.start();
 					try{
 						Thread.sleep(4000);
 					}catch(InterruptedException e1){
@@ -29,8 +27,6 @@ public class Contador extends Thread{
 				else{
 					e= h.getSiguienteFinal();
 					if(e!=null){
-						Thread t = new Thread(e);
-						t.start();
 						try{
 							Thread.sleep(2000);
 						}catch(InterruptedException e1){

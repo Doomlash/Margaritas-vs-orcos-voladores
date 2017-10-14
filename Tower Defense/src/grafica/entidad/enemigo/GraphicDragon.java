@@ -8,5 +8,6 @@ public class GraphicDragon extends GraphicEnemigo{
 		super(x,y,2);
 		
 		imagenes[0] = new ImageIcon(dir+"Enemigos/Dragon/Dragonvolar.gif");
+		imagenes[1] = new ImageIcon(dir+"Enemigos/Dragon/DragonAtaque.gif");
 	}
 }

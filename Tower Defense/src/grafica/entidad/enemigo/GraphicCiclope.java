@@ -8,5 +8,6 @@ public class GraphicCiclope extends GraphicEnemigo{
 		super(x,y,1);
 
 		imagenes[0] = new ImageIcon(dir+"Enemigos/Ciclope/CyclopeCaminar.gif");
+		imagenes[1] = new ImageIcon(dir+"Enemigos/Ciclope/CyclopeAtacar.gif");
 	}
 }

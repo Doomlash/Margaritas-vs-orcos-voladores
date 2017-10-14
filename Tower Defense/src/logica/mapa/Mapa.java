@@ -3,6 +3,7 @@ package logica.mapa;
 import logica.juego.niveles.*;
 import logica.mapa.elementosMapa.destruibles.Piedra;
 import logica.mapa.elementosMapa.temporales.Agua;
+import logica.hilos.*;
 import grafica.mapa.*;
 
 import java.util.Random;
@@ -12,8 +13,10 @@ public class Mapa{
 	private Nivel nivel;
 	private Celda[][] celdas;
 	private GraphicMapa grafico;
+	private AlmacenHilos hilos;
 	
 	public Mapa(Nivel n){
+		hilos = new AlmacenHilos();
 		grafico = new GraphicMapa();
 		nivel=n;
 		celdas = new Celda[6][10];
@@ -78,6 +81,9 @@ public class Mapa{
 			if((y>=0)&&(y<celdas.length))
 				return celdas[y][x];
 		return null;
+	}
+	public AlmacenHilos getAlmacenHilos(){
+		return hilos;
 	}
 	
 	public boolean celdasVacias(){

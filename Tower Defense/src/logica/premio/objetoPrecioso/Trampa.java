@@ -1,26 +1,28 @@
 package logica.premio.objetoPrecioso;
 
-import logica.Visitor.VisitorColisiones.*;
-import logica.Visitor.VisitorInteraccion.*;
 import logica.gameObjects.*;
 import logica.mapa.*;
+import logica.visitor.*;
+import grafica.gameObjects.*;
+import grafica.premio.*;
 
 public class Trampa extends Obstaculo{
+	private GraphicTrampa grafico;
 	
 	public Trampa(int x, int y, Mapa m){
 		super(x,y,1,m);
+		grafico = new GraphicTrampa(x,y);
 	}
-	public void accept(VisitorInteraccion v){
+	public void accept(Visitor v){
 		v.visit(this);
-	}
-	
-	public boolean accept(VisitorColision v){
-		return v.visit(this);
 	}
 	
 	public void kill(){
 		map.eliminarElemento(x, y, this);
 		map.getMapaGrafico().remove(this.grafico.getGrafico());
 		map.getMapaGrafico().repaint();
+	}
+	public GraphicGameObject getGraphic(){
+		return grafico;
 	}
 }

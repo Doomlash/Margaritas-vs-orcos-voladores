@@ -1,7 +1,9 @@
 package logica.entidad.aliado;
 
-import grafica.entidad.aliado.*;
 import logica.mapa.*;
+import logica.gameObjects.*;
+import logica.disparo.disparoAliado.*;
+import grafica.entidad.aliado.*;
 
 public class Arquero extends Aliado{
 	
@@ -15,5 +17,8 @@ public class Arquero extends Aliado{
 		super(x,y,1,m);
 		grafico = new GraphicArquero(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
+	}
+	public void atacar(Obstaculo o){
+		new Flecha(x,y,map);
 	}
 }

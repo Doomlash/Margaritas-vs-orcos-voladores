@@ -10,4 +10,7 @@ public abstract class GraphicAliado extends GraphicGameObject{
 		super(x,y,1,a);
 		imagenes= new Icon[3];
 	}
+	public void atacar(){
+		this.grafico.setIcon(imagenes[1]);
+	}
 }

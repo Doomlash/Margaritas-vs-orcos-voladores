@@ -1,7 +1,8 @@
 package logica.entidad.enemigo;
 
-import grafica.entidad.enemigo.*;
 import logica.mapa.*;
+import logica.gameObjects.*;
+import grafica.entidad.enemigo.*;
 
 public class Lich extends Enemigo{
 	
@@ -13,21 +14,14 @@ public class Lich extends Enemigo{
 	 */
 	public Lich(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=5;
+		velocidad=6;
 		puntaje=70;
 		monedas=15;
 		grafico = new GraphicLich(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
-	/**
-	 * Se determina la funcion del hilo
-	 */
-	public void run(){
-		while(execute){
-				try {
-					move();
-				} catch (InterruptedException e) {
-				}
-		}
+	
+	public void atacar(Obstaculo o){
+		
 	}
 }

@@ -1,7 +1,8 @@
 package logica.entidad.enemigo;
 
-import grafica.entidad.enemigo.*;
 import logica.mapa.*;
+import logica.gameObjects.*;
+import grafica.entidad.enemigo.*;
 
 public class Nigromante extends Enemigo{
 	
@@ -19,15 +20,8 @@ public class Nigromante extends Enemigo{
 		grafico = new GraphicNigromante(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
-	/**
-	 * Se determina la funcion del hilo
-	 */
-	public void run(){
-		while(execute){
-				try {
-					move();
-				} catch (InterruptedException e) {
-				}
-		}
+	
+	public void atacar(Obstaculo o){
+		
 	}
 }

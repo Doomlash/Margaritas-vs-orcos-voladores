@@ -1,8 +1,7 @@
 package logica.gameObjects;
 
-import logica.Visitor.VisitorColisiones.*;
-import logica.Visitor.VisitorInteraccion.*;
 import logica.mapa.*;
+import logica.visitor.*;
 
 public abstract class Elemento extends GameObject{
 	
@@ -10,6 +9,5 @@ public abstract class Elemento extends GameObject{
 		super(x,y,dx,m);
 	}
 	
-	public abstract boolean accept(VisitorColision v);
-	public abstract void accept(VisitorInteraccion v);
+	public abstract void accept(Visitor v);
 }

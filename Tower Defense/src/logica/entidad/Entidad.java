@@ -2,14 +2,12 @@ package logica.entidad;
 
 import logica.gameObjects.*;
 import logica.mapa.Mapa;
-import logica.Visitor.VisitorColisiones.*;
-import logica.Visitor.VisitorInteraccion.*;
 import logica.premio.magiaTemporal.*;
+import logica.visitor.*;
 
 public abstract class Entidad extends Obstaculo{
 	protected CampoDeProteccion escudo;
-	protected VisitorColision visitorColision;
-	protected VisitorInteraccion visitorAtaque;
+	protected Visitor visitorAtaque;
 	protected int rango,fuerza,fuerzaActual;
 
 	public Entidad(int x, int y, int dx, Mapa m){
@@ -28,4 +26,6 @@ public abstract class Entidad extends Obstaculo{
 	public CampoDeProteccion getCP(){
 		return escudo;
 	}
+	public abstract void atacar(Obstaculo o);
+	public abstract void atacarRango();
 }

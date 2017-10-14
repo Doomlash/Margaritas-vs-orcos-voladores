@@ -1,6 +1,7 @@
 package logica.entidad.aliado;
 
 import logica.mapa.Mapa;
+import logica.gameObjects.*;
 import grafica.entidad.aliado.*;
 
 public class Caballero extends Aliado{
@@ -15,5 +16,8 @@ public class Caballero extends Aliado{
 		super(x,y,1,m);
 		grafico = new GraphicCaballero(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
+	}
+	public void atacar(Obstaculo o){
+		
 	}
 }

@@ -36,13 +36,8 @@ public abstract class GraphicGameObject{
 		pos.setLocation(newX, newY);
 		grafico.setBounds(pos.x, pos.y, width, height);
 	}
-	
-	/**
-	 * Se modifica el grafico.
-	 */
-	public void cambiarGrafico(int i){
-		if(i<imagenes.length)
-			grafico.setIcon(imagenes[i]);
+	public void setImageIdle(){
+		this.grafico.setIcon(imagenes[0]);
 	}
 	
 	public int getPrioridad(){
@@ -50,6 +45,9 @@ public abstract class GraphicGameObject{
 	}
 	public Point getPos(){
 		return pos;
+	}
+	public int getWidthUnaCelda(){
+		return 90;
 	}
 	public int getWidth(){
 		return width;

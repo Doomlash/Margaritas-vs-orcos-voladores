@@ -2,11 +2,9 @@ package logica.disparo;
 
 import logica.gameObjects.*;
 import logica.mapa.Mapa;
-import logica.Visitor.VisitorColisiones.*;
 
 
 public abstract class Disparo extends GameObject{
-	protected VisitorColision visitor;
 	protected int damage,velocidad,impactos;
 	
 

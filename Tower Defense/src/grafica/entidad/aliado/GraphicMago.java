@@ -7,6 +7,7 @@ public class GraphicMago extends GraphicAliado{
 	public GraphicMago(int x, int y){
 		super(x,y,1);
 
-		imagenes[0] = new ImageIcon(dir+"Estaticas Aliados/MagoIdle.png");
+		imagenes[0] = new ImageIcon(dir+"Aliados/Mago/MagoIdle.png");
+		imagenes[1] = new ImageIcon(dir+"Aliados/Mago/MagoAtaque.gif");
 	}
 }

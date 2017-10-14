@@ -1,6 +1,8 @@
 package logica.entidad.aliado;
 
 import logica.mapa.Mapa;
+import logica.disparo.disparoAliado.*;
+import logica.gameObjects.*;
 import grafica.entidad.aliado.*;
 
 public class Catapulta extends Aliado{
@@ -15,5 +17,8 @@ public class Catapulta extends Aliado{
 		super(x,y,2,m);
 		grafico = new GraphicCatapulta(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
+	}
+	public void atacar(Obstaculo o){
+		new PiedraCatapulta(x,y,map);
 	}
 }

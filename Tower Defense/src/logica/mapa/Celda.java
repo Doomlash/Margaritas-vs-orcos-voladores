@@ -36,4 +36,8 @@ public class Celda{
 	public boolean isEmpty(){
 		return lista.isEmpty();
 	}
+	
+	public Iterable<Elemento> getElementos(){
+		return lista;
+	}
 }

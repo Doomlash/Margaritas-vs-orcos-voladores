@@ -1,12 +1,13 @@
 package logica.mapa.elementosMapa.temporales;
 
-import logica.Visitor.VisitorColisiones.*;
-import logica.Visitor.VisitorInteraccion.*;
 import logica.mapa.*;
+import logica.visitor.*;
 import logica.gameObjects.*;
 import grafica.mapa.GraphicElementosMapa.GraphicTemporales.*;
+import grafica.gameObjects.*;
 
 public class Agua extends Elemento implements Runnable{
+	private GraphicAgua grafico;
 	
 	public Agua(int x,int y, Mapa m){
 		super(x,y,1,m);
@@ -22,14 +23,12 @@ public class Agua extends Elemento implements Runnable{
 		kill();
 	}
 	
-	public void accept(VisitorInteraccion v){
+	public void accept(Visitor v){
 		v.visit(this);
 	}
-	
-	public boolean accept(VisitorColision v){
-		return v.visit(this);
+	public GraphicGameObject getGraphic(){
+		return grafico;
 	}
-	
 	public void kill(){
 		map.eliminarElemento(x, y, this);
 		map.getMapaGrafico().remove(this.grafico.getGrafico());

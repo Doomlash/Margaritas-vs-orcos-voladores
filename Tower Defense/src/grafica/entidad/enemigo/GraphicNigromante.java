@@ -8,5 +8,6 @@ public class GraphicNigromante extends GraphicEnemigo{
 		super(x,y,1);
 
 		imagenes[0] = new ImageIcon(dir+"Enemigos/Nigromante/NigromanteMovimiento.gif");
+		imagenes[1] = new ImageIcon(dir+"Enemigos/Nigromante/NigromanteAtaque.gif");
 	}
 }

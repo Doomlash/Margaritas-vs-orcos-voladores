@@ -196,12 +196,11 @@ public class GUI extends JFrame {
 				case "Ciclope":{
 					if(ene[0]==null){
 						ene[0] = new Ciclope(9,fila,j.getNivel().getMapa());
-						Thread t = new Thread(ene[0]);
-						t.start();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[0]);
 						j.getNivel().getMapa().agregarElemento(ene[0].getX(), ene[0].getY(), ene[0]);
 					}
 					else{
-						ene[0].terminate();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[0]);
 						ene[0].kill();
 						ene[0]=null;
 					}
@@ -210,12 +209,11 @@ public class GUI extends JFrame {
 				case "Dragon":{
 					if(ene[1]==null){
 						ene[1] = new Dragon(9,fila,j.getNivel().getMapa());
-						Thread t = new Thread(ene[1]);
-						t.start();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[1]);
 						j.getNivel().getMapa().agregarElemento(ene[1].getX(), ene[1].getY(), ene[1]);
 					}
 					else{
-						ene[1].terminate();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[1]);
 						ene[1].kill();
 						ene[1]=null;
 					}
@@ -224,12 +222,11 @@ public class GUI extends JFrame {
 				case "Goblin":{
 					if(ene[2]==null){
 						ene[2] = new Goblin(9,fila,j.getNivel().getMapa());
-						Thread t = new Thread(ene[2]);
-						t.start();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[2]);
 						j.getNivel().getMapa().agregarElemento(ene[2].getX(), ene[2].getY(), ene[2]);
 					}
 					else{
-						ene[2].terminate();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[2]);
 						ene[2].kill();
 						ene[2]=null;
 					}
@@ -238,12 +235,11 @@ public class GUI extends JFrame {
 				case "Lich":{
 					if(ene[3]==null){
 						ene[3] = new Lich(9,fila,j.getNivel().getMapa());
-						Thread t = new Thread(ene[3]);
-						t.start();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[3]);
 						j.getNivel().getMapa().agregarElemento(ene[3].getX(), ene[3].getY(), ene[3]);
 					}
 					else{
-						ene[3].terminate();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[3]);
 						ene[3].kill();
 						ene[3]=null;
 					}
@@ -252,12 +248,11 @@ public class GUI extends JFrame {
 				case "Nigromante":{
 					if(ene[4]==null){
 						ene[4] = new Nigromante(9,fila,j.getNivel().getMapa());
-						Thread t = new Thread(ene[4]);
-						t.start();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[4]);
 						j.getNivel().getMapa().agregarElemento(ene[4].getX(), ene[4].getY(), ene[4]);
 					}
 					else{
-						ene[4].terminate();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[4]);
 						ene[4].kill();
 						ene[4]=null;
 					}
@@ -266,12 +261,11 @@ public class GUI extends JFrame {
 				case "Ogro":{
 					if(ene[5]==null){
 						ene[5] = new Ogro(9,fila,j.getNivel().getMapa());
-						Thread t = new Thread(ene[5]);
-						t.start();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[5]);
 						j.getNivel().getMapa().agregarElemento(ene[5].getX(), ene[5].getY(), ene[5]);
 					}
 					else{
-						ene[5].terminate();
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[5]);
 						ene[5].kill();
 						ene[5]=null;
 					}

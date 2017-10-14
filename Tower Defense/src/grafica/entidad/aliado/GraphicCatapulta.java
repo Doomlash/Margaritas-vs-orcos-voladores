@@ -8,5 +8,6 @@ public class GraphicCatapulta extends GraphicAliado{
 		super(x,y,2);
 		
 		imagenes[0] = new ImageIcon(dir+"Aliados/Catapulta/CatapultaIdle.png");
+		imagenes[1] = new ImageIcon(dir+"Aliados/Catapulta/CatapultaAtaque.gif");
 	}
 }

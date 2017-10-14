@@ -2,15 +2,19 @@
 package logica.entidad.enemigo;
 
 import logica.entidad.*;
+import logica.gameObjects.Elemento;
 import logica.mapa.*;
-import logica.Visitor.VisitorColisiones.*;
-import logica.Visitor.VisitorInteraccion.*;
+import logica.visitor.*;
+import grafica.entidad.enemigo.*;
+import grafica.gameObjects.*;
 
-public abstract class Enemigo extends Entidad implements Runnable{
+public abstract class Enemigo extends Entidad{
 	protected int velocidad;
 	protected int puntaje;
 	protected int monedas;
 	protected volatile boolean execute;
+	protected GraphicEnemigo grafico;
+	protected boolean canMove;
 	
 	/**
 	 * 
@@ -21,15 +25,15 @@ public abstract class Enemigo extends Entidad implements Runnable{
 	 */
 	public Enemigo(int x, int y, int dx, Mapa m){
 		super(x,y,dx,m);
-		visitorColision = new VisitorColisionEnemigo();
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
 		this.execute=true;
+		canMove=false;
 	}
 	
 	/**
 	 * Invoca al visit del visitor indicando su tipo (Enemigo)
 	 */
-	public void accept(VisitorInteraccion v){
+	public void accept(Visitor v){
 		v.visit(this);
 	}
 	
@@ -42,30 +46,31 @@ public abstract class Enemigo extends Entidad implements Runnable{
 	
 	/**
 	 * Actualiza la posicion logica y grafica del enemigo al moverse
-	 * @throws InterruptedException
 	 */
-	public void move() throws InterruptedException{
+	public void move(){
 		if(x-1>=0&&execute){
-			int aux= grafico.getPos().x-grafico.getWidth();
-			while(grafico.getPos().x>aux){
-				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
-				Thread.sleep(100);
-				grafico.getGrafico().repaint();
+			int aux= grafico.getPos().x-grafico.getWidthUnaCelda();
+			grafico.cambiarPos(grafico.getPos().x-velocidad*2, grafico.getPos().y);
+			
+			if(grafico.getPos().x>aux){
+				if(execute)
+					map.getCelda(x-1, y).agregarElemento(this);
+				if(x<10)
+					map.getCelda(x, y).remover(this);
 			}
-			if(execute)
-				map.getCelda(x-1, y).agregarElemento(this);
-			if(x<10)
-				map.getCelda(x, y).remover(this);
 		}
 	}
 	
-	/**
-	 * Invoca al visit del visitor indicando su tipo (Enemigo)
-	 * @return boolean
-	 */
-	public boolean accept(VisitorColision v){
-		return v.visit(this);
+	public void atacarRango(){
+		for(int i=(x-1);i>=x-rango;i--){
+			Celda c = map.getCelda(i, y);
+			if(c!=null){
+				for(Elemento e: c.getElementos())
+					e.accept(visitorAtaque);
+			}
+		}
 	}
+	
 	public void kill(){
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);
 		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);
@@ -73,5 +78,9 @@ public abstract class Enemigo extends Entidad implements Runnable{
 			map.eliminarElemento(x+i, y, this);
 		map.getMapaGrafico().remove(this.grafico.getGrafico());
 		map.getMapaGrafico().repaint();
+	}
+	
+	public GraphicGameObject getGraphic(){
+		return grafico;
 	}
 }

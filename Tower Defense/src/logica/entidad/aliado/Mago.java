@@ -1,7 +1,8 @@
 package logica.entidad.aliado;
 
-import grafica.entidad.aliado.*;
 import logica.mapa.*;
+import logica.gameObjects.*;
+import grafica.entidad.aliado.*;
 
 public class Mago extends Aliado{
 	
@@ -15,5 +16,8 @@ public class Mago extends Aliado{
 		super(x,y,1,m);
 		grafico = new GraphicMago(x,y);
 		m.getMapaGrafico().addGraphicElemento(grafico);
+	}
+	public void atacar(Obstaculo o){
+		
 	}
 }

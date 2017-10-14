@@ -59,6 +59,7 @@ public class TesterGui extends JFrame{
 		etiquetaMouse.setText("Color seleccionado: No hay color");
 		etiquetaMouse.setHorizontalAlignment(JLabel.CENTER);
 		etiquetaMouse.setForeground(Color.BLACK);
+		etiquetaMouse.setOpaque(false);
 		
 		panelSuperior();
 		panelInferior();
@@ -69,26 +70,27 @@ public class TesterGui extends JFrame{
 	public void panelSuperior(){
 		p2= new JPanel();
 		p2.setLayout(null);
-//		p2.setLayout(new GridLayout(3,6));
+		p2.setLayout(new GridLayout(3,6));
+		
+		me = new JLabel[3][6];
+		for(int i=0;i<me.length;i++)
+			for(int j=0;j<me[i].length;j++){
+				me[i][j] = new JLabel();
+				me[i][j].setBorder(new LineBorder(Color.WHITE,1));
+				me[i][j].setHorizontalAlignment(JLabel.CENTER);
+				me[i][j].setOpaque(true);
+				p2.add(me[i][j]);
+			}
+		
+		OyenteMouse oy = new OyenteMouse();
+		
+//		item = new JLabel(new ImageIcon("src/Sprites/Granada.png"));
+//		item.setBounds(100,100,100,100);
+//		item.addMouseListener(new ItemListener());
 //		
-//		me = new JLabel[3][6];
-//		for(int i=0;i<me.length;i++)
-//			for(int j=0;j<me[i].length;j++){
-//				me[i][j] = new JLabel();
-//				me[i][j].setBorder(new LineBorder(Color.WHITE,1));
-//				me[i][j].setHorizontalAlignment(JLabel.CENTER);
-//				p2.add(me[i][j]);
-//			}
-//		
-//		OyenteMouse oy = new OyenteMouse();
+//		p2.add(item);
 		
-		item = new JLabel(new ImageIcon("src/Sprites/Granada.png"));
-		item.setBounds(100,100,100,100);
-		item.addMouseListener(new ItemListener());
-		
-		p2.add(item);
-		
-//		p2.addMouseListener(oy);
+		p2.addMouseListener(oy);
 	}
 	
 	public void panelInferior(){

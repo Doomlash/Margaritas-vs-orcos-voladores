@@ -13,10 +13,10 @@ public abstract class GraphicItemPremio extends GraphicGameObject{
 		
 		imagenes = new ImageIcon[2];
 		
-		this.getGrafico().addMouseListener(new Oyente());
+//		this.getGrafico().addMouseListener(new Oyente());
 	}
 	
-	private class Oyente implements MouseListener{
+/*	private class Oyente implements MouseListener{
 		
 		public void mouseClicked(MouseEvent e){
 		}
@@ -34,5 +34,5 @@ public abstract class GraphicItemPremio extends GraphicGameObject{
 		
 		public void mouseReleased(MouseEvent e){
 		}
-	}
+	}*/
 }
