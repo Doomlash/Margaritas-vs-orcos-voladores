@@ -22,7 +22,12 @@ public abstract class Nivel{
 	
 	public abstract void crearHordas();
 	public void modificarPresupueto(int p){
-		presupuesto = p;
+		if(p<0)
+			presupuesto=0;
+		else
+			presupuesto = p;
+		juego.getGui().actualizarPresupuesto();
+		
 	}
 	public void siguienteHorda(){
 		if(hordaActual<hordas.length)

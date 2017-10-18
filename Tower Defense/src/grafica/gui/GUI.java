@@ -237,6 +237,7 @@ public class GUI extends JFrame {
 				case "Goblin":{
 					if(ene[2]==null){
 						ene[2] = new Goblin(9,fila,j.getNivel().getMapa());
+						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[2]);
 						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[2]);
 						j.getNivel().getMapa().agregarElemento(ene[2]);
 					}

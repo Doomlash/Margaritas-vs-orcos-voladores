@@ -22,7 +22,9 @@ public class Juego{
 	 * Se avanza al siguiente nivel del juego.
 	 */
 	public void aumentarPuntaje(int p){
-		puntaje+=p;
+		if(p>0)
+			puntaje+=p;
+		gui.actualizarPuntaje();
 	}
 	public void siguienteNivel(){
 		nivel= nivel.getSiguiente();

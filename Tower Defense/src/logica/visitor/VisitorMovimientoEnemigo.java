@@ -25,7 +25,6 @@ public class VisitorMovimientoEnemigo extends Visitor{
 	}
 	
 	public void visit(Piedra p){
-		System.out.println("Piedra en "+p.getX());
 		if(ene!=null)
 			ene.stop();
 	}
