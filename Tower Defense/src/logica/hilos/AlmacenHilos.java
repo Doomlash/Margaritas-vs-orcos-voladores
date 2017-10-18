@@ -8,10 +8,8 @@ public class AlmacenHilos{
 		hilos = new HiloEnemigo[2];
 		hilos[0] = new HiloMovimientoEnemigo();
 		hilos[1] = new HiloAtaqueEnemigo();
-		for(int i=0;i<hilos.length;i++){
-			Thread t = new Thread(hilos[i]);
-			t.start();
-		}
+		Thread t = new Thread(hilos[0]);
+		t.start();
 	}
 	public HiloEnemigo getMovEnemigo(){
 		return hilos[0];
