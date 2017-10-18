@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 public abstract class GraphicGameObject{
 	protected JLabel grafico;
 	protected Icon[] imagenes;
+	protected final int widthOne=90;
 	protected final int width;
 	protected final int height = 95;
 	protected final String dir = "src/Sprites/";
@@ -21,8 +22,8 @@ public abstract class GraphicGameObject{
 	 * @param y : int - Fila de la matriz del mapa
 	 */
 	public GraphicGameObject(int x, int y, int p, int ancho){
-		width=90*ancho;
-		this.pos = new Point(x*90,y*height);
+		width=widthOne*ancho;
+		this.pos = new Point(x*widthOne,y*height);
 		imagenes = new Icon[1];
 		prioridad=p;
 	}
@@ -47,7 +48,7 @@ public abstract class GraphicGameObject{
 		return pos;
 	}
 	public int getWidthUnaCelda(){
-		return 90;
+		return widthOne;
 	}
 	public int getWidth(){
 		return width;

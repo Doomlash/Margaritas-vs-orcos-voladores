@@ -39,7 +39,7 @@ public class Mapa{
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
 			if(celdas[fila][columna].isEmpty()){
-				celdas[fila][columna].agregarElemento(new Piedra(columna,fila,this));
+				agregarElemento(columna,fila,new Piedra(columna,fila,this));
 				p--;
 
 			}
@@ -51,7 +51,7 @@ public class Mapa{
 				Agua a = new Agua(columna,fila,this);
 				Thread t = new Thread(a);
 				t.start();
-				celdas[fila][columna].agregarElemento(a);
+				agregarElemento(columna,fila,a);
 				l--;
 			}
 		}
@@ -59,7 +59,6 @@ public class Mapa{
 	public void agregarElemento(int x, int y, Elemento e){
 		celdas[y][x].agregarElemento(e);
 		grafico.addGraphicElemento(e.getGraphic());
-//		e.getGraphic().getGrafico().repaint();
 	}
 	public void eliminarElemento(int x, int y, Elemento e){
 		if(x>=0&&x<celdas[0].length)
