@@ -20,8 +20,10 @@ public abstract class Obstaculo extends Elemento{
 		if(v>vidaMax)
 			vida=vidaMax;
 		else
-			if(v<=0)
+			if(v<=0){
 				vida=0;
+				kill();
+			}
 			else
 				vida=v;
 	}

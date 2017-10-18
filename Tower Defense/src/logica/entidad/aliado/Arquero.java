@@ -19,6 +19,6 @@ public class Arquero extends Aliado{
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void atacar(Obstaculo o){
-		new Flecha(x,y,map);
+		new Flecha(x,y,map,x+dimensionX+rango);
 	}
 }

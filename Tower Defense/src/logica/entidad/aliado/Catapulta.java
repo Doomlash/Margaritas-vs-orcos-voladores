@@ -19,6 +19,6 @@ public class Catapulta extends Aliado{
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void atacar(Obstaculo o){
-		new PiedraCatapulta(x,y,map);
+		new PiedraCatapulta(x,y,map,x+dimensionX+rango);
 	}
 }

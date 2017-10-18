@@ -7,8 +7,8 @@ import grafica.gameObjects.*;
 public class PiedraCatapulta extends DisparoAliado{
 	private GraphicPiedraCatapulta grafico;
 	
-	public PiedraCatapulta(int x, int y, Mapa m){
-		super(x,y,m);
+	public PiedraCatapulta(int x, int y, Mapa m, int alcance){
+		super(x,y,m,alcance);
 		grafico = new GraphicPiedraCatapulta(x,y);
 	}
 	public GraphicGameObject getGraphic(){

@@ -7,8 +7,8 @@ import grafica.gameObjects.*;
 public class Flecha extends DisparoAliado{
 	private GraphicFlecha grafico;
 	
-	public Flecha(int x, int y, Mapa m){
-		super(x,y,m);
+	public Flecha(int x, int y, Mapa m, int alcance){
+		super(x,y,m,alcance);
 		grafico = new GraphicFlecha(x,y);
 	}
 	public GraphicGameObject getGraphic(){

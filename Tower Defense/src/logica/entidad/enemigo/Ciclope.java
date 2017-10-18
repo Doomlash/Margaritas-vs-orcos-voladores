@@ -2,6 +2,7 @@ package logica.entidad.enemigo;
 
 import logica.mapa.*;
 import logica.gameObjects.*;
+import logica.disparo.disparoEnemigo.*;
 import grafica.entidad.enemigo.*;
 
 public class Ciclope extends Enemigo{
@@ -17,9 +18,9 @@ public class Ciclope extends Enemigo{
 		velocidad=8;
 		puntaje=120;
 		monedas=30;
-		rango=1;
-		fuerza = 30;
-		vida=80;
+		rango=2;
+		fuerza = 15;
+		vida=vidaMax=70;
 		grafico = new GraphicCiclope(x,y);
 	}
 	
@@ -36,6 +37,7 @@ public class Ciclope extends Enemigo{
 	}
 	
 	public void atacar(Obstaculo o){
-		
+		grafico.atacar();
+		PiedraCiclope p = new PiedraCiclope(x,y,map,x-rango);
 	}
 }
