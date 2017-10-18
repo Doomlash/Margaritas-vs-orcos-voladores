@@ -39,7 +39,7 @@ public class Mapa{
 			fila=r.nextInt(6);
 			columna=r.nextInt(9)+1;
 			if(celdas[fila][columna].isEmpty()){
-				agregarElemento(columna,fila,new Piedra(columna,fila,this));
+				agregarElemento(new Piedra(columna,fila,this));
 				p--;
 
 			}
@@ -51,19 +51,35 @@ public class Mapa{
 				Agua a = new Agua(columna,fila,this);
 				Thread t = new Thread(a);
 				t.start();
-				agregarElemento(columna,fila,a);
+				agregarElemento(a);
 				l--;
 			}
 		}
 	}
-	public void agregarElemento(int x, int y, Elemento e){
-		celdas[y][x].agregarElemento(e);
-		grafico.addGraphicElemento(e.getGraphic());
-	}
-	public void eliminarElemento(int x, int y, Elemento e){
+	public void agregarElemento(Elemento e){
+		int x = e.getX();
+		int y = e.getY();
+		int dx = e.getDimensionX();
 		if(x>=0&&x<celdas[0].length)
-			if(y>=0&&y<celdas.length)
-				celdas[y][x].remover(e);
+			if(y>=0&&y<celdas.length){
+				for(int i=x;i<x+dx;i++)
+					if(i<celdas[0].length)
+						celdas[y][i].agregarElemento(e);
+				grafico.addGraphicElemento(e.getGraphic());
+			}
+	}
+	public void eliminarElemento(Elemento e){
+		int x = e.getX();
+		int y = e.getY();
+		int dx = e.getDimensionX();
+		if(x>=0&&x<celdas[0].length)
+			if(y>=0&&y<celdas.length){
+				for(int i=x;i<x+dx;i++)
+					if(i<celdas[0].length)
+						celdas[y][i].remover(e);
+				grafico.removeGraphicElemento(e.getGraphic());
+			}
+		
 	}
 	
 	public Nivel getNivel(){

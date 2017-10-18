@@ -14,7 +14,7 @@ public class Lich extends Enemigo{
 	 */
 	public Lich(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=6;
+		velocidad=12;
 		puntaje=70;
 		monedas=15;
 		grafico = new GraphicLich(x,y);

@@ -50,7 +50,7 @@ public abstract class Aliado extends Entidad implements Comprable{
 	
 	public void kill(){
 		for(int i=0;i<dimensionX;i++)
-			map.eliminarElemento(x+i, y, this);
+			map.eliminarElemento(this);
 		map.getMapaGrafico().remove(this.grafico.getGrafico());
 		map.getMapaGrafico().repaint();
 	}

@@ -18,7 +18,7 @@ public class Trampa extends Obstaculo{
 	}
 	
 	public void kill(){
-		map.eliminarElemento(x, y, this);
+		map.eliminarElemento(this);
 		map.getMapaGrafico().remove(this.grafico.getGrafico());
 		map.getMapaGrafico().repaint();
 	}

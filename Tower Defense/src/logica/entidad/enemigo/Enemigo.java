@@ -26,7 +26,7 @@ public abstract class Enemigo extends Entidad{
 		super(x,y,dx,m);
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
 		visitorMovimiento = new VisitorMovimientoEnemigo(this);
-		canMove=false;
+		canMove=true;
 	}
 	
 	/**
@@ -58,18 +58,18 @@ public abstract class Enemigo extends Entidad{
 	 */
 	public void move(){
 		if(x-1>=0){
-			System.out.println("Enemigo en "+x);
 			map.getCelda(x-1, y).accept(visitorMovimiento);
 			if(canMove){
 				this.grafico.avanzar();
-				int aux= x*grafico.getWidthUnaCelda();
-				grafico.cambiarPos(grafico.getPos().x-velocidad*2, grafico.getPos().y);
+				int aux= x*grafico.getWidthUnaCelda()-(grafico.getWidthUnaCelda()+15);
+				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
 				
 				if(grafico.getPos().x<aux){
 					if(x>=0){
-						map.getCelda(x-1, y).agregarElemento(this);
-						map.getCelda(x, y).remover(this);
 						x--;
+						map.getCelda(x, y).agregarElemento(this);
+						if(x+dimensionX<10)
+							map.getCelda(x+dimensionX, y).remover(this);
 					}
 				}
 			}
@@ -94,10 +94,7 @@ public abstract class Enemigo extends Entidad{
 		map.getAlmacenHilos().getMovEnemigo().enemigoAEliminar(this);
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);
 		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);
-		for(int i=0;i<dimensionX;i++)
-			map.eliminarElemento(x+i, y, this);
-		map.getMapaGrafico().remove(this.grafico.getGrafico());
-		map.getMapaGrafico().repaint();
+		map.eliminarElemento(this);
 	}
 	
 	public GraphicGameObject getGraphic(){

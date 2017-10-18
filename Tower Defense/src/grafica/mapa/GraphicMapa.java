@@ -27,6 +27,10 @@ public class GraphicMapa extends JPanel{
 			this.setComponentZOrder(g.getGrafico(), 0);
 		repaint();
 	}
+	public void removeGraphicElemento(GraphicGameObject g){
+		this.remove(g.getGrafico());
+		this.repaint();
+	}
 	
 	public void paint(Graphics g){
 		g.drawImage(fondo, 0, 0, getWidth(), getHeight(), this);

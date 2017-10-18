@@ -26,8 +26,8 @@ public class Celda{
 	 * @param e elemento a remover
 	 * @return TRUE si se pudo eliminar, FALSE caso contrario
 	 */
-	public boolean remover(Elemento e){
-		return lista.remove(e);
+	public void remover(Elemento e){
+		lista.remove(e);
 	}
 	
 	/**

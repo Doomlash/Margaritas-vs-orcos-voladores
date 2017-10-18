@@ -14,7 +14,7 @@ public class Nigromante extends Enemigo{
 	 */
 	public Nigromante(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=4;
+		velocidad=8;
 		puntaje=90;
 		monedas=20;
 		grafico = new GraphicNigromante(x,y);
