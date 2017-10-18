@@ -9,23 +9,10 @@ import logica.premio.objetoPrecioso.Trampa;
 
 public abstract class Visitor{
 
-	public void visit(Aliado a){
-		
-	}
-	public void visit(Enemigo e){
-		
-	}
-	public void visit(Barricada b){
-		
-	}
-	public void visit(Piedra p){
-		
-	}
-	public void visit(Agua a){
-		
-	}
-	public void visit(Trampa t){
-		
-	}
-	public abstract void kill();
+	public abstract void visit(Aliado a);
+	public abstract void visit(Enemigo e);
+	public abstract void visit(Barricada b);
+	public abstract void visit(Piedra p);
+	public abstract void visit(Agua a);
+	public abstract void visit(Trampa t);
 }

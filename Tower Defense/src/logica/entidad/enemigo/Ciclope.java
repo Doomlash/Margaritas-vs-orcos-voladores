@@ -17,22 +17,8 @@ public class Ciclope extends Enemigo{
 		velocidad=4;
 		puntaje=120;
 		monedas=30;
-		rango=1;
-		fuerza = 30;
-		vida=80;
 		grafico = new GraphicCiclope(x,y);
-	}
-	
-	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	*/
-	public void SACARDEARREGLO(){
-		map.getNivel().getJuego().getGui().getEnemigos()[0]=null;		
+		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	
 	public void atacar(Obstaculo o){

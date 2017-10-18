@@ -1,6 +1,8 @@
+
 package logica.entidad.enemigo;
 
 import logica.entidad.*;
+import logica.gameObjects.Elemento;
 import logica.mapa.*;
 import logica.visitor.*;
 import grafica.entidad.enemigo.*;
@@ -10,10 +12,9 @@ public abstract class Enemigo extends Entidad{
 	protected int velocidad;
 	protected int puntaje;
 	protected int monedas;
+	protected volatile boolean execute;
 	protected GraphicEnemigo grafico;
 	protected boolean canMove;
-	protected VisitorAtaqueEnemigo visitorAtaque;
-	protected VisitorMovimientoEnemigo visitorMovimiento;
 	
 	/**
 	 * 
@@ -25,7 +26,7 @@ public abstract class Enemigo extends Entidad{
 	public Enemigo(int x, int y, int dx, Mapa m){
 		super(x,y,dx,m);
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
-		visitorMovimiento = new VisitorMovimientoEnemigo(this);
+		this.execute=true;
 		canMove=false;
 	}
 	
@@ -37,43 +38,26 @@ public abstract class Enemigo extends Entidad{
 	}
 	
 	/**
-	 * Detiene el movimiento del enemigo
+	 * Termina el hilo
 	 */
-	public void stop(){
-		canMove=false;
+	public void terminate(){
+		execute=false;
 	}
-
 	
-	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	*/
-	public abstract void SACARDEARREGLO();
 	/**
 	 * Actualiza la posicion logica y grafica del enemigo al moverse
 	 */
 	public void move(){
-		if(x-1>=0){
-			System.out.println("Enemigo en "+x);
-			map.getCelda(x-1, y).accept(visitorMovimiento);
-			if(canMove){
-				this.grafico.avanzar();
-				int aux= x*grafico.getWidthUnaCelda();
-				grafico.cambiarPos(grafico.getPos().x-velocidad*2, grafico.getPos().y);
-				
-				if(grafico.getPos().x<aux){
-					if(x>=0){
-						map.getCelda(x-1, y).agregarElemento(this);
-						map.getCelda(x, y).remover(this);
-						x--;
-					}
-				}
+		if(x-1>=0&&execute){
+			int aux= grafico.getPos().x-grafico.getWidthUnaCelda();
+			grafico.cambiarPos(grafico.getPos().x-velocidad*2, grafico.getPos().y);
+			
+			if(grafico.getPos().x>aux){
+				if(execute)
+					map.getCelda(x-1, y).agregarElemento(this);
+				if(x<10)
+					map.getCelda(x, y).remover(this);
 			}
-			canMove=true;
 		}
 	}
 	
@@ -81,17 +65,13 @@ public abstract class Enemigo extends Entidad{
 		for(int i=(x-1);i>=x-rango;i--){
 			Celda c = map.getCelda(i, y);
 			if(c!=null){
-				c.accept(visitorAtaque);
+				for(Elemento e: c.getElementos())
+					e.accept(visitorAtaque);
 			}
 		}
 	}
 	
 	public void kill(){
-		visitorAtaque.kill();
-		visitorMovimiento.kill();
-		this.SACARDEARREGLO();
-		map.getAlmacenHilos().getAtaEnemigo().enemigoAEliminar(this);;
-		map.getAlmacenHilos().getMovEnemigo().enemigoAEliminar(this);
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);
 		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);
 		for(int i=0;i<dimensionX;i++)

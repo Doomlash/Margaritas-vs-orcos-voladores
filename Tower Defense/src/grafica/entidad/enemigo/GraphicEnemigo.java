@@ -10,9 +10,6 @@ public abstract class GraphicEnemigo extends GraphicGameObject{
 		imagenes = new Icon[3];
 	}
 	public void atacar(){
-		this.getGrafico().setIcon(imagenes[2]);
-	}
-	public void avanzar(){
-		this.getGrafico().setIcon(imagenes[1]);
+		this.grafico.setIcon(imagenes[1]);
 	}
 }

@@ -42,19 +42,7 @@ public class GUI extends JFrame {
 			}
 		});
 	}
-	
 
-	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	*/
-	public Enemigo[] getEnemigos(){
-		return ene;
-	}
 	/**
 	 * Create the frame.
 	 */
@@ -156,12 +144,7 @@ public class GUI extends JFrame {
 			panelDerecha.add(enemigos[i]);
 		}
 	}
-	public void actualizarPuntaje(){
-		puntaje.setText("Puntaje: "+j.getPuntaje());		
-	}
-	public void actualizarPresupuesto(){
-		presupuesto.setText("$ "+j.getNivel().getPresupuesto());
-	}
+	
 	
 	private class OyenteAgregar implements ActionListener{
 		public void actionPerformed(ActionEvent e){
@@ -217,6 +200,7 @@ public class GUI extends JFrame {
 						j.getNivel().getMapa().agregarElemento(ene[0].getX(), ene[0].getY(), ene[0]);
 					}
 					else{
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[0]);
 						ene[0].kill();
 						ene[0]=null;
 					}
@@ -229,6 +213,7 @@ public class GUI extends JFrame {
 						j.getNivel().getMapa().agregarElemento(ene[1].getX(), ene[1].getY(), ene[1]);
 					}
 					else{
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[1]);
 						ene[1].kill();
 						ene[1]=null;
 					}
@@ -241,6 +226,7 @@ public class GUI extends JFrame {
 						j.getNivel().getMapa().agregarElemento(ene[2].getX(), ene[2].getY(), ene[2]);
 					}
 					else{
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[2]);
 						ene[2].kill();
 						ene[2]=null;
 					}
@@ -253,6 +239,7 @@ public class GUI extends JFrame {
 						j.getNivel().getMapa().agregarElemento(ene[3].getX(), ene[3].getY(), ene[3]);
 					}
 					else{
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[3]);
 						ene[3].kill();
 						ene[3]=null;
 					}
@@ -265,6 +252,7 @@ public class GUI extends JFrame {
 						j.getNivel().getMapa().agregarElemento(ene[4].getX(), ene[4].getY(), ene[4]);
 					}
 					else{
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[4]);
 						ene[4].kill();
 						ene[4]=null;
 					}
@@ -277,12 +265,15 @@ public class GUI extends JFrame {
 						j.getNivel().getMapa().agregarElemento(ene[5].getX(), ene[5].getY(), ene[5]);
 					}
 					else{
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().enemigoAEliminar(ene[5]);
 						ene[5].kill();
 						ene[5]=null;
 					}
 					break;
 				}
 			}
+			presupuesto.setText("$ "+j.getNivel().getPresupuesto());
+			puntaje.setText("Puntaje: "+j.getPuntaje());
 		}
 	}
 }
