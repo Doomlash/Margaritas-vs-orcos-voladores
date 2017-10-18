@@ -7,7 +7,8 @@ public class GraphicGoblin extends GraphicEnemigo{
 	public GraphicGoblin(int x, int y){
 		super(x,y,1);
 		
-		imagenes[0] = new ImageIcon(dir+"Enemigos/Goblin/GoblinMovimiento.gif");
-		imagenes[1] = new ImageIcon(dir+"Enemigos/Goblin/GoblinAtaque.gif");
+		imagenes[0] = new ImageIcon(dir+"Enemigos/Goblin/GoblinIdle.png");
+		imagenes[1] = new ImageIcon(dir+"Enemigos/Goblin/GoblinMovimiento.gif");
+		imagenes[2] = new ImageIcon(dir+"Enemigos/Goblin/GoblinAtaque.gif");
 	}
 }
