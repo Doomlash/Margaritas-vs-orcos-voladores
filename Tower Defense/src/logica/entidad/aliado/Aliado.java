@@ -14,7 +14,6 @@ public abstract class Aliado extends Entidad implements Comprable{
 	protected CabezaDeDragon dragon;
 	protected PowerBooster booster;
 	protected GraphicAliado grafico;
-	protected VisitorAtaqueAliado visitorAtaque;
 	
 	/**
 	 * Crea los visitor asociados a las clases Aliado.

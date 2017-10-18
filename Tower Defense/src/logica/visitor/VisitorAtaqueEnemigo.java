@@ -1,9 +1,11 @@
 package logica.visitor;
 
-import logica.comprables.*;
-import logica.entidad.aliado.*;
-import logica.entidad.enemigo.*;
-import logica.mapa.elementosMapa.destruibles.*;
+import logica.comprables.Barricada;
+import logica.entidad.aliado.Aliado;
+import logica.entidad.enemigo.Enemigo;
+import logica.mapa.elementosMapa.destruibles.Piedra;
+import logica.mapa.elementosMapa.temporales.Agua;
+import logica.premio.objetoPrecioso.Trampa;
 
 public class VisitorAtaqueEnemigo extends Visitor{
 	protected Enemigo ene;
@@ -13,20 +15,18 @@ public class VisitorAtaqueEnemigo extends Visitor{
 	}
 	
 	public void visit(Aliado a){
-		if(ene!=null)
-			ene.atacar(a);
+		ene.atacar(a);
 	}
-	
+	public void visit(Enemigo e){
+	}
 	public void visit(Barricada b){
-		if(ene!=null)
-			ene.atacar(b);
+		ene.atacar(b);
 	}
 	public void visit(Piedra p){
-		if(ene!=null)
-			ene.atacar(p);
+		ene.atacar(p);
 	}
-	
-	public void kill(){
-		ene=null;
+	public void visit(Agua a){
+	}
+	public void visit(Trampa t){
 	}
 }
