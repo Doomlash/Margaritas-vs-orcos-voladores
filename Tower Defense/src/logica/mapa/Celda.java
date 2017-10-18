@@ -1,6 +1,7 @@
 package logica.mapa;
 
 import logica.gameObjects.*;
+import logica.visitor.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +40,10 @@ public class Celda{
 	
 	public Iterable<Elemento> getElementos(){
 		return lista;
+	}
+	public void accept(Visitor v){
+		int size= lista.size();
+		for(int i=0;i<size;i++)
+			lista.get(i).accept(v);
 	}
 }

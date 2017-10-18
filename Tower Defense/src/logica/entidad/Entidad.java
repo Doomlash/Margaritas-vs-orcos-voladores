@@ -3,11 +3,9 @@ package logica.entidad;
 import logica.gameObjects.*;
 import logica.mapa.Mapa;
 import logica.premio.magiaTemporal.*;
-import logica.visitor.*;
 
 public abstract class Entidad extends Obstaculo{
 	protected CampoDeProteccion escudo;
-	protected Visitor visitorAtaque;
 	protected int rango,fuerza,fuerzaActual;
 
 	public Entidad(int x, int y, int dx, Mapa m){
