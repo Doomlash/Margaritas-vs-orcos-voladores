@@ -5,7 +5,7 @@ import logica.entidad.enemigo.Enemigo;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class HiloEnemigo implements Runnable{
+public abstract class HiloEnemigo extends Thread{
 	protected volatile List<Enemigo> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
 	

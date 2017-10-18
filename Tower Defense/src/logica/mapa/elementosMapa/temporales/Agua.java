@@ -31,7 +31,5 @@ public class Agua extends Elemento implements Runnable{
 	}
 	public void kill(){
 		map.eliminarElemento(this);
-		map.getMapaGrafico().remove(this.grafico.getGrafico());
-		map.getMapaGrafico().repaint();
 	}
 }

@@ -1,20 +1,19 @@
 package logica.hilos;
 
 public class AlmacenHilos{
-	private HiloEnemigo[] hilos;
-	private HiloAtaqueAliado ataqueAliado;
+	private HiloMovimientoEnemigo movEnemigo;
+	private HiloAtaqueEnemigo ataqueEnemigo;
 	
 	public AlmacenHilos(){
-		hilos = new HiloEnemigo[2];
-		hilos[0] = new HiloMovimientoEnemigo();
-		hilos[1] = new HiloAtaqueEnemigo();
-		Thread t = new Thread(hilos[0]);
-		t.start();
+		movEnemigo = new HiloMovimientoEnemigo();
+		ataqueEnemigo = new HiloAtaqueEnemigo();
+		movEnemigo.start();
+		ataqueEnemigo.start();
 	}
 	public HiloEnemigo getMovEnemigo(){
-		return hilos[0];
+		return movEnemigo;
 	}
 	public HiloEnemigo getAtaEnemigo(){
-		return hilos[1];
+		return ataqueEnemigo;
 	}
 }
