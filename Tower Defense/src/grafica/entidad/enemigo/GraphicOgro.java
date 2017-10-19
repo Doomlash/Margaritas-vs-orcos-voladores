@@ -9,6 +9,6 @@ public class GraphicOgro extends GraphicEnemigo{
 
 		imagenes[0] = new ImageIcon(dir+"Enemigos/Ogro/OgroIdle.png");
 		imagenes[1] = new ImageIcon(dir+"Enemigos/Ogro/OgroCaminar.gif");
-		imagenes[2] = new ImageIcon(dir+"Enemigos/Ogro/OgroAtacar.gif");
+		imagenes[2] = new ImageIcon(dir+"Enemigos/Ogro/OgreAtacar.gif");
 	}
 }

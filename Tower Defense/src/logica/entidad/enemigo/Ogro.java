@@ -17,8 +17,10 @@ public class Ogro extends Enemigo{
 		velocidad=6;
 		puntaje=100;
 		monedas=20;
+		vida=vidaMax=80;
+		rango=2;
+		fuerza=25;
 		grafico = new GraphicOgro(x,y);
-		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
 	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
@@ -31,8 +33,12 @@ public class Ogro extends Enemigo{
 	public void SACARDEARREGLO(){
 		map.getNivel().getJuego().getGui().getEnemigos()[5]=null;		
 	}
-	
+
 	public void atacar(Obstaculo o){
-		
+		canMove=false;
+		grafico.atacar();
+		o.setVida(o.getVida()-fuerza);
+		grafico.avanzar();
+		canMove=true;
 	}
 }

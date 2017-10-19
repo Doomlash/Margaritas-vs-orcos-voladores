@@ -17,6 +17,9 @@ public class Lich extends Enemigo{
 		velocidad=12;
 		puntaje=70;
 		monedas=15;
+		vida=vidaMax=60;
+		rango=1;
+		fuerza=13;
 		grafico = new GraphicLich(x,y);
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
@@ -32,6 +35,10 @@ public class Lich extends Enemigo{
 	}
 	
 	public void atacar(Obstaculo o){
-		
+		canMove=false;
+		grafico.atacar();
+		o.setVida(o.getVida()-fuerza);
+		grafico.avanzar();
+		canMove=true;
 	}
 }

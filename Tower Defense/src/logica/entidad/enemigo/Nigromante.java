@@ -17,6 +17,9 @@ public class Nigromante extends Enemigo{
 		velocidad=8;
 		puntaje=90;
 		monedas=20;
+		vida=vidaMax=30;
+		rango=1;
+		fuerza=20;
 		grafico = new GraphicNigromante(x,y);
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
@@ -30,8 +33,12 @@ public class Nigromante extends Enemigo{
 	public void SACARDEARREGLO(){
 		map.getNivel().getJuego().getGui().getEnemigos()[4]=null;		
 	}
-	
+
 	public void atacar(Obstaculo o){
-		
+		canMove=false;
+		grafico.atacar();
+		o.setVida(o.getVida()-fuerza);
+		grafico.avanzar();
+		canMove=true;
 	}
 }
