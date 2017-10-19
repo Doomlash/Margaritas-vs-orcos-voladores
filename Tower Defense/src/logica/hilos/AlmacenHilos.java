@@ -5,21 +5,25 @@ public class AlmacenHilos{
 	private HiloAtaqueEnemigo ataqueEnemigo;
 	private HiloDisparoEnemigo disparosEnemigo;
 	
-	public AlmacenHilos(){
-		movEnemigo = new HiloMovimientoEnemigo();
-		ataqueEnemigo = new HiloAtaqueEnemigo();
-		disparosEnemigo = new HiloDisparoEnemigo();
-		movEnemigo.start();
-		ataqueEnemigo.start();
-		disparosEnemigo.start();
-	}
 	public HiloMovimientoEnemigo getMovEnemigo(){
+		if(movEnemigo==null){
+			movEnemigo = new HiloMovimientoEnemigo();
+			movEnemigo.start();
+		}
 		return movEnemigo;
 	}
 	public HiloAtaqueEnemigo getAtaEnemigo(){
+		if(ataqueEnemigo==null){
+			ataqueEnemigo = new HiloAtaqueEnemigo();
+			ataqueEnemigo.start();
+		}
 		return ataqueEnemigo;
 	}
 	public HiloDisparoEnemigo getDisEnemigo(){
+		if(disparosEnemigo==null){
+			disparosEnemigo = new HiloDisparoEnemigo();
+			disparosEnemigo.start();
+		}
 		return disparosEnemigo;
 	}
 }
