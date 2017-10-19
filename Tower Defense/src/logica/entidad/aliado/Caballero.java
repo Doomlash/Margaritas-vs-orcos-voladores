@@ -14,9 +14,13 @@ public class Caballero extends Aliado{
 	 */
 	public Caballero(int x, int y, Mapa m){
 		super(x,y,1,m);
+		vida=vidaMax=90;
+		rango=1;
+		fuerza=20;
 		grafico = new GraphicCaballero(x,y);
 	}
 	public void atacar(Obstaculo o){
-		
+		this.grafico.atacar();
+		o.setVida(o.getVida()-fuerza);
 	}
 }

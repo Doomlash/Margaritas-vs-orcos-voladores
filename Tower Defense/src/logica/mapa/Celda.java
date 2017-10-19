@@ -46,4 +46,9 @@ public class Celda{
 		for(int i=0;i<size;i++)
 			lista.get(i).accept(v);
 	}
+	public void clear(){
+		int x= lista.size();
+		for(int i=0;i<x;i++)
+			lista.get(0).kill();
+	}
 }

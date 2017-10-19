@@ -27,11 +27,11 @@ public class HiloAtaqueAliado extends Thread{
 		while(execute){
 			int x= toInsert.size();
 			for(int i=0;i<x;i++){
-				toExecute.add(toInsert.remove(i));
+				toExecute.add(toInsert.remove(0));
 			}
 			int y= toDelete.size();
 			for(int i=0;i<y;i++){
-				toExecute.remove(toDelete.remove(i));
+				toExecute.remove(toDelete.remove(0));
 			}
 			int z= toExecute.size();
 			for(int i=0;i<z;i++){

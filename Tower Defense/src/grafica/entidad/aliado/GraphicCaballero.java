@@ -9,5 +9,6 @@ public class GraphicCaballero extends GraphicAliado{
 		
 		imagenes[0] = new ImageIcon(dir+"Aliados/Caballero/CaballeroIdle.png");
 		imagenes[1] = new ImageIcon(dir+"Aliados/Caballero/CaballeroAtaque.gif");
+		imagenes[2] = new ImageIcon(dir+"Aliados/Caballero/CaballeroMuerte.gif");
 	}
 }

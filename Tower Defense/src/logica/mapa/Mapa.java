@@ -108,4 +108,9 @@ public class Mapa{
 				vacia= celdas[i][j].isEmpty();
 		return vacia;
 	}
+	public void clear(){
+		for(int i=0;i<celdas[0].length;i++)
+			for(int j=0;j<celdas.length;j++)
+				celdas[j][i].clear();
+	}
 }

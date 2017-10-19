@@ -12,7 +12,6 @@ public class Agua extends Elemento implements Runnable{
 	public Agua(int x,int y, Mapa m){
 		super(x,y,1,m);
 		grafico = new GraphicAgua(x,y);
-		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	
 	public void run(){

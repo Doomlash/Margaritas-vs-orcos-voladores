@@ -42,4 +42,16 @@ public class AlmacenHilos{
 		}
 		return disparosAliados;
 	}
+	public void terminateAll(){
+		if(movEnemigo!=null)
+			movEnemigo.terminate();
+		if(ataqueEnemigo!=null)
+			ataqueEnemigo.terminate();
+		if(ataqueAliado!=null)
+			ataqueAliado.terminate();
+		if(disparosEnemigos!=null)
+			disparosEnemigos.terminate();
+		if(disparosAliados!=null)
+			disparosAliados.terminate();
+	}
 }

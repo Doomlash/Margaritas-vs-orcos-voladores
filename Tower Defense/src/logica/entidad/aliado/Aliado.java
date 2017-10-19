@@ -1,7 +1,6 @@
 package logica.entidad.aliado;
 
 import logica.entidad.*;
-import logica.gameObjects.Elemento;
 import logica.comprables.*;
 import logica.premio.magiaTemporal.*;
 import logica.visitor.*;
@@ -38,8 +37,7 @@ public abstract class Aliado extends Entidad implements Comprable{
 		for(int i=(x+dimensionX);i<x+dimensionX+rango;i++){
 			Celda c = map.getCelda(i, y);
 			if(c!=null){
-				for(Elemento e: c.getElementos())
-					e.accept(visitorAtaque);
+				c.accept(visitorAtaque);
 			}
 		}
 	}
@@ -50,6 +48,7 @@ public abstract class Aliado extends Entidad implements Comprable{
 	
 	public void kill(){
 		visitorAtaque.kill();
+		grafico.morir();
 		map.getAlmacenHilos().getAtaAliado().aliadoAEliminar(this);
 		map.eliminarElemento(this);
 	}

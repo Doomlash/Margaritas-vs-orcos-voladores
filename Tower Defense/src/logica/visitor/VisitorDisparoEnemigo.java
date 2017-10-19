@@ -16,16 +16,16 @@ public class VisitorDisparoEnemigo extends Visitor{
 		if(disparo!=null){
 			a.setVida(a.getVida()-disparo.getDamage());
 			disparo.stop();
-			kill();
 			disparo.kill();
+			kill();
 		}
 	}
 	public void visit(Barricada b){
 		if(disparo!=null){
 			b.setVida(b.getVida()-disparo.getDamage());
 			disparo.stop();
-			kill();
 			disparo.kill();
+			kill();
 		}
 	}
 	public void visit(Piedra p){

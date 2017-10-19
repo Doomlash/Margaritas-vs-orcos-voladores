@@ -13,7 +13,6 @@ public class Piedra extends Obstaculo{
 		super(x,y,1,m);
 		vida=vidaMax=75;
 		grafico = new GraphicPiedra(x,y);
-		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void accept(Visitor v){
 		v.visit(this);

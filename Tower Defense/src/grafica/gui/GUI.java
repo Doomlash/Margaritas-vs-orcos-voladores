@@ -81,8 +81,8 @@ public class GUI extends JFrame {
 		
 	}
 	public void finalizar(){
-		j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().terminate();
-		j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().terminate();
+		j.getNivel().getMapa().getAlmacenHilos().terminateAll();
+		j.getNivel().getMapa().clear();
 	}
 	private void panelSuperior(){
 		panelSuperior = new JPanel();
@@ -202,8 +202,10 @@ public class GUI extends JFrame {
 					else
 						disponible=false;
 				}
-				if(disponible)
+				if(disponible){
 					j.getNivel().getMapa().agregarElemento(a);
+					j.getNivel().getMapa().getAlmacenHilos().getAtaAliado().agregarAliado(a);
+				}
 			}
 		}
 	}
