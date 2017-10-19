@@ -40,8 +40,9 @@ public class Ciclope extends Enemigo{
 		if(o.getVida()-fuerza>0){
 			canMove=false;
 			grafico.atacar();
+			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-5));
+			grafico.avanzar();
 			canMove=true;
-			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango));
 		}
 	}
 }

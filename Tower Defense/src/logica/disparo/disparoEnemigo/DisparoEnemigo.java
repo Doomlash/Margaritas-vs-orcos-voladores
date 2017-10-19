@@ -11,10 +11,30 @@ public abstract class DisparoEnemigo extends Disparo{
 	protected VisitorDisparoEnemigo visitorDisparoEnemigo;
 
 	public DisparoEnemigo(int x,int y, Mapa m, int a){
-		super(x,y,m,a);
+		super(x-1,y,m,a);
 		visitorDisparoEnemigo = new VisitorDisparoEnemigo(this);
 	}
 	public void ejecutar(){
+		if((x<0)||(x==alcance-1))
+			kill();
+		else{
+			map.getCelda(x, y).accept(visitorDisparoEnemigo);
+			if(canMove){
+				int aux= this.getGraphic().getPos().x-this.getGraphic().getWidthUnaCelda();
+				while(this.getGraphic().getPos().x-velocidad>aux){
+					this.getGraphic().cambiarPos(this.getGraphic().getPos().x-velocidad, this.getGraphic().getPos().y);
+					try{
+						Thread.sleep(100);
+					}catch(InterruptedException e){
+					}
+				}
+				if(canMove){
+					x--;
+				}
+				
+			}
+		}
+		
 		if((x-1>=0)&&(x>=alcance)){
 			map.getCelda(x-1, y).accept(visitorDisparoEnemigo);
 			if(canMove){
@@ -33,7 +53,7 @@ public abstract class DisparoEnemigo extends Disparo{
 	}
 	public void kill(){
 		visitorDisparoEnemigo.kill();
-		map.getAlmacenHilos().getDisEnemigo();
+		map.getAlmacenHilos().getDisEnemigo().disparoEnemigoAEliminar(this);
 		map.getMapaGrafico().removeGraphicElemento(grafico);
 	}
 	public GraphicGameObject getGraphic(){
