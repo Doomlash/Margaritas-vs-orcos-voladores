@@ -1,9 +1,37 @@
 package logica.hilos;
 
-public class HiloAtaqueEnemigo extends HiloEnemigo{
+import logica.entidad.enemigo.*;
+import java.util.List;
+import java.util.ArrayList;
+
+public class HiloAtaqueEnemigo extends Thread{
+	protected volatile List<Enemigo> toDelete,toExecute,toInsert;
+	protected volatile boolean execute;
 	
 	public HiloAtaqueEnemigo(){
-		super();
+		execute = true;
+		toDelete = new ArrayList<Enemigo>();
+		toExecute = new ArrayList<Enemigo>();
+		toInsert = new ArrayList<Enemigo>();
+	}
+	public void agregarEnemigo(Enemigo e){
+		toInsert.add(e);
+	}
+	public void enemigoAEliminar(Enemigo e){
+		toDelete.add(e);
+	}
+	public void terminate(){
+		execute=false;
+	}
+	protected void actualizar(){
+		int x= toInsert.size();
+		for(int i=0;i<x;i++){
+			toExecute.add(toInsert.remove(i));
+		}
+		int y= toDelete.size();
+		for(int i=0;i<y;i++){
+			toExecute.remove(toDelete.remove(i));
+		}
 	}
 	public void run(){
 		while(execute){

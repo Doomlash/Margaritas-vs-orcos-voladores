@@ -6,11 +6,15 @@ import logica.mapa.Mapa;
 
 public abstract class Disparo extends GameObject{
 	protected int damage,velocidad,alcance;
-	
+	protected boolean canMove;
 
 	public Disparo(int x,int y, Mapa m, int a){
 		super(x,y,1,m);
 		alcance = a;
+		canMove=true;
+	}
+	public void stop(){
+		canMove=false;
 	}
 	
 	public int getVelocidad(){
@@ -19,4 +23,5 @@ public abstract class Disparo extends GameObject{
 	public int getDamage(){
 		return damage;
 	}
+	public abstract void ejecutar();
 }

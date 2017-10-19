@@ -11,6 +11,9 @@ public abstract class DisparoAliado extends Disparo{
 	public DisparoAliado(int x,int y, Mapa m, int a){
 		super(x,y,m,a);
 	}
+	public void ejecutar(){
+		
+	}
 	public void kill(){
 		
 	}

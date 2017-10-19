@@ -1,4 +1,4 @@
-package grafica.disparo.dsparoEnemigo;
+package grafica.disparo.disparoEnemigo;
 
 import grafica.gameObjects.*;
 

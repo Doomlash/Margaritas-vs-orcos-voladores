@@ -60,6 +60,7 @@ public class GUI extends JFrame {
 	 */
 	public GUI(){
 		super("Tower Defense");
+		j= new Juego(this);
 		this.setResizable(false);
 		AnchoVentana= 1240; AltoVentana= 680;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +70,6 @@ public class GUI extends JFrame {
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
 		
-		j= new Juego(this);
 		
 		panelSuperior();
 		panelIzquierda();
@@ -79,6 +79,10 @@ public class GUI extends JFrame {
 		contentPane.add(panelIzquierda, BorderLayout.WEST);
 		contentPane.add(panelDerecha, BorderLayout.EAST);
 		
+	}
+	public void finalizar(){
+		j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().terminate();
+		j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().terminate();
 	}
 	private void panelSuperior(){
 		panelSuperior = new JPanel();
@@ -145,7 +149,7 @@ public class GUI extends JFrame {
 		
 		ene = new Enemigo[6];
 		
-		String e[] = {"Ciclope","Dragon","Goblin","Lich","Nigromante","Ogro"};
+		String e[] = {"Ciclope","Dragon","Goblin","Lich","Nigromante","Ogro","Finalizar"};
 		JButton enemigos[] = new JButton[e.length];
 		OyenteEnemigo oy = new OyenteEnemigo();
 		for(int i=0;i<enemigos.length;i++){
@@ -282,6 +286,9 @@ public class GUI extends JFrame {
 						ene[5]=null;
 					}
 					break;
+				}
+				case "Finalizar":{
+					finalizar();
 				}
 			}
 		}

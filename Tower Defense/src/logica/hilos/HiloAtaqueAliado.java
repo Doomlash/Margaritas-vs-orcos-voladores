@@ -27,11 +27,11 @@ public class HiloAtaqueAliado implements Runnable{
 		while(execute){
 			int x= toInsert.size();
 			for(int i=0;i<x;i++){
-				toExecute.add(toInsert.remove(0));
+				toExecute.add(toInsert.remove(i));
 			}
 			int y= toDelete.size();
 			for(int i=0;i<y;i++){
-				toExecute.remove(toDelete.remove(0));
+				toExecute.remove(toDelete.remove(i));
 			}
 			int z= toExecute.size();
 			for(int i=0;i<z;i++){
