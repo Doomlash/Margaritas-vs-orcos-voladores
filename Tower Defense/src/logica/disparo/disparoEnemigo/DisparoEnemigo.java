@@ -22,7 +22,7 @@ public abstract class DisparoEnemigo extends Disparo{
 			if(canMove){
 				int aux= this.getGraphic().getPos().x-this.getGraphic().getWidthUnaCelda();
 				while(this.getGraphic().getPos().x-velocidad>aux){
-					this.getGraphic().cambiarPos(this.getGraphic().getPos().x-velocidad, this.getGraphic().getPos().y);
+					this.getGraphic().cambiarPos(this.getGraphic().getPos().x-velocidad, this.getGraphic().getPos().y+4);
 					try{
 						Thread.sleep(100);
 					}catch(InterruptedException e){

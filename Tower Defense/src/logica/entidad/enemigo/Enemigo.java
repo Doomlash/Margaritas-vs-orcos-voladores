@@ -90,7 +90,7 @@ public abstract class Enemigo extends Entidad{
 		visitorAtaque.kill();
 		visitorMovimiento.kill();
 		this.SACARDEARREGLO();
-		map.getAlmacenHilos().getAtaEnemigo().enemigoAEliminar(this);;
+		map.getAlmacenHilos().getAtaEnemigo().enemigoAEliminar(this);
 		map.getAlmacenHilos().getMovEnemigo().enemigoAEliminar(this);
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);
 		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);

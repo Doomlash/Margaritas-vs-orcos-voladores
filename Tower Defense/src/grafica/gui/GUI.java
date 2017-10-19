@@ -195,9 +195,15 @@ public class GUI extends JFrame {
 				if(s=="Mago"){
 					a= new Mago(columna,fila,j.getNivel().getMapa());
 				}
-				for(int i=a.getX();i<(a.getDimensionX()+a.getX());i++){
-					j.getNivel().getMapa().agregarElemento(a);
+				boolean disponible=true;
+				for(int i=a.getX();(i<(a.getDimensionX()+a.getX()))&&disponible;i++){
+					if(i>=0&&i<10)
+						disponible = j.getNivel().getMapa().getCelda(i, a.getY()).isEmpty();
+					else
+						disponible=false;
 				}
+				if(disponible)
+					j.getNivel().getMapa().agregarElemento(a);
 			}
 		}
 	}

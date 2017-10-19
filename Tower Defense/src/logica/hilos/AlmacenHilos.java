@@ -3,7 +3,9 @@ package logica.hilos;
 public class AlmacenHilos{
 	private HiloMovimientoEnemigo movEnemigo;
 	private HiloAtaqueEnemigo ataqueEnemigo;
-	private HiloDisparoEnemigo disparosEnemigo;
+	private HiloAtaqueAliado ataqueAliado;
+	private HiloDisparoEnemigo disparosEnemigos;
+	private HiloDisparoAliado disparosAliados;
 	
 	public HiloMovimientoEnemigo getMovEnemigo(){
 		if(movEnemigo==null){
@@ -19,11 +21,25 @@ public class AlmacenHilos{
 		}
 		return ataqueEnemigo;
 	}
-	public HiloDisparoEnemigo getDisEnemigo(){
-		if(disparosEnemigo==null){
-			disparosEnemigo = new HiloDisparoEnemigo();
-			disparosEnemigo.start();
+	public HiloAtaqueAliado getAtaAliado(){
+		if(ataqueAliado==null){
+			ataqueAliado = new HiloAtaqueAliado();
+			ataqueAliado.start();
 		}
-		return disparosEnemigo;
+		return ataqueAliado;
+	}
+	public HiloDisparoEnemigo getDisEnemigo(){
+		if(disparosEnemigos==null){
+			disparosEnemigos = new HiloDisparoEnemigo();
+			disparosEnemigos.start();
+		}
+		return disparosEnemigos;
+	}
+	public HiloDisparoAliado getDisAliado(){
+		if(disparosAliados==null){
+			disparosAliados = new HiloDisparoAliado();
+			disparosAliados.start();
+		}
+		return disparosAliados;
 	}
 }

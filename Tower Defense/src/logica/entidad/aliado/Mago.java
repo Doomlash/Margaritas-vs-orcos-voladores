@@ -15,7 +15,6 @@ public class Mago extends Aliado{
 	public Mago(int x, int y, Mapa m){
 		super(x,y,1,m);
 		grafico = new GraphicMago(x,y);
-		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void atacar(Obstaculo o){
 		

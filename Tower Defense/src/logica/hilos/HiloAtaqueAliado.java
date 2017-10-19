@@ -4,7 +4,7 @@ import logica.entidad.aliado.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HiloAtaqueAliado implements Runnable{
+public class HiloAtaqueAliado extends Thread{
 	protected volatile List<Aliado> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
 	

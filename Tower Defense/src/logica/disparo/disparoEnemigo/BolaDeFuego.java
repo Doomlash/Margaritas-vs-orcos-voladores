@@ -1,15 +1,15 @@
 package logica.disparo.disparoEnemigo;
 
+import logica.mapa.Mapa;
 import grafica.disparo.disparoEnemigo.*;
-import logica.mapa.*;
 
-public class PiedraCiclope extends DisparoEnemigo{
+public class BolaDeFuego extends DisparoEnemigo{
 	
-	public PiedraCiclope(int x, int y, Mapa m, int alcance, int gx){
+	public BolaDeFuego(int x, int y, Mapa m, int alcance, int gx){
 		super(x,y,m,alcance);
-		velocidad=14;
-		damage = 15;
-		grafico = new GraphicPiedraCiclope(x,y);
+		velocidad=16;
+		damage = 20;
+		grafico = new GraphicBolaDeFuego(x,y);
 		grafico.getGrafico();
 		grafico.cambiarPos(gx, grafico.getPos().y-15);
 		map.getMapaGrafico().addGraphicElemento(grafico);
