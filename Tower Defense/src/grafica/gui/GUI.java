@@ -218,6 +218,7 @@ public class GUI extends JFrame {
 					if(ene[0]==null){
 						ene[0] = new Ciclope(9,fila,j.getNivel().getMapa());
 						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[0]);
+						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[0]);
 						j.getNivel().getMapa().agregarElemento(ene[0]);
 					}
 					else{
@@ -230,6 +231,7 @@ public class GUI extends JFrame {
 					if(ene[1]==null){
 						ene[1] = new Dragon(9,fila,j.getNivel().getMapa());
 						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[1]);
+						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[1]);
 						j.getNivel().getMapa().agregarElemento(ene[1]);
 					}
 					else{
@@ -241,8 +243,8 @@ public class GUI extends JFrame {
 				case "Goblin":{
 					if(ene[2]==null){
 						ene[2] = new Goblin(9,fila,j.getNivel().getMapa());
-						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[2]);
 						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[2]);
+						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[2]);
 						j.getNivel().getMapa().agregarElemento(ene[2]);
 					}
 					else{
@@ -255,6 +257,7 @@ public class GUI extends JFrame {
 					if(ene[3]==null){
 						ene[3] = new Lich(9,fila,j.getNivel().getMapa());
 						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[3]);
+						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[3]);
 						j.getNivel().getMapa().agregarElemento(ene[3]);
 					}
 					else{
@@ -267,6 +270,7 @@ public class GUI extends JFrame {
 					if(ene[4]==null){
 						ene[4] = new Nigromante(9,fila,j.getNivel().getMapa());
 						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[4]);
+						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[4]);
 						j.getNivel().getMapa().agregarElemento(ene[4]);
 					}
 					else{
@@ -279,6 +283,7 @@ public class GUI extends JFrame {
 					if(ene[5]==null){
 						ene[5] = new Ogro(9,fila,j.getNivel().getMapa());
 						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[5]);
+						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[5]);
 						j.getNivel().getMapa().agregarElemento(ene[5]);
 					}
 					else{

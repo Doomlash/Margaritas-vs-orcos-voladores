@@ -32,8 +32,8 @@ public class VisitorDisparoEnemigo extends Visitor{
 		if(disparo!=null){
 			p.setVida(p.getVida()-disparo.getDamage());
 			disparo.stop();
-			kill();
 			disparo.kill();
+			kill();
 		}
 	}
 	

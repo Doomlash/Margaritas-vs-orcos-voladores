@@ -37,7 +37,7 @@ public class Mapa{
 		int columna;
 		while(celdasVacias()&&(p>0)){
 			fila=r.nextInt(6);
-			columna=r.nextInt(9)+1;
+			columna=5;
 			if(celdas[fila][columna].isEmpty()){
 				agregarElemento(new Piedra(columna,fila,this));
 				p--;
@@ -46,7 +46,7 @@ public class Mapa{
 		}
 		while(celdasVacias()&&(l>0)){
 			fila=r.nextInt(6);
-			columna=r.nextInt(9)+1;
+			columna=r.nextInt(8)+1;
 			if(celdas[fila][columna].isEmpty()){
 				Agua a = new Agua(columna,fila,this);
 				Thread t = new Thread(a);

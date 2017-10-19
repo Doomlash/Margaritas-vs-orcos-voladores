@@ -57,11 +57,11 @@ public abstract class Enemigo extends Entidad{
 	 * Actualiza la posicion logica y grafica del enemigo al moverse
 	 */
 	public void move(){
-		if(x-1>=0){
+		if((x-1>=0)&&canMove){
 			map.getCelda(x-1, y).accept(visitorMovimiento);
 			if(canMove){
 				this.grafico.avanzar();
-				int aux= x*grafico.getWidthUnaCelda()-(grafico.getWidthUnaCelda()+15);
+				int aux= x*grafico.getWidthUnaCelda()-(grafico.getWidthUnaCelda()+25);
 				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
 				
 				if(grafico.getPos().x<aux){
