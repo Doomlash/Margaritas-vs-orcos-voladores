@@ -14,11 +14,11 @@ public class Ogro extends Enemigo{
 	 */
 	public Ogro(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=6;
+		velocidad=vm=6;
 		puntaje=100;
 		monedas=20;
 		vida=vidaMax=80;
-		rango=2;
+		rango=1;
 		fuerza=25;
 		grafico = new GraphicOgro(x,y);
 	}
@@ -37,6 +37,10 @@ public class Ogro extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		grafico.atacar();
+		try{
+			Thread.sleep(400);
+		}catch(InterruptedException e){
+		}
 		o.setVida(o.getVida()-fuerza);
 		grafico.avanzar();
 		canMove=true;

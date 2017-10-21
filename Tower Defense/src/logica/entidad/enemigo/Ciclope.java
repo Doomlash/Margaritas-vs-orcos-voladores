@@ -15,12 +15,12 @@ public class Ciclope extends Enemigo{
 	 */
 	public Ciclope(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=8;
+		velocidad=vm=8;
 		puntaje=120;
 		monedas=30;
+		vida=vidaMax=70;
 		rango=2;
 		fuerza = 15;
-		vida=vidaMax=70;
 		grafico = new GraphicCiclope(x,y);
 	}
 	
@@ -40,7 +40,15 @@ public class Ciclope extends Enemigo{
 		if(o.getVida()-fuerza>0){
 			canMove=false;
 			grafico.atacar();
+			try{
+				Thread.sleep(800);
+			}catch(InterruptedException e){
+			}
 			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-5));
+			try{
+				Thread.sleep(1100);
+			}catch(InterruptedException e){
+			}
 			grafico.avanzar();
 			canMove=true;
 		}

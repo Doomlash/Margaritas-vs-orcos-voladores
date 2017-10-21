@@ -14,7 +14,7 @@ public class Goblin extends Enemigo{
 	 */
 	public Goblin(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=12;
+		velocidad=vm=12;
 		puntaje=50;
 		monedas=5;
 		vida=vidaMax=50;
@@ -37,6 +37,10 @@ public class Goblin extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		grafico.atacar();
+		try{
+			Thread.sleep(400);
+		}catch(InterruptedException e){
+		}
 		o.setVida(o.getVida()-fuerza);
 		grafico.avanzar();
 		canMove=true;

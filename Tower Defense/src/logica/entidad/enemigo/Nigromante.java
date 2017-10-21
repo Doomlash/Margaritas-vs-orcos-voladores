@@ -14,7 +14,7 @@ public class Nigromante extends Enemigo{
 	 */
 	public Nigromante(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=8;
+		velocidad=vm=8;
 		puntaje=90;
 		monedas=20;
 		vida=vidaMax=30;
@@ -37,6 +37,10 @@ public class Nigromante extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		grafico.atacar();
+		try{
+			Thread.sleep(500);
+		}catch(InterruptedException e){
+		}
 		o.setVida(o.getVida()-fuerza);
 		grafico.avanzar();
 		canMove=true;

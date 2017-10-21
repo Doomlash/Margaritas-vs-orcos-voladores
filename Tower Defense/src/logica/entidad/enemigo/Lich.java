@@ -14,7 +14,7 @@ public class Lich extends Enemigo{
 	 */
 	public Lich(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=12;
+		velocidad=vm=12;
 		puntaje=70;
 		monedas=15;
 		vida=vidaMax=60;
@@ -37,6 +37,10 @@ public class Lich extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		grafico.atacar();
+		try{
+			Thread.sleep(500);
+		}catch(InterruptedException e){
+		}
 		o.setVida(o.getVida()-fuerza);
 		grafico.avanzar();
 		canMove=true;

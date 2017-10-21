@@ -23,7 +23,7 @@ public class Mapa{
 		for(int i=0;i<celdas.length;i++)
 			for(int j=0;j<celdas[i].length;j++)
 				celdas[i][j] = new Celda();
-		agregarObstaculos(2,2);
+		agregarObstaculos(6,2);
 	}
 	
 	/**

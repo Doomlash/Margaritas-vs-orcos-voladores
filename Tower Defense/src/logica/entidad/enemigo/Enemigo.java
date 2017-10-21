@@ -7,7 +7,7 @@ import grafica.entidad.enemigo.*;
 import grafica.gameObjects.*;
 
 public abstract class Enemigo extends Entidad{
-	protected int velocidad;
+	protected int velocidad,vm;
 	protected int puntaje;
 	protected int monedas;
 	protected GraphicEnemigo grafico;
@@ -95,6 +95,13 @@ public abstract class Enemigo extends Entidad{
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);
 		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);
 		map.eliminarElemento(this);
+	}
+	public void setVelocidad(int x){
+		velocidad=x;
+	}
+	
+	public int getVelocidad(){
+		return velocidad;
 	}
 	
 	public GraphicGameObject getGraphic(){

@@ -11,10 +11,6 @@ public abstract class GraphicEnemigo extends GraphicGameObject{
 	}
 	public void atacar(){
 		this.getGrafico().setIcon(imagenes[2]);
-		try{
-			Thread.sleep(1500);
-		}catch(InterruptedException e){
-		}
 	}
 	public void avanzar(){
 		this.getGrafico().setIcon(imagenes[1]);
