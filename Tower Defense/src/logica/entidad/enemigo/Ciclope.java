@@ -37,20 +37,18 @@ public class Ciclope extends Enemigo{
 	}
 	
 	public void atacar(Obstaculo o){
-		if(o.getVida()-fuerza>0){
 			canMove=false;
 			grafico.atacar();
 			try{
 				Thread.sleep(800);
 			}catch(InterruptedException e){
 			}
-			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-5));
+			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-8));
 			try{
-				Thread.sleep(1100);
+				Thread.sleep(1000);
 			}catch(InterruptedException e){
 			}
 			grafico.avanzar();
 			canMove=true;
-		}
 	}
 }

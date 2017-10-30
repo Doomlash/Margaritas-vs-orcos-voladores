@@ -17,7 +17,7 @@ public class Mapa{
 	
 	public Mapa(Nivel n){
 		hilos = new AlmacenHilos();
-		grafico = new GraphicMapa();
+		grafico = new GraphicMapa(this);
 		nivel=n;
 		celdas = new Celda[6][10];
 		for(int i=0;i<celdas.length;i++)
@@ -107,10 +107,5 @@ public class Mapa{
 			for(int j=0;(j<celdas[i].length)&&(!vacia);j++)
 				vacia= celdas[i][j].isEmpty();
 		return vacia;
-	}
-	public void clear(){
-		for(int i=0;i<celdas[0].length;i++)
-			for(int j=0;j<celdas.length;j++)
-				celdas[j][i].clear();
 	}
 }

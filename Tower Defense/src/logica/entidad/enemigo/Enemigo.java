@@ -61,7 +61,7 @@ public abstract class Enemigo extends Entidad{
 			map.getCelda(x-1, y).accept(visitorMovimiento);
 			if(canMove){
 				this.grafico.avanzar();
-				int aux= x*grafico.getWidthUnaCelda()-(grafico.getWidthUnaCelda()+25);
+				int aux= (x-1)*grafico.getWidthUnaCelda();
 				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
 				
 				if(grafico.getPos().x<aux){

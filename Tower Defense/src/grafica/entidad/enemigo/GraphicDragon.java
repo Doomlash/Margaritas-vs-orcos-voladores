@@ -18,14 +18,14 @@ public class GraphicDragon extends GraphicEnemigo{
 	public void aterrizar(){
 		this.getGrafico().setIcon(imagenes[3]);
 		try{
-			Thread.sleep(1000);
+			Thread.sleep(300);
 		}catch(InterruptedException e){
 		}
 	}
 	public void despegar(){
 		this.getGrafico().setIcon(imagenes[4]);
 		try{
-			Thread.sleep(1000);
+			Thread.sleep(200);
 		}catch(InterruptedException e){
 		}
 	}

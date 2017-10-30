@@ -15,9 +15,22 @@ public class Arquero extends Aliado{
 	 */
 	public Arquero(int x,int y, Mapa m){
 		super(x,y,1,m);
+		vida=vidaMax=50;
+		rango=3;
+		fuerza=7;
 		grafico = new GraphicArquero(x,y);
 	}
 	public void atacar(Obstaculo o){
-		new Flecha(x,y,map,x+dimensionX+rango);
+		grafico.atacar();
+		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new Flecha(x+dimensionX,y,map,x+dimensionX+rango-1));
+		try{
+			Thread.sleep(100);
+		}catch(InterruptedException e){
+		}
+		grafico.setImageIdle();
+		try{
+			Thread.sleep(500);
+		}catch(InterruptedException e){
+		}
 	}
 }

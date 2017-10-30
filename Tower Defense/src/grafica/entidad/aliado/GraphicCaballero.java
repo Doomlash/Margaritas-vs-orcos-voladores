@@ -11,4 +11,17 @@ public class GraphicCaballero extends GraphicAliado{
 		imagenes[1] = new ImageIcon(dir+"Aliados/Caballero/CaballeroAtaque.gif");
 		imagenes[2] = new ImageIcon(dir+"Aliados/Caballero/CaballeroMuerte.gif");
 	}
+	
+	public void atacar(){
+		super.atacar();
+		try{
+			Thread.sleep(400);
+		}catch(InterruptedException e){
+		}
+		this.setImageIdle();
+		try{
+			Thread.sleep(300);
+		}catch(InterruptedException e){
+		}
+	}
 }

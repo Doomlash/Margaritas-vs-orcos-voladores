@@ -1,11 +1,13 @@
 package logica.juego;
 
 import logica.juego.niveles.*;
+import logica.almacen.*;
 import grafica.gui.*;
 
 public class Juego{
 	private GUI gui;
 	private Nivel nivel;
+	private Almacen_Mercado almacen;
 	private int puntaje;
 	
 	/**
@@ -15,6 +17,7 @@ public class Juego{
 	public Juego(GUI g){
 		gui=g;
 		nivel= new Nivel1(this);
+		almacen = new Almacen_Mercado(this);
 		puntaje=0;
 	}
 	
@@ -44,6 +47,9 @@ public class Juego{
 	 */
 	public Nivel getNivel(){
 		return nivel;
+	}
+	public Almacen_Mercado getAlmacen(){
+		return almacen;
 	}
 	public int getPuntaje(){
 		return puntaje;

@@ -1,6 +1,7 @@
 package logica.entidad.enemigo;
 
 import logica.mapa.*;
+import logica.disparo.disparoEnemigo.*;
 import logica.gameObjects.*;
 import grafica.entidad.enemigo.*;
 
@@ -17,6 +18,9 @@ public class Dragon extends Enemigo{
 		velocidad=8;
 		puntaje=180;
 		monedas=50;
+		vida=vidaMax=120;
+		rango=3;
+		fuerza = 10;
 		grafico = new GraphicDragon(x,y);
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
@@ -32,6 +36,16 @@ public class Dragon extends Enemigo{
 	}
 	
 	public void atacar(Obstaculo o){
-		
+		canMove=false;
+		((GraphicDragon)grafico).aterrizar();
+		grafico.atacar();
+		try{
+			Thread.sleep(400);
+		}catch(InterruptedException e){
+		}
+		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,y,map,x-rango,grafico.getPos().x-5));
+		((GraphicDragon)grafico).despegar();
+		grafico.avanzar();
+		canMove=true;
 	}
 }

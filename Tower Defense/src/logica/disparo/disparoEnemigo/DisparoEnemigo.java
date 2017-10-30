@@ -20,36 +20,12 @@ public abstract class DisparoEnemigo extends Disparo{
 		else{
 			map.getCelda(x, y).accept(visitorDisparoEnemigo);
 			if(canMove){
-				int aux= this.getGraphic().getPos().x-this.getGraphic().getWidthUnaCelda();
-				while(this.getGraphic().getPos().x-velocidad>aux){
-					this.getGraphic().cambiarPos(this.getGraphic().getPos().x-velocidad, this.getGraphic().getPos().y+4);
-					try{
-						Thread.sleep(100);
-					}catch(InterruptedException e){
-					}
-				}
-				if(canMove){
+				int aux= x*grafico.getWidthUnaCelda();
+				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y+4);
+				if(grafico.getPos().x<aux)
 					x--;
-				}
-				
 			}
 		}
-		
-		if((x-1>=0)&&(x>=alcance)){
-			map.getCelda(x-1, y).accept(visitorDisparoEnemigo);
-			if(canMove){
-				int aux= x*grafico.getWidthUnaCelda()-(grafico.getWidthUnaCelda()+17);
-				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
-				
-				if(grafico.getPos().x<aux){
-					if(x>=0){
-						x--;
-					}
-				}
-			}
-		}
-		else
-			kill();
 	}
 	public void kill(){
 		visitorDisparoEnemigo.kill();

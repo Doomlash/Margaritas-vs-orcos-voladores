@@ -1,10 +1,12 @@
 package grafica.disparo.disparoAliado;
 
-import grafica.gameObjects.*;
+import javax.swing.ImageIcon;
 
-public class GraphicFlecha extends GraphicGameObject{
+public class GraphicFlecha extends GraphicDisparoAliado{
 	
 	public GraphicFlecha(int x, int y){
-		super(x,y,1,1);
+		super(x,y);
+		
+		imagenes[0] = new ImageIcon(dir+"Aliados/Arquero/Flecha.png");
 	}
 }

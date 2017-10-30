@@ -42,7 +42,7 @@ public class HiloDisparoAliado extends Thread{
 			for(int i=0;i<x;i++){
 				toExecute.get(i).ejecutar();
 				try{
-					Thread.sleep(150/x);
+					Thread.sleep(100);
 				}catch(InterruptedException e){
 				}
 			}

@@ -10,7 +10,6 @@ public class PiedraCiclope extends DisparoEnemigo{
 		velocidad=14;
 		damage = 15;
 		grafico = new GraphicPiedraCiclope(x,y);
-		grafico.getGrafico();
 		grafico.cambiarPos(gx, grafico.getPos().y-15);
 		map.getMapaGrafico().addGraphicElemento(grafico);
 	}

@@ -35,7 +35,7 @@ public abstract class GraphicGameObject{
 	 */
 	public void cambiarPos(int newX, int newY){
 		pos.setLocation(newX, newY);
-		grafico.setBounds(pos.x, pos.y, width, height);
+		getGrafico().setBounds(pos.x, pos.y, width, height);
 	}
 	public void setImageIdle(){
 		this.grafico.setIcon(imagenes[0]);

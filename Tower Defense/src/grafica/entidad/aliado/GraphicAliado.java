@@ -12,17 +12,8 @@ public abstract class GraphicAliado extends GraphicGameObject{
 	}
 	public void atacar(){
 		this.getGrafico().setIcon(imagenes[1]);
-		try{
-			Thread.sleep(1500);
-		}catch(InterruptedException e){
-		}
-		this.setImageIdle();
 	}
 	public void morir(){
 		this.getGrafico().setIcon(imagenes[2]);
-		try{
-			Thread.sleep(1500);
-		}catch(InterruptedException e){
-		}
 	}
 }
