@@ -3,6 +3,7 @@ package grafica.almacen;
 import logica.juego.*;
 import logica.almacen.*;
 import logica.almacen.creadorComprables.creadorAliados.*;
+import logica.almacen.creadorComprables.*;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -26,7 +27,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 	}
 	
 	private void crearBotones(Juego j){
-		String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta","Cancelar"};
+		String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta","Barricada","Cancelar"};
 		//"Barricada","Dragon","Armadura","Curacion","Booster","Escudo","Bomba","Trampa"};
 		JButton colocables[] = new JButton[c.length];
 		OyenteAgregar oyAgr = new OyenteAgregar();
@@ -62,6 +63,10 @@ public class Almacen_Mercado_Panel extends JPanel{
 				}
 				case("Mago"):{
 					almacen.asignarCreador(new CreadorMago());
+					break;
+				}
+				case("Barricada"):{
+					almacen.asignarCreador(new CreadorBarricada());
 					break;
 				}
 				case("Cancelar"):{

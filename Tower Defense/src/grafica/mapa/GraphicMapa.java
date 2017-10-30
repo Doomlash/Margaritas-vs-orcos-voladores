@@ -20,7 +20,7 @@ public class GraphicMapa extends JPanel{
 	public GraphicMapa(Mapa m){
 		mapa = m;
 		this.setLayout(null);
-		this.setPreferredSize(new Dimension(1000,480));
+		this.setPreferredSize(new Dimension(1000,520));
 		this.addMouseListener(new OyenteMouse());
 		fondo = new ImageIcon("src/Sprites/FondoMapa.png").getImage();
 	}
@@ -47,8 +47,11 @@ public class GraphicMapa extends JPanel{
 	private class OyenteMouse implements MouseListener{
 		public void mouseClicked(MouseEvent e){
 			int x= e.getX() / 90;
-			int y= e.getY() / 95;
-			mapa.getNivel().getJuego().getAlmacen().crearObjeto(x, y, mapa);
+			int y= e.getY();
+			if(y>=40){
+				y = (y-40)/95;
+				mapa.getNivel().getJuego().getAlmacen().crearObjeto(x, y, mapa);
+			}
 		}
 		
 		public void mouseEntered(MouseEvent e){

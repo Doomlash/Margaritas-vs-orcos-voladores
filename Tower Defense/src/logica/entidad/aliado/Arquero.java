@@ -15,6 +15,7 @@ public class Arquero extends Aliado{
 	 */
 	public Arquero(int x,int y, Mapa m){
 		super(x,y,1,m);
+		precio = 100;
 		vida=vidaMax=50;
 		rango=3;
 		fuerza=7;

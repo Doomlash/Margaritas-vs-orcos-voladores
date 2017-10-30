@@ -12,10 +12,23 @@ public class Barricada extends Obstaculo implements Comprable{
 
 	public Barricada(int x,int y, Mapa m){
 		super(x,y,1,m);
+		precio = 20;
+		vida=vidaMax=100;
 		grafico = new GraphicBarricada(x,y);
 	}
 	public void accept(Visitor v){
 		v.visit(this);
+	}
+	public void setVida(int v){
+		if(vida>vidaMax/3*2)
+			grafico.restaurar();
+		else
+			if((vida>vidaMax/3)&&(vida<=(vidaMax/3*2)))
+				grafico.deterioro();
+			else
+				if((vida>0)&&(vida<vidaMax/3))
+					grafico.dobleDeterioro();
+		super.setVida(v);
 	}
 	
 	public int getPrecio(){
@@ -24,8 +37,6 @@ public class Barricada extends Obstaculo implements Comprable{
 	
 	public void kill(){
 		map.eliminarElemento(this);
-		map.getMapaGrafico().remove(this.grafico.getGrafico());
-		map.getMapaGrafico().repaint();
 	}
 	
 	public GraphicGameObject getGraphic(){

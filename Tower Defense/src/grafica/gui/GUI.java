@@ -59,11 +59,11 @@ public class GUI extends JFrame {
 	 */
 	public GUI(){
 		super("Tower Defense");
-		AnchoVentana= 1240; AltoVentana= 680;
+		AnchoVentana= 1240; AltoVentana= 720;
 		j= new Juego(this);
 		this.setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(90, 20, AnchoVentana, AltoVentana);
+		setBounds(90, 10, AnchoVentana, AltoVentana);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout());
