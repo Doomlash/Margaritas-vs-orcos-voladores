@@ -10,7 +10,6 @@ public class Flecha extends DisparoAliado{
 		velocidad=16;
 		damage = 7;
 		grafico = new GraphicFlecha(x,y);
-		grafico.cambiarPos(grafico.getPos().x-14, grafico.getPos().y-8);
-		map.getMapaGrafico().addGraphicElemento(grafico);
+		map.getMapaGrafico().addGraphicElemento(getGraphic());
 	}
 }

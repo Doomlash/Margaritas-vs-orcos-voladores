@@ -109,35 +109,7 @@ public class GUI extends JFrame {
 		panelSuperior.add(puntaje);
 		panelSuperior.add(presupuesto);
 	}
-//	private void panelIzquierda(){
-//		panelIzquierda = new JPanel();
-//		panelIzquierda.setBackground(Color.GRAY);
-//		panelIzquierda.setPreferredSize(new Dimension(AnchoVentana/12,AltoVentana));
-//		panelIzquierda.setLayout(null);
-//		
-//		String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta"};
-//		//"Barricada","Dragon","Armadura","Curacion","Booster","Escudo","Bomba","Trampa"};
-//		JButton colocables[] = new JButton[c.length];
-//		OyenteAgregar oyAgr = new OyenteAgregar();
-//		for(int i=0;i<colocables.length;i++){
-//			colocables[i] = new JButton(c[i]);
-//			colocables[i].setBounds(0,i*AltoVentana/15,AnchoVentana/12,AltoVentana/15);
-//			colocables[i].addActionListener(oyAgr);
-//			colocables[i].setFocusable(false);
-//			panelIzquierda.add(colocables[i]);
-//		}
-//		
-//		JButton eliminar[] = new JButton[c.length];
-//		OyenteEliminar oyE = new OyenteEliminar();
-//		for(int i=0;i<eliminar.length;i++){
-//			eliminar[i] = new JButton(c[i]);
-//			eliminar[i].setBounds(0,(i+7)*AltoVentana/15,AnchoVentana/12,AltoVentana/15);
-//			eliminar[i].addActionListener(oyE);
-//			eliminar[i].setFocusable(false);
-//			eliminar[i].setBackground(Color.ORANGE);
-//			panelIzquierda.add(eliminar[i]);
-//		}
-//	}
+	
 	private void panelDerecha(){
 		panelDerecha = new JPanel();
 		panelDerecha.setBackground(Color.DARK_GRAY);
@@ -168,57 +140,7 @@ public class GUI extends JFrame {
 	}
 	public int getAlto(){
 		return AltoVentana;
-	}
-	
-//	private class OyenteAgregar implements ActionListener{
-//		public void actionPerformed(ActionEvent e){
-//			String s =e.getActionCommand();
-//			if(j.getNivel().getMapa().celdasVacias()){
-//				Random r = new Random();
-//				int fila, columna;
-//				Aliado a = null;
-//				fila = r.nextInt(6);
-//				columna = r.nextInt(10);
-//				while(!j.getNivel().getMapa().getCelda(columna, fila).isEmpty()){
-//					fila = r.nextInt(6);
-//					columna = r.nextInt(10);
-//				}
-//				if(s=="Caballero"){
-//					a= new Caballero(columna,fila,j.getNivel().getMapa());
-//				}
-//				if(s=="Arquero"){
-//					a= new Arquero(columna,fila,j.getNivel().getMapa());
-//				}
-//				if(s=="Monje"){
-//					a= new Monje(columna,fila,j.getNivel().getMapa());
-//				}
-//				if(s=="Catapulta"){
-//					a= new Catapulta(columna,fila,j.getNivel().getMapa());
-//				}
-//				if(s=="Mago"){
-//					a= new Mago(columna,fila,j.getNivel().getMapa());
-//				}
-//				boolean disponible=true;
-//				for(int i=a.getX();(i<(a.getDimensionX()+a.getX()))&&disponible;i++){
-//					if(i>=0&&i<10)
-//						disponible = j.getNivel().getMapa().getCelda(i, a.getY()).isEmpty();
-//					else
-//						disponible=false;
-//				}
-//				if(disponible){
-//					j.getNivel().getMapa().agregarElemento(a);
-//					j.getNivel().getMapa().getAlmacenHilos().getAtaAliado().agregarAliado(a);
-//				}
-//			}
-//		}
-//	}
-//	
-//	private class OyenteEliminar implements ActionListener{
-//		public void actionPerformed(ActionEvent e){
-//			
-//		}
-//	}
-//	
+	}	
 	private class OyenteEnemigo implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String s= e.getActionCommand();

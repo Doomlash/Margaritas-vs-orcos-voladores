@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 public class Almacen_Mercado_Panel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private Almacen_Mercado almacen;
+	private JButton colocables[];
 	
 	public Almacen_Mercado_Panel(Almacen_Mercado a){
 		Juego j = a.getJuego();
@@ -29,7 +30,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private void crearBotones(Juego j){
 		String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta","Barricada","Cancelar"};
 		//"Barricada","Dragon","Armadura","Curacion","Booster","Escudo","Bomba","Trampa"};
-		JButton colocables[] = new JButton[c.length];
+		colocables = new JButton[c.length];
 		OyenteAgregar oyAgr = new OyenteAgregar();
 		for(int i=0;i<colocables.length;i++){
 			colocables[i] = new JButton(c[i]);
@@ -45,7 +46,6 @@ public class Almacen_Mercado_Panel extends JPanel{
 			String s =e.getActionCommand();
 			switch(s){
 				case("Caballero"):{
-					System.out.println("Creador caballero");
 					almacen.asignarCreador(new CreadorCaballero());
 					break;
 				}

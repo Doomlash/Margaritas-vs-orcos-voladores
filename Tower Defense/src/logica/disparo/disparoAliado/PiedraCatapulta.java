@@ -1,17 +1,15 @@
 package logica.disparo.disparoAliado;
 
-import logica.mapa.*;
 import grafica.disparo.disparoAliado.*;
-import grafica.gameObjects.*;
+import logica.mapa.*;
 
 public class PiedraCatapulta extends DisparoAliado{
-	private GraphicPiedraCatapulta grafico;
 	
 	public PiedraCatapulta(int x, int y, Mapa m, int alcance){
 		super(x,y,m,alcance);
+		velocidad=16;
+		damage = 7;
 		grafico = new GraphicPiedraCatapulta(x,y);
-	}
-	public GraphicGameObject getGraphic(){
-		return grafico;
+		map.getMapaGrafico().addGraphicElemento(getGraphic());
 	}
 }

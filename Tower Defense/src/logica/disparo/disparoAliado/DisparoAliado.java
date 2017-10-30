@@ -4,7 +4,7 @@ import logica.disparo.*;
 import logica.mapa.*;
 import logica.visitor.*;
 import grafica.disparo.disparoAliado.*;
-import grafica.gameObjects.*;
+import grafica.gameObjects.GraphicGameObject;
 
 public abstract class DisparoAliado extends Disparo{
 	protected GraphicDisparoAliado grafico;
@@ -20,7 +20,7 @@ public abstract class DisparoAliado extends Disparo{
 		else{
 			map.getCelda(x, y).accept(visitorDisparoAliado);
 			if(canMove){
-				int aux = x*grafico.getWidthUnaCelda();
+				int aux= x*grafico.getWidthUnaCelda();
 				grafico.cambiarPos(grafico.getPos().x+velocidad, grafico.getPos().y);
 				if(grafico.getPos().x>aux)
 					x++;
@@ -28,6 +28,16 @@ public abstract class DisparoAliado extends Disparo{
 			}
 	}
 	public void kill(){
+		grafico.cambiarPos(grafico.getPos().x+velocidad, grafico.getPos().y);
+		try{
+			Thread.sleep(100);
+		}catch(InterruptedException e){
+		}
+		grafico.cambiarPos(grafico.getPos().x+velocidad, grafico.getPos().y);
+		try{
+			Thread.sleep(100);
+		}catch(InterruptedException e){
+		}
 		visitorDisparoAliado.kill();
 		map.getAlmacenHilos().getDisAliado().disparoAliadoAEliminar(this);
 		map.getMapaGrafico().removeGraphicElemento(grafico);

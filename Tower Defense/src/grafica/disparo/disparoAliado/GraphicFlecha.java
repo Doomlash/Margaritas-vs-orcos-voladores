@@ -8,5 +8,7 @@ public class GraphicFlecha extends GraphicDisparoAliado{
 		super(x,y);
 		
 		imagenes[0] = new ImageIcon(dir+"Aliados/Arquero/Flecha.png");
+		pos.x-=50;
+		pos.y-=17;
 	}
 }

@@ -17,7 +17,7 @@ public class Arquero extends Aliado{
 		super(x,y,1,m);
 		precio = 100;
 		vida=vidaMax=50;
-		rango=3;
+		rango=2;
 		fuerza=7;
 		grafico = new GraphicArquero(x,y);
 	}

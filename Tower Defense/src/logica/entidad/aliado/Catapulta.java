@@ -15,9 +15,15 @@ public class Catapulta extends Aliado{
 	 */
 	public Catapulta(int x, int y, Mapa m){
 		super(x,y,2,m);
+		precio = 100;
+		vida=vidaMax=70;
+		rango=3;
+		fuerza=9;
 		grafico = new GraphicCatapulta(x,y);
 	}
 	public void atacar(Obstaculo o){
-		new PiedraCatapulta(x,y,map,x+dimensionX+rango);
+		grafico.atacar();
+		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new PiedraCatapulta(x+dimensionX,y,map,x+dimensionX+rango));
+		((GraphicCatapulta)grafico).finalizarAtaque();
 	}
 }
