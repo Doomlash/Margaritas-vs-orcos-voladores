@@ -9,4 +9,7 @@ public class ItemPowerBooster extends ItemPremio{
 		super(x,y,1,m);
 		grafico = new GraphicItemPowerBooster(x,y);
 	}
+	public void clickeado(){
+		kill();
+	}
 }

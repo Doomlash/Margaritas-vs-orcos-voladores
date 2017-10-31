@@ -28,6 +28,5 @@ public class Almacen_Mercado{
 	}
 	public void asignarCreador(Creador c){
 		this.creador = c;
-		
 	}
 }

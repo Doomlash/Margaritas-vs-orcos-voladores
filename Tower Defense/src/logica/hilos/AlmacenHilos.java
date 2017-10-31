@@ -6,6 +6,7 @@ public class AlmacenHilos{
 	private HiloAtaqueAliado ataqueAliado;
 	private HiloDisparoEnemigo disparosEnemigos;
 	private HiloDisparoAliado disparosAliados;
+	private HiloItemsPremio itemsPremio;
 	
 	public HiloMovimientoEnemigo getMovEnemigo(){
 		if(movEnemigo==null){
@@ -42,6 +43,13 @@ public class AlmacenHilos{
 		}
 		return disparosAliados;
 	}
+	public HiloItemsPremio getItemsPremio(){
+		if(itemsPremio==null){
+			itemsPremio = new HiloItemsPremio();
+			itemsPremio.start();
+		}
+		return itemsPremio;
+	}
 	public void terminateAll(){
 		if(movEnemigo!=null)
 			movEnemigo.terminate();
@@ -53,5 +61,7 @@ public class AlmacenHilos{
 			disparosEnemigos.terminate();
 		if(disparosAliados!=null)
 			disparosAliados.terminate();
+		if(itemsPremio!=null)
+			itemsPremio.terminate();
 	}
 }

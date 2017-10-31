@@ -1,6 +1,7 @@
 package logica.entidad.aliado;
 
 import logica.mapa.*;
+import logica.disparo.disparoAliado.*;
 import logica.gameObjects.*;
 import grafica.entidad.aliado.*;
 
@@ -14,9 +15,19 @@ public class Mago extends Aliado{
 	 */
 	public Mago(int x, int y, Mapa m){
 		super(x,y,1,m);
+		precio = 80;
+		vida=vidaMax=30;
+		rango=3;
+		fuerza=3;
 		grafico = new GraphicMago(x,y);
 	}
 	public void atacar(Obstaculo o){
-		
+		grafico.atacar();
+		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new ProyectilMagico(x+dimensionX,y,map,x+dimensionX+rango-1));
+		grafico.setImageIdle();
+		try{
+			Thread.sleep(500);
+		}catch(InterruptedException e){
+		}
 	}
 }

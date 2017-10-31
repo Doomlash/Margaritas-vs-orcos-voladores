@@ -9,4 +9,7 @@ public class ItemTrampa extends ItemPremio{
 		super(x,y,1,m);
 		grafico = new GraphicItemTrampa(x,y);
 	}
+	public void clickeado(){
+		kill();
+	}
 }

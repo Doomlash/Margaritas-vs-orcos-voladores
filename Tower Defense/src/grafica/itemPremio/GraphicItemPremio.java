@@ -1,32 +1,40 @@
 package grafica.itemPremio;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.swing.ImageIcon;
-
+import logica.itemPremio.*;
 import grafica.gameObjects.GraphicGameObject;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.Icon;
+
+
 public abstract class GraphicItemPremio extends GraphicGameObject{
+	protected ItemPremio item;
 	
 	public GraphicItemPremio(int x, int y){
 		super(x,y,1,1);
 		
-		imagenes = new ImageIcon[2];
-		
-//		this.getGrafico().addMouseListener(new Oyente());
+		imagenes = new Icon[2];
+	}
+	public void achicar(){
+		grafico.setIcon(imagenes[0]);
+	}
+	public void agrandar(){
+		grafico.setIcon(imagenes[1]);
 	}
 	
-/*	private class Oyente implements MouseListener{
+	protected class Oyente implements MouseListener{
 		
 		public void mouseClicked(MouseEvent e){
+			item.clickeado();
 		}
 		
 		public void mouseEntered(MouseEvent e){
-			cambiarGrafico(1);
+			agrandar();
 		}
 		
 		public void mouseExited(MouseEvent e){
-			cambiarGrafico(0);
+			achicar();
 		}
 		
 		public void mousePressed(MouseEvent e){
@@ -34,5 +42,5 @@ public abstract class GraphicItemPremio extends GraphicGameObject{
 		
 		public void mouseReleased(MouseEvent e){
 		}
-	}*/
+	}
 }

@@ -9,4 +9,7 @@ public class ItemEscudo extends ItemPremio{
 		super(x,y,1,m);
 		grafico = new GraphicItemEscudo(x,y);
 	}
+	public void clickeado(){
+		kill();
+	}
 }

@@ -3,6 +3,10 @@ package logica.entidad.enemigo;
 import logica.entidad.*;
 import logica.mapa.*;
 import logica.visitor.*;
+import logica.itemPremio.*;
+
+import java.util.Random;
+
 import grafica.entidad.enemigo.*;
 import grafica.gameObjects.*;
 
@@ -95,6 +99,9 @@ public abstract class Enemigo extends Entidad{
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);
 		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);
 		map.eliminarElemento(this);
+//		Random r = new Random();
+//		int x = r.nextInt(5);
+		map.getAlmacenHilos().getItemsPremio().agregarItem(new ItemDiamante(x,y,map));
 	}
 	public void setVelocidad(int x){
 		velocidad=x;

@@ -9,4 +9,7 @@ public class ItemBomba extends ItemPremio{
 		super(x,y,1,m);
 		grafico = new GraphicItemBomba(x,y);
 	}
+	public void clickeado(){
+		kill();
+	}
 }
