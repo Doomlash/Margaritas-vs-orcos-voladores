@@ -54,4 +54,9 @@ public class Arquero extends Aliado{
 	public void boostear(){
 		new PowerBooster().activar(this);
 	}
+	public void armadura(){
+		vida+=30;
+		fuerza+=3;
+	
+	}
 }
