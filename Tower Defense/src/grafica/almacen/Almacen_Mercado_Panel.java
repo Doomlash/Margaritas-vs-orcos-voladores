@@ -3,6 +3,7 @@ package grafica.almacen;
 import logica.juego.*;
 import logica.almacen.*;
 import logica.almacen.creadorComprables.creadorAliados.*;
+import logica.almacen.creadorComprables.creadorPremios.CreadorBomba;
 import logica.almacen.creadorComprables.creadorPremios.CreadorBooster;
 import logica.almacen.creadorComprables.*;
 
@@ -93,6 +94,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 					break;
 				}
 				case("Bomba"):{
+					almacen.asignarCreador(new CreadorBomba());
 					break;
 				}
 				case("Booster"):{
