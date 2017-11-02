@@ -1,11 +1,13 @@
 package grafica.entidad.enemigo;
 
+import grafica.mapa.*;
+
 import javax.swing.ImageIcon;
 
 public class GraphicDragon extends GraphicEnemigo{
 	
-	public GraphicDragon(int x, int y){
-		super(x,y,2);
+	public GraphicDragon(int x, int y, GraphicMapa m){
+		super(x,y,2,m);
 		imagenes = new ImageIcon[5];
 		
 		imagenes[0] = new ImageIcon(dir+"Enemigos/Dragon/DragonIdle.png");

@@ -14,7 +14,7 @@ public class Monje extends Aliado{
 	 */
 	public Monje(int x, int y, Mapa m){
 		super(x,y,1,m);
-		grafico = new GraphicMonje(x,y);
+		grafico = new GraphicMonje(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){
 		

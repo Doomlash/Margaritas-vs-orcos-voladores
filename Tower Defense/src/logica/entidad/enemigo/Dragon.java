@@ -21,7 +21,7 @@ public class Dragon extends Enemigo{
 		vida=vidaMax=120;
 		rango=3;
 		fuerza = 10;
-		grafico = new GraphicDragon(x,y);
+		grafico = new GraphicDragon(x,y,map.getMapaGrafico());
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
 	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2

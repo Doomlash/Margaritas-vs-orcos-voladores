@@ -77,6 +77,9 @@ public abstract class Enemigo extends Entidad{
 					}
 				}
 			}
+			else{
+				grafico.setImageIdle();
+			}
 			canMove=true;
 		}
 	}
@@ -91,6 +94,7 @@ public abstract class Enemigo extends Entidad{
 	}
 	
 	public void kill(){
+		escudo.stop();
 		visitorAtaque.kill();
 		visitorMovimiento.kill();
 		this.SACARDEARREGLO();

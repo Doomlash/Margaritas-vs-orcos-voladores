@@ -19,7 +19,7 @@ public class Catapulta extends Aliado{
 		vida=vidaMax=70;
 		rango=3;
 		fuerza=9;
-		grafico = new GraphicCatapulta(x,y);
+		grafico = new GraphicCatapulta(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){
 		grafico.atacar();

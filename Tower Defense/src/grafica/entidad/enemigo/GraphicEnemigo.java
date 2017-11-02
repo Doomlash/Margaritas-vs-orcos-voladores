@@ -1,12 +1,14 @@
 package grafica.entidad.enemigo;
 
-import grafica.gameObjects.*;
+import grafica.entidad.*;
+import grafica.mapa.*;
+
 import javax.swing.ImageIcon;
 
-public abstract class GraphicEnemigo extends GraphicGameObject{
+public abstract class GraphicEnemigo extends GraphicEntidad{
 	
-	public GraphicEnemigo(int x, int y,int a){
-		super(x,y,1,a);
+	public GraphicEnemigo(int x, int y,int a, GraphicMapa m){
+		super(x,y,a,m);
 		imagenes = new ImageIcon[3];
 	}
 	public void atacar(){
@@ -14,5 +16,9 @@ public abstract class GraphicEnemigo extends GraphicGameObject{
 	}
 	public void avanzar(){
 		this.getGrafico().setIcon(imagenes[1]);
+	}
+	public void cambiarPos(int newX, int newY){
+		super.cambiarPos(newX,newY);
+		escudo.cambiarPos(pos.x, pos.y);
 	}
 }

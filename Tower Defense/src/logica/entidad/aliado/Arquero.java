@@ -20,7 +20,7 @@ public class Arquero extends Aliado{
 		vida=vidaMax=50;
 		rango=2;
 		fuerza=7;
-		grafico = new GraphicArquero(x,y);
+		grafico = new GraphicArquero(x,y,map.getMapaGrafico());
 		Invulnerable i = new Invulnerable(this);
 		Thread t = new Thread(i);
 		t.start();

@@ -1,16 +1,17 @@
 package grafica.entidad.aliado;
 
-import java.awt.Toolkit;
+import grafica.entidad.*;
+import grafica.mapa.*;
 
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
-import grafica.gameObjects.*;
 
-public abstract class GraphicAliado extends GraphicGameObject{
+public abstract class GraphicAliado extends GraphicEntidad{
 	protected Toolkit t = Toolkit.getDefaultToolkit();
 	
-	public GraphicAliado(int x, int y, int a){
-		super(x,y,1,a);
+	public GraphicAliado(int x, int y, int a, GraphicMapa m){
+		super(x,y,a,m);
 		imagenes= new ImageIcon[4];
 	}
 	public void atacar(){

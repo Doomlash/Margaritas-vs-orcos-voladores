@@ -2,6 +2,7 @@ package logica.entidad.stateEscudo;
 
 import logica.entidad.*;
 import logica.disparo.*;
+import grafica.entidad.*;
 
 public class Invulnerable extends EstadoEscudo implements Runnable{
 	private Entidad entidad;
@@ -10,19 +11,36 @@ public class Invulnerable extends EstadoEscudo implements Runnable{
 	
 	public Invulnerable(Entidad e){
 		this.entidad=e;
+		((GraphicEntidad)entidad.getGraphic()).activarEscudo(entidad.getX(), entidad.getY());
 		execute = true;
 	}
 	
 	public void run(){
 		while(execute){
 			try{
-				Thread.sleep(1000);
+				Thread.sleep(250);
 			}catch(InterruptedException e){
 			}
+			if(execute)
+				try{
+					Thread.sleep(250);
+				}catch(InterruptedException e){
+				}
+			if(execute)
+				try{
+					Thread.sleep(250);
+				}catch(InterruptedException e){
+				}
+			if(execute)
+				try{
+					Thread.sleep(250);
+				}catch(InterruptedException e){
+				}
 			tiempo--;
 			if(tiempo<=0)
 				kill();
 		}
+		kill();
 	}
 	public void stop(){
 		execute=false;
@@ -37,5 +55,6 @@ public class Invulnerable extends EstadoEscudo implements Runnable{
 	public void kill(){
 		execute = false;
 		this.entidad.setEstadoEscudo(new Vulnerable());
+		((GraphicEntidad)entidad.getGraphic()).desactivarEscudo();
 	}
 }
