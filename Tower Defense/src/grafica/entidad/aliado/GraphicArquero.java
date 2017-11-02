@@ -13,9 +13,5 @@ public class GraphicArquero extends GraphicAliado{
 	
 	public void atacar(){
 		super.atacar();
-		try{
-			Thread.sleep(600);
-		}catch(InterruptedException e){
-		}
 	}
 }

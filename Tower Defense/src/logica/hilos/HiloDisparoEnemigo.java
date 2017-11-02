@@ -40,10 +40,10 @@ public class HiloDisparoEnemigo extends Thread{
 			int x= toExecute.size();
 			for(int i=0;i<x;i++){
 				toExecute.get(i).ejecutar();
-				try{
-					Thread.sleep(100);
-				}catch(InterruptedException e){
-				}
+			}
+			try{
+				Thread.sleep(100);
+			}catch(InterruptedException e){
 			}
 		}
 	}
