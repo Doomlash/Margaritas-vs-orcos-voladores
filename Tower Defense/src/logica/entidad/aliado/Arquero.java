@@ -25,6 +25,7 @@ public class Arquero extends Aliado{
 		cdTemporal=10;
 		grafico = new GraphicArquero(x,y);
 	}
+	
 	@Override
 	public void atacarRango(){
 		if(cdTemporal==0){

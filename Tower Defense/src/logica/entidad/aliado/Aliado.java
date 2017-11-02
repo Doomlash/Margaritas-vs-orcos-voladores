@@ -57,4 +57,5 @@ public abstract class Aliado extends Entidad implements Comprable{
 	}
 	public abstract void setCd(int newCd);
 	public abstract int getCd();
+	public void armadura(){}
 }
