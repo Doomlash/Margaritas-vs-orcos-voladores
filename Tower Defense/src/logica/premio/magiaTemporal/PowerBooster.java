@@ -15,14 +15,14 @@ public class PowerBooster{
 			aliado=a;
 		}
 	    public void run(){
-	    	int cdInicial=aliado.getCd();
-	        aliado.setCd(cdInicial/2);
+	    	//int cdInicial=aliado.getCd();
+	        aliado.setCd(aliado.getCd()/2);
 	        try {
 	        	Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-	        aliado.setCd(cdInicial);
+	        aliado.setCd(aliado.getCd()*2);
 	    }
 	}
 }
