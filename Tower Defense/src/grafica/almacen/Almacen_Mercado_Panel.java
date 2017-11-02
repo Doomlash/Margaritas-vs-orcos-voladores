@@ -103,7 +103,6 @@ public class Almacen_Mercado_Panel extends JPanel{
 					almacen.asignarCreador(new CreadorBarricada());
 					break;
 				}
-<<<<<<< HEAD
 				case("Bomba"):{
 					break;
 				}
@@ -117,8 +116,6 @@ public class Almacen_Mercado_Panel extends JPanel{
 				case("Escudo"):{
 					break;
 				}
-=======
->>>>>>> master
 				case("Cancelar"):{
 					almacen.asignarCreador(null);
 					break;

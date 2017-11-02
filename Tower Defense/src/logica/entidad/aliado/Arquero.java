@@ -48,7 +48,6 @@ public class Arquero extends Aliado{
 	public void atacar(Obstaculo o){
 		grafico.atacar();
 		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new Flecha(x+dimensionX,y,map,x+dimensionX+rango-1));
-<<<<<<< HEAD
 	}
 	public void setCd(int newCd){
 		cd=newCd;
@@ -58,7 +57,5 @@ public class Arquero extends Aliado{
 	}
 	public void boostear(){
 		new PowerBooster().activar(this);
-=======
->>>>>>> master
 	}
 }
