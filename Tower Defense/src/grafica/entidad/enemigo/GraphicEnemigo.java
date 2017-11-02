@@ -19,6 +19,7 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 	}
 	public void cambiarPos(int newX, int newY){
 		super.cambiarPos(newX,newY);
-		escudo.cambiarPos(pos.x, pos.y);
+		if(escudo!=null)
+			escudo.cambiarPos(pos.x, pos.y);
 	}
 }
