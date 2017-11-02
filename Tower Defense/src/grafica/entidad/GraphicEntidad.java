@@ -4,9 +4,12 @@ import grafica.gameObjects.*;
 import grafica.mapa.*;
 import grafica.premio.*;
 
+import java.awt.Toolkit;
+
 public abstract class GraphicEntidad extends GraphicGameObject{
 	protected GraphicMapa map;
 	protected GraphicEscudo escudo;
+	protected Toolkit t = Toolkit.getDefaultToolkit();
 	
 	public GraphicEntidad(int x, int y, int a, GraphicMapa m){
 		super(x,y,1,a);

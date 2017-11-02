@@ -10,11 +10,11 @@ public class GraphicDragon extends GraphicEnemigo{
 		super(x,y,2,m);
 		imagenes = new ImageIcon[5];
 		
-		imagenes[0] = new ImageIcon(dir+"Enemigos/Dragon/DragonIdle.png");
-		imagenes[1] = new ImageIcon(dir+"Enemigos/Dragon/Dragonvolar.gif");
-		imagenes[2] = new ImageIcon(dir+"Enemigos/Dragon/DragonAtaque.gif");
-		imagenes[3] = new ImageIcon(dir+"Enemigos/Dragon/DragonAterrizar.gif");
-		imagenes[4] = new ImageIcon(dir+"Enemigos/Dragon/DragonDespegar.gif");
+		imagenes[0] = new ImageIcon(t.createImage(dir+"Enemigos/Dragon/DragonIdle.png"));
+		imagenes[1] = new ImageIcon(t.createImage(dir+"Enemigos/Dragon/Dragonvolar.gif"));
+		imagenes[2] = new ImageIcon(t.createImage(dir+"Enemigos/Dragon/DragonAtaque.gif"));
+		imagenes[3] = new ImageIcon(t.createImage(dir+"Enemigos/Dragon/DragonAterrizar.gif"));
+		imagenes[4] = new ImageIcon(t.createImage(dir+"Enemigos/Dragon/DragonDespegar.gif"));
 	}
 	public void aterrizar(){
 		this.getGrafico().setIcon(imagenes[3]);
