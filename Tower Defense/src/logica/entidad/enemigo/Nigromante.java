@@ -20,6 +20,8 @@ public class Nigromante extends Enemigo{
 		vida=vidaMax=30;
 		rango=1;
 		fuerza=20;
+		cargaAtaqueNecesaria = 50;
+		cargaAtaqueActual = 40;
 		grafico = new GraphicNigromante(x,y,map.getMapaGrafico());
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2

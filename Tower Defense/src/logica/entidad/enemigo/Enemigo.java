@@ -85,12 +85,17 @@ public abstract class Enemigo extends Entidad{
 	}
 	
 	public void atacarRango(){
-		for(int i=(x-1);i>=x-rango;i--){
-			Celda c = map.getCelda(i, y);
-			if(c!=null){
-				c.accept(visitorAtaque);
+		if(cargaAtaqueActual==cargaAtaqueNecesaria){
+			cargaAtaqueActual=0;
+			for(int i=(x-1);i>=x-rango;i--){
+				Celda c = map.getCelda(i, y);
+				if(c!=null){
+					c.accept(visitorAtaque);
+				}
 			}
 		}
+		else
+			cargaAtaqueActual++;
 	}
 	
 	public void kill(){

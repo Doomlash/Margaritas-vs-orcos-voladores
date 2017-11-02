@@ -20,6 +20,8 @@ public class Ogro extends Enemigo{
 		vida=vidaMax=80;
 		rango=1;
 		fuerza=25;
+		cargaAtaqueNecesaria = 50;
+		cargaAtaqueActual = 40;
 		grafico = new GraphicOgro(x,y,map.getMapaGrafico());
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2

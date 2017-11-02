@@ -19,6 +19,8 @@ public class Mago extends Aliado{
 		vida=vidaMax=30;
 		rango=3;
 		fuerza=3;
+		cargaAtaqueNecesaria = 50;
+		cargaAtaqueActual = 40;
 		grafico = new GraphicMago(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){

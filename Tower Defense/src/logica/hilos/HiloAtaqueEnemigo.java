@@ -50,7 +50,7 @@ public class HiloAtaqueEnemigo extends Thread{
 					toExecute.get(i).atacarRango();
 				}
 				try{
-					Thread.sleep(1000);
+					Thread.sleep(30);
 				}catch(InterruptedException e){
 				}
 			}

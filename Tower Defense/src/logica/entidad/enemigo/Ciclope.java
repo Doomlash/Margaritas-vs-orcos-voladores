@@ -21,6 +21,8 @@ public class Ciclope extends Enemigo{
 		vida=vidaMax=70;
 		rango=2;
 		fuerza = 15;
+		cargaAtaqueNecesaria = 50;
+		cargaAtaqueActual = 40;
 		grafico = new GraphicCiclope(x,y,map.getMapaGrafico());
 	}
 	

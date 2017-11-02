@@ -21,6 +21,8 @@ public class Lich extends Enemigo{
 		vida=vidaMax=60;
 		rango=1;
 		fuerza=13;
+		cargaAtaqueNecesaria = 50;
+		cargaAtaqueActual = 40;
 		grafico = new GraphicLich(x,y,map.getMapaGrafico());
 		Invulnerable i = new Invulnerable(this);
 		Thread t = new Thread(i);

@@ -6,7 +6,7 @@ import logica.entidad.stateEscudo.*;
 import logica.disparo.*;
 
 public abstract class Entidad extends Obstaculo{
-	protected int rango,fuerza,fuerzaActual;
+	protected int rango,fuerza,fuerzaActual,cargaAtaqueActual,cargaAtaqueNecesaria;
 	protected EstadoEscudo escudo;
 
 	public Entidad(int x, int y, int dx, Mapa m){
