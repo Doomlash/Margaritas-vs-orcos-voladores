@@ -9,12 +9,10 @@ import grafica.gameObjects.GraphicGameObject;
 public abstract class DisparoAliado extends Disparo{
 	protected GraphicDisparoAliado grafico;
 	protected VisitorDisparoAliado visitorDisparoAliado;
-	protected int impactos;
 
 	public DisparoAliado(int x,int y, Mapa m, int a){
 		super(x,y,m,a);
 		visitorDisparoAliado = new VisitorDisparoAliado(this);
-		impactos=1;
 	}
 	public void ejecutar(){
 		if((x>=map.getCeldas()[0].length-1)||(x==alcance+1))
@@ -23,7 +21,7 @@ public abstract class DisparoAliado extends Disparo{
 			map.getCelda(x, y).accept(visitorDisparoAliado);
 			if(canMove){
 				int aux= x*grafico.getWidthUnaCelda();
-				grafico.cambiarPos(grafico.getPos().x+velocidad, grafico.getPos().y);
+				grafico.cambiarPos(grafico.getPos().x+velocidad, grafico.getPos().y+velocidad/4);
 				if(grafico.getPos().x>aux)
 					x++;
 				}
@@ -36,12 +34,5 @@ public abstract class DisparoAliado extends Disparo{
 	}
 	public GraphicGameObject getGraphic(){
 		return grafico;
-	}
-	public void reducirImpactos(){
-		impactos--;
-		if(impactos==0){
-			stop();
-			kill();
-		}
 	}
 }

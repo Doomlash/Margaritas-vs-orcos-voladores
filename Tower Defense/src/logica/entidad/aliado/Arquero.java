@@ -4,6 +4,7 @@ import logica.mapa.*;
 import logica.premio.magiaTemporal.PowerBooster;
 import logica.gameObjects.*;
 import logica.disparo.disparoAliado.*;
+import logica.entidad.stateEscudo.*;
 import grafica.entidad.aliado.*;
 
 public class Arquero extends Aliado{
@@ -17,13 +18,17 @@ public class Arquero extends Aliado{
 	 */
 	public Arquero(int x,int y, Mapa m){
 		super(x,y,1,m);
-		precio = 100;
+		precio = 50;
 		vida=vidaMax=50;
 		rango=6;
 		fuerza=7;
 		cd=100;
 		cdTemporal=10;
 		grafico = new GraphicArquero(x,y);
+		Invulnerable i = new Invulnerable(this);
+		Thread t = new Thread(i);
+		t.start();
+		this.escudo = i;
 	}
 	@Override
 	public void atacarRango(){
@@ -43,6 +48,7 @@ public class Arquero extends Aliado{
 	public void atacar(Obstaculo o){
 		grafico.atacar();
 		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new Flecha(x+dimensionX,y,map,x+dimensionX+rango-1));
+<<<<<<< HEAD
 	}
 	public void setCd(int newCd){
 		cd=newCd;
@@ -52,5 +58,7 @@ public class Arquero extends Aliado{
 	}
 	public void boostear(){
 		new PowerBooster().activar(this);
+=======
+>>>>>>> master
 	}
 }

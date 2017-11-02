@@ -39,10 +39,10 @@ public class HiloMovimientoEnemigo extends Thread{
 			int x= toExecute.size();
 			for(int i=0;i<x;i++){
 				toExecute.get(i).move();
-				try{
-					Thread.sleep(150/x);
-				}catch(InterruptedException e){
-				}
+			}
+			try{
+				Thread.sleep(200);
+			}catch(InterruptedException e){
 			}
 		}
 	}
