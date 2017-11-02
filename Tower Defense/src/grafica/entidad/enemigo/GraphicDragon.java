@@ -7,7 +7,7 @@ public class GraphicDragon extends GraphicEnemigo{
 	
 	public GraphicDragon(int x, int y){
 		super(x,y,2);
-		imagenes = new Icon[5];
+		imagenes = new ImageIcon[5];
 		
 		imagenes[0] = new ImageIcon(dir+"Enemigos/Dragon/DragonIdle.png");
 		imagenes[1] = new ImageIcon(dir+"Enemigos/Dragon/Dragonvolar.gif");
