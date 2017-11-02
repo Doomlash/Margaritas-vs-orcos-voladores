@@ -52,7 +52,7 @@ public class Arquero extends Aliado{
 		return cd;
 	}
 	public void boostear(){
-		new PowerBooster().activar(this);
+		new PowerBooster(x,y,map).activar(this);
 	}
 	public void armadura(){
 		vida+=30;

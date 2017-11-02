@@ -1,5 +1,6 @@
 package logica.almacen.creadorComprables.creadorPremios;
 
+import grafica.premio.GraphicBooster;
 import logica.almacen.Creador;
 import logica.gameObjects.Elemento;
 import logica.mapa.Mapa;
