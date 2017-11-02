@@ -12,8 +12,12 @@ public class VisitorAtaqueAliado extends Visitor{
 	}
 	
 	public void visit(Enemigo e){
-		if(aliado!=null)
-			aliado.atacar(e);
+		if(aliado!=null){
+			if(aliado.getX()+aliado.getDimensionX()==e.getX())
+				e.recibirGolpe(aliado);
+			if(aliado!=null)
+				aliado.atacar(e);
+		}
 	}
 	public void visit(Piedra p){
 		if(aliado!=null)

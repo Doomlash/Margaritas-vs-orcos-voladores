@@ -4,6 +4,7 @@ import logica.juego.*;
 import logica.almacen.*;
 import logica.almacen.creadorComprables.creadorAliados.*;
 import logica.almacen.creadorComprables.*;
+import logica.almacen.creadorComprables.creadorPremios.*;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Almacen_Mercado_Panel extends JPanel{
@@ -22,7 +22,6 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private JButton colocables[];
 	private Map<String,Integer> itemsPremio;
 	private String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta","Barricada","Bomba","Booster","Trampa","Escudo","Cancelar"};
-	private JLabel[] cantidadItems;
 	
 	public Almacen_Mercado_Panel(Almacen_Mercado a){
 		Juego j = a.getJuego();
@@ -38,34 +37,44 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private void crearMapeo(){
 		itemsPremio = new HashMap<String,Integer>();
 		for(int i=6;i<10;i++){
-			itemsPremio.put(c[i], 0);
+			itemsPremio.put(c[i], 5);
+		}
+	}
+	public void disminuirCantidad(String s){
+		itemsPremio.put(s, itemsPremio.get(s)-1);
+		actualizarBotones();
+	}
+	public void aumentarCantidad(String s){
+		itemsPremio.put(s, itemsPremio.get(s)+1);
+		actualizarBotones();
+	}
+	private void actualizarBotones(){
+		for(int i=6;i<10;i++){
+			colocables[i].setText(c[i]+" x"+itemsPremio.get(c[i]));
+			if(itemsPremio.get(c[i])==0)
+				colocables[i].setEnabled(false);
+			else
+				colocables[i].setEnabled(true);
 		}
 	}
 	
 	private void crearBotones(Juego j){
-		//"Barricada","Dragon","Armadura","Curacion","Booster","Escudo","Bomba","Trampa"};
 		colocables = new JButton[c.length];
-		cantidadItems = new JLabel[4];
 		OyenteAgregar oyAgr = new OyenteAgregar();
 		for(int i=0;i<colocables.length;i++){
 			colocables[i] = new JButton(c[i]);
-			if(i>=6&&i<10){
-				colocables[i].setBounds(0,i*j.getGui().getAlto()/20,j.getGui().getAncho()/15,j.getGui().getAlto()/20);
-				cantidadItems[i-6] = new JLabel("x0");
-				cantidadItems[i-6].setBounds(j.getGui().getAncho()/15,i*j.getGui().getAlto()/20,j.getGui().getAncho()/12,j.getGui().getAlto()/20);
-				this.add(cantidadItems[i-6]);
-			}
-			else
-				colocables[i].setBounds(0,i*j.getGui().getAlto()/20,j.getGui().getAncho()/12,j.getGui().getAlto()/20);
+			colocables[i].setBounds(0,i*j.getGui().getAlto()/20,j.getGui().getAncho()/12,j.getGui().getAlto()/20);
 			colocables[i].addActionListener(oyAgr);
 			colocables[i].setFocusable(false);
 			this.add(colocables[i]);
 		}
+		actualizarBotones();
 	}
 	
 	private class OyenteAgregar implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String s =e.getActionCommand();
+			String[] aux = {"Escudo x"+itemsPremio.get("Escudo")};
 			switch(s){
 				case("Caballero"):{
 					almacen.asignarCreador(new CreadorCaballero());
@@ -91,22 +100,15 @@ public class Almacen_Mercado_Panel extends JPanel{
 					almacen.asignarCreador(new CreadorBarricada());
 					break;
 				}
-				case("Bomba"):{
-					break;
-				}
-				case("Booster"):{
-					break;
-				}
-				case("Trampa"):{
-					break;
-				}
-				case("Escudo"):{
-					break;
-				}
 				case("Cancelar"):{
 					almacen.asignarCreador(null);
 					break;
 				}
+			}
+			System.out.println(s==aux[0]);
+			if(s==("Escudo x"+itemsPremio.get("Escudo"))){
+				System.out.println("Asignando creador");
+				almacen.asignarCreador(new CreadorEscudo());
 			}
 		}
 	}

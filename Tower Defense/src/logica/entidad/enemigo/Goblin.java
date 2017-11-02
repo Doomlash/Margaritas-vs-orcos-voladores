@@ -1,6 +1,7 @@
 package logica.entidad.enemigo;
 
 import logica.mapa.*;
+import logica.entidad.stateEscudo.*;
 import logica.gameObjects.*;
 import grafica.entidad.enemigo.*;
 
