@@ -1,12 +1,13 @@
 package logica.entidad.aliado;
 
 import logica.mapa.*;
+import logica.premio.magiaTemporal.PowerBooster;
 import logica.gameObjects.*;
 import logica.disparo.disparoAliado.*;
 import grafica.entidad.aliado.*;
 
 public class Arquero extends Aliado{
-	private int cd;
+	private int cd,cdTemporal;
 	
 	/**
 	 * Se inicializa el objeto grafico asociado a la clase y se lo agrega al mapa grafico.
@@ -21,12 +22,13 @@ public class Arquero extends Aliado{
 		rango=6;
 		fuerza=7;
 		cd=100;
+		cdTemporal=10;
 		grafico = new GraphicArquero(x,y);
 	}
 	@Override
 	public void atacarRango(){
-		if(cd==0){
-			cd=100;
+		if(cdTemporal==0){
+			cdTemporal=cd;
 			for(int i=(x+dimensionX);i<x+dimensionX+rango;i++){
 				Celda c = map.getCelda(i, y);
 				if(c!=null){
@@ -35,20 +37,20 @@ public class Arquero extends Aliado{
 			}
 		}
 		else{
-			cd--;
+			cdTemporal--;
 		}
 	}
 	public void atacar(Obstaculo o){
 		grafico.atacar();
 		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new Flecha(x+dimensionX,y,map,x+dimensionX+rango-1));
-//		try{
-//			Thread.sleep(100);
-//		}catch(InterruptedException e){
-//		}
-//		grafico.setImageIdle();
-//		try{
-//			Thread.sleep(500);
-//		}catch(InterruptedException e){
-//		}
+	}
+	public void setCd(int newCd){
+		cd=newCd;
+	}
+	public int getCd(){
+		return cd;
+	}
+	public void boostear(){
+		new PowerBooster().activar(this);
 	}
 }

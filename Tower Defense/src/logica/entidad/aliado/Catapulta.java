@@ -26,4 +26,19 @@ public class Catapulta extends Aliado{
 		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new PiedraCatapulta(x+dimensionX,y,map,x+dimensionX+rango));
 		((GraphicCatapulta)grafico).finalizarAtaque();
 	}
+	@Override
+	public void boostear() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setCd(int newCd) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public int getCd() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

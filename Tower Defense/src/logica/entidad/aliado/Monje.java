@@ -19,4 +19,19 @@ public class Monje extends Aliado{
 	public void atacar(Obstaculo o){
 		
 	}
+	@Override
+	public void boostear() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setCd(int newCd) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public int getCd() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

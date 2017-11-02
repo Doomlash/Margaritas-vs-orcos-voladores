@@ -11,7 +11,7 @@ public class Piedra extends Obstaculo{
 	
 	public Piedra(int x, int y, Mapa m){
 		super(x,y,1,m);
-		vida=vidaMax=75;
+		vida=vidaMax=500;
 		grafico = new GraphicPiedra(x,y);
 	}
 	public void accept(Visitor v){

@@ -30,4 +30,19 @@ public class Mago extends Aliado{
 		}catch(InterruptedException e){
 		}
 	}
+	@Override
+	public void boostear() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setCd(int newCd) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public int getCd() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -11,7 +11,7 @@ import grafica.gameObjects.*;
 public abstract class Aliado extends Entidad implements Comprable{
 	protected int precio;
 	protected CabezaDeDragon dragon;
-	protected PowerBooster booster;
+	//protected PowerBooster booster;
 	protected GraphicAliado grafico;
 	protected VisitorAtaqueAliado visitorAtaque;
 	
@@ -45,7 +45,7 @@ public abstract class Aliado extends Entidad implements Comprable{
 	public int getPrecio(){
 		return precio;
 	}
-	
+	public abstract void boostear();
 	public void kill(){
 		visitorAtaque.kill();
 		grafico.morir();
@@ -55,4 +55,6 @@ public abstract class Aliado extends Entidad implements Comprable{
 	public GraphicGameObject getGraphic(){
 		return grafico;
 	}
+	public abstract void setCd(int newCd);
+	public abstract int getCd();
 }

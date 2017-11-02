@@ -24,4 +24,19 @@ public class Caballero extends Aliado{
 		this.grafico.atacar();
 		o.setVida(o.getVida()-fuerza);
 	}
+	@Override
+	public void boostear() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setCd(int newCd) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public int getCd() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
