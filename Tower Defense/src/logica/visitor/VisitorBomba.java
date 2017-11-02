@@ -1,29 +1,41 @@
 package logica.visitor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import logica.comprables.Barricada;
 import logica.entidad.aliado.Aliado;
 import logica.entidad.enemigo.Enemigo;
+import logica.gameObjects.Obstaculo;
 import logica.mapa.elementosMapa.destruibles.Piedra;
 import logica.mapa.elementosMapa.temporales.Agua;
 import logica.premio.objetoPrecioso.Trampa;
 
 public class VisitorBomba extends Visitor {
-	private static int damage=200;
+	private List<Obstaculo> objetivos;
+	
+	public VisitorBomba(){
+		objetivos=new ArrayList<Obstaculo>();
+	}
 public void visit(Aliado a){
-		a.setVida(a.getVida()-damage);
+		objetivos.add(a);
 	}
 	public void visit(Enemigo e){
-		e.setVida(e.getVida()-damage);
+		objetivos.add(e);
 	}
 	public void visit(Barricada b){
-		b.setVida(b.getVida()-damage);
+		objetivos.add(b);
 	}
 	public void visit(Piedra p){
-		p.setVida(p.getVida()-damage);
+		objetivos.add(p);
 	}
 	public void visit(Agua a){
 	}
 	public void visit(Trampa t){
 	}
 	public void kill(){}
+	
+	public List<Obstaculo> getObjetivos(){
+		return objetivos;
+	}
 }
