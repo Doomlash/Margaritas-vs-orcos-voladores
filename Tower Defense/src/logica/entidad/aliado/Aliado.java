@@ -10,7 +10,7 @@ import grafica.gameObjects.*;
 
 public abstract class Aliado extends Entidad implements Comprable{
 	protected int precio;
-	protected CabezaDeDragon dragon;
+	protected Stun dragon;
 	protected PowerBooster booster;
 	protected GraphicAliado grafico;
 	protected VisitorAtaqueAliado visitorAtaque;
