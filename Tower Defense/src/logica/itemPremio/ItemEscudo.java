@@ -8,7 +8,6 @@ public class ItemEscudo extends ItemPremio{
 	public ItemEscudo(int x, int y, Mapa m){
 		super(x,y,1,m);
 		grafico = new GraphicItemEscudo(x,y);
-		grafico = new GraphicItemEscudo(x,y,this);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void clickeado(){
