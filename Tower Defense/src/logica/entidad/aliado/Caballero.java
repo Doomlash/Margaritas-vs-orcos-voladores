@@ -14,7 +14,7 @@ public class Caballero extends Aliado{
 	 */
 	public Caballero(int x, int y, Mapa m){
 		super(x,y,1,m);
-		precio = 50;
+		precio = 100;
 		vida=vidaMax=90;
 		rango=1;
 		fuerza=20;

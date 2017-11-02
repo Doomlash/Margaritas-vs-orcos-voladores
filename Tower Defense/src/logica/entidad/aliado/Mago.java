@@ -24,6 +24,11 @@ public class Mago extends Aliado{
 	public void atacar(Obstaculo o){
 		grafico.atacar();
 		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new ProyectilMagico(x+dimensionX,y,map,x+dimensionX+rango-1));
+		grafico.setImageIdle();
+		try{
+			Thread.sleep(500);
+		}catch(InterruptedException e){
+		}
 	}
 	@Override
 	public void boostear() {

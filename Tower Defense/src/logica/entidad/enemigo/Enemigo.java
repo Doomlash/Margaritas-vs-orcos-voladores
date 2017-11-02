@@ -99,33 +99,9 @@ public abstract class Enemigo extends Entidad{
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);
 		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);
 		map.eliminarElemento(this);
-		crearPremio();
-	}
-	private void crearPremio(){
-		Random r = new Random();
-		int i = r.nextInt(5);
-		switch(i){
-			case(0):{
-				map.getAlmacenHilos().getItemsPremio().agregarItem(new ItemDiamante(x,y,map));
-				break;
-			}
-			case(1):{
-				map.getAlmacenHilos().getItemsPremio().agregarItem(new ItemPowerBooster(x,y,map));
-				break;
-			}
-			case(2):{
-				map.getAlmacenHilos().getItemsPremio().agregarItem(new ItemBomba(x,y,map));
-				break;
-			}
-			case(3):{
-				map.getAlmacenHilos().getItemsPremio().agregarItem(new ItemTrampa(x,y,map));
-				break;
-			}
-			case(4):{
-				map.getAlmacenHilos().getItemsPremio().agregarItem(new ItemEscudo(x,y,map));
-				break;
-			}
-		}
+//		Random r = new Random();
+//		int x = r.nextInt(5);
+		map.getAlmacenHilos().getItemsPremio().agregarItem(new ItemDiamante(x,y,map));
 	}
 	public void setVelocidad(int x){
 		velocidad=x;

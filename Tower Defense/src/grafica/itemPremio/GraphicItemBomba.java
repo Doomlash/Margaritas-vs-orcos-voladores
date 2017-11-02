@@ -1,18 +1,13 @@
 package grafica.itemPremio;
 
-import logica.itemPremio.*;
-
 import javax.swing.ImageIcon;
 
 public class GraphicItemBomba extends GraphicItemPremio{
 	
-	public GraphicItemBomba(int x, int y, ItemPremio i){
+	public GraphicItemBomba(int x, int y){
 		super(x,y);
-		this.item = i;
 
-		imagenes[0] = new ImageIcon(dir+"BombaItemChico.png");
-		imagenes[1] = new ImageIcon(dir+"BombaItemGrande.png");
-		
-		this.getGrafico().addMouseListener(new Oyente());
+		imagenes[0] = new ImageIcon(dir+"Granada.png");
+		imagenes[1] = new ImageIcon(dir+"Diamante.png");
 	}
 }

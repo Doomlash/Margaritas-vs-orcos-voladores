@@ -1,7 +1,6 @@
 package logica.entidad.enemigo;
 
 import logica.mapa.*;
-import logica.entidad.stateEscudo.Invulnerable;
 import logica.gameObjects.*;
 import grafica.entidad.enemigo.*;
 
@@ -22,10 +21,6 @@ public class Lich extends Enemigo{
 		rango=1;
 		fuerza=13;
 		grafico = new GraphicLich(x,y);
-		Invulnerable i = new Invulnerable(this);
-		Thread t = new Thread(i);
-		t.start();
-		this.escudo = i;
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
 	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2

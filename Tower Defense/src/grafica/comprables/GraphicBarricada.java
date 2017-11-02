@@ -1,5 +1,6 @@
 package grafica.comprables;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import grafica.gameObjects.*;

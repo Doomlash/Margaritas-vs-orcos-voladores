@@ -1,5 +1,6 @@
 package grafica.entidad.enemigo;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class GraphicDragon extends GraphicEnemigo{
