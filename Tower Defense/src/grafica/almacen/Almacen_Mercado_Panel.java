@@ -21,7 +21,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private Almacen_Mercado almacen;
 	private JButton colocables[];
 	private Map<String,Integer> itemsPremio;
-	private String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta","Barricada","Bomba","Booster","Trampa","Escudo","Cancelar"};
+	private String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta","Barricada","Bomba","Booster","Trampa","Escudo","Stun","Cancelar"};
 	
 	public Almacen_Mercado_Panel(Almacen_Mercado a){
 		Juego j = a.getJuego();
@@ -100,6 +100,10 @@ public class Almacen_Mercado_Panel extends JPanel{
 				}
 				case("Barricada"):{
 					almacen.asignarCreador(new CreadorBarricada());
+					break;
+				}
+				case("Stun"):{
+					almacen.asignarCreador(new CreadorStun());
 					break;
 				}
 				case("Cancelar"):{

@@ -1,5 +1,7 @@
 package logica.hilos;
 
+import logica.comprables.Stun;
+
 public class AlmacenHilos{
 	private HiloMovimientoEnemigo movEnemigo;
 	private HiloAtaqueEnemigo ataqueEnemigo;
@@ -7,6 +9,7 @@ public class AlmacenHilos{
 	private HiloDisparoEnemigo disparosEnemigos;
 	private HiloDisparoAliado disparosAliados;
 	private HiloItemsPremio itemsPremio;
+	private Stun stun;
 	
 	public HiloMovimientoEnemigo getMovEnemigo(){
 		if(movEnemigo==null){
@@ -50,6 +53,17 @@ public class AlmacenHilos{
 		}
 		return itemsPremio;
 	}
+	public void resetearStun(){
+		if(stun==null){
+			stun = new Stun(this);
+			stun.start();
+		}
+		else
+			stun.resetearTemporizador();
+	}
+	public void deleteStun(){
+		stun=null;
+	}
 	public void terminateAll(){
 		if(movEnemigo!=null)
 			movEnemigo.terminate();
@@ -63,5 +77,7 @@ public class AlmacenHilos{
 			disparosAliados.terminate();
 		if(itemsPremio!=null)
 			itemsPremio.terminate();
+		if(stun!=null)
+			stun.terminate();
 	}
 }

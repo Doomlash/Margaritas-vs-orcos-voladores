@@ -21,7 +21,7 @@ public abstract class DisparoAliado extends Disparo{
 			map.getCelda(x, y).accept(visitorDisparoAliado);
 			if(canMove){
 				int aux= x*grafico.getWidthUnaCelda();
-				grafico.cambiarPos(grafico.getPos().x+velocidad, grafico.getPos().y+velocidad/4);
+				grafico.cambiarPos(grafico.getPos().x+velocidad, grafico.getPos().y);
 				if(grafico.getPos().x>aux)
 					x++;
 				}

@@ -23,7 +23,7 @@ public abstract class Enemigo extends Entidad{
 	 * 
 	 * @param x : int
 	 * @param y : int
-	 * @param dx : int - Indica la dimension del objeto en cuando a ancho
+	 * @param dx : int - Indica la dimension del objeto en cuanto a ancho
 	 * @param m : Mapa
 	 */
 	public Enemigo(int x, int y, int dx, Mapa m){

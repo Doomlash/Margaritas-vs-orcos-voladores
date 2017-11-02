@@ -16,8 +16,8 @@ public abstract class GraphicEntidad extends GraphicGameObject{
 		this.map = m;
 	}
 	
-	public void activarEscudo(int x, int y){
-		escudo = new GraphicEscudo(x,y,1);
+	public void activarEscudo(int x, int y, int ancho){
+		escudo = new GraphicEscudo(x,y,ancho);
 		map.addGraphicElemento(escudo);
 	}
 	public void desactivarEscudo(){

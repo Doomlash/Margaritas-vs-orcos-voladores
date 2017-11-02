@@ -3,7 +3,6 @@ package logica.entidad.aliado;
 import logica.mapa.*;
 import logica.gameObjects.*;
 import logica.disparo.disparoAliado.*;
-import logica.entidad.stateEscudo.*;
 import grafica.entidad.aliado.*;
 
 public class Arquero extends Aliado{
@@ -18,13 +17,9 @@ public class Arquero extends Aliado{
 		super(x,y,1,m);
 		precio = 50;
 		vida=vidaMax=50;
-		rango=2;
+		rango=5;
 		fuerza=7;
 		grafico = new GraphicArquero(x,y,map.getMapaGrafico());
-		Invulnerable i = new Invulnerable(this);
-		Thread t = new Thread(i);
-		t.start();
-		this.escudo = i;
 	}
 	public void atacar(Obstaculo o){
 		grafico.atacar();

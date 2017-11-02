@@ -7,12 +7,20 @@ import java.util.ArrayList;
 public class HiloMovimientoEnemigo extends Thread{
 	protected volatile List<Enemigo> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
+	protected boolean pausa;
 	
 	public HiloMovimientoEnemigo(){
 		execute = true;
 		toDelete = new ArrayList<Enemigo>();
 		toExecute = new ArrayList<Enemigo>();
 		toInsert = new ArrayList<Enemigo>();
+		pausa=false;
+	}
+	public void pausar(){
+		pausa=true;
+	}
+	public void reanudar(){
+		pausa=false;
 	}
 	public void agregarEnemigo(Enemigo e){
 		toInsert.add(e);
@@ -36,13 +44,15 @@ public class HiloMovimientoEnemigo extends Thread{
 	public void run(){
 		while(execute){
 			actualizar();
-			int x= toExecute.size();
-			for(int i=0;i<x;i++){
-				toExecute.get(i).move();
-			}
-			try{
-				Thread.sleep(200);
-			}catch(InterruptedException e){
+			if(!pausa){
+				int x= toExecute.size();
+				for(int i=0;i<x;i++){
+					toExecute.get(i).move();
+				}
+				try{
+					Thread.sleep(200);
+				}catch(InterruptedException e){
+				}
 			}
 		}
 	}

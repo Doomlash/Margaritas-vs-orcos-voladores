@@ -11,7 +11,7 @@ public class Invulnerable extends EstadoEscudo implements Runnable{
 	
 	public Invulnerable(Entidad e){
 		this.entidad=e;
-		((GraphicEntidad)entidad.getGraphic()).activarEscudo(entidad.getX(), entidad.getY());
+		((GraphicEntidad)entidad.getGraphic()).activarEscudo(entidad.getX(), entidad.getY(),entidad.getDimensionX());
 		execute = true;
 	}
 	

@@ -5,7 +5,7 @@ import logica.gameObjects.*;
 import grafica.entidad.enemigo.*;
 
 public class Nigromante extends Enemigo{
-	
+	private Esqueleto[] ejercito;
 	/**
 	 * Se crea el elemento grafico asociado a la clase y se lo agrega al mapa grafico.
 	 * @param x : int - Representa la posicion x inicial que ocupa en la matriz de celdas
@@ -33,7 +33,7 @@ public class Nigromante extends Enemigo{
 	public void SACARDEARREGLO(){
 		map.getNivel().getJuego().getGui().getEnemigos()[4]=null;		
 	}
-
+	
 	public void atacar(Obstaculo o){
 		canMove=false;
 		grafico.atacar();
