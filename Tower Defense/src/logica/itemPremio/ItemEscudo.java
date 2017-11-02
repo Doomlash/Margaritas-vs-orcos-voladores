@@ -10,6 +10,7 @@ public class ItemEscudo extends ItemPremio{
 		grafico = new GraphicItemEscudo(x,y);
 	}
 	public void clickeado(){
+		map.getNivel().getJuego().getAlmacen().getAlmacenPanel().aumentarCantidad("Escudo");
 		kill();
 	}
 }

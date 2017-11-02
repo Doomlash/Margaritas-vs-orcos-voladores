@@ -10,6 +10,7 @@ public class ItemPowerBooster extends ItemPremio{
 		grafico = new GraphicItemPowerBooster(x,y);
 	}
 	public void clickeado(){
+		map.getNivel().getJuego().getAlmacen().getAlmacenPanel().aumentarCantidad("Booster");
 		kill();
 	}
 }

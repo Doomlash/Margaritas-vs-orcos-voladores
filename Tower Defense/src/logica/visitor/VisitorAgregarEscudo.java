@@ -12,7 +12,6 @@ public class VisitorAgregarEscudo extends Visitor{
 	}
 
 	public void visit(Aliado a){
-		System.out.println("En visitor");
 		map.getNivel().getJuego().getAlmacen().getAlmacenPanel().disminuirCantidad("Escudo");
 		Invulnerable i = new Invulnerable(a);
 		Thread t = new Thread(i);

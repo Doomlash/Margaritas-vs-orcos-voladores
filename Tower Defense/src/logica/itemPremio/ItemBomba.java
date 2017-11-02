@@ -10,6 +10,7 @@ public class ItemBomba extends ItemPremio{
 		grafico = new GraphicItemBomba(x,y);
 	}
 	public void clickeado(){
+		map.getNivel().getJuego().getAlmacen().getAlmacenPanel().aumentarCantidad("Bomba");
 		kill();
 	}
 }

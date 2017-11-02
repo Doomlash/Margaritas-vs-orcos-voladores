@@ -51,6 +51,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private void actualizarBotones(){
 		for(int i=6;i<10;i++){
 			colocables[i].setText(c[i]+" x"+itemsPremio.get(c[i]));
+			colocables[i].setName(c[i]+" x"+itemsPremio.get(c[i]));
 			if(itemsPremio.get(c[i])==0)
 				colocables[i].setEnabled(false);
 			else
@@ -74,7 +75,8 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private class OyenteAgregar implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String s =e.getActionCommand();
-			String[] aux = {"Escudo x"+itemsPremio.get("Escudo")};
+			String[] aux = {"Bomba x"+itemsPremio.get("Bomba"),"Booster x"+itemsPremio.get("Booster"),
+			"Trampa x"+itemsPremio.get("Trampa"),"Escudo x"+itemsPremio.get("Escudo")};
 			switch(s){
 				case("Caballero"):{
 					almacen.asignarCreador(new CreadorCaballero());
@@ -105,10 +107,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 					break;
 				}
 			}
-			System.out.println(s==aux[0]);
-			System.out.println(s+" - "+aux[0]);
-			if(s==("Escudo x"+itemsPremio.get("Escudo"))){
-				System.out.println("Asignando creador");
+			if(s.compareTo(aux[3])==0){
 				almacen.asignarCreador(new CreadorEscudo());
 			}
 		}

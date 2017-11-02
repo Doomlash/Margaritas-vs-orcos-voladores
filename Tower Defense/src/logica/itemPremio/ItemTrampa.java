@@ -10,6 +10,7 @@ public class ItemTrampa extends ItemPremio{
 		grafico = new GraphicItemTrampa(x,y);
 	}
 	public void clickeado(){
+		map.getNivel().getJuego().getAlmacen().getAlmacenPanel().aumentarCantidad("Trampa");
 		kill();
 	}
 }
