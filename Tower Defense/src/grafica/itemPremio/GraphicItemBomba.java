@@ -10,7 +10,9 @@ public class GraphicItemBomba extends GraphicItemPremio{
 		super(x,y);
 		this.item = i;
 
-		imagenes[0] = new ImageIcon(dir+"Granada.png");
-		imagenes[1] = new ImageIcon(dir+"Diamante.png");
+		imagenes[0] = new ImageIcon(dir+"BombaItemChico.png");
+		imagenes[1] = new ImageIcon(dir+"BombaItemGrande.png");
+		
+		this.getGrafico().addMouseListener(new Oyente());
 	}
 }
