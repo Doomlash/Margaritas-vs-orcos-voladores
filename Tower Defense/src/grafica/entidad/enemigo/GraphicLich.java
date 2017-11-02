@@ -12,5 +12,7 @@ public class GraphicLich extends GraphicEnemigo{
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Enemigos/Lich/LichIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Enemigos/Lich/LichCaminar.gif"));
 		imagenes[2] = new ImageIcon(t.createImage(dir+"Enemigos/Lich/LichAtaque.gif"));
+		imagenes[3] = new ImageIcon(t.createImage(dir+"Enemigos/Lich/LichMuerte.gif"));
+		imagenes[4] = new ImageIcon(t.createImage(dir+"Enemigos/Lich/LichCongelado.png"));
 	}
 }

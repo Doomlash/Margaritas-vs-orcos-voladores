@@ -9,7 +9,7 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 	
 	public GraphicEnemigo(int x, int y,int a, GraphicMapa m){
 		super(x,y,a,m);
-		imagenes = new ImageIcon[4];
+		imagenes = new ImageIcon[5];
 	}
 	public void atacar(){
 		this.getGrafico().setIcon(imagenes[2]);
@@ -24,5 +24,8 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 		super.cambiarPos(newX,newY);
 		if(escudo!=null)
 			escudo.cambiarPos(pos.x, pos.y);
+	}
+	public void congelar(){
+		this.getGrafico().setIcon(imagenes[4]);
 	}
 }

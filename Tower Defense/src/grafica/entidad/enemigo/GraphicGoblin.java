@@ -12,5 +12,7 @@ public class GraphicGoblin extends GraphicEnemigo{
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Enemigos/Goblin/GoblinIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Enemigos/Goblin/GoblinMovimiento.gif"));
 		imagenes[2] = new ImageIcon(t.createImage(dir+"Enemigos/Goblin/GoblinAtaque.gif"));
+		imagenes[3] = new ImageIcon(t.createImage(dir+"Enemigos/Goblin/GoblinMuerte.gif"));
+		imagenes[4] = new ImageIcon(t.createImage(dir+"Enemigos/Goblin/GoblinCongelado.png"));
 	}
 }

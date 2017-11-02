@@ -1,6 +1,8 @@
 package logica.hilos;
 
 import logica.entidad.enemigo.*;
+import grafica.entidad.enemigo.*;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -18,6 +20,9 @@ public class HiloMovimientoEnemigo extends Thread{
 	}
 	public void pausar(){
 		pausa=true;
+		int x = toExecute.size();
+		for(int i=0;i<x;i++)
+			((GraphicEnemigo)toExecute.get(i).getGraphic()).congelar();
 	}
 	public void reanudar(){
 		pausa=false;

@@ -13,5 +13,6 @@ public class GraphicCiclope extends GraphicEnemigo{
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Enemigos/Ciclope/CyclopeCaminar.gif"));
 		imagenes[2] = new ImageIcon(t.createImage(dir+"Enemigos/Ciclope/CyclopeAtacar.gif"));
 		imagenes[3] = new ImageIcon(t.createImage(dir+"Enemigos/Ciclope/CyclopeMuerte.gif"));
+		imagenes[4] = new ImageIcon(t.createImage(dir+"Enemigos/Ciclope/CiclopeCongelado.png"));
 	}
 }
