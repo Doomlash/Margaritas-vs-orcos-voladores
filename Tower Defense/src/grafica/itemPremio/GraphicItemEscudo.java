@@ -10,6 +10,9 @@ public class GraphicItemEscudo extends GraphicItemPremio{
 		super(x,y);
 		this.item = i;
 
-		imagenes[0] = new ImageIcon(dir+"ItemCampoDeProteccion.png");
+		imagenes[0] = new ImageIcon(dir+"ShieldIcon.png");
+		imagenes[1] = new ImageIcon(dir+"ShieldIconGrande.png");
+		
+		this.getGrafico().addMouseListener(new Oyente());
 	}
 }
