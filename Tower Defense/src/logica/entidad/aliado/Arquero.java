@@ -29,14 +29,5 @@ public class Arquero extends Aliado{
 	public void atacar(Obstaculo o){
 		grafico.atacar();
 		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new Flecha(x+dimensionX,y,map,x+dimensionX+rango-1));
-//		try{
-//			Thread.sleep(100);
-//		}catch(InterruptedException e){
-//		}
-//		grafico.setImageIdle();
-//		try{
-//			Thread.sleep(500);
-//		}catch(InterruptedException e){
-//		}
 	}
 }

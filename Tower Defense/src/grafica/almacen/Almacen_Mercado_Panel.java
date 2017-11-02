@@ -106,6 +106,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 				}
 			}
 			System.out.println(s==aux[0]);
+			System.out.println(s+" - "+aux[0]);
 			if(s==("Escudo x"+itemsPremio.get("Escudo"))){
 				System.out.println("Asignando creador");
 				almacen.asignarCreador(new CreadorEscudo());
