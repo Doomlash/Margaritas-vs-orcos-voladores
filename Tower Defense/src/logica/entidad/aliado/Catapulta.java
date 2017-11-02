@@ -24,6 +24,5 @@ public class Catapulta extends Aliado{
 	public void atacar(Obstaculo o){
 		grafico.atacar();
 		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new PiedraCatapulta(x+dimensionX,y,map,x+dimensionX+rango));
-		((GraphicCatapulta)grafico).finalizarAtaque();
 	}
 }

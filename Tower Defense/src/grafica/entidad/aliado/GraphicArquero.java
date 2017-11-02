@@ -10,8 +10,4 @@ public class GraphicArquero extends GraphicAliado{
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Aliados/Arquero/ArqueroIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Aliados/Arquero/ArqueroAtaque.gif"));
 	}
-	
-	public void atacar(){
-		super.atacar();
-	}
 }
