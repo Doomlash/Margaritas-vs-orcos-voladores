@@ -8,6 +8,8 @@ public class ItemTrampa extends ItemPremio{
 	public ItemTrampa(int x, int y, Mapa m){
 		super(x,y,1,m);
 		grafico = new GraphicItemTrampa(x,y);
+		grafico = new GraphicItemTrampa(x,y,this);
+		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void clickeado(){
 		kill();
