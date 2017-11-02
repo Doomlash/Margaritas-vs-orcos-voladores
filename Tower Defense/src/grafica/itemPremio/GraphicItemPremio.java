@@ -5,7 +5,7 @@ import grafica.gameObjects.GraphicGameObject;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 
 public abstract class GraphicItemPremio extends GraphicGameObject{
@@ -14,7 +14,7 @@ public abstract class GraphicItemPremio extends GraphicGameObject{
 	public GraphicItemPremio(int x, int y){
 		super(x,y,1,1);
 		
-		imagenes = new Icon[2];
+		imagenes = new ImageIcon[2];
 	}
 	public void achicar(){
 		grafico.setIcon(imagenes[0]);

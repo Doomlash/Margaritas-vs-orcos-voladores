@@ -38,7 +38,7 @@ public class HiloAtaqueAliado extends Thread{
 				toExecute.get(i).atacarRango();
 			}
 			try{
-				Thread.sleep(30);
+				Thread.sleep(1000);
 			}catch(InterruptedException e){
 			}
 		}

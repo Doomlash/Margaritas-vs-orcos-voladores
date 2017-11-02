@@ -1,13 +1,13 @@
 package grafica.entidad.enemigo;
 
 import grafica.gameObjects.*;
-import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 public abstract class GraphicEnemigo extends GraphicGameObject{
 	
 	public GraphicEnemigo(int x, int y,int a){
 		super(x,y,1,a);
-		imagenes = new Icon[3];
+		imagenes = new ImageIcon[3];
 	}
 	public void atacar(){
 		this.getGrafico().setIcon(imagenes[2]);
