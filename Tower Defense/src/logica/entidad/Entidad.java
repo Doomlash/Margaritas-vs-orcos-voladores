@@ -26,6 +26,12 @@ public abstract class Entidad extends Obstaculo{
 	public int getFuerza(){
 		return fuerzaActual;
 	}
+	public int getCargaAtaqueNecesaria(){
+		return cargaAtaqueNecesaria;
+	}
+	public void setCargaAtaqueNececaria(int c){
+		cargaAtaqueNecesaria=c;
+	}
 	public abstract void atacar(Obstaculo o);
 	public abstract void atacarRango();
 	public void recibirGolpe(Entidad e){

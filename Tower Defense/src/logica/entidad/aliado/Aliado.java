@@ -34,7 +34,7 @@ public abstract class Aliado extends Entidad implements Comprable{
 		v.visit(this);
 	}
 	public void atacarRango(){
-		if(cargaAtaqueActual==cargaAtaqueNecesaria){
+		if(cargaAtaqueActual>=cargaAtaqueNecesaria){
 			cargaAtaqueActual=0;
 			for(int i=(x+dimensionX);i<x+dimensionX+rango;i++){
 				Celda c = map.getCelda(i, y);

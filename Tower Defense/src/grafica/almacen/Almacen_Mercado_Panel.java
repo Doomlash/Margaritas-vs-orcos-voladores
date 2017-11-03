@@ -111,6 +111,9 @@ public class Almacen_Mercado_Panel extends JPanel{
 					break;
 				}
 			}
+			if(s.compareTo(aux[1])==0){
+				almacen.asignarCreador(new CreadorBooster());
+			}
 			if(s.compareTo(aux[3])==0){
 				almacen.asignarCreador(new CreadorEscudo());
 			}
