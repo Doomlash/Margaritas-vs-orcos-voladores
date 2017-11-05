@@ -11,6 +11,7 @@ public class AlmacenHilos{
 	private HiloItemsPremio itemsPremio;
 	private Stun stun;
 	private HiloPowerUps powerUps;
+	private HiloBombas bombas;
 	
 	public HiloMovimientoEnemigo getMovEnemigo(){
 		if(movEnemigo==null){
@@ -72,6 +73,13 @@ public class AlmacenHilos{
 		}
 		return powerUps;
 	}
+	public HiloBombas getBombas(){
+		if(bombas==null){
+			bombas = new HiloBombas();
+			bombas.start();
+		}
+		return bombas;
+	}
 	public void terminateAll(){
 		if(movEnemigo!=null)
 			movEnemigo.terminate();
@@ -89,5 +97,7 @@ public class AlmacenHilos{
 			stun.terminate();
 		if(powerUps!=null)
 			powerUps.terminate();
+		if(bombas!=null)
+			bombas.terminate();
 	}
 }

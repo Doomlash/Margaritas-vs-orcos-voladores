@@ -2,10 +2,10 @@ package logica.entidad.stateEscudo;
 
 import logica.entidad.*;
 import logica.disparo.*;
+import logica.premio.objetoPrecioso.*;
 import grafica.entidad.*;
 
 public class Invulnerable extends EstadoEscudo implements Runnable{
-	private Entidad entidad;
 	private int tiempo = 10; //10 segundos de duración
 	private volatile boolean execute;
 	
@@ -52,9 +52,12 @@ public class Invulnerable extends EstadoEscudo implements Runnable{
 	public void recibirGolpe(Disparo d){
 		d.kill();
 	}
+	public void recibirGolpe(Bomba b){
+		
+	}
 	public void kill(){
 		execute = false;
-		this.entidad.setEstadoEscudo(new Vulnerable());
+		this.entidad.setEstadoEscudo(new Vulnerable(entidad));
 		((GraphicEntidad)entidad.getGraphic()).desactivarEscudo();
 	}
 }

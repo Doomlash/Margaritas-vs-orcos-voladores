@@ -1,22 +1,16 @@
 package logica.premio;
 
-import logica.entidad.aliado.*;
 import logica.mapa.*;
+import logica.entidad.aliado.*;
 
 public abstract class PowerUp{
-	protected Aliado aliado;
-	protected int tiempo;
 	protected Mapa map;
 	
-	public void reducirTemporizador(){
-		tiempo--;
-		if(tiempo<=0)
-			kill();
-	}
-	public abstract void afectarAliado();
-	public abstract void restaurarAliado();
+	public abstract void actualizar();
+	public abstract void afectar(Aliado a);
+	public abstract void restaurar();
 	public void kill(){
-		restaurarAliado();
+		restaurar();
 		map.getAlmacenHilos().getPowerUps().powerUpAEliminar(this);
 	}
 }

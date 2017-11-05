@@ -1,27 +1,25 @@
 package logica.hilos;
 
-import logica.premio.*;
+import logica.premio.objetoPrecioso.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HiloPowerUps extends Thread{
-	protected volatile List<PowerUp> toDelete,toExecute,toInsert;
+public class HiloBombas extends Thread{
+	protected volatile List<Bomba> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
-	protected boolean pausa;
 	
-	public HiloPowerUps(){
+	public HiloBombas(){
 		execute = true;
-		toDelete = new ArrayList<PowerUp>();
-		toExecute = new ArrayList<PowerUp>();
-		toInsert = new ArrayList<PowerUp>();
-		pausa=false;
+		toDelete = new ArrayList<Bomba>();
+		toExecute = new ArrayList<Bomba>();
+		toInsert = new ArrayList<Bomba>();
 	}
-	public void agregarPowerUp(PowerUp p){
-		toInsert.add(p);
+	public void agregarBomba(Bomba b){
+		toInsert.add(b);
 	}
-	public void powerUpAEliminar(PowerUp p){
-		toDelete.add(p);
+	public void bombaAEliminar(Bomba b){
+		toDelete.add(b);
 	}
 	public void terminate(){
 		execute=false;
@@ -40,13 +38,14 @@ public class HiloPowerUps extends Thread{
 		while(execute){
 			actualizar();
 			try{
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			}catch(InterruptedException e){
 			}
 			int x= toExecute.size();
 			for(int i=0;i<x;i++){
-				toExecute.get(i).actualizar();
+				toExecute.get(i).reducirTemporizador();
 			}
 		}
 	}
+
 }

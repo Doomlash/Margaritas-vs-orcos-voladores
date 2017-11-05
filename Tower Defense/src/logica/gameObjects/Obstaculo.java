@@ -30,4 +30,10 @@ public abstract class Obstaculo extends Elemento{
 	public int getVida(){
 		return vida;
 	}
+	public void setVidaMax(int v){
+		vidaMax=v;
+	}
+	public int getVidaMax(){
+		return vidaMax;
+	}
 }

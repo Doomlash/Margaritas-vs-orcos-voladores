@@ -4,17 +4,15 @@ import logica.gameObjects.*;
 import logica.mapa.Mapa;
 import logica.entidad.stateEscudo.*;
 import logica.disparo.*;
+import logica.premio.objetoPrecioso.*;
 
 public abstract class Entidad extends Obstaculo{
-	protected int rango,fuerza,fuerzaActual,cargaAtaqueActual,cargaAtaqueNecesaria;
+	protected int rango,fuerza,cargaAtaqueActual,cargaAtaqueNecesaria;
 	protected EstadoEscudo escudo;
 
 	public Entidad(int x, int y, int dx, Mapa m){
 		super(x,y,dx,m);
-		escudo = new Vulnerable();
-	}
-	public void setFuerza(int f){
-		fuerzaActual=f;
+		escudo = new Vulnerable(this);
 	}
 	public EstadoEscudo getEstadoEscudo(){
 		return escudo;
@@ -23,9 +21,6 @@ public abstract class Entidad extends Obstaculo{
 		escudo=e;
 	}
 	
-	public int getFuerza(){
-		return fuerzaActual;
-	}
 	public int getCargaAtaqueNecesaria(){
 		return cargaAtaqueNecesaria;
 	}
@@ -39,5 +34,8 @@ public abstract class Entidad extends Obstaculo{
 	}
 	public void recibirGolpe(Disparo d){
 		escudo.recibirGolpe(d);
+	}
+	public void recibirGolpe(Bomba b){
+		escudo.recibirGolpe(b);
 	}
 }
