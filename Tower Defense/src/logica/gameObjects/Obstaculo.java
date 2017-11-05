@@ -1,6 +1,7 @@
 package logica.gameObjects;
 
 import logica.mapa.*;
+import grafica.gameObjects.*;
 
 public abstract class Obstaculo extends Elemento{
 	protected int vida;
@@ -26,6 +27,7 @@ public abstract class Obstaculo extends Elemento{
 			}
 			else
 				vida=v;
+		((GraphicObstaculo)grafico).actualizarLifeLine(vidaMax, vida);
 	}
 	public int getVida(){
 		return vida;

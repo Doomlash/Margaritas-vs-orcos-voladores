@@ -3,11 +3,9 @@ package logica.disparo.disparoEnemigo;
 import logica.disparo.*;
 import logica.mapa.*;
 import logica.visitor.*;
-import grafica.disparo.disparoEnemigo.*;
 import grafica.gameObjects.*;
 
 public abstract class DisparoEnemigo extends Disparo{
-	protected GraphicDisparoEnemigo grafico;
 	protected VisitorDisparoEnemigo visitorDisparoEnemigo;
 
 	public DisparoEnemigo(int x,int y, Mapa m, int a){

@@ -3,11 +3,9 @@ package logica.disparo.disparoAliado;
 import logica.disparo.*;
 import logica.mapa.*;
 import logica.visitor.*;
-import grafica.disparo.disparoAliado.*;
 import grafica.gameObjects.GraphicGameObject;
 
 public abstract class DisparoAliado extends Disparo{
-	protected GraphicDisparoAliado grafico;
 	protected VisitorDisparoAliado visitorDisparoAliado;
 
 	public DisparoAliado(int x,int y, Mapa m, int a){

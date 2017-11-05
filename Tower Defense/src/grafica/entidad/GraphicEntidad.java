@@ -6,14 +6,12 @@ import grafica.premio.*;
 
 import java.awt.Toolkit;
 
-public abstract class GraphicEntidad extends GraphicGameObject{
-	protected GraphicMapa map;
+public abstract class GraphicEntidad extends GraphicObstaculo{
 	protected GraphicEscudo escudo;
 	protected Toolkit t = Toolkit.getDefaultToolkit();
 	
 	public GraphicEntidad(int x, int y, int a, GraphicMapa m){
-		super(x,y,1,a);
-		this.map = m;
+		super(x,y,1,a,m);
 	}
 	
 	public void activarEscudo(int x, int y, int ancho){

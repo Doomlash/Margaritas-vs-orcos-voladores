@@ -40,7 +40,7 @@ public class Ciclope extends Enemigo{
 	
 	public void atacar(Obstaculo o){
 			canMove=false;
-			grafico.atacar();
+			((GraphicEnemigo)grafico).atacar();
 			try{
 				Thread.sleep(800);
 			}catch(InterruptedException e){
@@ -50,7 +50,7 @@ public class Ciclope extends Enemigo{
 				Thread.sleep(1000);
 			}catch(InterruptedException e){
 			}
-			grafico.avanzar();
+			((GraphicEnemigo)grafico).avanzar();
 			canMove=true;
 	}
 }

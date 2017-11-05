@@ -20,9 +20,11 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 	}
 	public void morir(){
 		this.getGrafico().setIcon(imagenes[3]);
+		removeLifeLine();
 	}
 	public void cambiarPos(int newX, int newY){
 		super.cambiarPos(newX,newY);
+		vida.cambiarPos(newX, newY);
 		if(escudo!=null)
 			escudo.cambiarPos(pos.x, pos.y);
 	}

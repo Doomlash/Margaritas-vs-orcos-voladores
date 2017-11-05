@@ -13,7 +13,6 @@ public abstract class Aliado extends Entidad implements Comprable{
 	protected int precio;
 	protected Stun dragon;
 	protected PowerBooster booster;
-	protected GraphicAliado grafico;
 	protected VisitorAtaqueAliado visitorAtaque;
 	
 	/**
@@ -57,7 +56,7 @@ public abstract class Aliado extends Entidad implements Comprable{
 	
 	public void kill(){
 		visitorAtaque.kill();
-		grafico.morir();
+		((GraphicAliado)grafico).morir();
 		map.getAlmacenHilos().getAtaAliado().aliadoAEliminar(this);
 		map.eliminarElemento(this);
 	}

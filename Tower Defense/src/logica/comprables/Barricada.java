@@ -8,26 +8,25 @@ import grafica.comprables.*;
 
 public class Barricada extends Obstaculo implements Comprable{
 	private int precio;
-	private GraphicBarricada grafico;
 
 	public Barricada(int x,int y, Mapa m){
 		super(x,y,1,m);
 		precio = 20;
 		vida=vidaMax=100;
-		grafico = new GraphicBarricada(x,y);
+		grafico = new GraphicBarricada(x,y,m.getMapaGrafico());
 	}
 	public void accept(Visitor v){
 		v.visit(this);
 	}
 	public void setVida(int v){
 		if(vida>vidaMax/3*2)
-			grafico.restaurar();
+			((GraphicBarricada)grafico).restaurar();
 		else
 			if((vida>vidaMax/3)&&(vida<=(vidaMax/3*2)))
-				grafico.deterioro();
+				((GraphicBarricada)grafico).deterioro();
 			else
 				if((vida>0)&&(vida<vidaMax/3))
-					grafico.dobleDeterioro();
+					((GraphicBarricada)grafico).dobleDeterioro();
 		super.setVida(v);
 	}
 	
@@ -36,6 +35,7 @@ public class Barricada extends Obstaculo implements Comprable{
 	}
 	
 	public void kill(){
+		((GraphicObstaculo)grafico).removeLifeLine();
 		map.eliminarElemento(this);
 	}
 	

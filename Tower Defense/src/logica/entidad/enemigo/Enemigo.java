@@ -15,7 +15,6 @@ public abstract class Enemigo extends Entidad{
 	protected int velocidad;
 	protected int puntaje;
 	protected int monedas;
-	protected GraphicEnemigo grafico;
 	protected boolean canMove;
 	protected VisitorAtaqueEnemigo visitorAtaque;
 	protected VisitorMovimientoEnemigo visitorMovimiento;
@@ -65,7 +64,7 @@ public abstract class Enemigo extends Entidad{
 		if((x-1>=0)&&canMove){
 			map.getCelda(x-1, y).accept(visitorMovimiento);
 			if(canMove){
-				this.grafico.avanzar();
+				((GraphicEnemigo)grafico).avanzar();
 				int aux= (x-1)*grafico.getWidthUnaCelda();
 				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
 				
@@ -103,6 +102,7 @@ public abstract class Enemigo extends Entidad{
 		escudo.stop();
 		visitorAtaque.kill();
 		visitorMovimiento.kill();
+		((GraphicEnemigo)grafico).morir();
 		this.SACARDEARREGLO();
 		map.getAlmacenHilos().getAtaEnemigo().enemigoAEliminar(this);
 		map.getAlmacenHilos().getMovEnemigo().enemigoAEliminar(this);

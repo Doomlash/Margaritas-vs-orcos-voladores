@@ -23,7 +23,7 @@ public class Caballero extends Aliado{
 		grafico = new GraphicCaballero(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){
-		this.grafico.atacar();
+		((GraphicAliado)grafico).atacar();
 		o.setVida(o.getVida()-fuerza);
 	}
 }

@@ -7,7 +7,6 @@ import grafica.mapa.GraphicElementosMapa.GraphicTemporales.*;
 import grafica.gameObjects.*;
 
 public class Agua extends Elemento implements Runnable{
-	private GraphicAgua grafico;
 	
 	public Agua(int x,int y, Mapa m){
 		super(x,y,1,m);

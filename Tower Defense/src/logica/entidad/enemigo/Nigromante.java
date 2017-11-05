@@ -38,13 +38,13 @@ public class Nigromante extends Enemigo{
 	
 	public void atacar(Obstaculo o){
 		canMove=false;
-		grafico.atacar();
+		((GraphicEnemigo)grafico).atacar();
 		try{
 			Thread.sleep(500);
 		}catch(InterruptedException e){
 		}
 		o.setVida(o.getVida()-fuerza);
-		grafico.avanzar();
+		((GraphicEnemigo)grafico).avanzar();
 		canMove=true;
 	}
 }

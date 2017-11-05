@@ -7,7 +7,6 @@ import grafica.gameObjects.*;
 import grafica.premio.*;
 
 public class Trampa extends Obstaculo{
-	private GraphicTrampa grafico;
 	
 	public Trampa(int x, int y, Mapa m){
 		super(x,y,1,m);

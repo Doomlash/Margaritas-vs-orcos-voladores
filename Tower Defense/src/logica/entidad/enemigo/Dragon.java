@@ -40,14 +40,14 @@ public class Dragon extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicDragon)grafico).aterrizar();
-		grafico.atacar();
+		((GraphicEnemigo)grafico).atacar();
 		try{
 			Thread.sleep(400);
 		}catch(InterruptedException e){
 		}
 		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,y,map,x-rango,grafico.getPos().x-5));
 		((GraphicDragon)grafico).despegar();
-		grafico.avanzar();
+		((GraphicEnemigo)grafico).avanzar();
 		canMove=true;
 	}
 }

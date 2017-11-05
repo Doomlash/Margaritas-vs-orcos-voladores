@@ -6,6 +6,7 @@ import grafica.gameObjects.*;
 public abstract class GameObject{
 	protected int x, y, dimensionX;
 	protected Mapa map;
+	protected GraphicGameObject grafico;
 	
 	/**
 	 * Se inicializa la columna inicial dentro de la matriz del mapa con x, la fila con y, se 
@@ -31,6 +32,9 @@ public abstract class GameObject{
 	public int getDimensionX(){
 		return dimensionX;
 	}
-	public abstract GraphicGameObject getGraphic();
+	public GraphicGameObject getGraphic(){
+		return grafico;
+	}
+
 	public abstract void kill();
 }

@@ -38,13 +38,12 @@ public class Ogro extends Enemigo{
 
 	public void atacar(Obstaculo o){
 		canMove=false;
-		grafico.atacar();
+		((GraphicEnemigo)grafico).atacar();
 		try{
 			Thread.sleep(400);
 		}catch(InterruptedException e){
 		}
 		o.setVida(o.getVida()-fuerza);
-		grafico.avanzar();
 		canMove=true;
 	}
 }

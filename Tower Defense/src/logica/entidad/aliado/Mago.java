@@ -24,7 +24,7 @@ public class Mago extends Aliado{
 		grafico = new GraphicMago(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){
-		grafico.atacar();
+		((GraphicAliado)grafico).atacar();
 		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new ProyectilMagico(x+dimensionX,y,map,x+dimensionX+rango-1));
 	}
 }
