@@ -1,26 +1,26 @@
 package logica.hilos;
 
-import logica.premio.*;
+import logica.modificador_PowerUp.Modificador;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HiloPowerUps extends Thread{
-	protected volatile List<PowerUp> toDelete,toExecute,toInsert;
+	protected volatile List<Modificador> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
 	protected boolean pausa;
 	
 	public HiloPowerUps(){
 		execute = true;
-		toDelete = new ArrayList<PowerUp>();
-		toExecute = new ArrayList<PowerUp>();
-		toInsert = new ArrayList<PowerUp>();
+		toDelete = new ArrayList<Modificador>();
+		toExecute = new ArrayList<Modificador>();
+		toInsert = new ArrayList<Modificador>();
 		pausa=false;
 	}
-	public void agregarPowerUp(PowerUp p){
+	public void agregarPowerUp(Modificador p){
 		toInsert.add(p);
 	}
-	public void powerUpAEliminar(PowerUp p){
+	public void powerUpAEliminar(Modificador p){
 		toDelete.add(p);
 	}
 	public void terminate(){
@@ -40,7 +40,7 @@ public class HiloPowerUps extends Thread{
 		while(execute){
 			actualizar();
 			try{
-				Thread.sleep(1000);
+				Thread.sleep(250);
 			}catch(InterruptedException e){
 			}
 			int x= toExecute.size();

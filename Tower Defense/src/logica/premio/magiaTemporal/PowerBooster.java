@@ -1,14 +1,15 @@
 package logica.premio.magiaTemporal;
 
-import logica.premio.*;
 import logica.entidad.aliado.*;
+import logica.entidad.enemigo.*;
 import logica.mapa.*;
+import logica.modificador_PowerUp.Modificador;
 import grafica.premio.*;
 
-public class PowerBooster extends PowerUp{
-	private int cd, tiempo;
+public class PowerBooster extends Modificador{
+	private int cd;
+	private float tiempo;
 	private GraphicBooster grafico;
-	private Aliado aliado;
 	
 	public PowerBooster(int x, int y, Mapa m){
 		tiempo = 10;
@@ -16,18 +17,21 @@ public class PowerBooster extends PowerUp{
 		grafico = new GraphicBooster(x,y);
 	}
 	public void actualizar(){
-		tiempo--;
+		tiempo=tiempo-(1/4);
 		if(tiempo<=0)
 			kill();
 	}
 	
 	public void afectar(Aliado a){
-		this.aliado=a;
+		this.entidad=a;
 		map.getMapaGrafico().addGraphicElemento(grafico);
-		cd = aliado.getCargaAtaqueNecesaria();
-		aliado.setCargaAtaqueNececaria(cd/2);
+		cd = entidad.getCargaAtaqueNecesaria();
+		entidad.setCargaAtaqueNececaria(cd/2);
+	}
+	public void afectar(Enemigo e){
+		
 	}
 	public void restaurar(){
-		aliado.setCargaAtaqueNececaria(cd);
+		entidad.setCargaAtaqueNececaria(cd);
 	}
 }

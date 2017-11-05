@@ -5,7 +5,7 @@ import logica.comprables.*;
 import logica.premio.magiaTemporal.*;
 import logica.visitor.*;
 import logica.mapa.*;
-import logica.premio.*;
+import logica.modificador_PowerUp.Modificador;
 import grafica.entidad.aliado.*;
 import grafica.gameObjects.*;
 
@@ -51,8 +51,8 @@ public abstract class Aliado extends Entidad implements Comprable{
 	public int getPrecio(){
 		return precio;
 	}
-	public void afectar(PowerUp p){
-		p.afectar(this);
+	public void afectar(Modificador m){
+		m.afectar(this);
 	}
 	
 	public void kill(){

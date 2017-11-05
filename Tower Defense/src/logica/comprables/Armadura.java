@@ -1,10 +1,11 @@
 package logica.comprables;
 
-import logica.premio.*;
 import logica.entidad.aliado.*;
+import logica.entidad.enemigo.Enemigo;
 import logica.mapa.*;
+import logica.modificador_PowerUp.Modificador;
 
-public class Armadura extends PowerUp implements Comprable{
+public class Armadura extends Modificador implements Comprable{
 	private int precio;
 	private int vidaMaxGuardada, vidaActualGuardada;
 	private Aliado aliado;
@@ -27,7 +28,9 @@ public class Armadura extends PowerUp implements Comprable{
 		vidaActualGuardada = aliado.getVida();
 		aliado.setVida(vidaActualGuardada+100);
 	}
-	
+	public void afectar(Enemigo e){
+		
+	}
 	public void restaurar(){
 		aliado.setVidaMax(vidaMaxGuardada);
 	}

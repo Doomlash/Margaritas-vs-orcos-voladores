@@ -23,7 +23,7 @@ public class Mapa{
 		for(int i=0;i<celdas.length;i++)
 			for(int j=0;j<celdas[i].length;j++)
 				celdas[i][j] = new Celda();
-		agregarObstaculos(6,2);
+		agregarObstaculos(6,6);
 	}
 	
 	/**
@@ -46,7 +46,7 @@ public class Mapa{
 		}
 		while(celdasVacias()&&(l>0)){
 			fila=r.nextInt(6);
-			columna=r.nextInt(8)+1;
+			columna=8;
 			if(celdas[fila][columna].isEmpty()){
 				Agua a = new Agua(columna,fila,this);
 				Thread t = new Thread(a);

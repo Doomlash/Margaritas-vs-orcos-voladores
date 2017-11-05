@@ -4,14 +4,15 @@ import logica.entidad.*;
 import logica.mapa.*;
 import logica.visitor.*;
 import logica.itemPremio.*;
-
-import java.util.Random;
-
+import logica.modificador_PowerUp.*;
 import grafica.entidad.enemigo.*;
 import grafica.gameObjects.*;
 
+import java.util.Random;
+
+
 public abstract class Enemigo extends Entidad{
-	protected int velocidad,vm;
+	protected int velocidad;
 	protected int puntaje;
 	protected int monedas;
 	protected GraphicEnemigo grafico;
@@ -29,7 +30,7 @@ public abstract class Enemigo extends Entidad{
 	public Enemigo(int x, int y, int dx, Mapa m){
 		super(x,y,dx,m);
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
-		visitorMovimiento = new VisitorMovimientoEnemigo(this);
+		visitorMovimiento = new VisitorMovimientoEnemigo(this,map);
 		canMove=true;
 	}
 	
@@ -143,7 +144,9 @@ public abstract class Enemigo extends Entidad{
 	public int getVelocidad(){
 		return velocidad;
 	}
-	
+	public void afectar(Modificador m){
+		m.afectar(this);
+	}
 	public GraphicGameObject getGraphic(){
 		return grafico;
 	}

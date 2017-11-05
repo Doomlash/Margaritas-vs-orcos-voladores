@@ -15,7 +15,7 @@ public class Ciclope extends Enemigo{
 	 */
 	public Ciclope(int x, int y, Mapa m){
 		super(x,y,1,m);
-		velocidad=vm=8;
+		velocidad=8;
 		puntaje=120;
 		monedas=30;
 		vida=vidaMax=70;

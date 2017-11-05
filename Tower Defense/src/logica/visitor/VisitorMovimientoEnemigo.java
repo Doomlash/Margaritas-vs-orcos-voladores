@@ -1,17 +1,23 @@
 package logica.visitor;
 
-import logica.comprables.Barricada;
-import logica.entidad.aliado.Aliado;
-import logica.entidad.enemigo.Enemigo;
-import logica.mapa.elementosMapa.destruibles.Piedra;
-import logica.mapa.elementosMapa.temporales.Agua;
-import logica.premio.objetoPrecioso.Trampa;
+import logica.comprables.*;
+import logica.entidad.aliado.*;
+import logica.entidad.enemigo.*;
+import logica.mapa.elementosMapa.destruibles.*;
+import logica.mapa.elementosMapa.temporales.*;
+import logica.premio.objetoPrecioso.*;
+import logica.mapa.*;
+import logica.modificador_PowerUp.*;
 
 public class VisitorMovimientoEnemigo extends Visitor{
 	private Enemigo ene;
+	private Mapa map;
+	private boolean ralentizado;
 	
-	public VisitorMovimientoEnemigo(Enemigo e){
+	public VisitorMovimientoEnemigo(Enemigo e, Mapa m){
 		ene=e;
+		this.map=m;
+		ralentizado=false;
 	}
 	
 	public void visit(Aliado a){
@@ -30,6 +36,12 @@ public class VisitorMovimientoEnemigo extends Visitor{
 	}
 	
 	public void visit(Agua a){
+		if(!ralentizado){
+			RalentizadorAgua r = new RalentizadorAgua(map,this);
+			map.getAlmacenHilos().getPowerUps().agregarPowerUp(r);
+			ene.afectar(r);
+			ralentizado=true;
+		}
 	}
 	
 	public void visit(Trampa t){
@@ -37,6 +49,9 @@ public class VisitorMovimientoEnemigo extends Visitor{
 	
 	public void kill(){
 		ene=null;
+	}
+	public void normal(){
+		ralentizado=false;
 	}
 
 }
