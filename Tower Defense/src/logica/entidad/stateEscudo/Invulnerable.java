@@ -6,7 +6,6 @@ import logica.premio.objetoPrecioso.*;
 import logica.premio.magiaTemporal.*;
 
 public class Invulnerable extends EstadoEscudo{
-	private Escudo escudo;
 	
 	public Invulnerable(Entidad e, Escudo esc){
 		this.entidad=e;
@@ -21,8 +20,5 @@ public class Invulnerable extends EstadoEscudo{
 	}
 	public void recibirGolpe(Bomba b){
 		
-	}
-	public void kill(){
-		escudo.kill();
 	}
 }

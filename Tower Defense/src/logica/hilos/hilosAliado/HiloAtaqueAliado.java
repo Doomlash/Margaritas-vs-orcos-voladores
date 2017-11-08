@@ -1,4 +1,4 @@
-package logica.hilos;
+package logica.hilos.hilosAliado;
 
 import logica.entidad.aliado.*;
 import java.util.ArrayList;

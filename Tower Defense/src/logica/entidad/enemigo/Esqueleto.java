@@ -24,6 +24,14 @@ public class Esqueleto extends Enemigo{
 		
 	}
 	public void atacar(Obstaculo o){
+		canMove=false;
+		((GraphicEnemigo)grafico).atacar();
+		o.setVida(o.getVida()-fuerza);
+		canMove=true;
 	}
-
+	
+	public void kill(){
+		comandante.eliminarEsqueleto(this);
+		super.kill();
+	}
 }

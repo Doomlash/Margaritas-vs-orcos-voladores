@@ -47,18 +47,36 @@ public class Nigromante extends Enemigo{
 		int auxX=x;
 		super.move();
 		if(auxX!=x){
+			((GraphicNigromante)grafico).summon();
 			for(int i=0;(i<2)&&(ejercito.size()<=3);i++)
 				for(int j=-1;(j<2)&&(ejercito.size()<=3);j++){
-					visitorEsqueleto.actualizarCeldaDeCreacion(x+i, j+y);
-					Celda c = map.getCelda(x+i, y+j);
-					if(c!=null)
-						c.getFirst().accept(visitorEsqueleto);
+					if(!(i==0&&j==0)){
+						visitorEsqueleto.actualizarCeldaDeCreacion(x+i, j+y);
+						Celda c = map.getCelda(x+i, y+j);
+						if(c!=null){
+							if(c.isEmpty())
+								agregarEsqueleto(new Esqueleto(x+i,y+j,map,this));
+							else
+								c.getFirst().accept(visitorEsqueleto);
+						}
+					}
 				}
 		}
 	}
+	public void kill(){
+		int aux=ejercito.size();
+		for(int i=0;i<aux;i++){
+			ejercito.get(0).kill();
+		}
+		super.kill();
+	}
 	public void agregarEsqueleto(Esqueleto e){
-		if(ejercito.size()<=3)
+		if(ejercito.size()<=3){
+			map.agregarElemento(e);
 			ejercito.add(e);
+			map.getAlmacenHilos().getMovEnemigo().agregarEnemigo(e);
+			map.getAlmacenHilos().getAtaEnemigo().agregarEnemigo(e);
+		}
 	}
 	public void eliminarEsqueleto(Esqueleto e){
 		ejercito.remove(e);

@@ -62,7 +62,7 @@ public class GUI extends JFrame {
 		j= new Juego(this);
 		this.setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(90, 10, AnchoVentana, AltoVentana);
+		setBounds(90, 0, AnchoVentana, AltoVentana);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);

@@ -61,11 +61,13 @@ public class Mapa{
 		int y = e.getY();
 		int dx = e.getDimensionX();
 		int dy = e.getDimensionY();
-		if(x>=0&&(x+dx-1)<celdas[0].length)
+		if(x>=0&&x<celdas[0].length)
 			if(y>=0&&(y+dy-1)<celdas.length){
 				for(int i=x;i<x+dx;i++)
-					for(int j=y;j<y+dy;j++)
-						celdas[y][i].agregarElemento(e);
+					for(int j=y;j<y+dy;j++){
+						if(i<celdas[0].length)
+							celdas[y][i].agregarElemento(e);
+					}
 				grafico.addGraphicElemento(e.getGraphic());
 			}
 	}

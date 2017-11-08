@@ -9,7 +9,6 @@ import java.awt.Toolkit;
 public abstract class GraphicEntidad extends GraphicObstaculo{
 	protected GraphicEscudo escudo;
 	protected GraphicBooster booster;
-	protected Toolkit t = Toolkit.getDefaultToolkit();
 	
 	public GraphicEntidad(int x, int y, int a, GraphicMapa m){
 		super(x,y,1,a,m);

@@ -1,25 +1,24 @@
-package logica.hilos;
+package logica.hilos.hilosEnemigo;
 
-import java.util.ArrayList;
+import logica.disparo.disparoEnemigo.*;
 import java.util.List;
+import java.util.ArrayList;
 
-import logica.disparo.disparoAliado.*;
-
-public class HiloDisparoAliado extends Thread{
-	private List<DisparoAliado> toExecute, toInsert, toDelete;
+public class HiloDisparoEnemigo extends Thread{
+	private List<DisparoEnemigo> toExecute, toInsert, toDelete;
 	private volatile boolean execute;
 	
-	public HiloDisparoAliado(){
+	public HiloDisparoEnemigo(){
 		execute=true;
-		toDelete = new ArrayList<DisparoAliado>();
-		toExecute = new ArrayList<DisparoAliado>();
-		toInsert = new ArrayList<DisparoAliado>();
+		toDelete = new ArrayList<DisparoEnemigo>();
+		toExecute = new ArrayList<DisparoEnemigo>();
+		toInsert = new ArrayList<DisparoEnemigo>();
 		
 	}
-	public void agregarDisparoAliado(DisparoAliado d){
+	public void agregarDisparoEnemigo(DisparoEnemigo d){
 		toInsert.add(d);
 	}
-	public void disparoAliadoAEliminar(DisparoAliado d){
+	public void disparoEnemigoAEliminar(DisparoEnemigo d){
 		toDelete.add(d);
 	}
 	public void terminate(){
@@ -48,5 +47,4 @@ public class HiloDisparoAliado extends Thread{
 			}
 		}
 	}
-
 }

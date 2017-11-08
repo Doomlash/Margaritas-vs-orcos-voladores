@@ -1,4 +1,4 @@
-package logica.hilos;
+package logica.hilos.hilosPowerUpYPremios;
 
 import logica.modificador_PowerUp.Modificador;
 

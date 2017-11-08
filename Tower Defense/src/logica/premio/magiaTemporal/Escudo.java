@@ -9,14 +9,14 @@ import logica.mapa.*;
 import grafica.entidad.*;
 
 public class Escudo extends Modificador{
-	private int tiempo;
+	private double tiempo;
 	
 	public Escudo(Mapa m){
 		tiempo=10;
 		this.map=m;
 	}
 	public void actualizar(){
-		tiempo = tiempo - (1/4);
+		tiempo = tiempo - 0.25;
 		if(tiempo<=0)
 			kill();
 	}
@@ -30,6 +30,8 @@ public class Escudo extends Modificador{
 	}
 	private void afectarGeneral(Entidad e){
 		this.entidad=e;
+		entidad.getEstadoEscudo().kill();
+		((GraphicEntidad)entidad.getGraphic()).desactivarEscudo();
 		e.setEstadoEscudo(new Invulnerable(entidad, this));
 		((GraphicEntidad)entidad.getGraphic()).activarEscudo(entidad.getX(), entidad.getY(), entidad.getDimensionX());
 	}

@@ -3,12 +3,10 @@ package grafica.mapa;
 import logica.mapa.*;
 import grafica.gameObjects.*;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -23,7 +21,6 @@ public class GraphicMapa extends JPanel{
 		int ancho = m.getNivel().getJuego().getGui().getAncho();
 		int alto = m.getNivel().getJuego().getGui().getAlto();
 		this.setBounds(ancho/12,alto/12,ancho/12*10,alto/12*11);
-		this.setPreferredSize(new Dimension(1000,520));
 		this.addMouseListener(new OyenteMouse());
 		fondo = new ImageIcon("src/Sprites/FondoMapa.png").getImage();
 	}

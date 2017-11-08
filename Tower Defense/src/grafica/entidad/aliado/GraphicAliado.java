@@ -3,9 +3,12 @@ package grafica.entidad.aliado;
 import grafica.entidad.*;
 import grafica.mapa.*;
 
+import java.awt.Toolkit;
+
 import javax.swing.ImageIcon;
 
 public abstract class GraphicAliado extends GraphicEntidad{
+	protected Toolkit t = Toolkit.getDefaultToolkit();
 	
 	public GraphicAliado(int x, int y, int a, GraphicMapa m){
 		super(x,y,a,m);

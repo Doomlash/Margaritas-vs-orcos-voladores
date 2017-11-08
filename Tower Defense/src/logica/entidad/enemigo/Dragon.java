@@ -49,7 +49,6 @@ public class Dragon extends Enemigo{
 		}
 		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,y,map,x-rango,grafico.getPos().x-5));
 		((GraphicDragon)grafico).despegar();
-		((GraphicEnemigo)grafico).avanzar();
 		canMove=true;
 	}
 }

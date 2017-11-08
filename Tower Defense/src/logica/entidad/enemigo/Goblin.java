@@ -39,10 +39,6 @@ public class Goblin extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
-		try{
-			Thread.sleep(400);
-		}catch(InterruptedException e){
-		}
 		o.setVida(o.getVida()-fuerza);
 		canMove=true;
 	}

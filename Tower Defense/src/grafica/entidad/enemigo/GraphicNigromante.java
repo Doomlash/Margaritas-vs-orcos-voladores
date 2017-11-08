@@ -14,5 +14,15 @@ public class GraphicNigromante extends GraphicEnemigo{
 		imagenes[2] = new ImageIcon(t.createImage(dir+"Enemigos/Nigromante/NigromanteAtaque.gif"));
 		imagenes[3] = new ImageIcon(t.createImage(dir+"Enemigos/Nigromante/NigromanteMuerte.gif"));
 		imagenes[4] = new ImageIcon(t.createImage(dir+"Enemigos/Nigromante/NigromanteCongelado.png"));
+		imagenes[5] = new ImageIcon(t.createImage(dir+"Enemigos/Nigromante/NigromanteSummon.gif"));
+	}
+	
+	public void summon(){
+		imagenes[5].getImage().flush();
+		this.getGrafico().setIcon(imagenes[5]);
+		try{
+			Thread.sleep(700);
+		}catch(InterruptedException e){
+		}
 	}
 }

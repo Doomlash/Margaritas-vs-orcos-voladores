@@ -1,28 +1,23 @@
-package logica.hilos;
+package logica.hilos.hilosEnemigo;
 
 import logica.entidad.enemigo.*;
-import grafica.entidad.enemigo.*;
-
 import java.util.List;
 import java.util.ArrayList;
 
-public class HiloMovimientoEnemigo extends Thread{
+public class HiloAtaqueEnemigo extends Thread{
 	protected volatile List<Enemigo> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
 	protected boolean pausa;
 	
-	public HiloMovimientoEnemigo(){
+	public HiloAtaqueEnemigo(){
 		execute = true;
 		toDelete = new ArrayList<Enemigo>();
 		toExecute = new ArrayList<Enemigo>();
 		toInsert = new ArrayList<Enemigo>();
-		pausa=false;
+		pausa = false;
 	}
 	public void pausar(){
 		pausa=true;
-		int x = toExecute.size();
-		for(int i=0;i<x;i++)
-			((GraphicEnemigo)toExecute.get(i).getGraphic()).congelar();
 	}
 	public void reanudar(){
 		pausa=false;
@@ -52,10 +47,10 @@ public class HiloMovimientoEnemigo extends Thread{
 			if(!pausa){
 				int x= toExecute.size();
 				for(int i=0;i<x;i++){
-					toExecute.get(i).move();
+					toExecute.get(i).atacarRango();
 				}
 				try{
-					Thread.sleep(200);
+					Thread.sleep(30);
 				}catch(InterruptedException e){
 				}
 			}

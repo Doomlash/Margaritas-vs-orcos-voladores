@@ -1,6 +1,14 @@
 package logica.hilos;
 
 import logica.comprables.Stun;
+import logica.hilos.hilosAliado.HiloAtaqueAliado;
+import logica.hilos.hilosAliado.HiloDisparoAliado;
+import logica.hilos.hilosEnemigo.HiloAtaqueEnemigo;
+import logica.hilos.hilosEnemigo.HiloDisparoEnemigo;
+import logica.hilos.hilosEnemigo.HiloMovimientoEnemigo;
+import logica.hilos.hilosPowerUpYPremios.HiloBombas;
+import logica.hilos.hilosPowerUpYPremios.HiloItemsPremio;
+import logica.hilos.hilosPowerUpYPremios.HiloPowerUps;
 
 public class AlmacenHilos{
 	private HiloMovimientoEnemigo movEnemigo;

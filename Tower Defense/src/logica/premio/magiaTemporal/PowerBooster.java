@@ -8,14 +8,15 @@ import grafica.entidad.aliado.*;
 
 public class PowerBooster extends Modificador{
 	private int cd;
-	private float tiempo;
+	private double tiempo;
 	
 	public PowerBooster(int x, int y, Mapa m){
 		tiempo = 10;
 		this.map = m;
 	}
 	public void actualizar(){
-		tiempo=tiempo-(1/4);
+		tiempo=tiempo-(0.25);
+		System.out.println("Tiempo: "+tiempo);
 		if(tiempo<=0)
 			kill();
 	}
