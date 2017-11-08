@@ -9,7 +9,7 @@ import grafica.gameObjects.*;
 public class Agua extends Elemento implements Runnable{
 	
 	public Agua(int x,int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		grafico = new GraphicAgua(x,y);
 	}
 	

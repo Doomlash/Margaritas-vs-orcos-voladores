@@ -15,7 +15,7 @@ public class Bomba extends GameObject{
 	private List<Obstaculo> objetivos;
 	
 	public Bomba(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		grafico = new GraphicBomba(x,y);
 		map.getMapaGrafico().addGraphicElemento(grafico);
 		objetivos = new ArrayList<Obstaculo>();

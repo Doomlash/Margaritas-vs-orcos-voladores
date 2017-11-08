@@ -4,7 +4,6 @@ import logica.entidad.enemigo.*;
 import logica.juego.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -66,16 +65,15 @@ public class GUI extends JFrame {
 		setBounds(90, 10, AnchoVentana, AltoVentana);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout());
+		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
 		
 		panelSuperior();
 		panelDerecha();
-		contentPane.add(panelSuperior, BorderLayout.NORTH);
+		contentPane.add(panelSuperior);
 		contentPane.add(j.getNivel().getMapa().getMapaGrafico(),BorderLayout.CENTER);
-		contentPane.add(j.getAlmacen().getAlmacenPanel(), BorderLayout.WEST);
-		contentPane.add(panelDerecha, BorderLayout.EAST);
+		contentPane.add(j.getAlmacen().getAlmacenPanel());
+		contentPane.add(panelDerecha);
 		
 	}
 	public void finalizar(){
@@ -83,9 +81,9 @@ public class GUI extends JFrame {
 	}
 	private void panelSuperior(){
 		panelSuperior = new JPanel();
-		panelSuperior.setBackground(Color.GRAY);
+		panelSuperior.setBackground(Color.DARK_GRAY);
 		panelSuperior.setLayout(null);
-		panelSuperior.setPreferredSize(new Dimension(AnchoVentana,65));
+		panelSuperior.setBounds(0, 0, AnchoVentana, AltoVentana/12);
 		
 
 		
@@ -113,7 +111,7 @@ public class GUI extends JFrame {
 	private void panelDerecha(){
 		panelDerecha = new JPanel();
 		panelDerecha.setBackground(Color.DARK_GRAY);
-		panelDerecha.setPreferredSize(new Dimension(AnchoVentana/12,AltoVentana));
+		panelDerecha.setBounds(AnchoVentana/12*11, AltoVentana/12, AnchoVentana/12, AltoVentana);
 		panelDerecha.setLayout(null);
 		
 		ene = new Enemigo[6];

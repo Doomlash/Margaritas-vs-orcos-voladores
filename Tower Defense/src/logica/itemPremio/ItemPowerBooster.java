@@ -6,7 +6,7 @@ import grafica.itemPremio.*;
 public class ItemPowerBooster extends ItemPremio{
 
 	public ItemPowerBooster(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,m);
 		grafico = new GraphicItemPowerBooster(x,y,this);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}

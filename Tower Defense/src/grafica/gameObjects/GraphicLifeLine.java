@@ -1,6 +1,4 @@
-package grafica.entidad.aliado;
-
-import grafica.gameObjects.*;
+package grafica.gameObjects;
 
 import javax.swing.ImageIcon;
 

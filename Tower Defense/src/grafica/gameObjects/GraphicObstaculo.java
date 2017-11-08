@@ -1,6 +1,5 @@
 package grafica.gameObjects;
 
-import grafica.entidad.aliado.*;
 import grafica.mapa.*;
 
 public abstract class GraphicObstaculo extends GraphicGameObject{

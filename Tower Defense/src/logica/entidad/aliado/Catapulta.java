@@ -14,7 +14,7 @@ public class Catapulta extends Aliado{
 	 * @param m : Mapa - Destinado a vincular el objeto con el mapa.
 	 */
 	public Catapulta(int x, int y, Mapa m){
-		super(x,y,2,m);
+		super(x,y,2,1,m);
 		precio = 100;
 		vida=vidaMax=70;
 		rango=3;

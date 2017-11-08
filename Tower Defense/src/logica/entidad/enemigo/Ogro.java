@@ -13,7 +13,7 @@ public class Ogro extends Enemigo{
 	 * @param m : Mapa - Destinado a vincular el GameObject con el mapa
 	 */
 	public Ogro(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		velocidad=6;
 		puntaje=100;
 		monedas=20;

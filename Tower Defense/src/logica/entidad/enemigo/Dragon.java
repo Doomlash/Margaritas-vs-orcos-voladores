@@ -15,7 +15,7 @@ public class Dragon extends Enemigo{
 	 * @param m : Mapa - Destinado a vincular el GameObject con el mapa
 	 */
 	public Dragon(int x, int y, Mapa m){
-		super(x,y,2,m);
+		super(x,y,2,1,m);
 		velocidad=8;
 		puntaje=180;
 		monedas=50;

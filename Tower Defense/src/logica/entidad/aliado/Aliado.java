@@ -22,8 +22,8 @@ public abstract class Aliado extends Entidad implements Comprable{
 	 * @param dX : int - Indica la dimension del objeto en cuando a ancho
 	 * @param m : Mapa
 	 */
-	public Aliado(int x, int y, int dX, Mapa m){
-		super(x,y,dX,m);
+	public Aliado(int x, int y, int dx, int dy, Mapa m){
+		super(x,y,dx,dy,m);
 		visitorAtaque = new VisitorAtaqueAliado(this);
 	}
 	
@@ -37,9 +37,11 @@ public abstract class Aliado extends Entidad implements Comprable{
 		if(cargaAtaqueActual>=cargaAtaqueNecesaria){
 			cargaAtaqueActual=0;
 			for(int i=(x+dimensionX);i<x+dimensionX+rango;i++){
-				Celda c = map.getCelda(i, y);
-				if(c!=null){
-				c.accept(visitorAtaque);
+				for(int j=y;j<(y+dimensionY);j++){
+					Celda c = map.getCelda(i, y);
+					if(c!=null){
+						c.accept(visitorAtaque);
+					}
 				}
 			}
 		}

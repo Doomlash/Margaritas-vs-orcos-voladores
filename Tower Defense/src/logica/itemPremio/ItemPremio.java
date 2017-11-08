@@ -7,8 +7,8 @@ import grafica.gameObjects.*;
 public abstract class ItemPremio extends GameObject{
 	protected int tiempo;
 	
-	public ItemPremio(int x, int y, int dx, Mapa m){
-		super(x,y,dx,m);
+	public ItemPremio(int x, int y, Mapa m){
+		super(x,y,1,1,m);
 		tiempo=8;
 	}
 	

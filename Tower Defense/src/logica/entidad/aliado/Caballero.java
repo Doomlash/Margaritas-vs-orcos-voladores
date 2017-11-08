@@ -13,7 +13,7 @@ public class Caballero extends Aliado{
 	 * @param m : Mapa - Destinado a vincular el objeto con el mapa.
 	 */
 	public Caballero(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		precio = 50;
 		vida=vidaMax=90;
 		rango=1;

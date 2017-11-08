@@ -13,7 +13,7 @@ public class Goblin extends Enemigo{
 	 * @param m : Mapa - Destinado a vincular el GameObject con el mapa
 	 */
 	public Goblin(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		velocidad=12;
 		puntaje=50;
 		monedas=5;

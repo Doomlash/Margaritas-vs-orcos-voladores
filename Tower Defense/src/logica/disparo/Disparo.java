@@ -9,7 +9,7 @@ public abstract class Disparo extends GameObject{
 	protected boolean canMove;
 
 	public Disparo(int x,int y, Mapa m, int a){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		alcance = a;
 		canMove=true;
 	}

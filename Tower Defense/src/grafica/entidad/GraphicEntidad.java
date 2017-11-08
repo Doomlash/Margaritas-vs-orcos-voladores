@@ -8,12 +8,23 @@ import java.awt.Toolkit;
 
 public abstract class GraphicEntidad extends GraphicObstaculo{
 	protected GraphicEscudo escudo;
+	protected GraphicBooster booster;
 	protected Toolkit t = Toolkit.getDefaultToolkit();
 	
 	public GraphicEntidad(int x, int y, int a, GraphicMapa m){
 		super(x,y,1,a,m);
 	}
 	
+	public void activarBooster(int x, int y, int ancho){
+		booster = new GraphicBooster(x,y,ancho);
+		map.addGraphicElemento(booster);
+	}
+	public void desactivarBooster(){
+		if(booster!=null){
+			map.removeGraphicElemento(booster);
+			booster=null;
+		}
+	}
 	public void activarEscudo(int x, int y, int ancho){
 		escudo = new GraphicEscudo(x,y,ancho);
 		map.addGraphicElemento(escudo);

@@ -13,7 +13,7 @@ public class Monje extends Aliado{
 	 * @param m : Mapa - Destinado a vincular el objeto con el mapa.
 	 */
 	public Monje(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		grafico = new GraphicMonje(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){

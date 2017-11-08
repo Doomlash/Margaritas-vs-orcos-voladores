@@ -10,7 +10,7 @@ public class Barricada extends Obstaculo implements Comprable{
 	private int precio;
 
 	public Barricada(int x,int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		precio = 20;
 		vida=vidaMax=100;
 		grafico = new GraphicBarricada(x,y,m.getMapaGrafico());

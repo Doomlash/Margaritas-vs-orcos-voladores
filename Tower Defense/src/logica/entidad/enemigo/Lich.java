@@ -1,7 +1,7 @@
 package logica.entidad.enemigo;
 
 import logica.mapa.*;
-import logica.entidad.stateEscudo.Invulnerable;
+import logica.premio.magiaTemporal.*;
 import logica.gameObjects.*;
 import grafica.entidad.enemigo.*;
 
@@ -14,7 +14,7 @@ public class Lich extends Enemigo{
 	 * @param m : Mapa - Destinado a vincular el GameObject con el mapa
 	 */
 	public Lich(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		velocidad=12;
 		puntaje=70;
 		monedas=15;
@@ -24,10 +24,9 @@ public class Lich extends Enemigo{
 		cargaAtaqueNecesaria = 50;
 		cargaAtaqueActual = 40;
 		grafico = new GraphicLich(x,y,map.getMapaGrafico());
-		Invulnerable i = new Invulnerable(this);
-		Thread t = new Thread(i);
-		t.start();
-		this.escudo = i;
+		Escudo esc = new Escudo(m);
+		m.getAlmacenHilos().getPowerUps().agregarPowerUp(esc);
+		esc.afectar(this);
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
 	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2

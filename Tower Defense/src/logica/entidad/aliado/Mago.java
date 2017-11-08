@@ -14,7 +14,7 @@ public class Mago extends Aliado{
 	 * @param m : Mapa - Destinado a vincular el objeto con el mapa.
 	 */
 	public Mago(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		precio = 80;
 		vida=vidaMax=30;
 		rango=3;

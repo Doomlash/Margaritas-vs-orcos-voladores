@@ -7,8 +7,8 @@ public abstract class Obstaculo extends Elemento{
 	protected int vida;
 	protected int vidaMax;
 	
-	public Obstaculo(int x, int y, int dx, Mapa m){
-		super(x,y,dx,m);
+	public Obstaculo(int x, int y, int dx, int dy, Mapa m){
+		super(x,y,dx,dy,m);
 	}
 	
 	/**

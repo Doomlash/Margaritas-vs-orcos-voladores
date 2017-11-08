@@ -19,7 +19,7 @@ public class Nigromante extends Enemigo{
 	 * @param m : Mapa - Destinado a vincular el GameObject con el mapa
 	 */
 	public Nigromante(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		velocidad=8;
 		puntaje=90;
 		monedas=20;

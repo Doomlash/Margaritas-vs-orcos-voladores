@@ -4,7 +4,7 @@ import logica.mapa.*;
 import grafica.gameObjects.*;
 
 public abstract class GameObject{
-	protected int x, y, dimensionX;
+	protected int x, y, dimensionX, dimensionY;
 	protected Mapa map;
 	protected GraphicGameObject grafico;
 	
@@ -16,11 +16,12 @@ public abstract class GameObject{
 	 * @param dx : int - Ancho del objeto
 	 * @param m : Mapa - Mapa al cual el objeto pertenece.
 	 */
-	public GameObject(int x, int y, int dx, Mapa m){
+	public GameObject(int x, int y, int dx, int dy, Mapa m){
 		map=m;
 		this.x=x;
 		this.y=y;
 		dimensionX=dx;
+		dimensionY=dy;
 	}
 	
 	public int getX(){
@@ -31,6 +32,9 @@ public abstract class GameObject{
 	}
 	public int getDimensionX(){
 		return dimensionX;
+	}
+	public int getDimensionY(){
+		return dimensionY;
 	}
 	public GraphicGameObject getGraphic(){
 		return grafico;

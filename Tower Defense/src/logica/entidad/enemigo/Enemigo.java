@@ -26,8 +26,8 @@ public abstract class Enemigo extends Entidad{
 	 * @param dx : int - Indica la dimension del objeto en cuanto a ancho
 	 * @param m : Mapa
 	 */
-	public Enemigo(int x, int y, int dx, Mapa m){
-		super(x,y,dx,m);
+	public Enemigo(int x, int y, int dx, int dy, Mapa m){
+		super(x,y,dx,dy,m);
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
 		visitorMovimiento = new VisitorMovimientoEnemigo(this,map);
 		canMove=true;
@@ -88,9 +88,11 @@ public abstract class Enemigo extends Entidad{
 		if(cargaAtaqueActual>=cargaAtaqueNecesaria){
 			cargaAtaqueActual=0;
 			for(int i=(x-1);i>=x-rango;i--){
-				Celda c = map.getCelda(i, y);
-				if(c!=null){
-					c.accept(visitorAtaque);
+				for(int j=y;j<(y+dimensionY);j++){
+					Celda c = map.getCelda(i, y);
+					if(c!=null){
+						c.accept(visitorAtaque);
+					}
 				}
 			}
 		}
@@ -99,7 +101,7 @@ public abstract class Enemigo extends Entidad{
 	}
 	
 	public void kill(){
-		escudo.stop();
+		escudo.kill();
 		visitorAtaque.kill();
 		visitorMovimiento.kill();
 		((GraphicEnemigo)grafico).morir();
@@ -139,7 +141,6 @@ public abstract class Enemigo extends Entidad{
 	}
 	public void setVelocidad(int x){
 		velocidad=x;
-		System.out.println(velocidad);
 	}
 	
 	public int getVelocidad(){

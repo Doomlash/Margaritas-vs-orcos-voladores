@@ -7,7 +7,6 @@ import logica.almacen.creadorComprables.*;
 import logica.almacen.creadorComprables.creadorPremios.*;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -28,7 +27,9 @@ public class Almacen_Mercado_Panel extends JPanel{
 		almacen = a;
 		this.setLayout(null);
 		this.setBackground(Color.GRAY);
-		this.setPreferredSize(new Dimension(j.getGui().getAncho()/12,j.getGui().getAlto()));
+		int ancho = j.getGui().getAncho();
+		int alto = j.getGui().getAlto();
+		setBounds(0,alto/12,ancho/12,alto-alto/12);
 		
 		crearMapeo();
 		crearBotones(j);

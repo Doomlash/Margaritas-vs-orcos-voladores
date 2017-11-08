@@ -6,7 +6,7 @@ import grafica.itemPremio.*;
 public class ItemEscudo extends ItemPremio{
 
 	public ItemEscudo(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,m);
 		grafico = new GraphicItemEscudo(x,y,this);
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}

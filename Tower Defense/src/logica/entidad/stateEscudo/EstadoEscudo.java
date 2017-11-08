@@ -10,5 +10,5 @@ public abstract class EstadoEscudo{
 	public abstract void recibirGolpe(Entidad e);
 	public abstract void recibirGolpe(Disparo d);
 	public abstract void recibirGolpe(Bomba b);
-	public void stop(){}
+	public void kill(){}
 }

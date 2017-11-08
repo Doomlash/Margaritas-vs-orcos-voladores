@@ -14,7 +14,7 @@ public class Ciclope extends Enemigo{
 	 * @param m : Mapa - Destinado a vincular el GameObject con el mapa
 	 */
 	public Ciclope(int x, int y, Mapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		velocidad=8;
 		puntaje=120;
 		monedas=30;

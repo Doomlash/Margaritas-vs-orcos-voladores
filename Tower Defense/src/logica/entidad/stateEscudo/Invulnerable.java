@@ -3,51 +3,18 @@ package logica.entidad.stateEscudo;
 import logica.entidad.*;
 import logica.disparo.*;
 import logica.premio.objetoPrecioso.*;
-import grafica.entidad.*;
+import logica.premio.magiaTemporal.*;
 
-public class Invulnerable extends EstadoEscudo implements Runnable{
-	private int tiempo = 10; //10 segundos de duración
-	private volatile boolean execute;
+public class Invulnerable extends EstadoEscudo{
+	private Escudo escudo;
 	
-	public Invulnerable(Entidad e){
+	public Invulnerable(Entidad e, Escudo esc){
 		this.entidad=e;
-		((GraphicEntidad)entidad.getGraphic()).activarEscudo(entidad.getX(), entidad.getY(),entidad.getDimensionX());
-		execute = true;
-	}
-	
-	public void run(){
-		while(execute){
-			try{
-				Thread.sleep(250);
-			}catch(InterruptedException e){
-			}
-			if(execute)
-				try{
-					Thread.sleep(250);
-				}catch(InterruptedException e){
-				}
-			if(execute)
-				try{
-					Thread.sleep(250);
-				}catch(InterruptedException e){
-				}
-			if(execute)
-				try{
-					Thread.sleep(250);
-				}catch(InterruptedException e){
-				}
-			tiempo--;
-			if(tiempo<=0)
-				kill();
-		}
-		kill();
-	}
-	public void stop(){
-		execute=false;
+		this.escudo=esc;
 	}
 	public void recibirGolpe(Entidad e){
 		e.kill();
-		kill();
+		escudo.kill();
 	}
 	public void recibirGolpe(Disparo d){
 		d.kill();
@@ -56,8 +23,6 @@ public class Invulnerable extends EstadoEscudo implements Runnable{
 		
 	}
 	public void kill(){
-		execute = false;
-		this.entidad.setEstadoEscudo(new Vulnerable(entidad));
-		((GraphicEntidad)entidad.getGraphic()).desactivarEscudo();
+		escudo.kill();
 	}
 }

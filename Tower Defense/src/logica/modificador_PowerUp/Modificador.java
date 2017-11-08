@@ -10,7 +10,7 @@ public abstract class Modificador{
 	protected Entidad entidad;
 	
 	public abstract void actualizar();
-	public abstract void afectar(Aliado e);
+	public abstract void afectar(Aliado a);
 	public abstract void afectar(Enemigo e);
 	public abstract void restaurar();
 	public void kill(){

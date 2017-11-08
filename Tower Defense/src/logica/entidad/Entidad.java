@@ -10,8 +10,8 @@ public abstract class Entidad extends Obstaculo{
 	protected int rango,fuerza,cargaAtaqueActual,cargaAtaqueNecesaria;
 	protected EstadoEscudo escudo;
 
-	public Entidad(int x, int y, int dx, Mapa m){
-		super(x,y,dx,m);
+	public Entidad(int x, int y, int dx, int dy, Mapa m){
+		super(x,y,dx,dy,m);
 		escudo = new Vulnerable(this);
 	}
 	public EstadoEscudo getEstadoEscudo(){

@@ -17,8 +17,8 @@ public class Mapa{
 	
 	public Mapa(Nivel n){
 		hilos = new AlmacenHilos();
-		grafico = new GraphicMapa(this);
 		nivel=n;
+		grafico = new GraphicMapa(this);
 		celdas = new Celda[6][10];
 		for(int i=0;i<celdas.length;i++)
 			for(int j=0;j<celdas[i].length;j++)
@@ -60,10 +60,11 @@ public class Mapa{
 		int x = e.getX();
 		int y = e.getY();
 		int dx = e.getDimensionX();
-		if(x>=0&&x<celdas[0].length)
-			if(y>=0&&y<celdas.length){
+		int dy = e.getDimensionY();
+		if(x>=0&&(x+dx-1)<celdas[0].length)
+			if(y>=0&&(y+dy-1)<celdas.length){
 				for(int i=x;i<x+dx;i++)
-					if(i<celdas[0].length)
+					for(int j=y;j<y+dy;j++)
 						celdas[y][i].agregarElemento(e);
 				grafico.addGraphicElemento(e.getGraphic());
 			}
