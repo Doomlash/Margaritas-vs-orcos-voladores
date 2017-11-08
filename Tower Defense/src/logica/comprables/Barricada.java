@@ -38,8 +38,4 @@ public class Barricada extends Obstaculo implements Comprable{
 		((GraphicObstaculo)grafico).removeLifeLine();
 		map.eliminarElemento(this);
 	}
-	
-	public GraphicGameObject getGraphic(){
-		return grafico;
-	}
 }

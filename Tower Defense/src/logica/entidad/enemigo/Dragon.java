@@ -3,6 +3,7 @@ package logica.entidad.enemigo;
 import logica.mapa.*;
 import logica.disparo.disparoEnemigo.*;
 import logica.gameObjects.*;
+import logica.visitor.*;
 import grafica.entidad.enemigo.*;
 
 public class Dragon extends Enemigo{
@@ -24,6 +25,7 @@ public class Dragon extends Enemigo{
 		cargaAtaqueNecesaria = 50;
 		cargaAtaqueActual = 40;
 		grafico = new GraphicDragon(x,y,map.getMapaGrafico());
+		visitorMovimiento = new VisitorMovimientoDragon(this,m);
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
 	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2

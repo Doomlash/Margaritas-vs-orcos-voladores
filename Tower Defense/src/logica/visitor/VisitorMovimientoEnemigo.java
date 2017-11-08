@@ -47,6 +47,13 @@ public class VisitorMovimientoEnemigo extends Visitor{
 	public void visit(Trampa t){
 	}
 	
+	public void visit(AgujeroGusano g){
+		if(ene!=null){
+			ene.kill();
+			g.kill();
+		}
+	}
+	
 	public void kill(){
 		ene=null;
 	}

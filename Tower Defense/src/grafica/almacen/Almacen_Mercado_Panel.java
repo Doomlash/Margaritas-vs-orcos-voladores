@@ -106,6 +106,10 @@ public class Almacen_Mercado_Panel extends JPanel{
 					almacen.asignarCreador(new CreadorStun());
 					break;
 				}
+				case("Gusano"):{
+					almacen.asignarCreador(new CreadorAgujeroGusano());
+					break;
+				}
 				case("Cancelar"):{
 					almacen.asignarCreador(null);
 					break;

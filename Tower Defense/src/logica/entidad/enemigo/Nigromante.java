@@ -2,10 +2,16 @@ package logica.entidad.enemigo;
 
 import logica.mapa.*;
 import logica.gameObjects.*;
+import logica.visitor.*;
 import grafica.entidad.enemigo.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Nigromante extends Enemigo{
-	private Esqueleto[] ejercito;
+	private List<Esqueleto> ejercito;
+	private VisitorCeldaEsqueleto visitorEsqueleto;
+	
 	/**
 	 * Se crea el elemento grafico asociado a la clase y se lo agrega al mapa grafico.
 	 * @param x : int - Representa la posicion x inicial que ocupa en la matriz de celdas
@@ -23,6 +29,8 @@ public class Nigromante extends Enemigo{
 		cargaAtaqueNecesaria = 50;
 		cargaAtaqueActual = 40;
 		grafico = new GraphicNigromante(x,y,map.getMapaGrafico());
+		ejercito = new ArrayList<Esqueleto>();
+		visitorEsqueleto = new VisitorCeldaEsqueleto(this,map);
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
 	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
@@ -35,7 +43,26 @@ public class Nigromante extends Enemigo{
 	public void SACARDEARREGLO(){
 		map.getNivel().getJuego().getGui().getEnemigos()[4]=null;		
 	}
-	
+	public void move(){
+		int auxX=x;
+		super.move();
+		if(auxX!=x){
+			for(int i=0;(i<2)&&(ejercito.size()<=3);i++)
+				for(int j=-1;(j<2)&&(ejercito.size()<=3);j++){
+					visitorEsqueleto.actualizarCeldaDeCreacion(x+i, j+y);
+					Celda c = map.getCelda(x+i, y+j);
+					if(c!=null)
+						c.getFirst().accept(visitorEsqueleto);
+				}
+		}
+	}
+	public void agregarEsqueleto(Esqueleto e){
+		if(ejercito.size()<=3)
+			ejercito.add(e);
+	}
+	public void eliminarEsqueleto(Esqueleto e){
+		ejercito.remove(e);
+	}
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
@@ -44,7 +71,6 @@ public class Nigromante extends Enemigo{
 		}catch(InterruptedException e){
 		}
 		o.setVida(o.getVida()-fuerza);
-		((GraphicEnemigo)grafico).avanzar();
 		canMove=true;
 	}
 }

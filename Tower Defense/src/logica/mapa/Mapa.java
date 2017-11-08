@@ -46,7 +46,7 @@ public class Mapa{
 		}
 		while(celdasVacias()&&(l>0)){
 			fila=r.nextInt(6);
-			columna=8;
+			columna=7;
 			if(celdas[fila][columna].isEmpty()){
 				Agua a = new Agua(columna,fila,this);
 				Thread t = new Thread(a);

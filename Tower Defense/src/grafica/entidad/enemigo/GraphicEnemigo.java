@@ -9,7 +9,7 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 	
 	public GraphicEnemigo(int x, int y,int a, GraphicMapa m){
 		super(x,y,a,m);
-		imagenes = new ImageIcon[5];
+		imagenes = new ImageIcon[6];
 	}
 	public void atacar(){
 		imagenes[2].getImage().flush();
@@ -19,6 +19,7 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 		this.getGrafico().setIcon(imagenes[1]);
 	}
 	public void morir(){
+		imagenes[3].getImage().flush();
 		this.getGrafico().setIcon(imagenes[3]);
 		removeLifeLine();
 	}

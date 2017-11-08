@@ -55,16 +55,14 @@ public class AlmacenHilos{
 		}
 		return itemsPremio;
 	}
-	public void resetearStun(){
-		if(stun==null){
-			stun = new Stun(this);
+	public void asignarStun(Stun s){
+		if(stun!=null){
+			stun.terminate();
+		}
+		stun=s;
+		if(stun!=null){
 			stun.start();
 		}
-		else
-			stun.resetearTemporizador();
-	}
-	public void deleteStun(){
-		stun=null;
 	}
 	public HiloPowerUps getPowerUps(){
 		if(powerUps==null){

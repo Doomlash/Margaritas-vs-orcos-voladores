@@ -1,31 +1,29 @@
 package logica.comprables;
 
 import logica.hilos.*;
+import logica.mapa.*;
+import grafica.comprables.*;
 
 public class Stun extends Thread implements Comprable{
 	private int precio, tiempo;
 	private volatile boolean execute;
 	private AlmacenHilos almacen;
+	private GraphicStun grafico;
+	private Mapa map;
 	
-	public Stun(AlmacenHilos a){
+	public Stun(AlmacenHilos a, Mapa m){
 		almacen=a;
 		almacen.getAtaEnemigo().pausar();
 		almacen.getMovEnemigo().pausar();
 		precio = 40;
 		tiempo = 10;
 		execute=true;
+		this.map=m;
+//		grafico = new GraphicStun();
+//		map.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void terminate(){
 		execute=false;
-	}
-	public void reducirTemporizador(){
-		tiempo--;
-	}
-	public void resetearTemporizador(){
-		tiempo=10;
-	}
-	public int getTiempo(){
-		return tiempo;
 	}
 	public int getPrecio(){
 		return precio;
@@ -42,9 +40,11 @@ public class Stun extends Thread implements Comprable{
 		}
 	}
 	public void kill(){
+		System.out.println("Kill");
 		execute=false;
-		almacen.deleteStun();
+		almacen.asignarStun(null);
 		almacen.getAtaEnemigo().reanudar();
 		almacen.getMovEnemigo().reanudar();
+//		map.getMapaGrafico().removeGraphicElemento(grafico);
 	}
 }

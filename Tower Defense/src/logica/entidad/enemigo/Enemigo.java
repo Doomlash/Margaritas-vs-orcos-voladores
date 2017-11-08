@@ -139,6 +139,7 @@ public abstract class Enemigo extends Entidad{
 	}
 	public void setVelocidad(int x){
 		velocidad=x;
+		System.out.println(velocidad);
 	}
 	
 	public int getVelocidad(){

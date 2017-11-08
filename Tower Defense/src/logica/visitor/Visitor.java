@@ -1,11 +1,11 @@
 package logica.visitor;
 
-import logica.comprables.Barricada;
-import logica.entidad.aliado.Aliado;
-import logica.entidad.enemigo.Enemigo;
-import logica.mapa.elementosMapa.destruibles.Piedra;
-import logica.mapa.elementosMapa.temporales.Agua;
-import logica.premio.objetoPrecioso.Trampa;
+import logica.comprables.*;
+import logica.entidad.aliado.*;
+import logica.entidad.enemigo.*;
+import logica.mapa.elementosMapa.destruibles.*;
+import logica.mapa.elementosMapa.temporales.*;
+import logica.premio.objetoPrecioso.*;
 
 public abstract class Visitor{
 
@@ -25,6 +25,9 @@ public abstract class Visitor{
 		
 	}
 	public void visit(Trampa t){
+		
+	}
+	public void visit(AgujeroGusano g){
 		
 	}
 	public abstract void kill();
