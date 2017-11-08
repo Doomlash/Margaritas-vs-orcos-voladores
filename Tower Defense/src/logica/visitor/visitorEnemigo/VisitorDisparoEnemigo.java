@@ -1,9 +1,10 @@
-package logica.visitor;
+package logica.visitor.visitorEnemigo;
 
 import logica.disparo.disparoEnemigo.*;
 import logica.comprables.*;
 import logica.entidad.aliado.*;
 import logica.mapa.elementosMapa.destruibles.*;
+import logica.visitor.Visitor;
 
 public class VisitorDisparoEnemigo extends Visitor{
 	private DisparoEnemigo disparo;

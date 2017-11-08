@@ -3,6 +3,7 @@ package logica.entidad.enemigo;
 import logica.mapa.*;
 import logica.gameObjects.*;
 import logica.visitor.*;
+import logica.visitor.visitorEnemigo.VisitorCeldaEsqueleto;
 import grafica.entidad.enemigo.*;
 
 import java.util.ArrayList;

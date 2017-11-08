@@ -1,7 +1,8 @@
-package logica.visitor;
+package logica.visitor.visitorEnemigo;
 
 import logica.entidad.enemigo.*;
 import logica.premio.objetoPrecioso.*;
+import logica.visitor.Visitor;
 import logica.mapa.*;
 
 public class VisitorCeldaEsqueleto extends Visitor{

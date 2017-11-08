@@ -4,6 +4,7 @@ import logica.mapa.*;
 import logica.disparo.disparoEnemigo.*;
 import logica.gameObjects.*;
 import logica.visitor.*;
+import logica.visitor.visitorEnemigo.VisitorMovimientoDragon;
 import grafica.entidad.enemigo.*;
 
 public class Dragon extends Enemigo{

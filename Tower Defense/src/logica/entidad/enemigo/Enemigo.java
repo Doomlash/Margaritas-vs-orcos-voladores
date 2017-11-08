@@ -3,6 +3,8 @@ package logica.entidad.enemigo;
 import logica.entidad.*;
 import logica.mapa.*;
 import logica.visitor.*;
+import logica.visitor.visitorEnemigo.VisitorAtaqueEnemigo;
+import logica.visitor.visitorEnemigo.VisitorMovimientoEnemigo;
 import logica.itemPremio.*;
 import logica.modificador_PowerUp.*;
 import grafica.entidad.enemigo.*;

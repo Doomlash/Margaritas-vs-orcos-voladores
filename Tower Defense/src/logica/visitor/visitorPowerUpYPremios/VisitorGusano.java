@@ -1,7 +1,8 @@
-package logica.visitor;
+package logica.visitor.visitorPowerUpYPremios;
 
 import logica.comprables.*;
 import logica.mapa.*;
+import logica.visitor.Visitor;
 import logica.entidad.enemigo.*;
 
 public class VisitorGusano extends Visitor{

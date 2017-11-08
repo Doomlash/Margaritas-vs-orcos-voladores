@@ -1,9 +1,10 @@
-package logica.visitor;
+package logica.visitor.visitorEnemigo;
 
 import logica.comprables.*;
 import logica.entidad.aliado.*;
 import logica.entidad.enemigo.*;
 import logica.mapa.elementosMapa.destruibles.*;
+import logica.visitor.Visitor;
 
 public class VisitorAtaqueEnemigo extends Visitor{
 	protected Enemigo ene;

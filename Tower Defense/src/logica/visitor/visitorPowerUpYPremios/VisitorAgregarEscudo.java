@@ -1,8 +1,9 @@
-package logica.visitor;
+package logica.visitor.visitorPowerUpYPremios;
 
 import logica.entidad.aliado.*;
 import logica.mapa.*;
 import logica.premio.magiaTemporal.*;
+import logica.visitor.Visitor;
 
 public class VisitorAgregarEscudo extends Visitor{
 	private Mapa map;

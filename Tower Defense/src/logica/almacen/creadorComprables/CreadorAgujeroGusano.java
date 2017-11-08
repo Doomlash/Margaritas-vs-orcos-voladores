@@ -4,6 +4,7 @@ import logica.almacen.*;
 import logica.mapa.*;
 import logica.comprables.*;
 import logica.visitor.*;
+import logica.visitor.visitorPowerUpYPremios.VisitorGusano;
 
 public class CreadorAgujeroGusano implements Creador{
 	

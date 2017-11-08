@@ -1,4 +1,4 @@
-package logica.visitor;
+package logica.visitor.visitorEnemigo;
 
 import logica.comprables.*;
 import logica.entidad.aliado.*;
@@ -6,6 +6,7 @@ import logica.entidad.enemigo.*;
 import logica.mapa.elementosMapa.destruibles.*;
 import logica.mapa.elementosMapa.temporales.*;
 import logica.premio.objetoPrecioso.*;
+import logica.visitor.Visitor;
 import logica.mapa.*;
 import logica.modificador_PowerUp.*;
 

@@ -3,6 +3,7 @@ package logica.almacen.creadorComprables.creadorPremios;
 import logica.almacen.*;
 import logica.mapa.*;
 import logica.visitor.*;
+import logica.visitor.visitorPowerUpYPremios.VisitorBooster;
 import logica.premio.magiaTemporal.*;
 
 public class CreadorBooster implements Creador{

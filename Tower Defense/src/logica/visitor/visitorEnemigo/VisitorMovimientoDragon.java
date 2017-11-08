@@ -1,4 +1,4 @@
-package logica.visitor;
+package logica.visitor.visitorEnemigo;
 
 import logica.entidad.enemigo.*;
 import logica.mapa.*;

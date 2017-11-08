@@ -1,8 +1,9 @@
-package logica.visitor;
+package logica.visitor.visitorAliado;
 
 import logica.entidad.aliado.Aliado;
 import logica.entidad.enemigo.Enemigo;
 import logica.mapa.elementosMapa.destruibles.Piedra;
+import logica.visitor.Visitor;
 
 public class VisitorAtaqueAliado extends Visitor{
 	protected  Aliado aliado;

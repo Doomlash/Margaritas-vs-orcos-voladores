@@ -1,6 +1,7 @@
-package logica.visitor;
+package logica.visitor.visitorPowerUpYPremios;
 
 import logica.premio.objetoPrecioso.*;
+import logica.visitor.Visitor;
 import logica.comprables.*;
 import logica.entidad.aliado.*;
 import logica.entidad.enemigo.*;

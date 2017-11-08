@@ -4,6 +4,7 @@ import logica.entidad.*;
 import logica.comprables.*;
 import logica.premio.magiaTemporal.*;
 import logica.visitor.*;
+import logica.visitor.visitorAliado.VisitorAtaqueAliado;
 import logica.mapa.*;
 import logica.modificador_PowerUp.Modificador;
 import grafica.entidad.aliado.*;
