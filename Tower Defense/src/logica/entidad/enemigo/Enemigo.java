@@ -3,15 +3,13 @@ package logica.entidad.enemigo;
 import logica.entidad.*;
 import logica.mapa.*;
 import logica.visitor.*;
-import logica.visitor.visitorEnemigo.VisitorAtaqueEnemigo;
-import logica.visitor.visitorEnemigo.VisitorMovimientoEnemigo;
+import logica.visitor.visitorEnemigo.*;
 import logica.itemPremio.*;
 import logica.modificador_PowerUp.*;
 import grafica.entidad.enemigo.*;
 import grafica.gameObjects.*;
 
 import java.util.Random;
-
 
 public abstract class Enemigo extends Entidad{
 	protected int velocidad;
@@ -64,7 +62,8 @@ public abstract class Enemigo extends Entidad{
 	 */
 	public void move(){
 		if((x-1>=0)&&canMove){
-			map.getCelda(x-1, y).accept(visitorMovimiento);
+			for(int j=y;j<y+dimensionY;j++)
+				map.getCelda(x-1, j).accept(visitorMovimiento);
 			if(canMove){
 				((GraphicEnemigo)grafico).avanzar();
 				int aux= (x-1)*grafico.getWidthUnaCelda();
@@ -148,7 +147,7 @@ public abstract class Enemigo extends Entidad{
 	public int getVelocidad(){
 		return velocidad;
 	}
-	public void afectar(Modificador m){
+	public void afectar(ModificadorEntidad m){
 		m.afectar(this);
 	}
 	public GraphicGameObject getGraphic(){

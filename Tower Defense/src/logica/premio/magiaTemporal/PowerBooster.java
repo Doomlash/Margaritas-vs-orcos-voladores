@@ -3,10 +3,10 @@ package logica.premio.magiaTemporal;
 import logica.entidad.aliado.*;
 import logica.entidad.enemigo.*;
 import logica.mapa.*;
-import logica.modificador_PowerUp.Modificador;
+import logica.modificador_PowerUp.*;
 import grafica.entidad.aliado.*;
 
-public class PowerBooster extends Modificador{
+public class PowerBooster extends ModificadorEntidad{
 	private int cd;
 	private double tiempo;
 	

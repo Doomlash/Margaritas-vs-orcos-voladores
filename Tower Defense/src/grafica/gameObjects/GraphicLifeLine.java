@@ -15,8 +15,10 @@ public class GraphicLifeLine extends GraphicGameObject{
 		}
 	}
 	public void updateLifeLine(int vidaMax, int vidaActual){
-		int barraBuscada = (vidaActual*anchoBarraCompleta)/vidaMax;
+		int barraBuscada= (vidaActual*anchoBarraCompleta)/vidaMax;
 		barraBuscada = barraBuscada/anchoDisminucionBarra+1;
+		if(vidaMax==vidaActual)
+			barraBuscada--;
 		this.grafico.setIcon(imagenes[imagenes.length-barraBuscada]);
 	}
 }

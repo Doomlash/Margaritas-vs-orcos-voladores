@@ -15,11 +15,12 @@ public class VisitorBomba extends Visitor{
 	}
 
 	public void visit(Aliado a){
-		a.recibirGolpe(bomba);
+		if(bomba!=null)
+			a.recibirGolpe(bomba);
 	}
 	public void visit(Enemigo e){
 		if(bomba!=null)
-			bomba.agregarObjetivo(e);
+			e.recibirGolpe(bomba);
 	}
 	public void visit(Barricada b){
 		if(bomba!=null)

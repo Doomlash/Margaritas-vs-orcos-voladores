@@ -5,7 +5,7 @@ import logica.entidad.enemigo.*;
 import logica.visitor.visitorEnemigo.*;
 import logica.mapa.*;
 
-public class RalentizadorAgua extends Modificador{
+public class RalentizadorAgua extends ModificadorEntidad{
 	private int velocidadAlmacenada;
 	private int posicionAlmacenada;
 	private VisitorMovimientoEnemigo visitor;

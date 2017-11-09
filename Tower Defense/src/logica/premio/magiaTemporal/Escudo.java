@@ -8,7 +8,7 @@ import logica.entidad.stateEscudo.*;
 import logica.mapa.*;
 import grafica.entidad.*;
 
-public class Escudo extends Modificador{
+public class Escudo extends ModificadorEntidad{
 	private double tiempo;
 	
 	public Escudo(Mapa m){
