@@ -65,8 +65,9 @@ public class Mapa{
 			if(y>=0&&(y+dy-1)<celdas.length){
 				for(int i=x;i<x+dx;i++)
 					for(int j=y;j<y+dy;j++){
-						if(i<celdas[0].length)
-							celdas[y][i].agregarElemento(e);
+						if(i<celdas[0].length){
+							celdas[j][i].agregarElemento(e);
+						}
 					}
 				grafico.addGraphicElemento(e.getGraphic());
 			}

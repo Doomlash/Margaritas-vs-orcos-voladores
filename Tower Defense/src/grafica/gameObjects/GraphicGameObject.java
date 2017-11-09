@@ -25,7 +25,7 @@ public abstract class GraphicGameObject{
 	public GraphicGameObject(int x, int y, int p, int ancho, int alto){
 		width=widthOne*ancho;
 		height=heightOne*alto;
-		this.pos = new Point(x*widthOne,y*height+40);
+		this.pos = new Point(x*widthOne,y*heightOne+40);
 		imagenes = new ImageIcon[1];
 		prioridad=p;
 	}

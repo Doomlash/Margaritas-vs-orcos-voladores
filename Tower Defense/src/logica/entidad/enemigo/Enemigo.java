@@ -91,7 +91,7 @@ public abstract class Enemigo extends Entidad{
 			cargaAtaqueActual=0;
 			for(int i=(x-1);i>=x-rango;i--){
 				for(int j=y;j<(y+dimensionY);j++){
-					Celda c = map.getCelda(i, y);
+					Celda c = map.getCelda(i, j);
 					if(c!=null){
 						c.accept(visitorAtaque);
 					}
