@@ -8,8 +8,9 @@ public abstract class GraphicGameObject{
 	protected JLabel grafico;
 	protected ImageIcon[] imagenes;
 	protected final int widthOne=90;
+	protected final int heightOne=95;
 	protected final int width;
-	protected final int height = 95;
+	protected final int height;
 	protected final String dir = "src/Sprites/";
 	protected int prioridad;
 	
@@ -21,8 +22,9 @@ public abstract class GraphicGameObject{
 	 * @param x : int - Columna inicial de la matriz del mapa.
 	 * @param y : int - Fila de la matriz del mapa
 	 */
-	public GraphicGameObject(int x, int y, int p, int ancho){
+	public GraphicGameObject(int x, int y, int p, int ancho, int alto){
 		width=widthOne*ancho;
+		height=heightOne*alto;
 		this.pos = new Point(x*widthOne,y*height+40);
 		imagenes = new ImageIcon[1];
 		prioridad=p;
@@ -49,6 +51,9 @@ public abstract class GraphicGameObject{
 	}
 	public int getWidthUnaCelda(){
 		return widthOne;
+	}
+	public int getHeightUnaCelda(){
+		return heightOne;
 	}
 	public int getWidth(){
 		return width;

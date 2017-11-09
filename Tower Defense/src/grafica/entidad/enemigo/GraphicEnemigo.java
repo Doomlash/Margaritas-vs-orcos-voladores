@@ -10,8 +10,8 @@ import javax.swing.ImageIcon;
 public abstract class GraphicEnemigo extends GraphicEntidad{
 	protected Toolkit t = Toolkit.getDefaultToolkit();
 	
-	public GraphicEnemigo(int x, int y,int a, GraphicMapa m){
-		super(x,y,a,m);
+	public GraphicEnemigo(int x, int y,int dx, int dy, GraphicMapa m){
+		super(x,y,dx,dy,m);
 		imagenes = new ImageIcon[6];
 	}
 	public void atacar(){

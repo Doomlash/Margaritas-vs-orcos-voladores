@@ -2,8 +2,7 @@ package logica.disparo.disparoAliado;
 
 import logica.disparo.*;
 import logica.mapa.*;
-import logica.visitor.*;
-import logica.visitor.visitorAliado.VisitorDisparoAliado;
+import logica.visitor.visitorAliado.*;
 import grafica.gameObjects.GraphicGameObject;
 
 public abstract class DisparoAliado extends Disparo{
@@ -17,7 +16,9 @@ public abstract class DisparoAliado extends Disparo{
 		if((x>=map.getCeldas()[0].length-1)||(x==alcance+1))
 			kill();
 		else{
-			map.getCelda(x, y).accept(visitorDisparoAliado);
+			Celda c = map.getCelda(x, y);
+			if(c!=null)
+				c.accept(visitorDisparoAliado);
 			if(canMove){
 				int aux= x*grafico.getWidthUnaCelda();
 				grafico.cambiarPos(grafico.getPos().x+velocidad, grafico.getPos().y);

@@ -2,8 +2,7 @@ package logica.premio.objetoPrecioso;
 
 import logica.gameObjects.*;
 import logica.mapa.*;
-import logica.visitor.*;
-import logica.visitor.visitorPowerUpYPremios.VisitorBomba;
+import logica.visitor.visitorPowerUpYPremios.*;
 import grafica.gameObjects.*;
 import grafica.premio.*;
 

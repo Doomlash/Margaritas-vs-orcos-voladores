@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 public class GraphicBarricada extends GraphicObstaculo{
 	
 	public GraphicBarricada(int x, int y, GraphicMapa m){
-		super(x,y,0,1,m);
+		super(x,y,0,1,1,m);
 		imagenes = new ImageIcon[3];
 		imagenes[0] = new ImageIcon(dir+"Barricada/Barricada.png");
 		imagenes[1] = new ImageIcon(dir+"Barricada/BarricadaDeterioro.png");

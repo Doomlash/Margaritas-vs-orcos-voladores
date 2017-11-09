@@ -7,7 +7,7 @@ import grafica.gameObjects.*;
 public class GraphicStun extends GraphicGameObject{
 	
 	public GraphicStun(){
-		super(0,0,1,1);
+		super(0,0,1,1,1);
 		
 		pos.x=5;
 		pos.y=5;

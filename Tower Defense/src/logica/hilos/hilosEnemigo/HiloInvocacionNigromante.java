@@ -1,37 +1,33 @@
 package logica.hilos.hilosEnemigo;
 
-import logica.entidad.enemigo.*;
-import grafica.entidad.enemigo.*;
+import logica.entidad.enemigo.Nigromante;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-public class HiloMovimientoEnemigo extends Thread{
-	protected volatile List<Enemigo> toDelete,toExecute,toInsert;
+public class HiloInvocacionNigromante extends Thread{
+	protected volatile List<Nigromante> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
 	protected boolean pausa;
 	
-	public HiloMovimientoEnemigo(){
+	public HiloInvocacionNigromante(){
 		execute = true;
-		toDelete = new ArrayList<Enemigo>();
-		toExecute = new ArrayList<Enemigo>();
-		toInsert = new ArrayList<Enemigo>();
-		pausa=false;
+		toDelete = new ArrayList<Nigromante>();
+		toExecute = new ArrayList<Nigromante>();
+		toInsert = new ArrayList<Nigromante>();
+		pausa = false;
 	}
 	public void pausar(){
 		pausa=true;
-		int x = toExecute.size();
-		for(int i=0;i<x;i++)
-			((GraphicEnemigo)toExecute.get(i).getGraphic()).congelar();
 	}
 	public void reanudar(){
 		pausa=false;
 	}
-	public void agregarEnemigo(Enemigo e){
-		toInsert.add(e);
+	public void agregarNigromante(Nigromante n){
+		toInsert.add(n);
 	}
-	public void enemigoAEliminar(Enemigo e){
-		toDelete.add(e);
+	public void nigromanteAEliminar(Nigromante n){
+		toDelete.add(n);
 	}
 	public void terminate(){
 		execute=false;
@@ -52,10 +48,10 @@ public class HiloMovimientoEnemigo extends Thread{
 			if(!pausa){
 				int x= toExecute.size();
 				for(int i=0;i<x;i++){
-					toExecute.get(i).move();
+//					toExecute.get(i).invocar();
 				}
 				try{
-					Thread.sleep(180);
+					Thread.sleep(50);
 				}catch(InterruptedException e){
 				}
 			}

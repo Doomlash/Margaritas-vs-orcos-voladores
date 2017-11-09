@@ -33,7 +33,7 @@ public class Escudo extends Modificador{
 		entidad.getEstadoEscudo().kill();
 		((GraphicEntidad)entidad.getGraphic()).desactivarEscudo();
 		e.setEstadoEscudo(new Invulnerable(entidad, this));
-		((GraphicEntidad)entidad.getGraphic()).activarEscudo(entidad.getX(), entidad.getY(), entidad.getDimensionX());
+		((GraphicEntidad)entidad.getGraphic()).activarEscudo(entidad.getX(), entidad.getY(), entidad.getDimensionX(), entidad.getDimensionY());
 	}
 	public void restaurar(){
 		((GraphicEntidad)entidad.getGraphic()).desactivarEscudo();

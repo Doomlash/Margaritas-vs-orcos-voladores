@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class GraphicNigromante extends GraphicEnemigo{
 	
 	public GraphicNigromante(int x, int y, GraphicMapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Enemigos/Nigromante/NigromanteIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Enemigos/Nigromante/NigromanteMovimiento.gif"));
@@ -21,8 +21,9 @@ public class GraphicNigromante extends GraphicEnemigo{
 		imagenes[5].getImage().flush();
 		this.getGrafico().setIcon(imagenes[5]);
 		try{
-			Thread.sleep(700);
+			Thread.sleep(500);
 		}catch(InterruptedException e){
 		}
+		setImageIdle();
 	}
 }

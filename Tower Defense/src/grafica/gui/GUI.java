@@ -202,6 +202,7 @@ public class GUI extends JFrame {
 						ene[4] = new Nigromante(9,fila,j.getNivel().getMapa());
 						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[4]);
 						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[4]);
+//						j.getNivel().getMapa().getAlmacenHilos().getInvocacioNigromante().agregarNigromante((Nigromante)ene[4]);
 						j.getNivel().getMapa().agregarElemento(ene[4]);
 					}
 					else{

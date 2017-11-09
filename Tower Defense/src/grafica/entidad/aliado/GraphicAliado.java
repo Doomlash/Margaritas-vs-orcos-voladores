@@ -10,8 +10,8 @@ import javax.swing.ImageIcon;
 public abstract class GraphicAliado extends GraphicEntidad{
 	protected Toolkit t = Toolkit.getDefaultToolkit();
 	
-	public GraphicAliado(int x, int y, int a, GraphicMapa m){
-		super(x,y,a,m);
+	public GraphicAliado(int x, int y, int dx, int dy, GraphicMapa m){
+		super(x,y,dx,dy,m);
 		imagenes= new ImageIcon[4];
 	}
 	public void atacar(){

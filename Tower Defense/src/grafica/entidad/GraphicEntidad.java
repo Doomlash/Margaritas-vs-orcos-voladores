@@ -4,18 +4,16 @@ import grafica.gameObjects.*;
 import grafica.mapa.*;
 import grafica.premio.*;
 
-import java.awt.Toolkit;
-
 public abstract class GraphicEntidad extends GraphicObstaculo{
 	protected GraphicEscudo escudo;
 	protected GraphicBooster booster;
 	
-	public GraphicEntidad(int x, int y, int a, GraphicMapa m){
-		super(x,y,1,a,m);
+	public GraphicEntidad(int x, int y, int dx, int dy, GraphicMapa m){
+		super(x,y,1,dx,dy,m);
 	}
 	
-	public void activarBooster(int x, int y, int ancho){
-		booster = new GraphicBooster(x,y,ancho);
+	public void activarBooster(int x, int y, int ancho, int alto){
+		booster = new GraphicBooster(x,y,ancho,alto);
 		map.addGraphicElemento(booster);
 	}
 	public void desactivarBooster(){
@@ -24,8 +22,8 @@ public abstract class GraphicEntidad extends GraphicObstaculo{
 			booster=null;
 		}
 	}
-	public void activarEscudo(int x, int y, int ancho){
-		escudo = new GraphicEscudo(x,y,ancho);
+	public void activarEscudo(int x, int y, int ancho, int alto){
+		escudo = new GraphicEscudo(x,y,ancho,alto);
 		map.addGraphicElemento(escudo);
 	}
 	public void desactivarEscudo(){

@@ -2,8 +2,7 @@ package logica.modificador_PowerUp;
 
 import logica.entidad.aliado.*;
 import logica.entidad.enemigo.*;
-import logica.visitor.*;
-import logica.visitor.visitorEnemigo.VisitorMovimientoEnemigo;
+import logica.visitor.visitorEnemigo.*;
 import logica.mapa.*;
 
 public class RalentizadorAgua extends Modificador{

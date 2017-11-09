@@ -1,14 +1,9 @@
 package logica.hilos;
 
 import logica.comprables.Stun;
-import logica.hilos.hilosAliado.HiloAtaqueAliado;
-import logica.hilos.hilosAliado.HiloDisparoAliado;
-import logica.hilos.hilosEnemigo.HiloAtaqueEnemigo;
-import logica.hilos.hilosEnemigo.HiloDisparoEnemigo;
-import logica.hilos.hilosEnemigo.HiloMovimientoEnemigo;
-import logica.hilos.hilosPowerUpYPremios.HiloBombas;
-import logica.hilos.hilosPowerUpYPremios.HiloItemsPremio;
-import logica.hilos.hilosPowerUpYPremios.HiloPowerUps;
+import logica.hilos.hilosAliado.*;
+import logica.hilos.hilosEnemigo.*;
+import logica.hilos.hilosPowerUpYPremios.*;
 
 public class AlmacenHilos{
 	private HiloMovimientoEnemigo movEnemigo;
@@ -20,6 +15,7 @@ public class AlmacenHilos{
 	private Stun stun;
 	private HiloPowerUps powerUps;
 	private HiloBombas bombas;
+	private HiloInvocacionNigromante invocacion;
 	
 	public HiloMovimientoEnemigo getMovEnemigo(){
 		if(movEnemigo==null){
@@ -86,6 +82,13 @@ public class AlmacenHilos{
 		}
 		return bombas;
 	}
+	public HiloInvocacionNigromante getInvocacioNigromante(){
+		if(invocacion==null){
+			invocacion = new HiloInvocacionNigromante();
+			invocacion.start();
+		}
+		return invocacion;
+	}
 	public void terminateAll(){
 		if(movEnemigo!=null)
 			movEnemigo.terminate();
@@ -105,5 +108,7 @@ public class AlmacenHilos{
 			powerUps.terminate();
 		if(bombas!=null)
 			bombas.terminate();
+		if(invocacion!=null)
+			invocacion.terminate();
 	}
 }

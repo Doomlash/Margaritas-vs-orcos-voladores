@@ -6,10 +6,10 @@ public abstract class GraphicObstaculo extends GraphicGameObject{
 	protected GraphicMapa map;
 	protected GraphicLifeLine vida;
 	
-	public GraphicObstaculo(int x, int y, int p, int a, GraphicMapa m){
-		super(x,y,p,a);
+	public GraphicObstaculo(int x, int y, int p, int dx, int dy, GraphicMapa m){
+		super(x,y,p,dx,dy);
 		this.map=m;
-		vida = new GraphicLifeLine(x,y,a);
+		vida = new GraphicLifeLine(x,y,dx);
 		m.addGraphicElemento(vida);
 	}
 	

@@ -7,7 +7,7 @@ import grafica.mapa.*;
 public class GraphicEsqueleto extends GraphicEnemigo{
 	
 	public GraphicEsqueleto(int x, int y, GraphicMapa m){
-		super(x,y,1,m);
+		super(x,y,1,1,m);
 		
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Enemigos/Nigromante/Esqueleto/EsqueletoIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Enemigos/Nigromante/Esqueleto/EsqueletoCaminar.gif"));

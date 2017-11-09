@@ -2,8 +2,7 @@ package logica.entidad.enemigo;
 
 import logica.mapa.*;
 import logica.gameObjects.*;
-import logica.visitor.*;
-import logica.visitor.visitorEnemigo.VisitorCeldaEsqueleto;
+import logica.visitor.visitorEnemigo.*;
 import grafica.entidad.enemigo.*;
 
 import java.util.ArrayList;
@@ -12,6 +11,7 @@ import java.util.List;
 public class Nigromante extends Enemigo{
 	private List<Esqueleto> ejercito;
 	private VisitorCeldaEsqueleto visitorEsqueleto;
+	private int cargaInvocacion, cargaInvocacionActual;
 	
 	/**
 	 * Se crea el elemento grafico asociado a la clase y se lo agrega al mapa grafico.
@@ -29,6 +29,8 @@ public class Nigromante extends Enemigo{
 		fuerza=20;
 		cargaAtaqueNecesaria = 50;
 		cargaAtaqueActual = 40;
+		cargaInvocacion=20;
+		cargaInvocacionActual=0;
 		grafico = new GraphicNigromante(x,y,map.getMapaGrafico());
 		ejercito = new ArrayList<Esqueleto>();
 		visitorEsqueleto = new VisitorCeldaEsqueleto(this,map);
@@ -45,10 +47,11 @@ public class Nigromante extends Enemigo{
 		map.getNivel().getJuego().getGui().getEnemigos()[4]=null;		
 	}
 	public void move(){
-		int auxX=x;
 		super.move();
-		if(auxX!=x){
-			((GraphicNigromante)grafico).summon();
+		if(cargaInvocacionActual==cargaInvocacion){
+			cargaInvocacionActual=0;
+			if(ejercito.size()<=3)
+				((GraphicNigromante)grafico).summon();
 			for(int i=0;(i<2)&&(ejercito.size()<=3);i++)
 				for(int j=-1;(j<2)&&(ejercito.size()<=3);j++){
 					if(!(i==0&&j==0)){
@@ -63,6 +66,8 @@ public class Nigromante extends Enemigo{
 					}
 				}
 		}
+		else
+			cargaInvocacionActual++;
 	}
 	public void kill(){
 		int aux=ejercito.size();

@@ -16,14 +16,13 @@ public class PowerBooster extends Modificador{
 	}
 	public void actualizar(){
 		tiempo=tiempo-(0.25);
-		System.out.println("Tiempo: "+tiempo);
 		if(tiempo<=0)
 			kill();
 	}
 	
 	public void afectar(Aliado a){
 		this.entidad=a;
-		((GraphicAliado)a.getGraphic()).activarBooster(entidad.getX(), entidad.getY(), entidad.getDimensionX());
+		((GraphicAliado)a.getGraphic()).activarBooster(entidad.getX(), entidad.getY(), entidad.getDimensionX(), entidad.getDimensionY());
 		cd = entidad.getCargaAtaqueNecesaria();
 		entidad.setCargaAtaqueNececaria(cd/2);
 	}

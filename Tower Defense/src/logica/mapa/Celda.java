@@ -43,8 +43,12 @@ public class Celda{
 	}
 	public void accept(Visitor v){
 		int size= lista.size();
-		for(int i=0;i<size;i++)
+		int i=0;
+		while(i<size){
 			lista.get(i).accept(v);
+			i++;
+			size=lista.size();
+		}
 	}
 	public Elemento getFirst(){
 		return lista.get(0);

@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class GraphicDragon extends GraphicEnemigo{
 	
 	public GraphicDragon(int x, int y, GraphicMapa m){
-		super(x,y,2,m);
+		super(x,y,2,1,m);
 		imagenes = new ImageIcon[8];
 		
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Enemigos/Dragon/DragonIdle.png"));

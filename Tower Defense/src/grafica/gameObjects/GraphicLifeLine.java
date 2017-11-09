@@ -7,7 +7,7 @@ public class GraphicLifeLine extends GraphicGameObject{
 	private final int anchoDisminucionBarra=4; //4 pixeles.
 	
 	public GraphicLifeLine(int x, int y, int a){
-		super(x,y,1,a);
+		super(x,y,1,a,1);
 		
 		imagenes = new ImageIcon[13];
 		for(int i=1;i<14;i++){

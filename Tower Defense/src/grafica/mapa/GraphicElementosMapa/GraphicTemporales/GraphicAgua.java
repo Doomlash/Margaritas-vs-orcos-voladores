@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class GraphicAgua extends GraphicGameObject{
 	
 	public GraphicAgua(int x, int y){
-		super(x,y,0,1);
+		super(x,y,0,1,1);
 		
 		imagenes[0] = new ImageIcon(dir+"Agua.png");
 	}

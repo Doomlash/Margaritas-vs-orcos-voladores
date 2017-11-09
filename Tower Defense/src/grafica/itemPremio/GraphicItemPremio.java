@@ -12,7 +12,7 @@ public abstract class GraphicItemPremio extends GraphicGameObject{
 	protected ItemPremio item;
 	
 	public GraphicItemPremio(int x, int y){
-		super(x,y,1,1);
+		super(x,y,1,1,1);
 		
 		imagenes = new ImageIcon[2];
 	}
