@@ -21,7 +21,7 @@ public class Dragon extends Enemigo{
 		monedas=50;
 		vida=vidaMax=120;
 		rango=3;
-		fuerza = 10;
+		fuerza = 20;
 		cargaAtaqueNecesaria = 50;
 		cargaAtaqueActual = 40;
 		grafico = new GraphicDragon(x,y,map.getMapaGrafico());
@@ -47,7 +47,7 @@ public class Dragon extends Enemigo{
 			Thread.sleep(400);
 		}catch(InterruptedException e){
 		}
-		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,y,map,x-rango,grafico.getPos().x-5));
+		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,y,map,x-rango,grafico.getPos().x-5,fuerza));
 		((GraphicDragon)grafico).despegar();
 		canMove=true;
 	}

@@ -18,11 +18,9 @@ public class GraphicGoblin extends GraphicEnemigo{
 	
 	public void atacar(){
 		super.atacar();
-		try {
+		try{
 			Thread.sleep(600);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}catch(InterruptedException e){
 		}
 	}
 }

@@ -8,8 +8,8 @@ import grafica.gameObjects.GraphicGameObject;
 public abstract class DisparoAliado extends Disparo{
 	protected VisitorDisparoAliado visitorDisparoAliado;
 
-	public DisparoAliado(int x,int y, Mapa m, int a){
-		super(x,y,m,a);
+	public DisparoAliado(int x,int y, Mapa m, int a, int dam){
+		super(x,y,m,a,dam);
 		visitorDisparoAliado = new VisitorDisparoAliado(this);
 	}
 	public void ejecutar(){

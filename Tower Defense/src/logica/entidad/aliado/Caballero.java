@@ -17,9 +17,9 @@ public class Caballero extends Aliado{
 		precio = 50;
 		vida=vidaMax=90;
 		rango=1;
-		fuerza=20;
-		cargaAtaqueNecesaria = 30;
-		cargaAtaqueActual = 20;
+		fuerza=14;
+		cargaAtaqueNecesaria = 100;
+		cargaAtaqueActual = 90;
 		grafico = new GraphicCaballero(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){

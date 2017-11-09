@@ -18,13 +18,13 @@ public class Mago extends Aliado{
 		precio = 80;
 		vida=vidaMax=30;
 		rango=3;
-		fuerza=3;
-		cargaAtaqueNecesaria = 50;
-		cargaAtaqueActual = 40;
+		fuerza=10;
+		cargaAtaqueNecesaria = 100;
+		cargaAtaqueActual = 90;
 		grafico = new GraphicMago(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){
 		((GraphicAliado)grafico).atacar();
-		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new ProyectilMagico(x+dimensionX,y,map,x+dimensionX+rango-1));
+		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new ProyectilMagico(x+dimensionX,y,map,x+dimensionX+rango-1,fuerza));
 	}
 }

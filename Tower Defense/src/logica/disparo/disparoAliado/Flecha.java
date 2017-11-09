@@ -5,10 +5,9 @@ import grafica.disparo.disparoAliado.*;
 
 public class Flecha extends DisparoAliado{
 	
-	public Flecha(int x, int y, Mapa m, int alcance){
-		super(x,y,m,alcance);
+	public Flecha(int x, int y, Mapa m, int alcance, int dam){
+		super(x,y,m,alcance,dam);
 		velocidad=16;
-		damage = 7;
 		grafico = new GraphicFlecha(x,y);
 		map.getMapaGrafico().addGraphicElemento(getGraphic());
 	}

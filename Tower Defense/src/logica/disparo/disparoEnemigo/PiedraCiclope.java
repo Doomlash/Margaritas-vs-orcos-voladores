@@ -5,10 +5,9 @@ import logica.mapa.*;
 
 public class PiedraCiclope extends DisparoEnemigo{
 	
-	public PiedraCiclope(int x, int y, Mapa m, int alcance, int gx){
-		super(x,y,m,alcance);
+	public PiedraCiclope(int x, int y, Mapa m, int alcance, int gx, int dam){
+		super(x,y,m,alcance,dam);
 		velocidad=14;
-		damage = 15;
 		grafico = new GraphicPiedraCiclope(x,y);
 		grafico.cambiarPos(gx, grafico.getPos().y-15);
 		map.getMapaGrafico().addGraphicElemento(grafico);

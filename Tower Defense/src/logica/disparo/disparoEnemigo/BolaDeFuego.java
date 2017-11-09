@@ -5,10 +5,9 @@ import grafica.disparo.disparoEnemigo.*;
 
 public class BolaDeFuego extends DisparoEnemigo{
 	
-	public BolaDeFuego(int x, int y, Mapa m, int alcance, int gx){
-		super(x,y,m,alcance);
+	public BolaDeFuego(int x, int y, Mapa m, int alcance, int gx, int dam){
+		super(x,y,m,alcance,dam);
 		velocidad=16;
-		damage = 20;
 		grafico = new GraphicBolaDeFuego(x,y);
 		grafico.getGrafico();
 		grafico.cambiarPos(gx, grafico.getPos().y-15);

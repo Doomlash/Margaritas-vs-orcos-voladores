@@ -114,9 +114,9 @@ public class GUI extends JFrame {
 		panelDerecha.setBounds(AnchoVentana/12*11, AltoVentana/12, AnchoVentana/12, AltoVentana);
 		panelDerecha.setLayout(null);
 		
-		ene = new Enemigo[6];
+		ene = new Enemigo[7];
 		
-		String e[] = {"Ciclope","Dragon","Goblin","Lich","Nigromante","Ogro","Finalizar"};
+		String e[] = {"Ciclope","Dragon","Goblin","Lich","Nigromante","Ogro","Cerberus"};
 		JButton enemigos[] = new JButton[e.length];
 		OyenteEnemigo oy = new OyenteEnemigo();
 		for(int i=0;i<enemigos.length;i++){
@@ -221,6 +221,19 @@ public class GUI extends JFrame {
 					else{
 						ene[5].kill();
 						ene[5]=null;
+					}
+					break;
+				}
+				case "Cerberus":{
+					if(ene[6]==null){
+						ene[6] = new Cerberus(9,fila,j.getNivel().getMapa());
+						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[6]);
+						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[6]);
+						j.getNivel().getMapa().agregarElemento(ene[6]);
+					}
+					else{
+						ene[6].kill();
+						ene[6]=null;
 					}
 					break;
 				}

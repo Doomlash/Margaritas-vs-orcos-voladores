@@ -45,7 +45,7 @@ public class Ciclope extends Enemigo{
 				Thread.sleep(800);
 			}catch(InterruptedException e){
 			}
-			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-8));
+			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-8,fuerza));
 			try{
 				Thread.sleep(1000);
 			}catch(InterruptedException e){
