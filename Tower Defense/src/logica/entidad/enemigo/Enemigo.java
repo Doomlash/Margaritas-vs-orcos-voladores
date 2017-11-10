@@ -8,6 +8,7 @@ import logica.itemPremio.*;
 import logica.modificador_PowerUp.*;
 import grafica.entidad.enemigo.*;
 import grafica.gameObjects.*;
+import grafica.entidad.*;
 
 import java.util.Random;
 
@@ -15,7 +16,6 @@ public abstract class Enemigo extends Entidad{
 	protected int velocidad;
 	protected int puntaje;
 	protected int monedas;
-	protected int duracionAtaque; //En segundos
 	protected boolean canMove;
 	protected VisitorAtaqueEnemigo visitorAtaque;
 	protected VisitorMovimientoEnemigo visitorMovimiento;
@@ -63,8 +63,11 @@ public abstract class Enemigo extends Entidad{
 	 */
 	public void move(){
 		if((x-1>=0)&&canMove){
-			for(int j=y;j<y+dimensionY;j++)
-				map.getCelda(x-1, j).accept(visitorMovimiento);
+			for(int j=y;j<y+dimensionY;j++){
+				Celda c = map.getCelda(x-1, j);
+				if(c!=null)
+					c.accept(visitorMovimiento);
+			}
 			if(canMove){
 				((GraphicEnemigo)grafico).avanzar();
 				int aux= (x-1)*grafico.getWidthUnaCelda();
@@ -89,8 +92,10 @@ public abstract class Enemigo extends Entidad{
 	}
 	
 	public void atacarRango(){
-		if(cargaAtaqueActual==duracionAtaque)
+		if(cargaAtaqueActual==duracionAtaque){
 			canMove=true;
+			grafico.setImageIdle();
+		}
 		if(cargaAtaqueActual>=cargaAtaqueNecesaria){
 			cargaAtaqueActual=0;
 			visitorAtaque.resetearFilasAtacadas();
@@ -106,6 +111,7 @@ public abstract class Enemigo extends Entidad{
 		}
 		else
 			cargaAtaqueActual++;
+		((GraphicEntidad)grafico).actualizarAttackChargeLine(cargaAtaqueNecesaria, cargaAtaqueActual);;
 	}
 	
 	public void kill(){
@@ -153,12 +159,6 @@ public abstract class Enemigo extends Entidad{
 	
 	public int getVelocidad(){
 		return velocidad;
-	}
-	public void setDuracionAtaque(int d){
-		duracionAtaque=d;
-	}
-	public int getDuracionAtaque(){
-		return duracionAtaque;
 	}
 	public void afectar(ModificadorEntidad m){
 		m.afectar(this);

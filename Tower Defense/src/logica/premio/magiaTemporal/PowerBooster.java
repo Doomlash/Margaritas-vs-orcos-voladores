@@ -24,7 +24,7 @@ public class PowerBooster extends ModificadorEntidad{
 		this.entidad=a;
 		((GraphicAliado)a.getGraphic()).activarBooster(entidad.getX(), entidad.getY(), entidad.getDimensionX(), entidad.getDimensionY());
 		cd = entidad.getCargaAtaqueNecesaria();
-		entidad.setCargaAtaqueNececaria(cd/2);
+		entidad.setCargaAtaqueNececaria(cd/3*2);
 	}
 	public void afectar(Enemigo e){
 		

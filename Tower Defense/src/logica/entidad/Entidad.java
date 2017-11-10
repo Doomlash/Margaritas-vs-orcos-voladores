@@ -9,6 +9,7 @@ import logica.premio.objetoPrecioso.*;
 public abstract class Entidad extends Obstaculo{
 	protected int rango,fuerza,cargaAtaqueActual,cargaAtaqueNecesaria;
 	protected EstadoEscudo escudo;
+	protected int duracionAtaque; //En segundos
 
 	public Entidad(int x, int y, int dx, int dy, Mapa m){
 		super(x,y,dx,dy,m);
@@ -25,7 +26,8 @@ public abstract class Entidad extends Obstaculo{
 		return cargaAtaqueNecesaria;
 	}
 	public void setCargaAtaqueNececaria(int c){
-		cargaAtaqueNecesaria=c;
+		if(c>=duracionAtaque)
+			cargaAtaqueNecesaria=c;
 	}
 	public abstract void atacar(Obstaculo o);
 	public abstract void atacarRango();
@@ -37,5 +39,11 @@ public abstract class Entidad extends Obstaculo{
 	}
 	public void recibirGolpe(Bomba b){
 		escudo.recibirGolpe(b);
+	}
+	public void setDuracionAtaque(int d){
+		duracionAtaque=d;
+	}
+	public int getDuracionAtaque(){
+		return duracionAtaque;
 	}
 }

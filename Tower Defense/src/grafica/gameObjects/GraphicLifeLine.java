@@ -11,7 +11,7 @@ public class GraphicLifeLine extends GraphicGameObject{
 		
 		imagenes = new ImageIcon[13];
 		for(int i=1;i<14;i++){
-			imagenes[i-1] = new ImageIcon(dir+"LifeLine/BarraVida-"+i+".png");
+			imagenes[i-1] = new ImageIcon(dir+"Line/LifeLine/BarraVida-"+i+".png");
 		}
 	}
 	public void updateLifeLine(int vidaMax, int vidaActual){

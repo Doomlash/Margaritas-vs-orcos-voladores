@@ -7,6 +7,7 @@ import logica.visitor.*;
 import logica.visitor.visitorAliado.VisitorAtaqueAliado;
 import logica.mapa.*;
 import logica.modificador_PowerUp.*;
+import grafica.entidad.*;
 import grafica.entidad.aliado.*;
 import grafica.gameObjects.*;
 
@@ -35,7 +36,11 @@ public abstract class Aliado extends Entidad implements Comprable{
 		v.visit(this);
 	}
 	public void atacarRango(){
+		if(cargaAtaqueActual>duracionAtaque){
+			grafico.setImageIdle();
+		}
 		if(cargaAtaqueActual>=cargaAtaqueNecesaria){
+			System.out.println(cargaAtaqueNecesaria);
 			cargaAtaqueActual=0;
 			visitorAtaque.resetearFilasAtacadas();
 			for(int i=(x+dimensionX);i<x+dimensionX+rango;i++){
@@ -50,6 +55,7 @@ public abstract class Aliado extends Entidad implements Comprable{
 		}
 		else
 			cargaAtaqueActual++;
+		((GraphicEntidad)grafico).actualizarAttackChargeLine(cargaAtaqueNecesaria, cargaAtaqueActual);;
 	}
 	
 	public int getPrecio(){

@@ -10,7 +10,6 @@ public abstract class GraphicObstaculo extends GraphicGameObject{
 		super(x,y,p,dx,dy);
 		this.map=m;
 		vida = new GraphicLifeLine(x,y,dx,dy);
-		m.addGraphicElemento(vida);
 	}
 	
 	public void actualizarLifeLine(int vidaMax, int vidaActual){
@@ -18,5 +17,8 @@ public abstract class GraphicObstaculo extends GraphicGameObject{
 	}
 	public void removeLifeLine(){
 		map.removeGraphicElemento(vida);
+	}
+	public void agregarGraficosAsociados(){
+		map.addGraphicElemento(vida);
 	}
 }

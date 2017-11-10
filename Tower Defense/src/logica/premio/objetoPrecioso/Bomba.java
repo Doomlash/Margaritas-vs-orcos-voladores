@@ -31,12 +31,14 @@ public class Bomba extends GameObject{
 					c.accept(v);
 			}
 		}
+		System.out.println("Cantidad de objetivos :"+objetivos.size());
 		for(Obstaculo o: objetivos){
 			o.setVida(o.getVida()-damage);
 		}
 	}
 	public void agregarObjetivo(Obstaculo o){
-		objetivos.add(o);
+		if(!objetivos.contains(o))
+			objetivos.add(o);
 	}
 	public void reducirTemporizador(){
 		tiempo--;

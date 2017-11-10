@@ -76,4 +76,7 @@ public abstract class GraphicGameObject{
 		}
 		return this.grafico;
 	}
+	public void agregarGraficosAsociados(){
+		
+	}
 }

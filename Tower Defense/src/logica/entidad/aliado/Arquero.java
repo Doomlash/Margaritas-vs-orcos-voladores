@@ -19,8 +19,9 @@ public class Arquero extends Aliado{
 		vida=vidaMax=50;
 		rango=5;
 		fuerza=7;
-		cargaAtaqueNecesaria = 100;
-		cargaAtaqueActual = 90;
+		duracionAtaque=9;
+		cargaAtaqueNecesaria = duracionAtaque*3;
+		cargaAtaqueActual = duracionAtaque*2;
 		grafico = new GraphicArquero(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){

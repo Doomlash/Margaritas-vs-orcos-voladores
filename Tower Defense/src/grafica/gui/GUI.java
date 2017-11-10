@@ -148,9 +148,12 @@ public class GUI extends JFrame {
 				case "Ciclope":{
 					if(ene[0]==null){
 						ene[0] = new Ciclope(9,fila,j.getNivel().getMapa());
-						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[0]);
-						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[0]);
-						j.getNivel().getMapa().agregarElemento(ene[0]);
+						if(j.getNivel().getMapa().agregarElemento(ene[0])){
+							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[0]);
+							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[0]);
+						}
+						else
+							ene[0]=null;
 					}
 					else{
 						ene[0].kill();
@@ -161,9 +164,12 @@ public class GUI extends JFrame {
 				case "Dragon":{
 					if(ene[1]==null){
 						ene[1] = new Dragon(9,fila,j.getNivel().getMapa());
-						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[1]);
-						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[1]);
-						j.getNivel().getMapa().agregarElemento(ene[1]);
+						if(j.getNivel().getMapa().agregarElemento(ene[1])){
+							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[1]);
+							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[1]);
+						}
+						else
+							ene[1]=null;
 					}
 					else{
 						ene[1].kill();
@@ -174,9 +180,12 @@ public class GUI extends JFrame {
 				case "Goblin":{
 					if(ene[2]==null){
 						ene[2] = new Goblin(9,fila,j.getNivel().getMapa());
-						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[2]);
-						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[2]);
-						j.getNivel().getMapa().agregarElemento(ene[2]);
+						if(j.getNivel().getMapa().agregarElemento(ene[2])){
+							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[2]);
+							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[2]);
+						}
+						else
+							ene[2]=null;
 					}
 					else{
 						ene[2].kill();
@@ -187,9 +196,12 @@ public class GUI extends JFrame {
 				case "Lich":{
 					if(ene[3]==null){
 						ene[3] = new Lich(9,fila,j.getNivel().getMapa());
-						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[3]);
-						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[3]);
-						j.getNivel().getMapa().agregarElemento(ene[3]);
+						if(j.getNivel().getMapa().agregarElemento(ene[3])){
+							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[3]);
+							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[3]);
+						}
+						else
+							ene[3]=null;
 					}
 					else{
 						ene[3].kill();
@@ -200,10 +212,13 @@ public class GUI extends JFrame {
 				case "Nigromante":{
 					if(ene[4]==null){
 						ene[4] = new Nigromante(9,fila,j.getNivel().getMapa());
-						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[4]);
-						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[4]);
+						if(j.getNivel().getMapa().agregarElemento(ene[4])){
+							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[4]);
+							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[4]);
 //						j.getNivel().getMapa().getAlmacenHilos().getInvocacioNigromante().agregarNigromante((Nigromante)ene[4]);
-						j.getNivel().getMapa().agregarElemento(ene[4]);
+						}
+						else
+							ene[4]=null;
 					}
 					else{
 						ene[4].kill();
@@ -214,9 +229,12 @@ public class GUI extends JFrame {
 				case "Ogro":{
 					if(ene[5]==null){
 						ene[5] = new Ogro(9,fila,j.getNivel().getMapa());
-						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[5]);
-						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[5]);
-						j.getNivel().getMapa().agregarElemento(ene[5]);
+						if(j.getNivel().getMapa().agregarElemento(ene[5])){
+							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[5]);
+							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[5]);
+						}
+						else
+							ene[5]=null;	
 					}
 					else{
 						ene[5].kill();
@@ -227,9 +245,12 @@ public class GUI extends JFrame {
 				case "Cerberus":{
 					if(ene[6]==null){
 						ene[6] = new Cerberus(9,fila,j.getNivel().getMapa());
-						j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[6]);
-						j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[6]);
-						j.getNivel().getMapa().agregarElemento(ene[6]);
+						if(j.getNivel().getMapa().agregarElemento(ene[6])){
+							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[6]);
+							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[6]);
+						}
+						else
+							ene[0]=null;
 					}
 					else{
 						ene[6].kill();
