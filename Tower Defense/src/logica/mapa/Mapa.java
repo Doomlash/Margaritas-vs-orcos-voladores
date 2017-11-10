@@ -4,6 +4,7 @@ import logica.juego.niveles.*;
 import logica.mapa.elementosMapa.destruibles.Piedra;
 import logica.mapa.elementosMapa.temporales.Agua;
 import logica.hilos.*;
+import logica.entidad.enemigo.*;
 import grafica.mapa.*;
 
 import java.util.Random;
@@ -19,7 +20,7 @@ public class Mapa{
 		hilos = new AlmacenHilos();
 		nivel=n;
 		grafico = new GraphicMapa(this);
-		celdas = new Celda[6][10];
+		celdas = new Celda[6][12];
 		for(int i=0;i<celdas.length;i++)
 			for(int j=0;j<celdas[i].length;j++)
 				celdas[i][j] = new Celda();
@@ -92,6 +93,10 @@ public class Mapa{
 				grafico.removeGraphicElemento(e.getGraphic());
 			}
 		
+	}
+	public void eliminarEnemigo(Enemigo e){
+		eliminarElemento(e);
+		nivel.getHordaActual().removeEnemieInMap(e);
 	}
 	
 	public Nivel getNivel(){

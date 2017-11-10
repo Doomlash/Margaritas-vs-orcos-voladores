@@ -95,8 +95,9 @@ public abstract class Enemigo extends Entidad{
 	
 	public void atacarRango(){
 		if(cargaAtaqueActual==duracionAtaque){
+			if(!canMove)
+				grafico.setImageIdle();
 			canMove=true;
-			grafico.setImageIdle();
 		}
 		if(cargaAtaqueActual>=cargaAtaqueNecesaria){
 			cargaAtaqueActual=0;
@@ -126,7 +127,7 @@ public abstract class Enemigo extends Entidad{
 		map.getAlmacenHilos().getMovEnemigo().enemigoAEliminar(this);
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);
 		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);
-		map.eliminarElemento(this);
+		map.eliminarEnemigo(this);
 		crearPremio();
 	}
 	private void crearPremio(){

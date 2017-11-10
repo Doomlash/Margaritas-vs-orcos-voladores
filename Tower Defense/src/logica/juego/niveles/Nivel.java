@@ -2,6 +2,7 @@ package logica.juego.niveles;
 
 import logica.mapa.*;
 import logica.juego.*;
+import logica.hilos.*;
 
 public abstract class Nivel{
 	protected Mapa map;
@@ -9,6 +10,7 @@ public abstract class Nivel{
 	protected Horda[] hordas;
 	protected Nivel siguiente;
 	protected Juego juego;
+	protected Contador contador;
 	
 	public Nivel(Juego j){
 		presupuesto= 400;
@@ -18,6 +20,8 @@ public abstract class Nivel{
 		for(int i=0;i<hordas.length;i++)
 			hordas[i] = new Horda();
 		map= new Mapa(this);
+		contador = new Contador(this);
+		contador.start();
 	}
 	
 	public abstract void crearHordas();

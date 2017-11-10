@@ -5,11 +5,12 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Horda{
-	private List<Enemigo> enemigos;
+	private List<Enemigo> enemiesToSend, enemiesInMap;
 	private int tiempoCreacional;
 	
 	public Horda(){
-		enemigos = new ArrayList<Enemigo>();
+		enemiesToSend = new ArrayList<Enemigo>();
+		enemiesInMap = new ArrayList<Enemigo>();
 	}
 	
 	public void setTiempoCreacional(int t){
@@ -19,16 +20,23 @@ public class Horda{
 		return tiempoCreacional;
 	}
 	public void agregar(Enemigo e){
-		enemigos.add(e);
+		enemiesToSend.add(e);
 	}
-	
+	public boolean hayEnemigos(){
+		return !enemiesToSend.isEmpty();
+	}
 	public Enemigo getSiguiente(){
-		if(!enemigos.isEmpty())
-			return enemigos.remove(0);
+		if(!enemiesToSend.isEmpty()){
+			Enemigo e = enemiesToSend.remove(0);
+			enemiesInMap.add(e);
+			return e;
+		}
 		return null;
 	}
-	
-	public boolean isEmpty(){
-		return enemigos.isEmpty();
+	public void removeEnemieInMap(Enemigo e){
+		enemiesInMap.remove(e);
+	}
+	public boolean isCompleted(){
+		return (enemiesInMap.isEmpty()&&enemiesToSend.isEmpty());
 	}
 }

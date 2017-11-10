@@ -21,6 +21,6 @@ public class GraphicAttackChargeLine extends GraphicGameObject{
 		barraBuscada = barraBuscada/anchoDisminucionBarra;
 		if(barraBuscada==0)
 			barraBuscada++;
-		this.grafico.setIcon(imagenes[imagenes.length-barraBuscada]);
+		this.getGrafico().setIcon(imagenes[imagenes.length-barraBuscada]);
 	}
 }

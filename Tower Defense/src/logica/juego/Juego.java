@@ -9,6 +9,7 @@ public class Juego{
 	private Nivel nivel;
 	private Almacen_Mercado almacen;
 	private int puntaje;
+	private int tiempo;
 	
 	/**
 	 * Se inicializa el juego con el nivel 1.
@@ -19,6 +20,7 @@ public class Juego{
 		nivel= new Nivel1(this);
 		almacen = new Almacen_Mercado(this);
 		puntaje=0;
+		tiempo=0;
 	}
 	
 	/**
@@ -28,6 +30,13 @@ public class Juego{
 		if(p>0)
 			puntaje+=p;
 		gui.actualizarPuntaje();
+	}
+	public void aumentarTemporizador(){
+		tiempo++;
+		gui.actualizarTemporizador();
+	}
+	public int getTiempo(){
+		return tiempo;
 	}
 	public void siguienteNivel(){
 		nivel= nivel.getSiguiente();

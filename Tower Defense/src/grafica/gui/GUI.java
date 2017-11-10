@@ -22,7 +22,7 @@ public class GUI extends JFrame {
 	private static int AnchoVentana, AltoVentana;
 	private JPanel contentPane,panelSuperior,panelDerecha;
 	private Juego j;
-	private JLabel presupuesto, puntaje;
+	private JLabel presupuesto, puntaje, tiempo;
 	private Enemigo[] ene;
 
 	/**
@@ -104,8 +104,17 @@ public class GUI extends JFrame {
 		presupuesto.setForeground(Color.WHITE);
 		presupuesto.setFont(new Font("Arial",Font.ITALIC,20));
 		
+		tiempo = new JLabel();
+		tiempo.setBounds(AnchoVentana-450,0,150,70);
+		tiempo.setText("Tiempo: "+j.getTiempo());
+		tiempo.setHorizontalAlignment(JLabel.LEFT);
+		tiempo.setVerticalAlignment(JLabel.CENTER);
+		tiempo.setForeground(Color.WHITE);
+		tiempo.setFont(new Font("Arial",Font.ITALIC,20));
+		
 		panelSuperior.add(puntaje);
 		panelSuperior.add(presupuesto);
+		panelSuperior.add(tiempo);
 	}
 	
 	private void panelDerecha(){
@@ -132,6 +141,9 @@ public class GUI extends JFrame {
 	}
 	public void actualizarPresupuesto(){
 		presupuesto.setText("$ "+j.getNivel().getPresupuesto());
+	}
+	public void actualizarTemporizador(){
+		tiempo.setText("Tiempo: "+j.getTiempo());		
 	}
 	public int getAncho(){
 		return AnchoVentana;
