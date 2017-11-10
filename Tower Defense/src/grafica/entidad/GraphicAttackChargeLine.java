@@ -17,10 +17,10 @@ public class GraphicAttackChargeLine extends GraphicGameObject{
 		}
 	}
 	public void updateAttackChargeLine(int cMax, int cActual){
-		int barraBuscada= (cActual*anchoBarraCompleta)/cMax;
-		barraBuscada = barraBuscada/anchoDisminucionBarra;
-		if(barraBuscada==0)
-			barraBuscada++;
-		this.getGrafico().setIcon(imagenes[imagenes.length-barraBuscada]);
+			int barraBuscada= (cActual*anchoBarraCompleta)/cMax;
+			barraBuscada = barraBuscada/anchoDisminucionBarra;
+			if(barraBuscada==0)
+				barraBuscada++;
+			this.getGrafico().setIcon(imagenes[imagenes.length-barraBuscada]);
 	}
 }

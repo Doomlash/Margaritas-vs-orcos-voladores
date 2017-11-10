@@ -19,10 +19,6 @@ public class Cerberus extends Enemigo{
 		grafico = new GraphicCerberus(x,y,map.getMapaGrafico());		
 	}
 	
-	public void SACARDEARREGLO(){
-		map.getNivel().getJuego().getGui().getEnemigos()[6]=null;
-	}
-	
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();

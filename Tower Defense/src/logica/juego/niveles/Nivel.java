@@ -59,4 +59,7 @@ public abstract class Nivel{
 		else
 			return null;
 	}
+	public void finalizar(){
+		contador.terminate();
+	}
 }

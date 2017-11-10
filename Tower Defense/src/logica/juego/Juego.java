@@ -22,10 +22,6 @@ public class Juego{
 		puntaje=0;
 		tiempo=0;
 	}
-	
-	/**
-	 * Se avanza al siguiente nivel del juego.
-	 */
 	public void aumentarPuntaje(int p){
 		if(p>0)
 			puntaje+=p;
@@ -41,19 +37,9 @@ public class Juego{
 	public void siguienteNivel(){
 		nivel= nivel.getSiguiente();
 	}
-	
-	/**
-	 * 
-	 * @return GUI - Retorna la gui asociada al juego.
-	 */
 	public GUI getGui(){
 		return gui;
 	}
-	
-	/**
-	 * 
-	 * @return Nivel - Retorna el nivel actual del juego.
-	 */
 	public Nivel getNivel(){
 		return nivel;
 	}
@@ -62,5 +48,12 @@ public class Juego{
 	}
 	public int getPuntaje(){
 		return puntaje;
+	}
+	public void perder(){
+		nivel.getMapa().getAlmacenHilos().terminateAll();
+		almacen.desactivar();
+		nivel.finalizar();
+		nivel.getMapa().clear();
+//		gui.finalizar();
 	}
 }

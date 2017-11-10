@@ -53,4 +53,9 @@ public class Celda{
 	public Elemento getFirst(){
 		return lista.get(0);
 	}
+	public void clear(){
+		int x=lista.size();
+		for(int i=0;i<x;i++)
+			lista.get(0).kill();
+	}
 }

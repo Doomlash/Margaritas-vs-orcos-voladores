@@ -21,9 +21,6 @@ public class Esqueleto extends Enemigo{
 		duracionAtaque=8;
 		grafico = new GraphicEsqueleto(x,y,map.getMapaGrafico());
 	}
-	public void SACARDEARREGLO(){
-		
-	}
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();

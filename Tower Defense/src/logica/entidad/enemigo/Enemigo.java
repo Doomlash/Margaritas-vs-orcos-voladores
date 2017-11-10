@@ -49,21 +49,13 @@ public abstract class Enemigo extends Entidad{
 	public void stop(){
 		canMove=false;
 	}
-
 	
-	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	*/
-	public abstract void SACARDEARREGLO();
 	/**
 	 * Actualiza la posicion logica y grafica del enemigo al moverse
 	 */
 	public void move(){
+		if(x==0)
+			map.getNivel().getJuego().perder();
 		if((x-1>=0)&&canMove){
 			for(int j=y;j<y+dimensionY;j++){
 				Celda c = map.getCelda(x-1, j);
@@ -80,7 +72,7 @@ public abstract class Enemigo extends Entidad{
 						x--;
 						for(int i=y;i<y+dimensionY;i++)
 							map.getCelda(x, i).agregarElemento(this);
-						if(x+dimensionX<10)
+						if(x+dimensionX<map.getCeldas()[0].length)
 							for(int i=y;i<y+dimensionY;i++)
 								map.getCelda(x+dimensionX, i).remover(this);
 					}
@@ -122,7 +114,6 @@ public abstract class Enemigo extends Entidad{
 		visitorAtaque.kill();
 		visitorMovimiento.kill();
 		((GraphicEnemigo)grafico).morir();
-		this.SACARDEARREGLO();
 		map.getAlmacenHilos().getAtaEnemigo().enemigoAEliminar(this);
 		map.getAlmacenHilos().getMovEnemigo().enemigoAEliminar(this);
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);

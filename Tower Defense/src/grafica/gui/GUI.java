@@ -6,11 +6,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Random;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,7 +16,7 @@ import javax.swing.border.LineBorder;
 public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static int AnchoVentana, AltoVentana;
-	private JPanel contentPane,panelSuperior,panelDerecha;
+	private JPanel contentPane,panelSuperior;
 	private Juego j;
 	private JLabel presupuesto, puntaje, tiempo;
 	private Enemigo[] ene;
@@ -58,7 +54,7 @@ public class GUI extends JFrame {
 	 */
 	public GUI(){
 		super("Tower Defense");
-		AnchoVentana= 1240; AltoVentana= 720;
+		AnchoVentana= 1200; AltoVentana= 720;
 		j= new Juego(this);
 		this.setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,15 +65,15 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		
 		panelSuperior();
-		panelDerecha();
+//		panelDerecha();
 		contentPane.add(panelSuperior);
 		contentPane.add(j.getNivel().getMapa().getMapaGrafico(),BorderLayout.CENTER);
 		contentPane.add(j.getAlmacen().getAlmacenPanel());
-		contentPane.add(panelDerecha);
+//		contentPane.add(panelDerecha);
 		
 	}
 	public void finalizar(){
-		j.getNivel().getMapa().getAlmacenHilos().terminateAll();
+		j.getNivel().getMapa().getMapaGrafico().setVisible(false);
 	}
 	private void panelSuperior(){
 		panelSuperior = new JPanel();
@@ -117,25 +113,25 @@ public class GUI extends JFrame {
 		panelSuperior.add(tiempo);
 	}
 	
-	private void panelDerecha(){
-		panelDerecha = new JPanel();
-		panelDerecha.setBackground(Color.DARK_GRAY);
-		panelDerecha.setBounds(AnchoVentana/12*11, AltoVentana/12, AnchoVentana/12, AltoVentana);
-		panelDerecha.setLayout(null);
-		
-		ene = new Enemigo[7];
-		
-		String e[] = {"Ciclope","Dragon","Goblin","Lich","Nigromante","Ogro","Cerberus"};
-		JButton enemigos[] = new JButton[e.length];
-		OyenteEnemigo oy = new OyenteEnemigo();
-		for(int i=0;i<enemigos.length;i++){
-			enemigos[i] = new JButton(e[i]);
-			enemigos[i].setBounds(0,i*AltoVentana/15,AnchoVentana/12,AltoVentana/15);
-			enemigos[i].addActionListener(oy);
-			enemigos[i].setFocusable(false);
-			panelDerecha.add(enemigos[i]);
-		}
-	}
+//	private void panelDerecha(){
+//		panelDerecha = new JPanel();
+//		panelDerecha.setBackground(Color.DARK_GRAY);
+//		panelDerecha.setBounds(AnchoVentana/12*11, AltoVentana/12, AnchoVentana/12, AltoVentana);
+//		panelDerecha.setLayout(null);
+//		
+//		ene = new Enemigo[7];
+//		
+//		String e[] = {"Ciclope","Dragon","Goblin","Lich","Nigromante","Ogro","Cerberus"};
+//		JButton enemigos[] = new JButton[e.length];
+//		OyenteEnemigo oy = new OyenteEnemigo();
+//		for(int i=0;i<enemigos.length;i++){
+//			enemigos[i] = new JButton(e[i]);
+//			enemigos[i].setBounds(0,i*AltoVentana/15,AnchoVentana/12,AltoVentana/15);
+//			enemigos[i].addActionListener(oy);
+//			enemigos[i].setFocusable(false);
+//			panelDerecha.add(enemigos[i]);
+//		}
+//	}
 	public void actualizarPuntaje(){
 		puntaje.setText("Puntaje: "+j.getPuntaje());		
 	}
@@ -143,7 +139,7 @@ public class GUI extends JFrame {
 		presupuesto.setText("$ "+j.getNivel().getPresupuesto());
 	}
 	public void actualizarTemporizador(){
-		tiempo.setText("Tiempo: "+j.getTiempo());		
+		tiempo.setText("Tiempo: "+j.getTiempo());
 	}
 	public int getAncho(){
 		return AnchoVentana;
@@ -151,129 +147,129 @@ public class GUI extends JFrame {
 	public int getAlto(){
 		return AltoVentana;
 	}	
-	private class OyenteEnemigo implements ActionListener{
-		public void actionPerformed(ActionEvent e){
-			String s= e.getActionCommand();
-			Random r = new Random();
-			int fila= r.nextInt(6);
-			switch(s){
-				case "Ciclope":{
-					if(ene[0]==null){
-						ene[0] = new Ciclope(9,fila,j.getNivel().getMapa());
-						if(j.getNivel().getMapa().agregarElemento(ene[0])){
-							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[0]);
-							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[0]);
-						}
-						else
-							ene[0]=null;
-					}
-					else{
-						ene[0].kill();
-						ene[0]=null;
-					}
-					break;
-				}
-				case "Dragon":{
-					if(ene[1]==null){
-						ene[1] = new Dragon(9,fila,j.getNivel().getMapa());
-						if(j.getNivel().getMapa().agregarElemento(ene[1])){
-							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[1]);
-							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[1]);
-						}
-						else
-							ene[1]=null;
-					}
-					else{
-						ene[1].kill();
-						ene[1]=null;
-					}
-					break;
-				}
-				case "Goblin":{
-					if(ene[2]==null){
-						ene[2] = new Goblin(9,fila,j.getNivel().getMapa());
-						if(j.getNivel().getMapa().agregarElemento(ene[2])){
-							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[2]);
-							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[2]);
-						}
-						else
-							ene[2]=null;
-					}
-					else{
-						ene[2].kill();
-						ene[2]=null;
-					}
-					break;
-				}
-				case "Lich":{
-					if(ene[3]==null){
-						ene[3] = new Lich(9,fila,j.getNivel().getMapa());
-						if(j.getNivel().getMapa().agregarElemento(ene[3])){
-							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[3]);
-							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[3]);
-						}
-						else
-							ene[3]=null;
-					}
-					else{
-						ene[3].kill();
-						ene[3]=null;
-					}
-					break;
-				}
-				case "Nigromante":{
-					if(ene[4]==null){
-						ene[4] = new Nigromante(9,fila,j.getNivel().getMapa());
-						if(j.getNivel().getMapa().agregarElemento(ene[4])){
-							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[4]);
-							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[4]);
-//						j.getNivel().getMapa().getAlmacenHilos().getInvocacioNigromante().agregarNigromante((Nigromante)ene[4]);
-						}
-						else
-							ene[4]=null;
-					}
-					else{
-						ene[4].kill();
-						ene[4]=null;
-					}
-					break;
-				}
-				case "Ogro":{
-					if(ene[5]==null){
-						ene[5] = new Ogro(9,fila,j.getNivel().getMapa());
-						if(j.getNivel().getMapa().agregarElemento(ene[5])){
-							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[5]);
-							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[5]);
-						}
-						else
-							ene[5]=null;	
-					}
-					else{
-						ene[5].kill();
-						ene[5]=null;
-					}
-					break;
-				}
-				case "Cerberus":{
-					if(ene[6]==null){
-						ene[6] = new Cerberus(9,fila,j.getNivel().getMapa());
-						if(j.getNivel().getMapa().agregarElemento(ene[6])){
-							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[6]);
-							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[6]);
-						}
-						else
-							ene[0]=null;
-					}
-					else{
-						ene[6].kill();
-						ene[6]=null;
-					}
-					break;
-				}
-				case "Finalizar":{
-					finalizar();
-				}
-			}
-		}
-	}
+//	private class OyenteEnemigo implements ActionListener{
+//		public void actionPerformed(ActionEvent e){
+//			String s= e.getActionCommand();
+//			Random r = new Random();
+//			int fila= r.nextInt(6);
+//			switch(s){
+//				case "Ciclope":{
+//					if(ene[0]==null){
+//						ene[0] = new Ciclope(9,fila,j.getNivel().getMapa());
+//						if(j.getNivel().getMapa().agregarElemento(ene[0])){
+//							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[0]);
+//							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[0]);
+//						}
+//						else
+//							ene[0]=null;
+//					}
+//					else{
+//						ene[0].kill();
+//						ene[0]=null;
+//					}
+//					break;
+//				}
+//				case "Dragon":{
+//					if(ene[1]==null){
+//						ene[1] = new Dragon(9,fila,j.getNivel().getMapa());
+//						if(j.getNivel().getMapa().agregarElemento(ene[1])){
+//							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[1]);
+//							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[1]);
+//						}
+//						else
+//							ene[1]=null;
+//					}
+//					else{
+//						ene[1].kill();
+//						ene[1]=null;
+//					}
+//					break;
+//				}
+//				case "Goblin":{
+//					if(ene[2]==null){
+//						ene[2] = new Goblin(9,fila,j.getNivel().getMapa());
+//						if(j.getNivel().getMapa().agregarElemento(ene[2])){
+//							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[2]);
+//							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[2]);
+//						}
+//						else
+//							ene[2]=null;
+//					}
+//					else{
+//						ene[2].kill();
+//						ene[2]=null;
+//					}
+//					break;
+//				}
+//				case "Lich":{
+//					if(ene[3]==null){
+//						ene[3] = new Lich(9,fila,j.getNivel().getMapa());
+//						if(j.getNivel().getMapa().agregarElemento(ene[3])){
+//							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[3]);
+//							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[3]);
+//						}
+//						else
+//							ene[3]=null;
+//					}
+//					else{
+//						ene[3].kill();
+//						ene[3]=null;
+//					}
+//					break;
+//				}
+//				case "Nigromante":{
+//					if(ene[4]==null){
+//						ene[4] = new Nigromante(9,fila,j.getNivel().getMapa());
+//						if(j.getNivel().getMapa().agregarElemento(ene[4])){
+//							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[4]);
+//							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[4]);
+////						j.getNivel().getMapa().getAlmacenHilos().getInvocacioNigromante().agregarNigromante((Nigromante)ene[4]);
+//						}
+//						else
+//							ene[4]=null;
+//					}
+//					else{
+//						ene[4].kill();
+//						ene[4]=null;
+//					}
+//					break;
+//				}
+//				case "Ogro":{
+//					if(ene[5]==null){
+//						ene[5] = new Ogro(9,fila,j.getNivel().getMapa());
+//						if(j.getNivel().getMapa().agregarElemento(ene[5])){
+//							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[5]);
+//							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[5]);
+//						}
+//						else
+//							ene[5]=null;	
+//					}
+//					else{
+//						ene[5].kill();
+//						ene[5]=null;
+//					}
+//					break;
+//				}
+//				case "Cerberus":{
+//					if(ene[6]==null){
+//						ene[6] = new Cerberus(9,fila,j.getNivel().getMapa());
+//						if(j.getNivel().getMapa().agregarElemento(ene[6])){
+//							j.getNivel().getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(ene[6]);
+//							j.getNivel().getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(ene[6]);
+//						}
+//						else
+//							ene[0]=null;
+//					}
+//					else{
+//						ene[6].kill();
+//						ene[6]=null;
+//					}
+//					break;
+//				}
+//				case "Finalizar":{
+//					finalizar();
+//				}
+//			}
+//		}
+//	}
 }

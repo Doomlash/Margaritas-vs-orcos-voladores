@@ -16,6 +16,9 @@ public class Contador extends Thread{
 		hordaActual=n.getHordaActual();
 	}
 	
+	public void terminate(){
+		execute=false;
+	}
 	public void run(){
 		while(execute){
 			try{
@@ -34,7 +37,6 @@ public class Contador extends Thread{
 					if(hordaActual.hayEnemigos()){
 						tiempo++;
 						if(hordaActual.getTiempoCreacional()==tiempo){
-							System.out.println("Agregando enemigo");
 							tiempo=0;
 							Enemigo e = nivel.getHordaActual().getSiguiente();
 							nivel.getMapa().agregarElemento(e);

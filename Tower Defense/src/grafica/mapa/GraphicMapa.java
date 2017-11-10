@@ -20,7 +20,7 @@ public class GraphicMapa extends JPanel{
 		this.setLayout(null);
 		int ancho = m.getNivel().getJuego().getGui().getAncho();
 		int alto = m.getNivel().getJuego().getGui().getAlto();
-		this.setBounds(ancho/12,alto/12,ancho/12*10,alto/12*11);
+		this.setBounds(ancho/12,alto/12,ancho/12*11,alto/12*11);
 		this.addMouseListener(new OyenteMouse());
 		fondo = new ImageIcon("src/Sprites/FondoMapa.png").getImage();
 	}
