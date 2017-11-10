@@ -17,6 +17,7 @@ public abstract class GraphicAliado extends GraphicEntidad{
 	public void atacar(){
 		imagenes[1].getImage().flush();
 		this.getGrafico().setIcon(imagenes[1]);
+		cargaAtaque.recargar();
 	}
 	public void morir(){
 		this.getGrafico().setIcon(imagenes[2]);

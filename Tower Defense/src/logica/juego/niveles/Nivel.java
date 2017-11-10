@@ -21,7 +21,7 @@ public abstract class Nivel{
 			hordas[i] = new Horda();
 		map= new Mapa(this);
 		contador = new Contador(this);
-		contador.start();
+//		contador.start();
 	}
 	
 	public abstract void crearHordas();

@@ -16,6 +16,7 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 	public void atacar(){
 		imagenes[2].getImage().flush();
 		this.getGrafico().setIcon(imagenes[2]);
+		cargaAtaque.recargar();
 	}
 	public void avanzar(){
 		this.getGrafico().setIcon(imagenes[1]);
