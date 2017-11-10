@@ -31,7 +31,6 @@ public class Bomba extends GameObject{
 					c.accept(v);
 			}
 		}
-		System.out.println("Cantidad de objetivos :"+objetivos.size());
 		for(Obstaculo o: objetivos){
 			o.setVida(o.getVida()-damage);
 		}

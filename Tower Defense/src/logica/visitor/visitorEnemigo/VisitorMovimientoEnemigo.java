@@ -13,12 +13,10 @@ import logica.modificador_PowerUp.*;
 public class VisitorMovimientoEnemigo extends Visitor{
 	private Enemigo ene;
 	private Mapa map;
-	private boolean ralentizado;
 	
 	public VisitorMovimientoEnemigo(Enemigo e, Mapa m){
 		ene=e;
 		this.map=m;
-		ralentizado=false;
 	}
 	
 	public void visit(Aliado a){
@@ -37,11 +35,8 @@ public class VisitorMovimientoEnemigo extends Visitor{
 	}
 	
 	public void visit(Agua a){
-		if(!ralentizado){
-			RalentizadorAgua r = new RalentizadorAgua(map,this);
-			map.getAlmacenHilos().getPowerUps().agregarPowerUp(r);
-			ene.afectar(r);
-			ralentizado=true;
+		if(ene!=null){
+			ene.getDirector().receive(new RalentizadorAgua(map));
 		}
 	}
 	
@@ -57,9 +52,6 @@ public class VisitorMovimientoEnemigo extends Visitor{
 	
 	public void kill(){
 		ene=null;
-	}
-	public void normal(){
-		ralentizado=false;
 	}
 
 }

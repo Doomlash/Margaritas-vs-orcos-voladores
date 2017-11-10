@@ -4,7 +4,6 @@ import grafica.entidad.*;
 import grafica.mapa.*;
 
 import java.awt.Toolkit;
-
 import javax.swing.ImageIcon;
 
 public abstract class GraphicEnemigo extends GraphicEntidad{
@@ -25,6 +24,7 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 		imagenes[3].getImage().flush();
 		this.getGrafico().setIcon(imagenes[3]);
 		removeLifeLine();
+		removeAttackChargeLine();
 	}
 	public void cambiarPos(int newX, int newY){
 		super.cambiarPos(newX,newY);

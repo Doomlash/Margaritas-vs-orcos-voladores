@@ -6,7 +6,8 @@ import logica.premio.magiaTemporal.*;
 import logica.visitor.*;
 import logica.visitor.visitorAliado.VisitorAtaqueAliado;
 import logica.mapa.*;
-import logica.modificador_PowerUp.*;
+import logica.modificador_PowerUp.ModificadorEntidad;
+import logica.entidad.DirectorPowerUp.*;
 import grafica.entidad.*;
 import grafica.entidad.aliado.*;
 import grafica.gameObjects.*;
@@ -27,6 +28,7 @@ public abstract class Aliado extends Entidad implements Comprable{
 	public Aliado(int x, int y, int dx, int dy, Mapa m){
 		super(x,y,dx,dy,m);
 		visitorAtaque = new VisitorAtaqueAliado(this);
+		director = new DirectorPowerUpAliado(this);
 	}
 	
 	/**
@@ -40,7 +42,6 @@ public abstract class Aliado extends Entidad implements Comprable{
 			grafico.setImageIdle();
 		}
 		if(cargaAtaqueActual>=cargaAtaqueNecesaria){
-			System.out.println(cargaAtaqueNecesaria);
 			cargaAtaqueActual=0;
 			visitorAtaque.resetearFilasAtacadas();
 			for(int i=(x+dimensionX);i<x+dimensionX+rango;i++){
@@ -61,17 +62,18 @@ public abstract class Aliado extends Entidad implements Comprable{
 	public int getPrecio(){
 		return precio;
 	}
-	public void afectar(ModificadorEntidad m){
-		m.afectar(this);
-	}
 	
 	public void kill(){
 		visitorAtaque.kill();
 		((GraphicAliado)grafico).morir();
+		director.kill();
 		map.getAlmacenHilos().getAtaAliado().aliadoAEliminar(this);
 		map.eliminarElemento(this);
 	}
 	public GraphicGameObject getGraphic(){
 		return grafico;
+	}
+	public void afectar(ModificadorEntidad m){
+		m.afectar(this);
 	}
 }

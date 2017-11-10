@@ -27,7 +27,7 @@ public class Lich extends Enemigo{
 		grafico = new GraphicLich(x,y,map.getMapaGrafico());
 		Escudo esc = new Escudo(m);
 		m.getAlmacenHilos().getPowerUps().agregarPowerUp(esc);
-		esc.afectar(this);
+		director.receive(esc);
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
 	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2

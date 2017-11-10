@@ -2,7 +2,6 @@ package logica.almacen.creadorComprables.creadorPremios;
 
 import logica.almacen.*;
 import logica.mapa.Mapa;
-import logica.visitor.*;
 import logica.visitor.visitorPowerUpYPremios.VisitorAgregarEscudo;
 import logica.premio.magiaTemporal.*;
 

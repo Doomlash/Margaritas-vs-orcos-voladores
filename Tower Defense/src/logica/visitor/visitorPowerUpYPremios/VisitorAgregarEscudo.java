@@ -16,7 +16,7 @@ public class VisitorAgregarEscudo extends Visitor{
 
 	public void visit(Aliado a){
 		map.getAlmacenHilos().getPowerUps().agregarPowerUp(escudo);
-		a.afectar(escudo);
+		a.getDirector().receive(escudo);
 		map.getNivel().getJuego().getAlmacen().getAlmacenPanel().disminuirCantidad("Escudo");
 	}
 	

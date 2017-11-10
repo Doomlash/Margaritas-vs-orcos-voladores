@@ -6,6 +6,7 @@ import logica.visitor.*;
 import logica.visitor.visitorEnemigo.*;
 import logica.itemPremio.*;
 import logica.modificador_PowerUp.*;
+import logica.entidad.DirectorPowerUp.*;
 import grafica.entidad.enemigo.*;
 import grafica.gameObjects.*;
 import grafica.entidad.*;
@@ -32,6 +33,7 @@ public abstract class Enemigo extends Entidad{
 		visitorAtaque = new VisitorAtaqueEnemigo(this);
 		visitorMovimiento = new VisitorMovimientoEnemigo(this,map);
 		canMove=true;
+		director=new DirectorPowerUpEnemigo(this);
 	}
 	
 	/**
@@ -160,10 +162,10 @@ public abstract class Enemigo extends Entidad{
 	public int getVelocidad(){
 		return velocidad;
 	}
-	public void afectar(ModificadorEntidad m){
-		m.afectar(this);
-	}
 	public GraphicGameObject getGraphic(){
 		return grafico;
+	}
+	public void afectar(ModificadorEntidad m){
+		m.afectar(this);
 	}
 }

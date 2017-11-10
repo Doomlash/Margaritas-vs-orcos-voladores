@@ -4,25 +4,27 @@ import logica.entidad.aliado.*;
 import logica.entidad.enemigo.*;
 import logica.mapa.*;
 import logica.modificador_PowerUp.*;
-import grafica.entidad.aliado.*;
+import grafica.premio.GraphicBooster;
 
 public class PowerBooster extends ModificadorEntidad{
 	private int cd;
 	private double tiempo;
+	protected GraphicBooster booster;
 	
-	public PowerBooster(int x, int y, Mapa m){
+	public PowerBooster(Mapa m){
 		tiempo = 10;
 		this.map = m;
 	}
 	public void actualizar(){
 		tiempo=tiempo-(0.25);
 		if(tiempo<=0)
-			kill();
+			entidad.getDirector().receive(this);
 	}
 	
 	public void afectar(Aliado a){
 		this.entidad=a;
-		((GraphicAliado)a.getGraphic()).activarBooster(entidad.getX(), entidad.getY(), entidad.getDimensionX(), entidad.getDimensionY());
+		booster = new GraphicBooster(entidad.getX(),entidad.getY(),entidad.getDimensionX(),entidad.getDimensionY());
+		map.getMapaGrafico().addGraphicElemento(booster);
 		cd = entidad.getCargaAtaqueNecesaria();
 		entidad.setCargaAtaqueNececaria(cd/3*2);
 	}
@@ -31,6 +33,9 @@ public class PowerBooster extends ModificadorEntidad{
 	}
 	public void restaurar(){
 		entidad.setCargaAtaqueNececaria(cd);
-		((GraphicAliado)entidad.getGraphic()).desactivarBooster();
+		if(booster!=null){
+			map.getMapaGrafico().removeGraphicElemento(booster);
+			booster=null;
+		}
 	}
 }

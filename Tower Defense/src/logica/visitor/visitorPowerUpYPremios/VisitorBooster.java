@@ -15,7 +15,7 @@ public class VisitorBooster extends Visitor{
 	}
 	public void visit(Aliado a){
 		map.getAlmacenHilos().getPowerUps().agregarPowerUp(booster);
-		a.afectar(booster);
+		a.getDirector().receive(booster);
 		map.getNivel().getJuego().getAlmacen().getAlmacenPanel().disminuirCantidad("Booster");
 	}
 	

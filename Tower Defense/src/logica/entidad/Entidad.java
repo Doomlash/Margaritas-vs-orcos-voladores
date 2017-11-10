@@ -2,6 +2,8 @@ package logica.entidad;
 
 import logica.gameObjects.*;
 import logica.mapa.Mapa;
+import logica.modificador_PowerUp.ModificadorEntidad;
+import logica.entidad.DirectorPowerUp.*;
 import logica.entidad.stateEscudo.*;
 import logica.disparo.*;
 import logica.premio.objetoPrecioso.*;
@@ -10,6 +12,7 @@ public abstract class Entidad extends Obstaculo{
 	protected int rango,fuerza,cargaAtaqueActual,cargaAtaqueNecesaria;
 	protected EstadoEscudo escudo;
 	protected int duracionAtaque; //En segundos
+	protected DirectorPowerUp director;
 
 	public Entidad(int x, int y, int dx, int dy, Mapa m){
 		super(x,y,dx,dy,m);
@@ -46,4 +49,8 @@ public abstract class Entidad extends Obstaculo{
 	public int getDuracionAtaque(){
 		return duracionAtaque;
 	}
+	public DirectorPowerUp getDirector(){
+		return director;
+	}
+	public abstract void afectar(ModificadorEntidad m);
 }

@@ -21,7 +21,6 @@ public abstract class GraphicAliado extends GraphicEntidad{
 	public void morir(){
 		this.getGrafico().setIcon(imagenes[2]);
 		removeLifeLine();
-		desactivarBooster();
-		desactivarEscudo();
+		removeAttackChargeLine();
 	}
 }
