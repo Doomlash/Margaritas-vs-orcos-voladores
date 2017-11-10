@@ -4,9 +4,9 @@ import logica.almacen.*;
 import logica.mapa.*;
 import logica.comprables.*;
 
-public class CreadorStun implements Creador{
+public class CreadorStun implements Accion{
 	
-	public void agregar(int x, int y, Mapa m){
+	public void ejecutarAccion(int x, int y, Mapa m){
 		Stun s = new Stun(m.getAlmacenHilos(),m);
 		if((m.getNivel().getPresupuesto()-s.getPrecio()>=0)){
 			m.getNivel().modificarPresupueto(m.getNivel().getPresupuesto()-s.getPrecio());

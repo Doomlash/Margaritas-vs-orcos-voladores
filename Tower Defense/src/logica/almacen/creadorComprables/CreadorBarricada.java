@@ -1,12 +1,12 @@
 package logica.almacen.creadorComprables;
 
-import logica.almacen.Creador;
+import logica.almacen.Accion;
 import logica.comprables.Barricada;
 import logica.mapa.Mapa;
 
-public class CreadorBarricada implements Creador{
+public class CreadorBarricada implements Accion{
 	
-	public void agregar(int x, int y, Mapa m){
+	public void ejecutarAccion(int x, int y, Mapa m){
 		Barricada b = new Barricada(x,y,m);
 		if((m.getNivel().getPresupuesto()-b.getPrecio()>=0)){
 			if((x>=0)&&(x<m.getCeldas()[0].length)&&(m.getCelda(x, y).isEmpty())){

@@ -20,7 +20,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private Almacen_Mercado almacen;
 	private JButton colocables[];
 	private Map<String,Integer> itemsPremio;
-	private String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta","Barricada","Bomba","Booster","Trampa","Escudo","Stun","Curacion","Cancelar"};
+	private String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta","Barricada","Bomba","Booster","Trampa","Escudo","Stun","Curacion","Venta","Cancelar"};
 	
 	public Almacen_Mercado_Panel(Almacen_Mercado a){
 		Juego j = a.getJuego();
@@ -80,54 +80,58 @@ public class Almacen_Mercado_Panel extends JPanel{
 			"Trampa x"+itemsPremio.get("Trampa"),"Escudo x"+itemsPremio.get("Escudo")};
 			switch(s){
 				case("Caballero"):{
-					almacen.asignarCreador(new CreadorCaballero());
+					almacen.asignarAccion(new CreadorCaballero());
 					break;
 				}
 				case("Arquero"):{
-					almacen.asignarCreador(new CreadorArquero());
+					almacen.asignarAccion(new CreadorArquero());
 					break;
 				}
 				case("Monje"):{
-					almacen.asignarCreador(new CreadorMonje());
+					almacen.asignarAccion(new CreadorMonje());
 					break;
 				}
 				case("Catapulta"):{
-					almacen.asignarCreador(new CreadorCatapulta());
+					almacen.asignarAccion(new CreadorCatapulta());
 					break;
 				}
 				case("Mago"):{
-					almacen.asignarCreador(new CreadorMago());
+					almacen.asignarAccion(new CreadorMago());
 					break;
 				}
 				case("Barricada"):{
-					almacen.asignarCreador(new CreadorBarricada());
+					almacen.asignarAccion(new CreadorBarricada());
 					break;
 				}
 				case("Stun"):{
-					almacen.asignarCreador(new CreadorStun());
+					almacen.asignarAccion(new CreadorStun());
 					break;
 				}
 				case("Gusano"):{
-					almacen.asignarCreador(new CreadorAgujeroGusano());
+					almacen.asignarAccion(new CreadorAgujeroGusano());
 					break;
 				}
 				case("Curacion"):{
-					almacen.asignarCreador(new CreadorCuracion());
+					almacen.asignarAccion(new CreadorCuracion());
+					break;
+				}
+				case("Venta"):{
+					almacen.asignarAccion(new Venta());
 					break;
 				}
 				case("Cancelar"):{
-					almacen.asignarCreador(null);
+					almacen.asignarAccion(null);
 					break;
 				}
 			}
 			if(s.compareTo(aux[0])==0){
-				almacen.asignarCreador(new CreadorBomba());
+				almacen.asignarAccion(new CreadorBomba());
 			}
 			if(s.compareTo(aux[1])==0){
-				almacen.asignarCreador(new CreadorBooster());
+				almacen.asignarAccion(new CreadorBooster());
 			}
 			if(s.compareTo(aux[3])==0){
-				almacen.asignarCreador(new CreadorEscudo());
+				almacen.asignarAccion(new CreadorEscudo());
 			}
 		}
 	}

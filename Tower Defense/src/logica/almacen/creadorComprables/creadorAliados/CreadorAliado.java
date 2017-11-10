@@ -5,7 +5,7 @@ import logica.entidad.aliado.*;
 import logica.mapa.Mapa;
 import grafica.gameObjects.*;
 
-public abstract class CreadorAliado implements Creador{
+public abstract class CreadorAliado implements Accion{
 	protected Aliado aliado;
 	
 	protected void agregar(Mapa m){

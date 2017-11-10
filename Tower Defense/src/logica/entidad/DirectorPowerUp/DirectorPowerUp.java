@@ -45,6 +45,10 @@ public abstract class DirectorPowerUp{
 	public void kill(){
 		for(int i=boosters.size()-1;i>=0;i--)
 			boosters.get(i).kill();
-		boosters.clear();		
+		boosters.clear();
+		if(escudo!=null){
+			escudo.kill();
+			escudo=null;
+		}
 	}
 }

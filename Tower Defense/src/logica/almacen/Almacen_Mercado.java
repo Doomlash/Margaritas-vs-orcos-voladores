@@ -7,7 +7,7 @@ import grafica.almacen.*;
 public class Almacen_Mercado{
 	private Almacen_Mercado_Panel almacen;
 	private Juego juego;
-	private Creador creador;
+	private Accion accion;
 	
 	public Almacen_Mercado(Juego j){
 		this.juego = j;
@@ -20,13 +20,13 @@ public class Almacen_Mercado{
 	public Juego getJuego(){
 		return juego;
 	}
-	public void crearObjeto(int x, int y, Mapa m){
-		if(creador!=null){
-			creador.agregar(x, y, m);
-			creador = null;
+	public void ejecutarAccion(int x, int y, Mapa m){
+		if(accion!=null){
+			accion.ejecutarAccion(x, y, m);
+			accion = null;
 		}
 	}
-	public void asignarCreador(Creador c){
-		this.creador = c;
+	public void asignarAccion(Accion c){
+		this.accion = c;
 	}
 }

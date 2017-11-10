@@ -46,12 +46,6 @@ public class GraphicMapa extends JPanel{
 	
 	private class OyenteMouse implements MouseListener{
 		public void mouseClicked(MouseEvent e){
-			int x= e.getX() / 90;
-			int y= e.getY();
-			if(y>=40){
-				y = (y-40)/95;
-				mapa.getNivel().getJuego().getAlmacen().crearObjeto(x, y, mapa);
-			}
 		}
 		
 		public void mouseEntered(MouseEvent e){
@@ -63,7 +57,12 @@ public class GraphicMapa extends JPanel{
 		}
 		
 		public void mousePressed(MouseEvent e){
-			
+			int x= e.getX() / 90;
+			int y= e.getY();
+			if(y>=40){
+				y = (y-40)/95;
+				mapa.getNivel().getJuego().getAlmacen().ejecutarAccion(x, y, mapa);
+			}
 		}
 		
 		public void mouseReleased(MouseEvent e){

@@ -39,7 +39,6 @@ public class Escudo extends ModificadorEntidad{
 		e.setEstadoEscudo(new Invulnerable(entidad, this));
 	}
 	public void restaurar(){
-		System.out.println(entidad);
 		((GraphicEntidad)entidad.getGraphic()).saveEscudo(null);
 		map.getMapaGrafico().removeGraphicElemento(grafico);
 		entidad.setEstadoEscudo(new Vulnerable(entidad));

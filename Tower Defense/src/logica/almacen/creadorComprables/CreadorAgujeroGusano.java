@@ -5,9 +5,9 @@ import logica.mapa.*;
 import logica.comprables.*;
 import logica.visitor.visitorPowerUpYPremios.VisitorGusano;
 
-public class CreadorAgujeroGusano implements Creador{
+public class CreadorAgujeroGusano implements Accion{
 	
-	public void agregar(int x, int y, Mapa m){
+	public void ejecutarAccion(int x, int y, Mapa m){
 		AgujeroGusano g = new AgujeroGusano(x,y,m);
 		if((m.getNivel().getPresupuesto()-g.getPrecio()>=0)){
 			if(m.getCelda(x, y).isEmpty()){

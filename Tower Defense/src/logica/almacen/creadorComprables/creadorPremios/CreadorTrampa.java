@@ -4,9 +4,9 @@ import logica.premio.objetoPrecioso.*;
 import logica.almacen.*;
 import logica.mapa.*;
 
-public class CreadorTrampa implements Creador{
+public class CreadorTrampa implements Accion{
 
-	public void agregar(int x, int y, Mapa m){
+	public void ejecutarAccion(int x, int y, Mapa m){
 		Trampa b = new Trampa(x,y,m);
 	}
 }
