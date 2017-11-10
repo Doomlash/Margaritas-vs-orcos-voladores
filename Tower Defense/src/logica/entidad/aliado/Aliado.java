@@ -37,10 +37,12 @@ public abstract class Aliado extends Entidad implements Comprable{
 	public void atacarRango(){
 		if(cargaAtaqueActual>=cargaAtaqueNecesaria){
 			cargaAtaqueActual=0;
+			visitorAtaque.resetearFilasAtacadas();
 			for(int i=(x+dimensionX);i<x+dimensionX+rango;i++){
 				for(int j=y;j<(y+dimensionY);j++){
 					Celda c = map.getCelda(i, j);
 					if(c!=null){
+						visitorAtaque.filaActualAtacada(j);
 						c.accept(visitorAtaque);
 					}
 				}

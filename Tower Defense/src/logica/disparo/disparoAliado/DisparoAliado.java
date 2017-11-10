@@ -28,6 +28,7 @@ public abstract class DisparoAliado extends Disparo{
 			}
 	}
 	public void kill(){
+		canMove=false;
 		visitorDisparoAliado.kill();
 		map.getAlmacenHilos().getDisAliado().disparoAliadoAEliminar(this);
 		map.getMapaGrafico().removeGraphicElemento(grafico);

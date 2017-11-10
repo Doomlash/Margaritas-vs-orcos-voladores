@@ -19,13 +19,14 @@ public abstract class DisparoEnemigo extends Disparo{
 			map.getCelda(x, y).accept(visitorDisparoEnemigo);
 			if(canMove){
 				int aux= x*grafico.getWidthUnaCelda();
-				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y+4);
+				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
 				if(grafico.getPos().x<aux)
 					x--;
 			}
 		}
 	}
 	public void kill(){
+		canMove=false;
 		visitorDisparoEnemigo.kill();
 		map.getAlmacenHilos().getDisEnemigo().disparoEnemigoAEliminar(this);
 		map.getMapaGrafico().removeGraphicElemento(grafico);

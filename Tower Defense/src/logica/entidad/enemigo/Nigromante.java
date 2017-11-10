@@ -27,10 +27,11 @@ public class Nigromante extends Enemigo{
 		vida=vidaMax=30;
 		rango=1;
 		fuerza=20;
-		cargaAtaqueNecesaria = 50;
-		cargaAtaqueActual = 40;
+		cargaAtaqueNecesaria = 30;
+		cargaAtaqueActual = 20;
 		cargaInvocacion=20;
 		cargaInvocacionActual=0;
+		duracionAtaque=7;
 		grafico = new GraphicNigromante(x,y,map.getMapaGrafico());
 		ejercito = new ArrayList<Esqueleto>();
 		visitorEsqueleto = new VisitorCeldaEsqueleto(this,map);
@@ -90,11 +91,5 @@ public class Nigromante extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
-		try{
-			Thread.sleep(500);
-		}catch(InterruptedException e){
-		}
-		o.setVida(o.getVida()-fuerza);
-		canMove=true;
 	}
 }

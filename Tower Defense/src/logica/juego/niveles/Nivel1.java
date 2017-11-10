@@ -17,19 +17,11 @@ public class Nivel1 extends Nivel{
 		int aux;
 		for(int i=0;i<3;i++){
 			aux = r.nextInt(6);
-			hordas[0].agregarIntermedio(new Goblin(10,aux,map));
+			hordas[0].agregar(new Goblin(10,aux,map));
 			aux = r.nextInt(6);
-			hordas[1].agregarIntermedio(new Goblin(10,aux,map));
+			hordas[1].agregar(new Goblin(10,aux,map));
 			aux = r.nextInt(6);
-			hordas[2].agregarIntermedio(new Goblin(10,aux,map));
-		}
-		for(int i=0;i<5;i++){
-			aux = r.nextInt(6);
-			hordas[0].agregarFinal(new Goblin(10,aux,map));
-			aux = r.nextInt(6);
-			hordas[1].agregarFinal(new Goblin(10,aux,map));
-			aux = r.nextInt(6);
-			hordas[2].agregarFinal(new Goblin(10,aux,map));
+			hordas[2].agregar(new Goblin(10,aux,map));
 		}
 	}
 	

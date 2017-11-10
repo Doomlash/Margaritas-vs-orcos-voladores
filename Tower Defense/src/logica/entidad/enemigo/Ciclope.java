@@ -23,6 +23,7 @@ public class Ciclope extends Enemigo{
 		fuerza = 15;
 		cargaAtaqueNecesaria = 50;
 		cargaAtaqueActual = 40;
+		duracionAtaque=21;
 		grafico = new GraphicCiclope(x,y,map.getMapaGrafico());
 	}
 	
@@ -41,16 +42,6 @@ public class Ciclope extends Enemigo{
 	public void atacar(Obstaculo o){
 			canMove=false;
 			((GraphicEnemigo)grafico).atacar();
-			try{
-				Thread.sleep(800);
-			}catch(InterruptedException e){
-			}
 			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-8,fuerza));
-			try{
-				Thread.sleep(1000);
-			}catch(InterruptedException e){
-			}
-			((GraphicEnemigo)grafico).avanzar();
-			canMove=true;
 	}
 }

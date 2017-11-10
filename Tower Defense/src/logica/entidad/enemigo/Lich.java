@@ -21,8 +21,9 @@ public class Lich extends Enemigo{
 		vida=vidaMax=60;
 		rango=1;
 		fuerza=13;
-		cargaAtaqueNecesaria = 50;
-		cargaAtaqueActual = 40;
+		cargaAtaqueNecesaria = 30;
+		cargaAtaqueActual = 20;
+		duracionAtaque=7;
 		grafico = new GraphicLich(x,y,map.getMapaGrafico());
 		Escudo esc = new Escudo(m);
 		m.getAlmacenHilos().getPowerUps().agregarPowerUp(esc);
@@ -43,12 +44,5 @@ public class Lich extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
-		try{
-			Thread.sleep(500);
-		}catch(InterruptedException e){
-		}
-		o.setVida(o.getVida()-fuerza);
-		((GraphicEnemigo)grafico).avanzar();
-		canMove=true;
 	}
 }

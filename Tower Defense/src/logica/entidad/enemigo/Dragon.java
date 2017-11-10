@@ -15,16 +15,17 @@ public class Dragon extends Enemigo{
 	 * @param m : Mapa - Destinado a vincular el GameObject con el mapa
 	 */
 	public Dragon(int x, int y, Mapa m){
-		super(x,y,2,1,m);
+		super(x,y,2,2,m);
 		velocidad=8;
 		puntaje=180;
 		monedas=50;
 		vida=vidaMax=120;
 		rango=3;
 		fuerza = 20;
-		cargaAtaqueNecesaria = 50;
-		cargaAtaqueActual = 40;
-		grafico = new GraphicDragon(x,y,map.getMapaGrafico());
+		cargaAtaqueNecesaria = 25;
+		cargaAtaqueActual = 20;
+		duracionAtaque=6;
+		grafico = new GraphicDragon(x,y,map.getMapaGrafico(),this);
 		visitorMovimiento = new VisitorMovimientoDragon(this,m);
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
@@ -38,17 +39,14 @@ public class Dragon extends Enemigo{
 	public void SACARDEARREGLO(){
 		map.getNivel().getJuego().getGui().getEnemigos()[1]=null;		
 	}
+//	public void atacarRango(){
+//		super.atacarRango();
+//		((GraphicDragon)grafico).finalizarAtaque();
+//	}
 	
 	public void atacar(Obstaculo o){
 		canMove=false;
-		((GraphicDragon)grafico).aterrizar();
 		((GraphicEnemigo)grafico).atacar();
-		try{
-			Thread.sleep(400);
-		}catch(InterruptedException e){
-		}
-		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,y,map,x-rango,grafico.getPos().x-5,fuerza));
-		((GraphicDragon)grafico).despegar();
-		canMove=true;
+		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,o.getY(),map,x-rango,grafico.getPos().x-15,fuerza));
 	}
 }

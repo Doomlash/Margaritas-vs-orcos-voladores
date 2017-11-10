@@ -15,6 +15,7 @@ public abstract class Enemigo extends Entidad{
 	protected int velocidad;
 	protected int puntaje;
 	protected int monedas;
+	protected int duracionAtaque; //En segundos
 	protected boolean canMove;
 	protected VisitorAtaqueEnemigo visitorAtaque;
 	protected VisitorMovimientoEnemigo visitorMovimiento;
@@ -72,9 +73,11 @@ public abstract class Enemigo extends Entidad{
 				if(grafico.getPos().x<aux){
 					if(x>=0){
 						x--;
-						map.getCelda(x, y).agregarElemento(this);
+						for(int i=y;i<y+dimensionY;i++)
+							map.getCelda(x, i).agregarElemento(this);
 						if(x+dimensionX<10)
-							map.getCelda(x+dimensionX, y).remover(this);
+							for(int i=y;i<y+dimensionY;i++)
+								map.getCelda(x+dimensionX, i).remover(this);
 					}
 				}
 			}
@@ -86,12 +89,16 @@ public abstract class Enemigo extends Entidad{
 	}
 	
 	public void atacarRango(){
+		if(cargaAtaqueActual==duracionAtaque)
+			canMove=true;
 		if(cargaAtaqueActual>=cargaAtaqueNecesaria){
 			cargaAtaqueActual=0;
+			visitorAtaque.resetearFilasAtacadas();
 			for(int i=(x-1);i>=x-rango;i--){
 				for(int j=y;j<(y+dimensionY);j++){
 					Celda c = map.getCelda(i, j);
 					if(c!=null){
+						visitorAtaque.filaActualAtacada(j);
 						c.accept(visitorAtaque);
 					}
 				}
@@ -146,6 +153,12 @@ public abstract class Enemigo extends Entidad{
 	
 	public int getVelocidad(){
 		return velocidad;
+	}
+	public void setDuracionAtaque(int d){
+		duracionAtaque=d;
+	}
+	public int getDuracionAtaque(){
+		return duracionAtaque;
 	}
 	public void afectar(ModificadorEntidad m){
 		m.afectar(this);

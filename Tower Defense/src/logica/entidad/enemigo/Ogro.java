@@ -20,8 +20,9 @@ public class Ogro extends Enemigo{
 		vida=vidaMax=80;
 		rango=1;
 		fuerza=25;
-		cargaAtaqueNecesaria = 50;
-		cargaAtaqueActual = 40;
+		cargaAtaqueNecesaria = 30;
+		cargaAtaqueActual = 20;
+		duracionAtaque=6;
 		grafico = new GraphicOgro(x,y,map.getMapaGrafico());
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
@@ -39,11 +40,6 @@ public class Ogro extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
-		try{
-			Thread.sleep(400);
-		}catch(InterruptedException e){
-		}
 		o.setVida(o.getVida()-fuerza);
-		canMove=true;
 	}
 }

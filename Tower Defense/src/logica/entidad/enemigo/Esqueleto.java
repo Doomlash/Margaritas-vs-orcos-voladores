@@ -16,8 +16,9 @@ public class Esqueleto extends Enemigo{
 		vida=vidaMax=50;
 		rango=1;
 		fuerza=10;
-		cargaAtaqueNecesaria = 50;
-		cargaAtaqueActual = 40;
+		cargaAtaqueNecesaria = 30;
+		cargaAtaqueActual = 20;
+		duracionAtaque=8;
 		grafico = new GraphicEsqueleto(x,y,map.getMapaGrafico());
 	}
 	public void SACARDEARREGLO(){
@@ -27,7 +28,6 @@ public class Esqueleto extends Enemigo{
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
 		o.setVida(o.getVida()-fuerza);
-		canMove=true;
 	}
 	
 	public void kill(){

@@ -20,8 +20,10 @@ public class Goblin extends Enemigo{
 		vida=vidaMax=50;
 		rango=1;
 		fuerza=10;
-		cargaAtaqueNecesaria = 50;
-		cargaAtaqueActual = 40;
+		cargaAtaqueNecesaria = 30;
+		cargaAtaqueActual = 20;
+		duracionAtaque=6;
+		duracionAtaque=8;
 		grafico = new GraphicGoblin(x,y,map.getMapaGrafico());
 	}
 	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
@@ -40,6 +42,5 @@ public class Goblin extends Enemigo{
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
 		o.setVida(o.getVida()-fuerza);
-		canMove=true;
 	}
 }

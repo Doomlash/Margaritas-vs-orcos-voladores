@@ -15,12 +15,4 @@ public class GraphicGoblin extends GraphicEnemigo{
 		imagenes[3] = new ImageIcon(t.createImage(dir+"Enemigos/Goblin/GoblinMuerte.gif"));
 		imagenes[4] = new ImageIcon(t.createImage(dir+"Enemigos/Goblin/GoblinCongelado.png"));
 	}
-	
-	public void atacar(){
-		super.atacar();
-		try{
-			Thread.sleep(600);
-		}catch(InterruptedException e){
-		}
-	}
 }
