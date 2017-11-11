@@ -1,8 +1,9 @@
 package grafica.entidad;
 
-import javax.swing.ImageIcon;
-
 import grafica.gameObjects.*;
+import grafica.mapa.*;
+
+import javax.swing.ImageIcon;
 
 public class GraphicAttackChargeLine extends GraphicGameObject{
 	private final int anchoBarraCompleta=36; //36 pixeles.

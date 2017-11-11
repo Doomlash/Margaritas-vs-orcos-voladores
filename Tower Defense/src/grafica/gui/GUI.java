@@ -2,11 +2,12 @@ package grafica.gui;
 
 import logica.entidad.enemigo.*;
 import logica.juego.*;
+import logica.hilos.*;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,7 +20,7 @@ public class GUI extends JFrame {
 	private JPanel contentPane,panelSuperior;
 	private Juego j;
 	private JLabel presupuesto, puntaje, tiempo;
-	private Enemigo[] ene;
+	private Contador contador;
 
 	/**
 	 * Launch the application.
@@ -36,19 +37,6 @@ public class GUI extends JFrame {
 			}
 		});
 	}
-	
-
-	/*ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	ACORDARSE DE ELIMINAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!2
-	*/
-	public Enemigo[] getEnemigos(){
-		return ene;
-	}
 	/**
 	 * Create the frame.
 	 */
@@ -56,7 +44,10 @@ public class GUI extends JFrame {
 		super("Tower Defense");
 		AnchoVentana= 1200; AltoVentana= 720;
 		j= new Juego(this);
-		this.setResizable(false);
+//		contador = new Contador(j);
+//		contador.start();
+		
+//		this.setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(90, 0, AnchoVentana, AltoVentana);
 		contentPane = new JPanel();
@@ -70,18 +61,16 @@ public class GUI extends JFrame {
 		contentPane.add(j.getNivel().getMapa().getMapaGrafico(),BorderLayout.CENTER);
 		contentPane.add(j.getAlmacen().getAlmacenPanel());
 //		contentPane.add(panelDerecha);
-		
 	}
 	public void finalizar(){
 		j.getNivel().getMapa().getMapaGrafico().setVisible(false);
+		contador.terminate();
 	}
 	private void panelSuperior(){
 		panelSuperior = new JPanel();
 		panelSuperior.setBackground(Color.DARK_GRAY);
 		panelSuperior.setLayout(null);
 		panelSuperior.setBounds(0, 0, AnchoVentana, AltoVentana/12);
-		
-
 		
 		puntaje = new JLabel();
 		puntaje.setBounds(AnchoVentana-300,0,150,70);

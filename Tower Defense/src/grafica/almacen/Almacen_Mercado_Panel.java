@@ -30,7 +30,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 		this.setBackground(Color.GRAY);
 		int ancho = j.getGui().getAncho();
 		int alto = j.getGui().getAlto();
-		this.setBounds(0,alto/12,ancho/17*3,alto);
+		this.setBounds(0,alto/12,ancho/17*3,alto-100);
 		
 		crearMapeo();
 		crearBotones(j);
@@ -68,7 +68,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 		for(int i=0;i<colocables.length;i++){
 			colocables[i] = new JButton(c[i]);
 			x=i%2;
-			colocables[i].setBounds(x*100+(x+1)*3,(i/2+1)*j.getGui().getAlto()/12+i/2*7,100,65);
+			colocables[i].setBounds(x*100+(x+1)*3,(i/2)*j.getGui().getAlto()/12+i/2*7,100,65);
 //			colocables[i].setBounds(0,i*j.getGui().getAlto()/20,j.getGui().getAncho()/12,j.getGui().getAlto()/20);
 			colocables[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/Des"+c[i]+".png"));
 			colocables[i].setPressedIcon(new ImageIcon("src/Sprites/IconosBotones/Sel"+c[i]+".png"));
