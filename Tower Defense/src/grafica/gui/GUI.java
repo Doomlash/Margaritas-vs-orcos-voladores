@@ -1,10 +1,8 @@
 package grafica.gui;
 
-import logica.entidad.enemigo.*;
 import logica.juego.*;
 import logica.hilos.*;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -43,9 +41,6 @@ public class GUI extends JFrame {
 	public GUI(){
 		super("Tower Defense");
 		AnchoVentana= 1200; AltoVentana= 720;
-		j= new Juego(this);
-//		contador = new Contador(j);
-//		contador.start();
 		
 //		this.setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,17 +49,24 @@ public class GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
+
+		j= new Juego(this);
 		panelSuperior();
 //		panelDerecha();
 		contentPane.add(panelSuperior);
-		contentPane.add(j.getNivel().getMapa().getMapaGrafico(),BorderLayout.CENTER);
 		contentPane.add(j.getAlmacen().getAlmacenPanel());
 //		contentPane.add(panelDerecha);
+		
+		contador=new Contador(j);
+		contador.start();
+		j.iniciar();
 	}
-	public void finalizar(){
-		j.getNivel().getMapa().getMapaGrafico().setVisible(false);
+	public JPanel getPanelPrincipal(){
+		return contentPane;
+	}
+	public void finalizar(String s){
 		contador.terminate();
+		tiempo.setText(s);
 	}
 	private void panelSuperior(){
 		panelSuperior = new JPanel();

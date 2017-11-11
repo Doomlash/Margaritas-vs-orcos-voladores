@@ -6,12 +6,6 @@ import grafica.entidad.enemigo.*;
 
 public class Goblin extends Enemigo{
 	
-	/**
-	 * Se crea el elemento grafico asociado a la clase y se lo agrega al mapa grafico.
-	 * @param x : int - Representa la posicion x inicial que ocupa en la matriz de celdas
-	 * @param y : int - Representa la posicion y que ocupa en la matriz de celdas
-	 * @param m : Mapa - Destinado a vincular el GameObject con el mapa
-	 */
 	public Goblin(int x, int y, Mapa m){
 		super(x,y,1,1,m);
 		velocidad=12;
@@ -23,7 +17,6 @@ public class Goblin extends Enemigo{
 		cargaAtaqueNecesaria = 30;
 		cargaAtaqueActual = 20;
 		duracionAtaque=6;
-		duracionAtaque=8;
 		grafico = new GraphicGoblin(x,y,map.getMapaGrafico());
 	}
 	

@@ -34,6 +34,7 @@ public class Bomba extends GameObject{
 		for(Obstaculo o: objetivos){
 			o.setVida(o.getVida()-damage);
 		}
+		map.getMapaGrafico().removeGraphicElemento(grafico);
 	}
 	public void agregarObjetivo(Obstaculo o){
 		if(!objetivos.contains(o))

@@ -1,19 +1,24 @@
 package logica.hilos;
 
+import logica.juego.*;
 import logica.juego.niveles.*;
 import logica.entidad.enemigo.*;
 
 public class Generador extends Thread{
-	private Nivel nivel;
-	private int tiempo;
-	private volatile boolean execute;
+	private Juego juego;
+	private Nivel nivelActual;
 	private Horda hordaActual;
+	private int tiempo;
+	private int tiempoInicialEspera;
+	private volatile boolean execute;
 	
-	public Generador(Nivel n){
-		this.nivel=n;
+	public Generador(Juego j){
+		this.juego=j;
+		this.nivelActual=juego.getNivel();
 		execute=true;
 		tiempo=0;
-		hordaActual=n.getHordaActual();
+		hordaActual=nivelActual.getHordaActual();
+		tiempoInicialEspera=0;
 	}
 	
 	public void terminate(){
@@ -25,22 +30,34 @@ public class Generador extends Thread{
 				Thread.sleep(1000);
 			}catch(InterruptedException e){
 			}
-			if(hordaActual==null){
-				nivel.getJuego().siguienteNivel();
+			if(tiempoInicialEspera<7){
+				tiempoInicialEspera++;
 			}
 			else{
-				if(hordaActual.isCompleted()){
-					nivel.siguienteHorda();
+				if(hordaActual==null){
+					nivelActual = juego.siguienteNivel();
+					if(nivelActual==null)
+						juego.ganar();
+					else{
+						hordaActual=nivelActual.getHordaActual();
+					}
+					tiempoInicialEspera=0;
 				}
 				else{
-					if(hordaActual.hayEnemigos()){
-						tiempo++;
-						if(hordaActual.getTiempoCreacional()==tiempo){
-							tiempo=0;
-							Enemigo e = nivel.getHordaActual().getSiguiente();
-							nivel.getMapa().agregarElemento(e);
-							nivel.getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(e);
-							nivel.getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(e);
+					if(hordaActual.isCompleted()){
+						nivelActual.siguienteHorda();
+						hordaActual=nivelActual.getHordaActual();
+					}
+					else{
+						if(hordaActual.hayEnemigos()){
+							tiempo++;
+							if(hordaActual.getTiempoCreacional()==tiempo){
+								tiempo=0;
+								Enemigo e = nivelActual.getHordaActual().getSiguiente();
+								nivelActual.getMapa().agregarElemento(e);
+								nivelActual.getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(e);
+								nivelActual.getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(e);
+							}
 						}
 					}
 				}

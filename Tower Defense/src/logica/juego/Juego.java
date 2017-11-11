@@ -2,6 +2,7 @@ package logica.juego;
 
 import logica.juego.niveles.*;
 import logica.almacen.*;
+import logica.hilos.*;
 import grafica.gui.*;
 
 public class Juego{
@@ -10,6 +11,7 @@ public class Juego{
 	private Almacen_Mercado almacen;
 	private int puntaje;
 	private int tiempo;
+	private Generador generador;
 	
 	/**
 	 * Se inicializa el juego con el nivel 1.
@@ -34,8 +36,9 @@ public class Juego{
 	public int getTiempo(){
 		return tiempo;
 	}
-	public void siguienteNivel(){
+	public Nivel siguienteNivel(){
 		nivel= nivel.getSiguiente();
+		return nivel;
 	}
 	public GUI getGui(){
 		return gui;
@@ -50,10 +53,22 @@ public class Juego{
 		return puntaje;
 	}
 	public void perder(){
-		nivel.getMapa().getAlmacenHilos().terminateAll();
-		almacen.desactivar();
-		nivel.finalizar();
 		nivel.getMapa().clear();
-//		gui.finalizar();
+		nivel.getMapa().getAlmacenHilos().terminateAll();
+		gui.getPanelPrincipal().remove(nivel.getMapa().getMapaGrafico());
+		gui.getPanelPrincipal().repaint();
+		generador.terminate();
+		almacen.desactivar();
+		gui.finalizar("Perdiste!");
+	}
+	public void iniciar(){
+		if(generador==null){
+			generador = new Generador(this);
+			generador.start();
+		}
+	}
+	public void ganar(){
+		almacen.desactivar();
+		gui.finalizar("Ganaste!");
 	}
 }

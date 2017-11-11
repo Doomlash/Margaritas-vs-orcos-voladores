@@ -37,8 +37,15 @@ public abstract class DirectorPowerUp{
 			entidad.afectar(e);
 			}
 		else{
-			if(escudo==e)
+			if(escudo==e){
 				e.kill();
+				escudo=null;
+			}
+			else{
+				escudo.kill();
+				escudo=e;
+				entidad.afectar(e);
+			}
 		}
 	}
 	

@@ -11,11 +11,12 @@ public class Cerberus extends Enemigo{
 		velocidad=12;
 		puntaje=50;
 		monedas=5;
-		vida=vidaMax=50;
+		vida=vidaMax=200;
 		rango=1;
-		fuerza=10;
+		fuerza=40;
 		cargaAtaqueNecesaria = 50;
 		cargaAtaqueActual = 40;
+		duracionAtaque=24;
 		grafico = new GraphicCerberus(x,y,map.getMapaGrafico());		
 	}
 	
@@ -23,6 +24,5 @@ public class Cerberus extends Enemigo{
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
 		o.setVida(o.getVida()-fuerza);
-		canMove=true;		
 	}
 }

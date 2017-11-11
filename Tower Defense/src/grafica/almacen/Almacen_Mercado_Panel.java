@@ -50,6 +50,11 @@ public class Almacen_Mercado_Panel extends JPanel{
 		itemsPremio.put(s, itemsPremio.get(s)+1);
 		actualizarBotones();
 	}
+	public void desactivar(){
+		for(int i=0;i<colocables.length;i++){
+			colocables[i].setEnabled(false);
+		}
+	}
 	private void actualizarBotones(){
 		for(int i=6;i<10;i++){
 			colocables[i].setText(c[i]+" x"+itemsPremio.get(c[i]));

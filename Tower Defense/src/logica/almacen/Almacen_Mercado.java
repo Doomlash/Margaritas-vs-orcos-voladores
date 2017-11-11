@@ -33,5 +33,6 @@ public class Almacen_Mercado{
 	}
 	public void desactivar(){
 		activo=false;
+		almacen.desactivar();
 	}
 }
