@@ -26,7 +26,6 @@ public abstract class GraphicItemPremio extends GraphicGameObject{
 	protected class Oyente implements MouseListener{
 		
 		public void mouseClicked(MouseEvent e){
-			item.clickeado();
 		}
 		
 		public void mouseEntered(MouseEvent e){
@@ -38,6 +37,7 @@ public abstract class GraphicItemPremio extends GraphicGameObject{
 		}
 		
 		public void mousePressed(MouseEvent e){
+			item.clickeado();
 		}
 		
 		public void mouseReleased(MouseEvent e){

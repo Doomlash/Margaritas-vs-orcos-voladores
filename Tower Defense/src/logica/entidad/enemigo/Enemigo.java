@@ -87,8 +87,6 @@ public abstract class Enemigo extends Entidad{
 	
 	public void atacarRango(){
 		if(cargaAtaqueActual==duracionAtaque){
-			if(!canMove)
-				grafico.setImageIdle();
 			canMove=true;
 		}
 		if(cargaAtaqueActual>=cargaAtaqueNecesaria){

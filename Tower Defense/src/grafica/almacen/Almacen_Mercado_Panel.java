@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -20,7 +21,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private Almacen_Mercado almacen;
 	private JButton colocables[];
 	private Map<String,Integer> itemsPremio;
-	private String c[] = {"Caballero","Arquero","Monje","Mago","Catapulta","Barricada","Bomba","Booster","Trampa","Escudo","Stun","Curacion","Venta","Cancelar"};
+	private String c[] = {"Caballero","Arquero","Angel","Mago","Catapulta","Barricada","Bomba","Booster","Trampa","Escudo","Stun","Curacion","Venta","Cancelar"};
 	
 	public Almacen_Mercado_Panel(Almacen_Mercado a){
 		Juego j = a.getJuego();
@@ -29,7 +30,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 		this.setBackground(Color.GRAY);
 		int ancho = j.getGui().getAncho();
 		int alto = j.getGui().getAlto();
-		setBounds(0,alto/12,ancho/12,alto-alto/12);
+		this.setBounds(0,alto/12,ancho/17*3,alto);
 		
 		crearMapeo();
 		crearBotones(j);
@@ -63,9 +64,15 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private void crearBotones(Juego j){
 		colocables = new JButton[c.length];
 		OyenteAgregar oyAgr = new OyenteAgregar();
+		int x;
 		for(int i=0;i<colocables.length;i++){
 			colocables[i] = new JButton(c[i]);
-			colocables[i].setBounds(0,i*j.getGui().getAlto()/20,j.getGui().getAncho()/12,j.getGui().getAlto()/20);
+			x=i%2;
+			colocables[i].setBounds(x*100+(x+1)*3,(i/2+1)*j.getGui().getAlto()/12+i/2*7,100,65);
+//			colocables[i].setBounds(0,i*j.getGui().getAlto()/20,j.getGui().getAncho()/12,j.getGui().getAlto()/20);
+			colocables[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/Des"+c[i]+".png"));
+			colocables[i].setPressedIcon(new ImageIcon("src/Sprites/IconosBotones/Sel"+c[i]+".png"));
+			colocables[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/Entered"+c[i]+".png"));
 			colocables[i].addActionListener(oyAgr);
 			colocables[i].setFocusable(false);
 			this.add(colocables[i]);
@@ -81,14 +88,15 @@ public class Almacen_Mercado_Panel extends JPanel{
 			switch(s){
 				case("Caballero"):{
 					almacen.asignarAccion(new CreadorCaballero());
+					
 					break;
 				}
 				case("Arquero"):{
 					almacen.asignarAccion(new CreadorArquero());
 					break;
 				}
-				case("Monje"):{
-					almacen.asignarAccion(new CreadorMonje());
+				case("Angel"):{
+					almacen.asignarAccion(new CreadorAngel());
 					break;
 				}
 				case("Catapulta"):{
