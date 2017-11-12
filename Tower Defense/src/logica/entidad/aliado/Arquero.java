@@ -26,6 +26,6 @@ public class Arquero extends Aliado{
 	}
 	public void atacar(Obstaculo o){
 		((GraphicAliado)grafico).atacar();
-		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new Flecha(x+dimensionX,y,map,x+dimensionX+rango-1,fuerza));
+		map.getAlmacenHilos().getDisAliado().agregarDisparoAliado(new Flecha(x+dimensionX,y,map,x+dimensionX+rango-1,fuerza,6));
 	}
 }

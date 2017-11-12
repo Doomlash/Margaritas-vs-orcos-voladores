@@ -24,7 +24,7 @@ public class Mapa{
 		for(int i=0;i<celdas.length;i++)
 			for(int j=0;j<celdas[i].length;j++)
 				celdas[i][j] = new Celda();
-		agregarObstaculos(6,6);
+		agregarObstaculos(3,3);
 	}
 	
 	/**
@@ -37,8 +37,8 @@ public class Mapa{
 		int fila;
 		int columna;
 		while(celdasVacias()&&(p>0)){
-			fila=r.nextInt(6);
-			columna=5;
+			fila=r.nextInt(celdas.length);
+			columna=r.nextInt(celdas[0].length-3)+1;
 			if(celdas[fila][columna].isEmpty()){
 				agregarElemento(new Piedra(columna,fila,this));
 				p--;
@@ -46,8 +46,8 @@ public class Mapa{
 			}
 		}
 		while(celdasVacias()&&(l>0)){
-			fila=r.nextInt(6);
-			columna=7;
+			fila=r.nextInt(celdas.length);
+			columna=r.nextInt(celdas[0].length-3)+1;
 			if(celdas[fila][columna].isEmpty()){
 				Agua a = new Agua(columna,fila,this);
 				Thread t = new Thread(a);

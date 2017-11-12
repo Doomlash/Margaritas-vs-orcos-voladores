@@ -40,6 +40,7 @@ public class Generador extends Thread{
 						juego.ganar();
 					else{
 						hordaActual=nivelActual.getHordaActual();
+						nivelActual.getMapa().agregarObstaculos(3, 3);
 					}
 					tiempoInicialEspera=0;
 				}

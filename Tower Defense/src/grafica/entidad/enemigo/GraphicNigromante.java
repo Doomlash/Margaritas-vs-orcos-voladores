@@ -20,10 +20,5 @@ public class GraphicNigromante extends GraphicEnemigo{
 	public void summon(){
 		imagenes[5].getImage().flush();
 		this.getGrafico().setIcon(imagenes[5]);
-		try{
-			Thread.sleep(500);
-		}catch(InterruptedException e){
-		}
-		setImageIdle();
 	}
 }

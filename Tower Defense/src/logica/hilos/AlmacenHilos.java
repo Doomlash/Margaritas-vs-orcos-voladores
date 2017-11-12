@@ -15,7 +15,6 @@ public class AlmacenHilos{
 	private Stun stun;
 	private HiloPowerUps powerUps;
 	private HiloBombas bombas;
-	private HiloInvocacionNigromante invocacion;
 	private boolean ejecutando=true;
 	
 	public HiloMovimientoEnemigo getMovEnemigo(){
@@ -92,14 +91,6 @@ public class AlmacenHilos{
 		}
 		return bombas;
 	}
-	public HiloInvocacionNigromante getInvocacioNigromante(){
-		if(invocacion==null){
-			invocacion = new HiloInvocacionNigromante();
-			if(ejecutando)
-				invocacion.start();
-		}
-		return invocacion;
-	}
 	public void terminateAll(){
 		if(movEnemigo!=null)
 			movEnemigo.terminate();
@@ -119,8 +110,6 @@ public class AlmacenHilos{
 			powerUps.terminate();
 		if(bombas!=null)
 			bombas.terminate();
-		if(invocacion!=null)
-			invocacion.terminate();
 		ejecutando=false;
 	}
 }

@@ -56,6 +56,7 @@ public class Celda{
 	public void clear(){
 		int x=lista.size();
 		for(int i=0;i<x;i++)
-			lista.get(0).kill();
+			if(!lista.isEmpty())
+				lista.get(0).kill();
 	}
 }

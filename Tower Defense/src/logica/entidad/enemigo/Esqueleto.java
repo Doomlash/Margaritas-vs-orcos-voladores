@@ -10,7 +10,7 @@ public class Esqueleto extends Enemigo{
 	public Esqueleto(int x, int y, Mapa m, Nigromante n){
 		super(x,y,1,1,m);
 		this.comandante=n;
-		velocidad=12;
+		velocidad=8;
 		puntaje=50;
 		monedas=5;
 		vida=vidaMax=50;

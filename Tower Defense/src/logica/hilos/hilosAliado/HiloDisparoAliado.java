@@ -27,8 +27,15 @@ public class HiloDisparoAliado extends Thread{
 	}
 	protected void actualizar(){
 		int x= toInsert.size();
+		DisparoAliado d;
 		for(int i=0;i<x;i++){
-			toExecute.add(toInsert.remove(0));
+			d=toInsert.get(i);
+			if(d.getTiempoGeneracion()==0){
+				toExecute.add(toInsert.remove(i));
+				x--;
+			}
+			else
+				d.recudirTiempoGeneracion();
 		}
 		int y= toDelete.size();
 		for(int i=0;i<y;i++){

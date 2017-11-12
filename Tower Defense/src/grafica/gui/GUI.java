@@ -57,8 +57,8 @@ public class GUI extends JFrame {
 		contentPane.add(j.getAlmacen().getAlmacenPanel());
 //		contentPane.add(panelDerecha);
 		
-		contador=new Contador(j);
-		contador.start();
+//		contador=new Contador(j);
+//		contador.start();
 //		j.iniciar();
 	}
 	public JPanel getPanelPrincipal(){

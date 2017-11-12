@@ -5,10 +5,9 @@ import grafica.disparo.disparoAliado.*;
 
 public class ProyectilMagico extends DisparoAliado{
 	
-	public ProyectilMagico(int x, int y, Mapa m, int alcance, int dam){
-		super(x,y,m,alcance,dam);
+	public ProyectilMagico(int x, int y, Mapa m, int alcance, int dam, int generacion){
+		super(x,y,m,alcance,dam,generacion);
 		velocidad=16;
 		grafico = new GraphicProyectilMagico(x,y);
-		map.getMapaGrafico().addGraphicElemento(getGraphic());
 	}
 }

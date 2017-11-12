@@ -5,14 +5,15 @@ import logica.mapa.Mapa;
 
 
 public abstract class Disparo extends GameObject{
-	protected int damage,velocidad,alcance;
+	protected int damage,velocidad,alcance,tiempoGeneracion;
 	protected boolean canMove;
 
-	public Disparo(int x,int y, Mapa m, int a, int dam){
+	public Disparo(int x,int y, Mapa m, int a, int dam, int generacion){
 		super(x,y,1,1,m);
 		alcance = a;
 		damage=dam;
 		canMove=true;
+		tiempoGeneracion=generacion;
 	}
 	public void stop(){
 		canMove=false;
@@ -23,6 +24,14 @@ public abstract class Disparo extends GameObject{
 	}
 	public int getDamage(){
 		return damage;
+	}
+	public void recudirTiempoGeneracion(){
+		tiempoGeneracion--;
+		if(tiempoGeneracion==0)
+			map.getMapaGrafico().addGraphicElemento(getGraphic());
+	}
+	public int getTiempoGeneracion(){
+		return tiempoGeneracion;
 	}
 	public abstract void ejecutar();
 }

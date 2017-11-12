@@ -8,8 +8,8 @@ import grafica.gameObjects.*;
 public abstract class DisparoEnemigo extends Disparo{
 	protected VisitorDisparoEnemigo visitorDisparoEnemigo;
 
-	public DisparoEnemigo(int x,int y, Mapa m, int a, int dam){
-		super(x-1,y,m,a,dam);
+	public DisparoEnemigo(int x,int y, Mapa m, int a, int dam, int generacion){
+		super(x-1,y,m,a,dam,generacion);
 		visitorDisparoEnemigo = new VisitorDisparoEnemigo(this);
 	}
 	public void ejecutar(){

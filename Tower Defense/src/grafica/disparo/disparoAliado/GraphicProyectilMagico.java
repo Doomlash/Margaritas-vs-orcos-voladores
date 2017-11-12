@@ -8,7 +8,7 @@ public class GraphicProyectilMagico extends GraphicDisparoAliado{
 		super(x,y);
 		
 		imagenes[0] = new ImageIcon(dir+"Aliados/Mago/ProyectilMagico.png");
-		pos.x-=50;
-		pos.y-=17;
+		pos.x-=46;
+		pos.y-=35;
 	}
 }
