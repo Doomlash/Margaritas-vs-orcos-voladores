@@ -3,6 +3,7 @@ package logica.entidad.DirectorPowerUp;
 import logica.entidad.*;
 import logica.premio.magiaTemporal.*;
 import logica.modificador_PowerUp.*;
+import logica.comprables.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,7 @@ public abstract class DirectorPowerUp{
 			}
 		}
 	}
+	public abstract void receive(Upgrade u);
 	
 	public void kill(){
 		for(int i=boosters.size()-1;i>=0;i--)

@@ -11,5 +11,6 @@ public class GraphicCatapulta extends GraphicAliado{
 		
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Aliados/Catapulta/CatapultaIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Aliados/Catapulta/CatapultaAtaque.gif"));
+		imagenes[2] = new ImageIcon(t.createImage(dir+"Aliados/Catapulta/CatapultaMuerte.gif"));
 	}
 }

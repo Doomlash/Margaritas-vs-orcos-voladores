@@ -59,7 +59,7 @@ public class GUI extends JFrame {
 		
 		contador=new Contador(j);
 		contador.start();
-		j.iniciar();
+//		j.iniciar();
 	}
 	public JPanel getPanelPrincipal(){
 		return contentPane;

@@ -26,6 +26,8 @@ public abstract class GraphicEntidad extends GraphicObstaculo{
 	public void saveEscudo(GraphicEscudo e){
 		this.escudo=e;
 	}
+	public abstract void upgrade();
+	public abstract void downgrade();
 	public void setImageIdle(){
 		super.setImageIdle();
 	}

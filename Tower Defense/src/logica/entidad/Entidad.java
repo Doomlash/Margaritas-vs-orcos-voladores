@@ -49,6 +49,12 @@ public abstract class Entidad extends Obstaculo{
 	public int getDuracionAtaque(){
 		return duracionAtaque;
 	}
+	public void setFuerza(int f){
+		fuerza=f;
+	}
+	public int getFuerza(){
+		return fuerza;
+	}
 	public DirectorPowerUp getDirector(){
 		return director;
 	}

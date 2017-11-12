@@ -12,5 +12,9 @@ public class GraphicAngel extends GraphicAliado{
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Aliados/Angel/AngelIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Aliados/Angel/AngelAtaque.gif"));
 		imagenes[2] = new ImageIcon(t.createImage(dir+"Aliados/Angel/AngelMuerte.gif"));
+		
+		upgrades[0] = new ImageIcon(t.createImage(dir+"Aliados/Archangel/ArchangelIdle.png"));
+		upgrades[1] = new ImageIcon(t.createImage(dir+"Aliados/Archangel/ArchangelAtaque.gif"));
+		upgrades[2] = new ImageIcon(t.createImage(dir+"Aliados/Archangel/ArchangelMuerte.gif"));
 	}
 }

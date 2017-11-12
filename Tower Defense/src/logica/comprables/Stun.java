@@ -40,7 +40,6 @@ public class Stun extends Thread implements Comprable{
 		}
 	}
 	public void kill(){
-		System.out.println("Kill");
 		execute=false;
 		almacen.asignarStun(null);
 		almacen.getAtaEnemigo().reanudar();

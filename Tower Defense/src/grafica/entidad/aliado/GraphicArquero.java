@@ -11,5 +11,10 @@ public class GraphicArquero extends GraphicAliado{
 		
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Aliados/Arquero/ArqueroIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Aliados/Arquero/ArqueroAtaque.gif"));
+		imagenes[2] = new ImageIcon(t.createImage(dir+"Aliados/Arquero/ArqueroMuerte.gif"));
+		
+		upgrades[0] = new ImageIcon(t.createImage(dir+"Aliados/ArqueroUpgrade/ArqueroUpgradeIdle.png"));
+		upgrades[1] = new ImageIcon(t.createImage(dir+"Aliados/ArqueroUpgrade/ArqueroUpgradeAtaque.gif"));
+		upgrades[2] = new ImageIcon(t.createImage(dir+"Aliados/ArqueroUpgrade/ArqueroUpgradeMuerte.gif"));
 	}
 }

@@ -37,4 +37,6 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 	public void congelar(){
 		this.getGrafico().setIcon(imagenes[4]);
 	}
+	public void upgrade(){}
+	public void downgrade(){}
 }

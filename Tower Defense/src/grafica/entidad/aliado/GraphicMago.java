@@ -11,5 +11,10 @@ public class GraphicMago extends GraphicAliado{
 
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Aliados/Mago/MagoIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Aliados/Mago/MagoAtaque.gif"));
+		imagenes[2] = new ImageIcon(t.createImage(dir+"Aliados/Mago/MagoMuerte.gif"));
+
+		upgrades[0] = new ImageIcon(t.createImage(dir+"Aliados/MagoUpgrade/MagoUpgradeIdle.png"));
+		upgrades[1] = new ImageIcon(t.createImage(dir+"Aliados/MagoUpgrade/MagoUpgradeAtaque.gif"));
+		upgrades[2] = new ImageIcon(t.createImage(dir+"Aliados/MagoUpgrade/MagoUpgradeMuerte.gif"));
 	}
 }
