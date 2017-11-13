@@ -1,5 +1,7 @@
 package aTesters;
 
+import aTesters.PanelInformacion.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,8 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import aTesters.PanelInformacion.PanelInformacion;
 
 public class PanelInicio extends JPanel{
 	private static final long serialVersionUID = 1L;

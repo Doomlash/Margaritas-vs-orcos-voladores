@@ -17,15 +17,18 @@ public class PanelInformacion extends JPanel{
 	private JLabel fondo;
 	private VentanaInicio ventana;
 	private JButton back;
+	private ImageIcon[] fondos;
+	private ImageIcon defaultFondo=new ImageIcon("src/Sprites/IconosBotones/FondoInicio.png");
 	
 	public PanelInformacion(VentanaInicio v){
 		ventana=v;
 		setLayout(null);
 		setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
 		
-		fondo = new JLabel(new ImageIcon("src/Sprites/IconosBotones/FondoInicio.png"));
+		fondo = new JLabel(defaultFondo);
 		fondo.setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
 		armarBotones();
+		fondos();
 		add(fondo);
 	}
 	private void armarBotones(){
@@ -59,6 +62,13 @@ public class PanelInformacion extends JPanel{
 		back.setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/BackEntered.png"));
 		add(back);
 	}
+	private void fondos(){
+		String[] command = {"Aliados","Enemigos","Salir"};
+		fondos = new ImageIcon[command.length];
+		for(int i=0;i<fondos.length;i++){
+			fondos[i] = new ImageIcon("src/Sprites/IconosBotones/Informacion"+command[i]+".png");
+		}
+	}
 	private void cambiar(JPanel panel){
 		ventana.cambiar(this, panel);
 	}
@@ -71,15 +81,25 @@ public class PanelInformacion extends JPanel{
 						botones[i].setVisible(false);
 						botones[i].setEnabled(false);
 					}
-					fondo.setIcon(new ImageIcon("src/Sprites/IconosBotones/InformacionAliados.png"));
+					fondo.setIcon(fondos[0]);
 					repaint();
 					break;
 				}
 				case("Enemigos"):{
+					cambiar(new PanelInformacionEnemigos(ventana));
 					break;
 				}
 				case("Back"):{
-					cambiar(new PanelInicio(ventana));
+					if(fondo.getIcon()==defaultFondo){
+						cambiar(new PanelInicio(ventana));
+					}
+					else{
+						fondo.setIcon(defaultFondo);
+						for(int i=0;i<botones.length;i++){
+							botones[i].setVisible(true);
+							botones[i].setEnabled(true);
+						}
+					}
 					break;
 				}
 			}
