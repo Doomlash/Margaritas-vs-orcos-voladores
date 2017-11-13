@@ -9,8 +9,8 @@ import javax.swing.ImageIcon;
 public abstract class GraphicEnemigo extends GraphicEntidad{
 	protected Toolkit t = Toolkit.getDefaultToolkit();
 	
-	public GraphicEnemigo(int x, int y,int dx, int dy, GraphicMapa m){
-		super(x,y,dx,dy,m);
+	public GraphicEnemigo(int x, int y,int dx, int dy, int muerte, GraphicMapa m){
+		super(x,y,dx,dy,muerte,m);
 		imagenes = new ImageIcon[6];
 	}
 	public void atacar(){
@@ -26,11 +26,12 @@ public abstract class GraphicEnemigo extends GraphicEntidad{
 		this.getGrafico().setIcon(imagenes[3]);
 		removeLifeLine();
 		removeAttackChargeLine();
+		map.addGraphicElemento(this);
 	}
 	public void cambiarPos(int newX, int newY){
 		super.cambiarPos(newX,newY);
-		vida.cambiarPos(newX, newY);
-		cargaAtaque.cambiarPos(newX, newY);
+		vida.cambiarPos(newX, vida.getPos().y);
+		cargaAtaque.cambiarPos(newX, cargaAtaque.getPos().y);
 		if(escudo!=null)
 			escudo.cambiarPos(pos.x, pos.y);
 	}

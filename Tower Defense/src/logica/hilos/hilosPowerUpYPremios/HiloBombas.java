@@ -47,5 +47,4 @@ public class HiloBombas extends Thread{
 			}
 		}
 	}
-
 }

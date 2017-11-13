@@ -10,7 +10,7 @@ public class GraphicDragon extends GraphicEnemigo{
 	private int cantAtaques;
 	
 	public GraphicDragon(int x, int y, GraphicMapa m, Dragon d){
-		super(x,y,2,2,m);
+		super(x,y,2,2,6,m);
 		imagenes = new ImageIcon[10];
 		cantAtaques=0;
 		this.dragon=d;
@@ -61,5 +61,11 @@ public class GraphicDragon extends GraphicEnemigo{
 				getGrafico().setIcon(imagenes[9]);
 				dragon.setDuracionAtaque(9);
 			}
+	}
+	public void congelar(){
+		if(getGrafico().getIcon()==imagenes[1])
+			grafico.setIcon(imagenes[5]);
+		else
+			grafico.setIcon(imagenes[4]);
 	}
 }

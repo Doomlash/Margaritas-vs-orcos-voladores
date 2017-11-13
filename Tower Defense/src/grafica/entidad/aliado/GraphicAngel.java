@@ -7,7 +7,7 @@ import grafica.mapa.*;
 public class GraphicAngel extends GraphicAliado{
 	
 	public GraphicAngel(int x, int y, GraphicMapa m){
-		super(x,y,2,2,m);
+		super(x,y,2,2,8,m);
 		
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Aliados/Angel/AngelIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Aliados/Angel/AngelAtaque.gif"));

@@ -19,10 +19,10 @@ public class Ciclope extends Enemigo{
 		puntaje=120;
 		monedas=30;
 		vida=vidaMax=70;
-		rango=2;
+		rango=5;
 		fuerza = 15;
-		cargaAtaqueNecesaria = 50;
-		cargaAtaqueActual = 40;
+		cargaAtaqueNecesaria = 30;
+		cargaAtaqueActual = 25;
 		duracionAtaque=21;
 		grafico = new GraphicCiclope(x,y,map.getMapaGrafico());
 	}
@@ -30,6 +30,6 @@ public class Ciclope extends Enemigo{
 	public void atacar(Obstaculo o){
 			canMove=false;
 			((GraphicEnemigo)grafico).atacar();
-			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-8,fuerza,8));
+			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-32,fuerza,8));
 	}
 }

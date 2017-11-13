@@ -33,5 +33,6 @@ public class Lich extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
+		o.setVida(o.getVida()-fuerza);
 	}
 }

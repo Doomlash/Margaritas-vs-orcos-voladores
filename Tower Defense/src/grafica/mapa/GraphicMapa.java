@@ -21,7 +21,7 @@ public class GraphicMapa extends JPanel{
 		int ancho = m.getNivel().getJuego().getGui().getAncho();
 		int alto = m.getNivel().getJuego().getGui().getAlto();
 		this.setBounds(ancho/17*3,alto/12,ancho/17*14,620);
-
+		
 		this.addMouseListener(new OyenteMouse());
 		fondo = new ImageIcon("src/Sprites/FondoMapa.png").getImage();
 	}
@@ -46,16 +46,11 @@ public class GraphicMapa extends JPanel{
 	
 	
 	private class OyenteMouse implements MouseListener{
-		public void mouseClicked(MouseEvent e){
-		}
+		public void mouseClicked(MouseEvent e){}
 		
-		public void mouseEntered(MouseEvent e){
-			
-		}
+		public void mouseEntered(MouseEvent e){}
 		
-		public void mouseExited(MouseEvent e){
-			
-		}
+		public void mouseExited(MouseEvent e){}
 		
 		public void mousePressed(MouseEvent e){
 			int x= e.getX() / 90;
@@ -66,8 +61,6 @@ public class GraphicMapa extends JPanel{
 			}
 		}
 		
-		public void mouseReleased(MouseEvent e){
-			
-		}
+		public void mouseReleased(MouseEvent e){}
 	}
 }

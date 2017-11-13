@@ -19,8 +19,8 @@ public class Stun extends Thread implements Comprable{
 		tiempo = 10;
 		execute=true;
 		this.map=m;
-//		grafico = new GraphicStun();
-//		map.getMapaGrafico().addGraphicElemento(grafico);
+		grafico = new GraphicStun();
+		map.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void terminate(){
 		execute=false;
@@ -44,6 +44,6 @@ public class Stun extends Thread implements Comprable{
 		almacen.asignarStun(null);
 		almacen.getAtaEnemigo().reanudar();
 		almacen.getMovEnemigo().reanudar();
-//		map.getMapaGrafico().removeGraphicElemento(grafico);
+		map.getMapaGrafico().removeGraphicElemento(grafico);
 	}
 }
