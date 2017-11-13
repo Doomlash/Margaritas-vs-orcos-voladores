@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class GraphicCerberus extends GraphicEnemigo{
 	
 	public GraphicCerberus(int x, int y, GraphicMapa m){
-		super(x,y,2,3,m);
+		super(x,y,2,3,10,m);
 		
 		imagenes = new ImageIcon[8];
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Enemigos/Cerberus/CerberusIdle.png"));

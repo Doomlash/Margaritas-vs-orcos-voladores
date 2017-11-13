@@ -65,10 +65,11 @@ public abstract class Aliado extends Entidad implements Comprable{
 	
 	public void kill(){
 		visitorAtaque.kill();
-		((GraphicAliado)grafico).morir();
 		director.kill();
 		map.getAlmacenHilos().getAtaAliado().aliadoAEliminar(this);
 		map.eliminarElemento(this);
+		((GraphicAliado)grafico).morir();
+		map.getAlmacenHilos().getMuertesGraficas().agregarGrafico((GraphicEntidad)grafico);
 	}
 	public GraphicGameObject getGraphic(){
 		return grafico;

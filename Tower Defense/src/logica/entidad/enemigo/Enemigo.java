@@ -108,15 +108,16 @@ public abstract class Enemigo extends Entidad{
 	}
 	
 	public void kill(){
-		escudo.kill();
 		visitorAtaque.kill();
 		visitorMovimiento.kill();
-		((GraphicEnemigo)grafico).morir();
+		director.kill();
 		map.getAlmacenHilos().getAtaEnemigo().enemigoAEliminar(this);
 		map.getAlmacenHilos().getMovEnemigo().enemigoAEliminar(this);
 		map.getNivel().getJuego().aumentarPuntaje(puntaje);
 		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+monedas);
 		map.eliminarEnemigo(this);
+		((GraphicEnemigo)grafico).morir();
+		map.getAlmacenHilos().getMuertesGraficas().agregarGrafico((GraphicEntidad)grafico);
 		crearPremio();
 	}
 	private void crearPremio(){

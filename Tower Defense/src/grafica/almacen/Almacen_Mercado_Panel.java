@@ -24,8 +24,9 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private Almacen_Mercado almacen;
 	private JButton colocables[];
 	private Map<String,Integer> itemsPremio;
-	private String c[] = {"Swordman","Arquero","Angel","Mago","Catapulta","Barricada","Stun","Curacion","Upgrade","Bomba","Booster","Trampa","Escudo","Venta","Cancelar"};
+	private String c[] = {"Swordman","Arquero","Angel","Mago","Catapulta","Barricada","Stun","Curacion","Upgrade","Gusano","Bomba","Booster","Escudo","Trampa","Venta","Cancelar"};
 	private JLabel[] cantidades;
+	private JLabel presupuesto;
 	
 	public Almacen_Mercado_Panel(Almacen_Mercado a){
 		Juego j = a.getJuego();
@@ -44,17 +45,20 @@ public class Almacen_Mercado_Panel extends JPanel{
 	
 	private void crearMapeo(){
 		itemsPremio = new HashMap<String,Integer>();
-		for(int i=9;i<13;i++){
+		for(int i=10;i<14;i++){
 			itemsPremio.put(c[i], 10);
 		}
 	}
+	public void actualizarPresupuesto(){
+		presupuesto.setText("$ "+almacen.getJuego().getNivel().getPresupuesto());
+	}
 	public void disminuirCantidad(String s){
 		itemsPremio.put(s, itemsPremio.get(s)-1);
-		actualizarBotones();
+		actualizarEtiquetas();
 	}
 	public void aumentarCantidad(String s){
 		itemsPremio.put(s, itemsPremio.get(s)+1);
-		actualizarBotones();
+		actualizarEtiquetas();
 	}
 	public void desactivar(){
 		for(int i=0;i<colocables.length;i++){
@@ -63,10 +67,10 @@ public class Almacen_Mercado_Panel extends JPanel{
 		for(int i=0;i<cantidades.length;i++)
 			cantidades[i].setVisible(false);
 	}
-	private void actualizarBotones(){
-		for(int i=9;i<13;i++){
-			cantidades[i-9].setText(c[i]+" x"+itemsPremio.get(c[i]));
-			cantidades[i-9].setName(c[i]+" x"+itemsPremio.get(c[i]));
+	private void actualizarEtiquetas(){
+		for(int i=10;i<14;i++){
+			cantidades[i-10].setText(c[i]+" x"+itemsPremio.get(c[i]));
+			cantidades[i-10].setName(c[i]+" x"+itemsPremio.get(c[i]));
 			if(itemsPremio.get(c[i])==0)
 				colocables[i].setEnabled(false);
 			else
@@ -77,7 +81,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private void crearBotones(int ancho, int alto){
 		colocables = new JButton[c.length];
 		OyenteAgregar oyAgr = new OyenteAgregar();
-		int[] fila = {0,0,0,1,1,2,2,2,3,5,5,6,6,7,7};
+		int[] fila = {0,0,0,1,1,2,2,2,3,3,5,5,6,6,7,7};
 		int x=0;
 		for(int i=0;i<colocables.length;i++){
 			colocables[i] = new JButton();
@@ -85,7 +89,6 @@ public class Almacen_Mercado_Panel extends JPanel{
 			colocables[i].setBorder(null);
 			colocables[i].setBorderPainted(false);
 			colocables[i].setContentAreaFilled(false);
-			colocables[i].setForeground(Color.WHITE);
 //			x=x%3;
 //			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+45+(i/13)*20,65,65);
 //			colocables[i].setBounds(0,i*j.getGui().getAlto()/20,j.getGui().getAncho()/12,j.getGui().getAlto()/20);
@@ -100,50 +103,58 @@ public class Almacen_Mercado_Panel extends JPanel{
 		int i=0;
 		while(i<5){
 			x=x%3;
-			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+45+(i/13)*20,65,65);
+			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+45,65,65);
 			i++;
 			x++;
 		}
 		x=0;
-		while(i<9){
+		while(i<10){
 			x=x%3;
-			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+45+(i/13)*20,65,65);
+			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+45,65,65);
 			i++;
 			x++;
 		}
 		x=0;
-		while(i<13){
+		while(i<14){
 			x=x%3;
-			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+45+(i/13)*20,65,65);
+			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+25+((i-9)/3*4),65,65);
 			i++;
 			x++;
 		}
 		x=0;
-		while(i<15){
+		while(i<16){
 			x=x%3;
-			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+45+(i/13)*20,65,65);
+			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+65,65,65);
 			i++;
 			x++;
 		}
 	}
 	private void crearEtiquetas(int ancho, int alto){
 		cantidades = new JLabel[4];
-		int[] fila = {5,5,5,6};
+		int[] fila = {5,5,6,6};
 		int x=0;
 		for(int i=0;i<cantidades.length;i++){
 			cantidades[i] = new JLabel();
 			cantidades[i].setBorder(null);
 			cantidades[i].setForeground(Color.WHITE);
-			x=x%3;
-			cantidades[i].setBounds(x*65+(x+1)*3,fila[i]*alto/12+(fila[i])*7+42,65,20);
+			x=x%2;
+			cantidades[i].setBounds(x*65+7,fila[i]*alto/12+(fila[i])*7+22+(i/2)*6,65,20);
 			cantidades[i].setFocusable(false);
-			cantidades[i].setText(c[i+9]+" x"+itemsPremio.get(c[i+9]));
-			cantidades[i].setFont(new Font("Arial",Font.ITALIC,12));
+			cantidades[i].setText(c[i+10]+" x"+itemsPremio.get(c[i+10]));
+			cantidades[i].setFont(new Font("Arial",Font.ITALIC,11));
 			this.add(cantidades[i]);
 			x++;
 		}
 	}
 	private void otrasEtiquetas(int ancho, int alto){
+		presupuesto = new JLabel();
+		presupuesto.setBounds(80,0,160,45);
+		presupuesto.setText("$ "+almacen.getJuego().getNivel().getPresupuesto());
+		presupuesto.setHorizontalAlignment(JLabel.CENTER);
+		presupuesto.setVerticalAlignment(JLabel.CENTER);
+		presupuesto.setForeground(Color.WHITE);
+		presupuesto.setFont(new Font("Arial",Font.ITALIC,20));
+		
 		JLabel etiquetaShop = new JLabel(new ImageIcon("src/Sprites/IconosBotones/ShopEtiqueta.png"));
 		etiquetaShop.setBounds(0,4,90,47);
 		JLabel etiquetaPremios = new JLabel(new ImageIcon("src/Sprites/IconosBotones/PremiosEtiqueta.png"));
@@ -151,6 +162,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 		JLabel fondo = new JLabel(new ImageIcon("src/Sprites/IconosBotones/FondoMercado.png"));
 		fondo.setBounds(0, 0, ancho/17*3, alto-100);
 		add(etiquetaShop);
+		add(presupuesto);
 		add(etiquetaPremios);
 		add(fondo);
 	}

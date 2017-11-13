@@ -27,7 +27,7 @@ public abstract class Nivel{
 			presupuesto=0;
 		else
 			presupuesto = p;
-		juego.getGui().actualizarPresupuesto();
+		juego.getAlmacen().getAlmacenPanel().actualizarPresupuesto();
 		
 	}
 	public void siguienteHorda(){

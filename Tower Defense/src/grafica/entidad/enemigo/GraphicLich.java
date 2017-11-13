@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class GraphicLich extends GraphicEnemigo{
 	
 	public GraphicLich(int x, int y, GraphicMapa m){
-		super(x,y,1,1,m);
+		super(x,y,1,1,7,m);
 
 		imagenes[0] = new ImageIcon(t.createImage(dir+"Enemigos/Lich/LichIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Enemigos/Lich/LichCaminar.gif"));

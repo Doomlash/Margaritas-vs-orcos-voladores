@@ -21,4 +21,7 @@ public abstract class GraphicObstaculo extends GraphicGameObject{
 	public void agregarGraficosAsociados(){
 		map.addGraphicElemento(vida);
 	}
+	public GraphicMapa getMapaGrafico(){
+		return map;
+	}
 }

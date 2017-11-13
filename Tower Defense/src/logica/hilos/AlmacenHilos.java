@@ -15,6 +15,7 @@ public class AlmacenHilos{
 	private Stun stun;
 	private HiloPowerUps powerUps;
 	private HiloBombas bombas;
+	private HiloMuertesGraficas muertes;
 	private boolean ejecutando=true;
 	
 	public HiloMovimientoEnemigo getMovEnemigo(){
@@ -91,6 +92,14 @@ public class AlmacenHilos{
 		}
 		return bombas;
 	}
+	public HiloMuertesGraficas getMuertesGraficas(){
+		if(muertes==null){
+			muertes = new HiloMuertesGraficas();
+			if(ejecutando)
+				muertes.start();
+		}
+		return muertes;
+	}
 	public void terminateAll(){
 		if(movEnemigo!=null)
 			movEnemigo.terminate();
@@ -110,6 +119,8 @@ public class AlmacenHilos{
 			powerUps.terminate();
 		if(bombas!=null)
 			bombas.terminate();
+		if(muertes!=null)
+			muertes.terminate();
 		ejecutando=false;
 	}
 }
