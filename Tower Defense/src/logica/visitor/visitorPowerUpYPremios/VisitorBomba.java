@@ -16,11 +16,11 @@ public class VisitorBomba extends Visitor{
 
 	public void visit(Aliado a){
 		if(bomba!=null)
-			a.recibirGolpe(bomba);
+			a.getEstadoEscudo().recibirGolpe(bomba);
 	}
 	public void visit(Enemigo e){
 		if(bomba!=null)
-			e.recibirGolpe(bomba);
+			e.getEstadoEscudo().recibirGolpe(bomba);
 	}
 	public void visit(Barricada b){
 		if(bomba!=null)
@@ -29,10 +29,6 @@ public class VisitorBomba extends Visitor{
 	public void visit(Piedra p){
 		if(bomba!=null)
 			bomba.agregarObjetivo(p);
-	}		
-	public void visit(Trampa t){
-		if(bomba!=null)
-			bomba.agregarObjetivo(t);
 	}
 	
 	public void kill(){

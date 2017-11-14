@@ -16,6 +16,7 @@ public class AlmacenHilos{
 	private HiloPowerUps powerUps;
 	private HiloBombas bombas;
 	private HiloMuertesGraficas muertes;
+	private HiloTrampas trampas;
 	private boolean ejecutando=true;
 	
 	public HiloMovimientoEnemigo getMovEnemigo(){
@@ -100,6 +101,14 @@ public class AlmacenHilos{
 		}
 		return muertes;
 	}
+	public HiloTrampas getTrampasAccionar(){
+		if(trampas==null){
+			trampas = new HiloTrampas();
+			if(ejecutando)
+				trampas.start();
+		}
+		return trampas;
+	}
 	public void terminateAll(){
 		if(movEnemigo!=null)
 			movEnemigo.terminate();
@@ -121,6 +130,8 @@ public class AlmacenHilos{
 			bombas.terminate();
 		if(muertes!=null)
 			muertes.terminate();
+		if(trampas!=null)
+			trampas.terminate();
 		ejecutando=false;
 	}
 }

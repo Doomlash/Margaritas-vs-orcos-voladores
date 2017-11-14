@@ -8,7 +8,7 @@ public class Cerberus extends Enemigo{
 	private boolean atacando=false;
 	
 	public Cerberus(int x, int y, Mapa m){
-		super(x,y,2,3,m);
+		super(x,y,2,2,m);
 		velocidad=12;
 		puntaje=50;
 		monedas=5;
@@ -29,7 +29,7 @@ public class Cerberus extends Enemigo{
 	public void atacar(Obstaculo o){
 		if(!atacando){
 			canMove=false;
-			((GraphicCerberus)grafico).atacar((o.getY()+o.getDimensionY()-1)-y);
+			((GraphicCerberus)grafico).atacar(o.getY(),o.getDimensionY(),y);
 			o.setVida(o.getVida()-fuerza);
 			atacando=true;
 		}

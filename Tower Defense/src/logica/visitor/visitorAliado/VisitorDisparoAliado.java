@@ -14,7 +14,7 @@ public class VisitorDisparoAliado extends Visitor{
 
 	public void visit(Enemigo e){
 		if(disparo!=null){
-			e.recibirGolpe(disparo);
+			e.getEstadoEscudo().recibirGolpe(disparo);
 			if(disparo!=null){
 				e.setVida(e.getVida()-disparo.getDamage());
 				disparo.stop();

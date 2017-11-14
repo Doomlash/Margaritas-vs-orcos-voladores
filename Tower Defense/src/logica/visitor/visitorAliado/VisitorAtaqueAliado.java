@@ -20,7 +20,7 @@ public class VisitorAtaqueAliado extends Visitor{
 		if(aliado!=null){
 			if(!filasAtacadas[fila-aliado.getY()]){
 				if(aliado.getX()+aliado.getDimensionX()==e.getX())
-					e.recibirGolpe(aliado);
+					e.getEstadoEscudo().recibirGolpe(aliado);
 				if(aliado!=null){
 					for(int i=fila-aliado.getY();(i<filasAtacadas.length)&&(i<e.getDimensionX());i++)
 						filasAtacadas[i]=true;

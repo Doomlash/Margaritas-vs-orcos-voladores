@@ -10,7 +10,8 @@ public class CreadorUpgrade implements Accion{
 	public void ejecutarAccion(int x, int y, Mapa m){
 		Upgrade u = new Upgrade(m);
 		if(m.getNivel().getPresupuesto()>=u.getPrecio()){
-			m.getCelda(x, y).getFirst().accept(new VisitorUpgrade(m,u));
+			if(!m.getCelda(x, y).isEmpty())
+				m.getCelda(x, y).getFirst().accept(new VisitorUpgrade(m,u));
 		}
 	}
 }

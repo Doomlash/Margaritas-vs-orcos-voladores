@@ -12,6 +12,7 @@ public abstract class EstadoEscudo{
 	public abstract void recibirGolpe(Entidad e);
 	public abstract void recibirGolpe(Disparo d);
 	public abstract void recibirGolpe(Bomba b);
+	public abstract void recibirGolpe(Trampa b);
 	public void kill(){
 		if(escudo!=null)
 			escudo.kill();

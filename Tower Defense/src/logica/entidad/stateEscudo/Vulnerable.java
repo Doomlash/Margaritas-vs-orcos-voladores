@@ -15,6 +15,10 @@ public class Vulnerable extends EstadoEscudo{
 	public void recibirGolpe(Disparo d){
 		
 	}
+	public void recibirGolpe(Trampa t){
+		entidad.setVida(entidad.getVida()-t.getDamage());
+		t.kill();
+	}
 	public void recibirGolpe(Bomba b){
 		b.agregarObjetivo(entidad);
 	}

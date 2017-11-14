@@ -21,4 +21,8 @@ public class Invulnerable extends EstadoEscudo{
 	public void recibirGolpe(Bomba b){
 		
 	}
+	public void recibirGolpe(Trampa t){
+		t.kill();
+		escudo.kill();
+	}
 }

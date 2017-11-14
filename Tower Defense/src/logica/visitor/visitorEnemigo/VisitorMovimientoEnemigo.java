@@ -41,6 +41,10 @@ public class VisitorMovimientoEnemigo extends Visitor{
 	}
 	
 	public void visit(Trampa t){
+		if(ene!=null){
+			ene.getEstadoEscudo().recibirGolpe(t);
+			
+		}
 	}
 	
 	public void visit(AgujeroGusano g){

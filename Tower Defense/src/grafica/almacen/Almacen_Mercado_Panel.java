@@ -116,8 +116,8 @@ public class Almacen_Mercado_Panel extends JPanel{
 		}
 		x=0;
 		while(i<14){
-			x=x%3;
-			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+25+((i-9)/3*4),65,65);
+			x=x%2;
+			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+25+((fila[i])/6*4),65,65);
 			i++;
 			x++;
 		}
@@ -224,6 +224,10 @@ public class Almacen_Mercado_Panel extends JPanel{
 				}
 				case("Escudo"):{
 					almacen.asignarAccion(new CreadorEscudo());
+					break;
+				}
+				case("Trampa"):{
+					almacen.asignarAccion(new CreadorTrampa());
 					break;
 				}
 				case("Upgrade"):{

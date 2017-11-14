@@ -10,6 +10,10 @@ public class GraphicItemTrampa extends GraphicItemPremio{
 		super(x,y);
 		this.item = i;
 
-		imagenes[0] = new ImageIcon(dir+"ItemTrampa.png");
+
+		imagenes[0] = new ImageIcon(dir+"TrampaItemChico.png");
+		imagenes[1] = new ImageIcon(dir+"TrampaItemGrande.png");
+		
+		this.getGrafico().addMouseListener(new Oyente());
 	}
 }

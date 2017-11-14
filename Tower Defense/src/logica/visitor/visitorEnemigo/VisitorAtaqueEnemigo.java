@@ -21,7 +21,7 @@ public class VisitorAtaqueEnemigo extends Visitor{
 		if(ene!=null){
 			if(!filasAtacadas[fila-ene.getY()]){
 				if(a.getX()+a.getDimensionX()==ene.getX())
-					a.recibirGolpe(ene);
+					a.getEstadoEscudo().recibirGolpe(ene);
 				if(ene!=null){
 					for(int i=fila-ene.getY();(i<filasAtacadas.length)&&(i<a.getDimensionX());i++)
 						filasAtacadas[i]=true;

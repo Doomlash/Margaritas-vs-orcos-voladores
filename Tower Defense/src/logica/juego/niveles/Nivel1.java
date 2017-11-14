@@ -15,15 +15,16 @@ public class Nivel1 extends Nivel{
 	}
 	
 	public void crearHordas(){
-		Enemigo e;
 		Random r = new Random();
 		int aux;
 		for(int i=0;i<3;i++){
 			for(int j=0;j<3;j++){
-				aux = r.nextInt(3);
-				e = new Dragon(map.getCeldas()[0].length-1,aux,map);
-				hordas[i].agregar(e);
+				aux = r.nextInt(5);
+				hordas[i].agregar(new Goblin(map.getCeldas()[0].length-1,aux,map));
 			}
+			aux = r.nextInt(5);
+			hordas[i].agregar(new Lich(map.getCeldas()[0].length-1,aux,map));
+			hordas[i].agregar(new Nigromante(map.getCeldas()[0].length-1,aux,map));
 		}
 	}
 	

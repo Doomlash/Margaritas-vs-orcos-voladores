@@ -5,8 +5,6 @@ import logica.mapa.Mapa;
 import logica.modificador_PowerUp.ModificadorEntidad;
 import logica.entidad.DirectorPowerUp.*;
 import logica.entidad.stateEscudo.*;
-import logica.disparo.*;
-import logica.premio.objetoPrecioso.*;
 
 public abstract class Entidad extends Obstaculo{
 	protected int rango,fuerza,cargaAtaqueActual,cargaAtaqueNecesaria;
@@ -34,15 +32,6 @@ public abstract class Entidad extends Obstaculo{
 	}
 	public abstract void atacar(Obstaculo o);
 	public abstract void atacarRango();
-	public void recibirGolpe(Entidad e){
-		escudo.recibirGolpe(e);
-	}
-	public void recibirGolpe(Disparo d){
-		escudo.recibirGolpe(d);
-	}
-	public void recibirGolpe(Bomba b){
-		escudo.recibirGolpe(b);
-	}
 	public void setDuracionAtaque(int d){
 		duracionAtaque=d;
 	}

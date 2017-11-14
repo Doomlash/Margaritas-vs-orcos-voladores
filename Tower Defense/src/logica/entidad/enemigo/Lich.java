@@ -6,6 +6,7 @@ import logica.gameObjects.*;
 import grafica.entidad.enemigo.*;
 
 public class Lich extends Enemigo{
+	private boolean escudoGenerado=false;
 	
 	/**
 	 * Se crea el elemento grafico asociado a la clase y se lo agrega al mapa grafico.
@@ -25,11 +26,16 @@ public class Lich extends Enemigo{
 		cargaAtaqueActual = 20;
 		duracionAtaque=7;
 		grafico = new GraphicLich(x,y,map.getMapaGrafico());
-		Escudo esc = new Escudo(m);
-		m.getAlmacenHilos().getPowerUps().agregarPowerUp(esc);
-		director.receive(esc);
 	}
-	
+	public void move(){
+		super.move();
+		if(!escudoGenerado){
+			escudoGenerado=true;
+			Escudo esc = new Escudo(map);
+			map.getAlmacenHilos().getPowerUps().agregarPowerUp(esc);
+			director.receive(esc);
+		}
+	}
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicEnemigo)grafico).atacar();
