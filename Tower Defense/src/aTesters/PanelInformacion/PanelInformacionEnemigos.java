@@ -23,7 +23,7 @@ public class PanelInformacionEnemigos extends JPanel{
 		setLayout(null);
 		setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
 		
-		fondos = new ImageIcon[2];
+		fondos = new ImageIcon[4];
 		for(int i=0;i<fondos.length;i++){
 			fondos[i] = new ImageIcon("src/Sprites/IconosBotones/InformacionEnemigos"+(i+1)+".png");
 		}
