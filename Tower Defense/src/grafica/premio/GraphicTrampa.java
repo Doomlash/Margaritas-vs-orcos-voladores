@@ -19,6 +19,8 @@ public class GraphicTrampa extends GraphicGameObject{
 		imagenes = new ImageIcon[2];
 		imagenes[0] = new ImageIcon(t.createImage(dir+"TrampaIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Trampa2.gif"));
+		
+		pos.x+=30;
 	}
 
 	public void decrementarTiempoAccionar(){

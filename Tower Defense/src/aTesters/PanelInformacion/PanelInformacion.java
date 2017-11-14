@@ -32,7 +32,7 @@ public class PanelInformacion extends JPanel{
 		add(fondo);
 	}
 	private void armarBotones(){
-		String[] command = {"Aliados","Enemigos","Salir"};
+		String[] command = {"Aliados","Enemigos","ComoJugar","Salir"};
 		botones = new JButton[command.length];
 		OyenteBotones oyente = new OyenteBotones();
 		
@@ -47,6 +47,10 @@ public class PanelInformacion extends JPanel{
 			botones[i].addActionListener(oyente);
 			botones[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInformacion"+command[i]+".png"));
 			botones[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInformacionEntered"+command[i]+".png"));
+			if(i==botones.length-1){
+				botones[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInicio"+command[i]+".png"));
+				botones[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInicio"+command[i]+"Entered.png"));
+			}
 			add(botones[i]);
 		}
 		
@@ -60,6 +64,7 @@ public class PanelInformacion extends JPanel{
 		back.setBounds(195,50,60,60);
 		back.setIcon(new ImageIcon("src/Sprites/IconosBotones/Back.png"));
 		back.setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/BackEntered.png"));
+		back.setPressedIcon(new ImageIcon("src/Sprites/IconosBotones/BackSelected.png"));
 		add(back);
 	}
 	private void fondos(){
@@ -100,6 +105,10 @@ public class PanelInformacion extends JPanel{
 							botones[i].setEnabled(true);
 						}
 					}
+					break;
+				}
+				case("Salir"):{
+					ventana.dispose();
 					break;
 				}
 			}
