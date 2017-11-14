@@ -24,6 +24,7 @@ public class Almacen_Mercado{
 	}
 	public void ejecutarAccion(int x, int y, Mapa m){
 		if(accion!=null&&activo){
+			juego.getNivel().getMapa().getMapaGrafico().quitarGrilla();
 			accion.ejecutarAccion(x, y, m);
 			accion = null;
 		}

@@ -172,6 +172,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 			String s =e.getActionCommand();
 			String[] aux = {"Bomba x"+itemsPremio.get("Bomba"),"Booster x"+itemsPremio.get("Booster"),
 			"Trampa x"+itemsPremio.get("Trampa"),"Escudo x"+itemsPremio.get("Escudo")};
+			almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 			switch(s){
 				case("Swordman"):{
 					almacen.asignarAccion(new CreadorSwordman());
