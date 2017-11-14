@@ -51,6 +51,7 @@ public class PanelInformacionEnemigos extends JPanel{
 		}
 		
 		botones[0].setBounds(195,50,60,60);
+		botones[0].setPressedIcon(new ImageIcon("src/Sprites/IconosBotones/BackSelected.png"));
 		
 		botones[1].setBounds(190,525,60,60);
 		
