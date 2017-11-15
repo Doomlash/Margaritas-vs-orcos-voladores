@@ -17,6 +17,7 @@ public class PanelInformacionIndividual extends JPanel{
 	private int actualImage=0;
 	private JLabel fondo;
 	private JButton[] botones;
+	protected final String dir = "src/Sprites/";
 	
 	public PanelInformacionIndividual(VentanaInicio v, String s){
 		ventana=v;
@@ -44,7 +45,7 @@ public class PanelInformacionIndividual extends JPanel{
 		
 		fondos = new ImageIcon[size];
 		for(int i=0;i<fondos.length;i++){
-			fondos[i] = new ImageIcon("src/Sprites/IconosBotones/Informacion"+s+(i+1)+".png");
+			fondos[i] = new ImageIcon(dir+"IconosBotones/Informacion"+s+(i+1)+".png");
 		}
 		fondo = new JLabel(fondos[actualImage]);
 		fondo.setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
@@ -64,13 +65,13 @@ public class PanelInformacionIndividual extends JPanel{
 			botones[i].setContentAreaFilled(false);
 			botones[i].setFocusable(false);
 			botones[i].addActionListener(oyente);	
-			botones[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/"+command[i]+".png"));
-			botones[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/"+command[i]+"Entered.png"));
+			botones[i].setIcon(new ImageIcon(dir+"IconosBotones/"+command[i]+".png"));
+			botones[i].setRolloverIcon(new ImageIcon(dir+"IconosBotones/"+command[i]+"Entered.png"));
 			add(botones[i]);
 		}
 		
 		botones[0].setBounds(195,50,60,60);
-		botones[0].setPressedIcon(new ImageIcon("src/Sprites/IconosBotones/BackSelected.png"));
+		botones[0].setPressedIcon(new ImageIcon(dir+"IconosBotones/BackSelected.png"));
 		
 		botones[1].setBounds(190,525,60,60);
 		

@@ -7,6 +7,6 @@ public class GraphicPiedraCiclope extends GraphicDisparoEnemigo{
 	public GraphicPiedraCiclope(int x, int y){
 		super(x,y);
 		
-		imagenes[0] = new ImageIcon(dir+"Enemigos/Ciclope/Piedra.gif");
+		imagenes[0] = new ImageIcon(dir+"Enemigos/Ciclope/PiedraCiclope.gif");
 	}
 }

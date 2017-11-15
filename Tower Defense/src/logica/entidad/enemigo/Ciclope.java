@@ -30,6 +30,6 @@ public class Ciclope extends Enemigo{
 	public void atacar(Obstaculo o){
 			canMove=false;
 			((GraphicEnemigo)grafico).atacar();
-			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-32,fuerza,8));
+			map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new PiedraCiclope(x,y,map,x-rango,grafico.getPos().x-32,fuerza,9));
 	}
 }

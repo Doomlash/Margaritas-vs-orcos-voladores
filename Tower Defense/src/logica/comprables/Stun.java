@@ -14,7 +14,7 @@ public class Stun extends Thread implements Comprable{
 	
 	public Stun(AlmacenHilos a, Mapa m){
 		almacen=a;
-		almacen.getAtaEnemigo().pausar();
+		almacen.getAtaEnemigo().congelar();
 		almacen.getMovEnemigo().congelar();
 		precio = 40;
 		tiempo = 10;
@@ -51,8 +51,8 @@ public class Stun extends Thread implements Comprable{
 	public void kill(){
 		execute=false;
 		almacen.asignarStun(null);
-		almacen.getAtaEnemigo().reanudar();
-		almacen.getMovEnemigo().reanudar();
+		almacen.getAtaEnemigo().descongelar();
+		almacen.getMovEnemigo().descongelar();
 		map.getMapaGrafico().removeGraphicElemento(grafico);
 	}
 }

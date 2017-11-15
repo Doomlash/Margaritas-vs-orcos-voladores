@@ -70,6 +70,7 @@ public class GUI extends JPanel {
 	public void finalizar(String s){
 		contador.terminate();
 		tiempo.setText(s);
+		ventana.getInicio().juegoFinalizado();
 	}
 	public void ejecutar(){
 		if(j==null){

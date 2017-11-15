@@ -8,12 +8,19 @@ public class HiloAtaqueEnemigo extends Thread{
 	protected volatile List<Enemigo> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
 	protected boolean pausa=false;
+	protected boolean congelado=false;
 	
 	public HiloAtaqueEnemigo(){
 		execute = true;
 		toDelete = new ArrayList<Enemigo>();
 		toExecute = new ArrayList<Enemigo>();
 		toInsert = new ArrayList<Enemigo>();
+	}
+	public void congelar(){
+		congelado=true;
+	}
+	public void descongelar(){
+		congelado=false;
 	}
 	public void pausar(){
 		pausa=true;
@@ -43,7 +50,7 @@ public class HiloAtaqueEnemigo extends Thread{
 	public void run(){
 		while(execute){
 			actualizar();
-			if(!pausa){
+			if(!pausa&&!congelado){
 				int x= toExecute.size();
 				for(int i=0;i<x;i++){
 					toExecute.get(i).atacarRango();

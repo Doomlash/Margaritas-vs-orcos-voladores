@@ -15,13 +15,14 @@ public class PanelInicio extends JPanel{
 	private JButton[] botones;
 	private JLabel fondo;
 	private VentanaInicio ventana;
+	protected final String dir = "src/Sprites/";
 	
 	public PanelInicio(VentanaInicio v){
 		ventana=v;
 		setLayout(null);
 		setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
 		
-		fondo = new JLabel(new ImageIcon("src/Sprites/IconosBotones/FondoInicio.png"));
+		fondo = new JLabel(new ImageIcon(dir+"IconosBotones/FondoInicio.png"));
 		fondo.setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
 		armarBotones();
 		add(fondo);
@@ -40,10 +41,13 @@ public class PanelInicio extends JPanel{
 			botones[i].setBounds(200,(i+1)*70+45,300,70);
 			botones[i].setFocusable(false);
 			botones[i].addActionListener(oyente);
-			botones[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInicio"+command[i]+".png"));
-			botones[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInicio"+command[i]+"Entered.png"));
+			botones[i].setIcon(new ImageIcon(dir+"IconosBotones/BotonInicio"+command[i]+".png"));
+			botones[i].setRolloverIcon(new ImageIcon(dir+"IconosBotones/BotonInicio"+command[i]+"Entered.png"));
 			add(botones[i]);
 		}
+		botones[1].setEnabled(false);
+	}
+	public void juegoFinalizado(){
 		botones[1].setEnabled(false);
 	}
 	private void cambiar(JPanel panel){

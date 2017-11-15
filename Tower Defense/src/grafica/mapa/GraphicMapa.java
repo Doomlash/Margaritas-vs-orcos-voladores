@@ -14,6 +14,7 @@ public class GraphicMapa extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private Image fondo,grilla,plano;
 	private Mapa mapa;
+	protected final String dir = "src/Sprites/";
 	
 	public GraphicMapa(Mapa m){
 		mapa = m;
@@ -23,8 +24,8 @@ public class GraphicMapa extends JPanel{
 		this.setBounds(ancho/17*3,alto/12,ancho/17*14,620);
 		
 		this.addMouseListener(new OyenteMouse());
-		plano = new ImageIcon("src/Sprites/FondoMapa.png").getImage();
-		grilla = new ImageIcon("src/Sprites/FondoMapaGrilla.png").getImage();
+		plano = new ImageIcon(dir+"FondoMapa.png").getImage();
+		grilla = new ImageIcon(dir+"FondoMapaGrilla.png").getImage();
 		fondo=plano;
 	}
 	

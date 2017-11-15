@@ -18,13 +18,14 @@ public class PanelInformacion extends JPanel{
 	private JButton back;
 	private ImageIcon[] fondos;
 	private JPanel[] paneles;
+	protected final String dir = "src/Sprites/";
 	
 	public PanelInformacion(VentanaInicio v){
 		ventana=v;
 		setLayout(null);
 		setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
 		
-		fondo = new JLabel(new ImageIcon("src/Sprites/IconosBotones/FondoInicio.png"));
+		fondo = new JLabel(new ImageIcon(dir+"IconosBotones/FondoInicio.png"));
 		fondo.setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
 		crearPaneles();
 		armarBotones();
@@ -52,11 +53,11 @@ public class PanelInformacion extends JPanel{
 			botones[i].setBounds(200,(i+1)*70+45,300,70);
 			botones[i].setFocusable(false);
 			botones[i].addActionListener(oyente);
-			botones[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInformacion"+command[i]+".png"));
-			botones[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInformacionEntered"+command[i]+".png"));
+			botones[i].setIcon(new ImageIcon(dir+"IconosBotones/BotonInformacion"+command[i]+".png"));
+			botones[i].setRolloverIcon(new ImageIcon(dir+"IconosBotones/BotonInformacionEntered"+command[i]+".png"));
 			if(i==botones.length-1){
-				botones[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInicio"+command[i]+".png"));
-				botones[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInicio"+command[i]+"Entered.png"));
+				botones[i].setIcon(new ImageIcon(dir+"IconosBotones/BotonInicio"+command[i]+".png"));
+				botones[i].setRolloverIcon(new ImageIcon(dir+"IconosBotones/BotonInicio"+command[i]+"Entered.png"));
 			}
 			add(botones[i]);
 		}
@@ -69,16 +70,16 @@ public class PanelInformacion extends JPanel{
 		back.setFocusable(false);
 		back.addActionListener(oyente);
 		back.setBounds(195,50,60,60);
-		back.setIcon(new ImageIcon("src/Sprites/IconosBotones/Back.png"));
-		back.setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/BackEntered.png"));
-		back.setPressedIcon(new ImageIcon("src/Sprites/IconosBotones/BackSelected.png"));
+		back.setIcon(new ImageIcon(dir+"IconosBotones/Back.png"));
+		back.setRolloverIcon(new ImageIcon(dir+"IconosBotones/BackEntered.png"));
+		back.setPressedIcon(new ImageIcon(dir+"IconosBotones/BackSelected.png"));
 		add(back);
 	}
 	private void fondos(){
 		String[] command = {"Aliados","Enemigos","Salir"};
 		fondos = new ImageIcon[command.length];
 		for(int i=0;i<fondos.length;i++){
-			fondos[i] = new ImageIcon("src/Sprites/IconosBotones/Informacion"+command[i]+".png");
+			fondos[i] = new ImageIcon(dir+"IconosBotones/Informacion"+command[i]+".png");
 		}
 	}
 	private void cambiar(JPanel panel){

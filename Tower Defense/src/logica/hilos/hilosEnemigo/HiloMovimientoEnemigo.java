@@ -10,6 +10,7 @@ public class HiloMovimientoEnemigo extends Thread{
 	protected volatile List<Enemigo> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
 	protected boolean pausa;
+	protected boolean congelado=false;
 	
 	public HiloMovimientoEnemigo(){
 		execute = true;
@@ -19,10 +20,13 @@ public class HiloMovimientoEnemigo extends Thread{
 		pausa=false;
 	}
 	public void congelar(){
-		pausa=true;
+		congelado=true;
 		int x = toExecute.size();
 		for(int i=0;i<x;i++)
 			((GraphicEnemigo)toExecute.get(i).getGraphic()).congelar();
+	}
+	public void descongelar(){
+		congelado=false;
 	}
 	public void pausar(){
 		pausa=true;
@@ -55,7 +59,7 @@ public class HiloMovimientoEnemigo extends Thread{
 	public void run(){
 		while(execute){
 			actualizar();
-			if(!pausa){
+			if(!pausa&&!congelado){
 				int x= toExecute.size();
 				for(int i=0;i<x;i++){
 					toExecute.get(i).move();
@@ -64,6 +68,11 @@ public class HiloMovimientoEnemigo extends Thread{
 					Thread.sleep(180);
 				}catch(InterruptedException e){
 				}
+			}
+			if(congelado){
+				int x= toExecute.size();
+				for(int i=0;i<x;i++)
+					((GraphicEnemigo)toExecute.get(i).getGraphic()).congelar();
 			}
 		}
 	}

@@ -18,13 +18,13 @@ public class Nivel1 extends Nivel{
 		Random r = new Random();
 		int aux;
 		for(int i=0;i<3;i++){
+			aux = r.nextInt(5);
+			hordas[i].agregar(new Ciclope(map.getCeldas()[0].length-1,aux,map));
 			for(int j=0;j<3;j++){
 				aux = r.nextInt(5);
 				hordas[i].agregar(new Goblin(map.getCeldas()[0].length-1,aux,map));
 			}
-			aux = r.nextInt(5);
 			hordas[i].agregar(new Lich(map.getCeldas()[0].length-1,aux,map));
-			hordas[i].agregar(new Ciclope(map.getCeldas()[0].length-1,aux,map));
 		}
 	}
 	

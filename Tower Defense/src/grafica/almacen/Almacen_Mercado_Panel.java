@@ -26,6 +26,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private String c[] = {"Swordman","Arquero","Angel","Mago","Catapulta","Barricada","Stun","Curacion","Upgrade","Gusano","Bomba","Booster","Escudo","Trampa","Venta","Cancelar"};
 	private JLabel[] cantidades;
 	private JLabel presupuesto;
+	protected final String dir = "src/Sprites/";
 	
 	public Almacen_Mercado_Panel(Almacen_Mercado a){
 		Juego j = a.getJuego();
@@ -95,9 +96,9 @@ public class Almacen_Mercado_Panel extends JPanel{
 			colocables[i].setBorder(null);
 			colocables[i].setBorderPainted(false);
 			colocables[i].setContentAreaFilled(false);
-			colocables[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/Sel"+c[i]+".png"));
-			colocables[i].setPressedIcon(new ImageIcon("src/Sprites/IconosBotones/Des"+c[i]+".png"));
-			colocables[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/Entered"+c[i]+".png"));
+			colocables[i].setIcon(new ImageIcon(dir+"IconosBotones/Sel"+c[i]+".png"));
+			colocables[i].setPressedIcon(new ImageIcon(dir+"IconosBotones/Des"+c[i]+".png"));
+			colocables[i].setRolloverIcon(new ImageIcon(dir+"IconosBotones/Entered"+c[i]+".png"));
 			colocables[i].addActionListener(oyAgr);
 			colocables[i].setFocusable(false);
 			this.add(colocables[i]);
@@ -157,11 +158,11 @@ public class Almacen_Mercado_Panel extends JPanel{
 		presupuesto.setForeground(Color.WHITE);
 		presupuesto.setFont(new Font("Arial",Font.ITALIC,20));
 		
-		JLabel etiquetaShop = new JLabel(new ImageIcon("src/Sprites/IconosBotones/ShopEtiqueta.png"));
+		JLabel etiquetaShop = new JLabel(new ImageIcon(dir+"IconosBotones/ShopEtiqueta.png"));
 		etiquetaShop.setBounds(0,4,90,47);
-		JLabel etiquetaPremios = new JLabel(new ImageIcon("src/Sprites/IconosBotones/PremiosEtiqueta.png"));
+		JLabel etiquetaPremios = new JLabel(new ImageIcon(dir+"IconosBotones/PremiosEtiqueta.png"));
 		etiquetaPremios.setBounds(0,alto/12*5+20,210,47);
-		JLabel fondo = new JLabel(new ImageIcon("src/Sprites/IconosBotones/FondoMercado.png"));
+		JLabel fondo = new JLabel(new ImageIcon(dir+"IconosBotones/FondoMercado.png"));
 		fondo.setBounds(0, 0, ancho/17*3, alto-100);
 		add(etiquetaShop);
 		add(presupuesto);
