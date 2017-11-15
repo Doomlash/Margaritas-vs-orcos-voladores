@@ -7,14 +7,13 @@ import java.util.ArrayList;
 public class HiloAtaqueEnemigo extends Thread{
 	protected volatile List<Enemigo> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
-	protected boolean pausa;
+	protected boolean pausa=false;
 	
 	public HiloAtaqueEnemigo(){
 		execute = true;
 		toDelete = new ArrayList<Enemigo>();
 		toExecute = new ArrayList<Enemigo>();
 		toInsert = new ArrayList<Enemigo>();
-		pausa = false;
 	}
 	public void pausar(){
 		pausa=true;

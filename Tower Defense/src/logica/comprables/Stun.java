@@ -10,17 +10,24 @@ public class Stun extends Thread implements Comprable{
 	private AlmacenHilos almacen;
 	private GraphicStun grafico;
 	private Mapa map;
+	protected boolean pausa=false;
 	
 	public Stun(AlmacenHilos a, Mapa m){
 		almacen=a;
 		almacen.getAtaEnemigo().pausar();
-		almacen.getMovEnemigo().pausar();
+		almacen.getMovEnemigo().congelar();
 		precio = 40;
 		tiempo = 10;
 		execute=true;
 		this.map=m;
 		grafico = new GraphicStun();
 		map.getMapaGrafico().addGraphicElemento(grafico);
+	}
+	public void pausar(){
+		pausa=true;
+	}
+	public void reanudar(){
+		pausa=false;
 	}
 	public void terminate(){
 		execute=false;
@@ -30,13 +37,15 @@ public class Stun extends Thread implements Comprable{
 	}
 	public void run(){
 		while(execute){
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
+			if(!pausa){
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+				}
+				tiempo--;
+				if(tiempo<=0)
+					kill();
 			}
-			tiempo--;
-			if(tiempo<=0)
-				kill();
 		}
 	}
 	public void kill(){

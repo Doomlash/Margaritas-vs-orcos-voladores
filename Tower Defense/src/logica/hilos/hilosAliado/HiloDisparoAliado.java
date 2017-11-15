@@ -8,6 +8,7 @@ import logica.disparo.disparoAliado.*;
 public class HiloDisparoAliado extends Thread{
 	private List<DisparoAliado> toExecute, toInsert, toDelete;
 	private volatile boolean execute;
+	protected boolean pausa=false;
 	
 	public HiloDisparoAliado(){
 		execute=true;
@@ -15,6 +16,12 @@ public class HiloDisparoAliado extends Thread{
 		toExecute = new ArrayList<DisparoAliado>();
 		toInsert = new ArrayList<DisparoAliado>();
 		
+	}
+	public void pausar(){
+		pausa=true;
+	}
+	public void reanudar(){
+		pausa=false;
 	}
 	public void agregarDisparoAliado(DisparoAliado d){
 		toInsert.add(d);
@@ -45,13 +52,15 @@ public class HiloDisparoAliado extends Thread{
 	public void run(){
 		while(execute){
 			actualizar();
-			int x= toExecute.size();
-			for(int i=0;i<x;i++){
-				toExecute.get(i).ejecutar();
-			}
-			try{
-				Thread.sleep(100);
-			}catch(InterruptedException e){
+			if(!pausa){
+				int x= toExecute.size();
+				for(int i=0;i<x;i++){
+					toExecute.get(i).ejecutar();
+				}
+				try{
+					Thread.sleep(100);
+				}catch(InterruptedException e){
+				}
 			}
 		}
 	}

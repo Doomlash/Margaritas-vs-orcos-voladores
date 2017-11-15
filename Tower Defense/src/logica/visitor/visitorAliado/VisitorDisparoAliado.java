@@ -23,14 +23,14 @@ public class VisitorDisparoAliado extends Visitor{
 			}
 		}
 	}
-	public void visit(Piedra p){
-		if(disparo!=null){
-			p.setVida(p.getVida()-disparo.getDamage());
-			disparo.stop();
-			disparo.kill();
-			kill();
-		}
-	}
+//	public void visit(Piedra p){
+//		if(disparo!=null){
+//			p.setVida(p.getVida()-disparo.getDamage());
+//			disparo.stop();
+//			disparo.kill();
+//			kill();
+//		}
+//	}
 	
 	public void kill(){
 		disparo = null;

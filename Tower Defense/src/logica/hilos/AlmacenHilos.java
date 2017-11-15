@@ -17,6 +17,7 @@ public class AlmacenHilos{
 	private HiloBombas bombas;
 	private HiloMuertesGraficas muertes;
 	private HiloTrampas trampas;
+	private HiloAgua agua;
 	private boolean ejecutando=true;
 	
 	public HiloMovimientoEnemigo getMovEnemigo(){
@@ -109,6 +110,14 @@ public class AlmacenHilos{
 		}
 		return trampas;
 	}
+	public HiloAgua getAgua(){
+		if(agua==null){
+			agua = new HiloAgua();
+			if(ejecutando)
+				agua.start();
+		}
+		return agua;
+	}
 	public void terminateAll(){
 		if(movEnemigo!=null)
 			movEnemigo.terminate();
@@ -132,6 +141,56 @@ public class AlmacenHilos{
 			muertes.terminate();
 		if(trampas!=null)
 			trampas.terminate();
+		if(agua!=null)
+			agua.terminate();
 		ejecutando=false;
+	}
+	public void pausar(){
+		if(movEnemigo!=null)
+			movEnemigo.pausar();
+		if(ataqueEnemigo!=null)
+			ataqueEnemigo.pausar();
+		if(ataqueAliado!=null)
+			ataqueAliado.pausar();
+		if(disparosEnemigos!=null)
+			disparosEnemigos.pausar();
+		if(disparosAliados!=null)
+			disparosAliados.pausar();
+		if(itemsPremio!=null)
+			itemsPremio.pausar();
+		if(stun!=null)
+			stun.pausar();
+		if(powerUps!=null)
+			powerUps.pausar();
+		if(bombas!=null)
+			bombas.pausar();
+		if(trampas!=null)
+			trampas.pausar();
+		if(agua!=null)
+			agua.pausar();
+	}
+	public void reanudar(){
+		if(movEnemigo!=null)
+			movEnemigo.reanudar();
+		if(ataqueEnemigo!=null)
+			ataqueEnemigo.reanudar();
+		if(ataqueAliado!=null)
+			ataqueAliado.reanudar();
+		if(disparosEnemigos!=null)
+			disparosEnemigos.reanudar();
+		if(disparosAliados!=null)
+			disparosAliados.reanudar();
+		if(itemsPremio!=null)
+			itemsPremio.reanudar();
+		if(stun!=null)
+			stun.reanudar();
+		if(powerUps!=null)
+			powerUps.reanudar();
+		if(bombas!=null)
+			bombas.reanudar();
+		if(trampas!=null)
+			trampas.reanudar();
+		if(agua!=null)
+			agua.reanudar();
 	}
 }

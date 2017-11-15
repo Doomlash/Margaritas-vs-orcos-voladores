@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class HiloDisparoEnemigo extends Thread{
 	private List<DisparoEnemigo> toExecute, toInsert, toDelete;
 	private volatile boolean execute;
+	protected boolean pausa=false;
 	
 	public HiloDisparoEnemigo(){
 		execute=true;
@@ -14,6 +15,12 @@ public class HiloDisparoEnemigo extends Thread{
 		toExecute = new ArrayList<DisparoEnemigo>();
 		toInsert = new ArrayList<DisparoEnemigo>();
 		
+	}
+	public void pausar(){
+		pausa=true;
+	}
+	public void reanudar(){
+		pausa=false;
 	}
 	public void agregarDisparoEnemigo(DisparoEnemigo d){
 		toInsert.add(d);
@@ -44,13 +51,15 @@ public class HiloDisparoEnemigo extends Thread{
 	public void run(){
 		while(execute){
 			actualizar();
-			int x= toExecute.size();
-			for(int i=0;i<x;i++){
-				toExecute.get(i).ejecutar();
-			}
-			try{
-				Thread.sleep(100);
-			}catch(InterruptedException e){
+			if(!pausa){
+				int x= toExecute.size();
+				for(int i=0;i<x;i++){
+					toExecute.get(i).ejecutar();
+				}
+				try{
+					Thread.sleep(100);
+				}catch(InterruptedException e){
+				}
 			}
 		}
 	}

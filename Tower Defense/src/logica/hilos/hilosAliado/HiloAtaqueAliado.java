@@ -7,12 +7,19 @@ import java.util.List;
 public class HiloAtaqueAliado extends Thread{
 	protected volatile List<Aliado> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
+	protected boolean pausa=false;
 	
 	public HiloAtaqueAliado(){
 		execute=true;
 		toDelete = new ArrayList<Aliado>();
 		toExecute = new ArrayList<Aliado>();
 		toInsert = new ArrayList<Aliado>();
+	}
+	public void pausar(){
+		pausa=true;
+	}
+	public void reanudar(){
+		pausa=false;
 	}
 	public void agregarAliado(Aliado a){
 		toInsert.add(a);
@@ -33,13 +40,15 @@ public class HiloAtaqueAliado extends Thread{
 			for(int i=0;i<y;i++){
 				toExecute.remove(toDelete.remove(0));
 			}
-			int z= toExecute.size();
-			for(int i=0;i<z;i++){
-				toExecute.get(i).atacarRango();
-			}
-			try{
+			if(!pausa){
+				int z= toExecute.size();
+				for(int i=0;i<z;i++){
+					toExecute.get(i).atacarRango();
+				}
+				try{
 				Thread.sleep(100);
-			}catch(InterruptedException e){
+				}catch(InterruptedException e){
+				}
 			}
 		}
 	}

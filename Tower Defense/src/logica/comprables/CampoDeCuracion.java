@@ -3,11 +3,13 @@ package logica.comprables;
 import logica.modificador_PowerUp.*;
 import logica.mapa.*;
 import logica.visitor.visitorPowerUpYPremios.*;
+import grafica.comprables.*;
 
 public class CampoDeCuracion extends Modificador implements Comprable{
 	private int precio,x,y;
 	private double tiempo;
 	private VisitorCuracion curacion;
+	private GraphicCuracion[] grafico;
 	
 	public CampoDeCuracion(int x, int y, Mapa m){
 		precio=50;
@@ -16,6 +18,15 @@ public class CampoDeCuracion extends Modificador implements Comprable{
 		this.map=m;
 		tiempo=8;
 		curacion = new VisitorCuracion(this);
+		grafico = new GraphicCuracion[9];
+		int aux=0;
+		for(int i=-1;i<2;i++){
+			for(int j=-1;j<2;j++){
+				grafico[aux] = new GraphicCuracion(x+i,y+j);
+				map.getMapaGrafico().addGraphicElemento(grafico[aux]);
+				aux++;
+			}
+		}
 	}
 	public int getPrecio(){
 		return precio;
@@ -32,6 +43,11 @@ public class CampoDeCuracion extends Modificador implements Comprable{
 		tiempo = tiempo - (0.25);
 		if(tiempo<=0)
 			kill();
+	}
+	public void kill(){
+		for(int i=0;i<grafico.length;i++)
+			map.getMapaGrafico().removeGraphicElemento(grafico[i]);
+		super.kill();
 	}
 	public int getPorcentaje(){
 		return 2;

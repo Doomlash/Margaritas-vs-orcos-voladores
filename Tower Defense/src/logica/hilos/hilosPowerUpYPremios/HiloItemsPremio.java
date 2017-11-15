@@ -8,12 +8,19 @@ import java.util.List;
 public class HiloItemsPremio extends Thread{
 	protected volatile List<ItemPremio> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
+	protected boolean pausa=false;
 	
 	public HiloItemsPremio(){
 		execute=true;
 		toDelete = new ArrayList<ItemPremio>();
 		toExecute = new ArrayList<ItemPremio>();
 		toInsert = new ArrayList<ItemPremio>();
+	}
+	public void pausar(){
+		pausa=true;
+	}
+	public void reanudar(){
+		pausa=false;
 	}
 	public void agregarItem(ItemPremio i){
 		toInsert.add(i);
@@ -34,13 +41,15 @@ public class HiloItemsPremio extends Thread{
 			for(int i=0;i<y;i++){
 				toExecute.remove(toDelete.remove(0));
 			}
-			int z= toExecute.size();
-			for(int i=0;i<z;i++){
-				toExecute.get(i).reducirTiempo();
-			}
-			try{
-				Thread.sleep(1000);
-			}catch(InterruptedException e){
+			if(!pausa){
+				int z= toExecute.size();
+				for(int i=0;i<z;i++){
+					toExecute.get(i).reducirTiempo();
+				}
+				try{
+					Thread.sleep(1000);
+				}catch(InterruptedException e){
+				}
 			}
 		}
 	}

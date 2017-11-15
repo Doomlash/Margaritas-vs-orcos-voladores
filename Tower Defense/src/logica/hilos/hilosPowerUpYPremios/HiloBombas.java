@@ -8,12 +8,19 @@ import java.util.List;
 public class HiloBombas extends Thread{
 	protected volatile List<Bomba> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
+	protected boolean pausa=false;
 	
 	public HiloBombas(){
 		execute = true;
 		toDelete = new ArrayList<Bomba>();
 		toExecute = new ArrayList<Bomba>();
 		toInsert = new ArrayList<Bomba>();
+	}
+	public void pausar(){
+		pausa=true;
+	}
+	public void reanudar(){
+		pausa=false;
 	}
 	public void agregarBomba(Bomba b){
 		toInsert.add(b);
@@ -37,13 +44,15 @@ public class HiloBombas extends Thread{
 	public void run(){
 		while(execute){
 			actualizar();
-			try{
-				Thread.sleep(100);
-			}catch(InterruptedException e){
-			}
-			int x= toExecute.size();
-			for(int i=0;i<x;i++){
-				toExecute.get(i).reducirTemporizador();
+			if(!pausa){
+				try{
+					Thread.sleep(100);
+				}catch(InterruptedException e){
+				}
+				int x= toExecute.size();
+				for(int i=0;i<x;i++){
+					toExecute.get(i).reducirTemporizador();
+				}
 			}
 		}
 	}

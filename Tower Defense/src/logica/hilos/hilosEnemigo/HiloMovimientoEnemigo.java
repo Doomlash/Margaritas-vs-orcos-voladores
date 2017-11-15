@@ -18,11 +18,17 @@ public class HiloMovimientoEnemigo extends Thread{
 		toInsert = new ArrayList<Enemigo>();
 		pausa=false;
 	}
-	public void pausar(){
+	public void congelar(){
 		pausa=true;
 		int x = toExecute.size();
 		for(int i=0;i<x;i++)
 			((GraphicEnemigo)toExecute.get(i).getGraphic()).congelar();
+	}
+	public void pausar(){
+		pausa=true;
+		int x = toExecute.size();
+		for(int i=0;i<x;i++)
+			toExecute.get(i).getGraphic().setImageIdle();
 	}
 	public void reanudar(){
 		pausa=false;

@@ -1,5 +1,8 @@
 package aTesters;
 
+import grafica.gui.*;
+import aTesters.PanelInformacion.*;
+
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
@@ -12,6 +15,9 @@ public class VentanaInicio extends JFrame {
 	private JPanel contentPane;
 	ImageIcon image = new ImageIcon("src/Sprites/IconosBotones/Hojas.gif");
 	private static final int AnchoVentana=1200,AltoVentana=720;
+	private GUI gui;
+	private PanelInicio inicio;
+	private PanelInformacion informacion;
 
 	/**
 	 * Launch the application.
@@ -43,7 +49,9 @@ public class VentanaInicio extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		contentPane.add(new PanelInicio(this));
+		inicio = new PanelInicio(this);
+		informacion = new PanelInformacion(this);
+		contentPane.add(inicio);
 	}
 	
 	public void cambiar(JPanel actual, JPanel nuevo){
@@ -56,5 +64,17 @@ public class VentanaInicio extends JFrame {
 	}
 	public int getAlto(){
 		return AltoVentana;
+	}
+	public GUI getGUIJuego(){
+		return gui;
+	}
+	public void cambiarJuego(GUI g){
+		gui=g;
+	}
+	public PanelInicio getInicio(){
+		return inicio;
+	}
+	public PanelInformacion getInformacion(){
+		return informacion;
 	}
 }

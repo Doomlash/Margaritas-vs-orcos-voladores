@@ -17,7 +17,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 public class Almacen_Mercado_Panel extends JPanel{
 	private static final long serialVersionUID = 1L;
@@ -67,6 +66,13 @@ public class Almacen_Mercado_Panel extends JPanel{
 		for(int i=0;i<cantidades.length;i++)
 			cantidades[i].setVisible(false);
 	}
+	public void activar(){
+		for(int i=0;i<colocables.length;i++){
+			colocables[i].setEnabled(true);
+		}
+		for(int i=0;i<cantidades.length;i++)
+			cantidades[i].setVisible(true);
+	}
 	private void actualizarEtiquetas(){
 		for(int i=10;i<14;i++){
 			cantidades[i-10].setText(c[i]+" x"+itemsPremio.get(c[i]));
@@ -89,16 +95,12 @@ public class Almacen_Mercado_Panel extends JPanel{
 			colocables[i].setBorder(null);
 			colocables[i].setBorderPainted(false);
 			colocables[i].setContentAreaFilled(false);
-//			x=x%3;
-//			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+45+(i/13)*20,65,65);
-//			colocables[i].setBounds(0,i*j.getGui().getAlto()/20,j.getGui().getAncho()/12,j.getGui().getAlto()/20);
 			colocables[i].setIcon(new ImageIcon("src/Sprites/IconosBotones/Sel"+c[i]+".png"));
 			colocables[i].setPressedIcon(new ImageIcon("src/Sprites/IconosBotones/Des"+c[i]+".png"));
 			colocables[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/Entered"+c[i]+".png"));
 			colocables[i].addActionListener(oyAgr);
 			colocables[i].setFocusable(false);
 			this.add(colocables[i]);
-//			x++;
 		}
 		int i=0;
 		while(i<5){
@@ -170,8 +172,6 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private class OyenteAgregar implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String s =e.getActionCommand();
-			String[] aux = {"Bomba x"+itemsPremio.get("Bomba"),"Booster x"+itemsPremio.get("Booster"),
-			"Trampa x"+itemsPremio.get("Trampa"),"Escudo x"+itemsPremio.get("Escudo")};
 			switch(s){
 				case("Swordman"):{
 					almacen.asignarAccion(new CreadorSwordman());

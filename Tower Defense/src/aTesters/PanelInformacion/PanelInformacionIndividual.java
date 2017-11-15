@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class PanelInformacionEnemigos extends JPanel{
+public class PanelInformacionIndividual extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private VentanaInicio ventana;
 	private ImageIcon[] fondos;
@@ -18,14 +18,33 @@ public class PanelInformacionEnemigos extends JPanel{
 	private JLabel fondo;
 	private JButton[] botones;
 	
-	public PanelInformacionEnemigos(VentanaInicio v){
+	public PanelInformacionIndividual(VentanaInicio v, String s){
 		ventana=v;
 		setLayout(null);
 		setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
+		int size=0;
+		switch(s){
+			case("Aliados"):{
+				size=3;
+				break;
+			}
+			case("Enemigos"):{
+				size=4;
+				break;
+			}
+			case("Premios"):{
+				size=3;
+				break;
+			}
+			case("ComoJugar"):{
+				size=4;
+				break;
+			}
+		}
 		
-		fondos = new ImageIcon[4];
+		fondos = new ImageIcon[size];
 		for(int i=0;i<fondos.length;i++){
-			fondos[i] = new ImageIcon("src/Sprites/IconosBotones/InformacionEnemigos"+(i+1)+".png");
+			fondos[i] = new ImageIcon("src/Sprites/IconosBotones/Informacion"+s+(i+1)+".png");
 		}
 		fondo = new JLabel(fondos[actualImage]);
 		fondo.setBounds(0,0,v.getAncho()-15,v.getAlto()-40);

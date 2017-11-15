@@ -18,21 +18,29 @@ public class PanelInformacion extends JPanel{
 	private VentanaInicio ventana;
 	private JButton back;
 	private ImageIcon[] fondos;
-	private ImageIcon defaultFondo=new ImageIcon("src/Sprites/IconosBotones/FondoInicio.png");
+	private JPanel[] paneles;
 	
 	public PanelInformacion(VentanaInicio v){
 		ventana=v;
 		setLayout(null);
 		setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
 		
-		fondo = new JLabel(defaultFondo);
+		fondo = new JLabel(new ImageIcon("src/Sprites/IconosBotones/FondoInicio.png"));
 		fondo.setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
+		crearPaneles();
 		armarBotones();
 		fondos();
 		add(fondo);
 	}
+	private void crearPaneles(){
+		paneles = new JPanel[4];
+		paneles[0] = new PanelInformacionIndividual(ventana,"Aliados");
+		paneles[1] = new PanelInformacionIndividual(ventana,"Enemigos");
+		paneles[2] = new PanelInformacionIndividual(ventana,"Premios");
+		paneles[3] = new PanelInformacionIndividual(ventana,"ComoJugar");
+	}
 	private void armarBotones(){
-		String[] command = {"Aliados","Enemigos","ComoJugar","Salir"};
+		String[] command = {"Aliados","Enemigos","Premios","ComoJugar","Salir"};
 		botones = new JButton[command.length];
 		OyenteBotones oyente = new OyenteBotones();
 		
@@ -82,29 +90,31 @@ public class PanelInformacion extends JPanel{
 			String s=e.getActionCommand();
 			switch(s){
 				case("Aliados"):{
-					for(int i=0;i<botones.length;i++){
-						botones[i].setVisible(false);
-						botones[i].setEnabled(false);
-					}
-					fondo.setIcon(fondos[0]);
-					repaint();
+//					for(int i=0;i<botones.length;i++){
+//						botones[i].setVisible(false);
+//						botones[i].setEnabled(false);
+//					}
+//					fondo.setIcon(fondos[0]);
+//					repaint();
+					cambiar(paneles[0]);
 					break;
 				}
 				case("Enemigos"):{
-					cambiar(new PanelInformacionEnemigos(ventana));
+					cambiar(paneles[1]);
 					break;
 				}
+				case("Premios"):{
+					cambiar(paneles[2]);
+					break;
+					
+				}
+				case("ComoJugar"):{
+					cambiar(paneles[3]);
+					break;
+					
+				}
 				case("Back"):{
-					if(fondo.getIcon()==defaultFondo){
-						cambiar(new PanelInicio(ventana));
-					}
-					else{
-						fondo.setIcon(defaultFondo);
-						for(int i=0;i<botones.length;i++){
-							botones[i].setVisible(true);
-							botones[i].setEnabled(true);
-						}
-					}
+					cambiar(ventana.getInicio());
 					break;
 				}
 				case("Salir"):{

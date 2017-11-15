@@ -1,6 +1,7 @@
 package aTesters;
 
 import aTesters.PanelInformacion.*;
+import grafica.gui.GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,8 +28,8 @@ public class PanelInicio extends JPanel{
 		add(fondo);
 	}
 	private void armarBotones(){
-		botones = new JButton[3];
-		String[] command = {"Jugar","Informacion","Salir"};
+		String[] command = {"Jugar","Continuar","Informacion","Salir"};
+		botones = new JButton[command.length];
 		OyenteBotones oyente = new OyenteBotones();
 		
 		for(int i=0;i<botones.length;i++){
@@ -44,6 +45,7 @@ public class PanelInicio extends JPanel{
 			botones[i].setRolloverIcon(new ImageIcon("src/Sprites/IconosBotones/BotonInicio"+command[i]+"Entered.png"));
 			add(botones[i]);
 		}
+		botones[1].setEnabled(false);
 	}
 	private void cambiar(JPanel panel){
 		ventana.cambiar(this, panel);
@@ -54,20 +56,24 @@ public class PanelInicio extends JPanel{
 			String s=e.getActionCommand();
 			switch(s){
 				case("Jugar"):{
-//					image.getImage().flush();
-//					fondo.setIcon(image);
-					for(int i=0;i<botones.length;i++)
-						remove(botones[i]); 
-					repaint();
-//					try{
-//						Thread.sleep(1100);
-//					}catch(InterruptedException e1){
-//					}
-//					dispose();
+					GUI g = ventana.getGUIJuego();
+					if(g!=null){
+						g.terminate();
+					}
+					g = new GUI(ventana);
+					botones[1].setEnabled(true);
+					g.ejecutar();
+					ventana.cambiarJuego(g);
+					cambiar(g);
+					break;
+				}
+				case("Continuar"):{
+					ventana.getGUIJuego().ejecutar();
+					cambiar(ventana.getGUIJuego());
 					break;
 				}
 				case("Informacion"):{
-					cambiar(new PanelInformacion(ventana));
+					cambiar(ventana.getInformacion());
 					break;
 				}
 				case("Salir"):{

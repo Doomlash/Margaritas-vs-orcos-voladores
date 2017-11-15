@@ -11,6 +11,7 @@ public class Generador extends Thread{
 	private int tiempo;
 	private int tiempoInicialEspera;
 	private volatile boolean execute;
+	protected boolean pausa=false;
 	
 	public Generador(Juego j){
 		this.juego=j;
@@ -20,45 +21,56 @@ public class Generador extends Thread{
 		hordaActual=nivelActual.getHordaActual();
 		tiempoInicialEspera=0;
 	}
+	public void pausar(){
+		pausa=true;
+	}
+	public void reanudar(){
+		pausa=false;
+	}
 	
 	public void terminate(){
 		execute=false;
 	}
 	public void run(){
 		while(execute){
-			try{
-				Thread.sleep(1000);
-			}catch(InterruptedException e){
-			}
-			if(tiempoInicialEspera<7){
-				tiempoInicialEspera++;
-			}
-			else{
-				if(hordaActual==null){
-					nivelActual = juego.siguienteNivel();
-					if(nivelActual==null)
-						juego.ganar();
-					else{
-						hordaActual=nivelActual.getHordaActual();
-					}
-					tiempoInicialEspera=0;
+			if(!pausa){
+				try{
+					Thread.sleep(1000);
+				}catch(InterruptedException e){
+				}
+				if(tiempoInicialEspera<7){
+					tiempoInicialEspera++;
 				}
 				else{
-					if(hordaActual.isCompleted()){
-						nivelActual.siguienteHorda();
-						hordaActual=nivelActual.getHordaActual();
-						if(hordaActual!=null)
-							nivelActual.getMapa().agregarObstaculos(3, 3);
+					if(hordaActual==null){
+						nivelActual = juego.siguienteNivel();
+						juego.getGui().actualizarNumHordas();
+						if(nivelActual==null)
+							juego.ganar();
+						else{
+							hordaActual=nivelActual.getHordaActual();
+						}
+						juego.getGui().repaint();
+						tiempoInicialEspera=0;
 					}
 					else{
-						if(hordaActual.hayEnemigos()){
-							tiempo++;
-							if(hordaActual.getTiempoCreacional()==tiempo){
-								tiempo=0;
-								Enemigo e = nivelActual.getHordaActual().getSiguiente();
-								nivelActual.getMapa().agregarElemento(e);
-								nivelActual.getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(e);
-								nivelActual.getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(e);
+						if(hordaActual.isCompleted()){
+							nivelActual.siguienteHorda();
+							hordaActual=nivelActual.getHordaActual();
+							juego.getGui().actualizarNumHordas();
+							if(hordaActual!=null)
+								nivelActual.getMapa().agregarObstaculos(3, 3);
+						}
+						else{
+							if(hordaActual.hayEnemigos()){
+								tiempo++;
+								if(hordaActual.getTiempoCreacional()==tiempo){
+									tiempo=0;
+									Enemigo e = nivelActual.getHordaActual().getSiguiente();
+									nivelActual.getMapa().agregarElemento(e);
+									nivelActual.getMapa().getAlmacenHilos().getMovEnemigo().agregarEnemigo(e);
+									nivelActual.getMapa().getAlmacenHilos().getAtaEnemigo().agregarEnemigo(e);
+								}
 							}
 						}
 					}

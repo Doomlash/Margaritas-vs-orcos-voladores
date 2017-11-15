@@ -1,20 +1,20 @@
-package logica.hilos.hilosPowerUpYPremios;
+package logica.hilos;
 
-import logica.modificador_PowerUp.Modificador;
+import logica.mapa.elementosMapa.temporales.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HiloPowerUps extends Thread{
-	protected volatile List<Modificador> toDelete,toExecute,toInsert;
+public class HiloAgua extends Thread{
+	protected volatile List<Agua> toDelete,toExecute,toInsert;
 	protected volatile boolean execute;
 	protected boolean pausa=false;
 	
-	public HiloPowerUps(){
+	public HiloAgua(){
 		execute = true;
-		toDelete = new ArrayList<Modificador>();
-		toExecute = new ArrayList<Modificador>();
-		toInsert = new ArrayList<Modificador>();
+		toDelete = new ArrayList<Agua>();
+		toExecute = new ArrayList<Agua>();
+		toInsert = new ArrayList<Agua>();
 	}
 	public void pausar(){
 		pausa=true;
@@ -22,11 +22,8 @@ public class HiloPowerUps extends Thread{
 	public void reanudar(){
 		pausa=false;
 	}
-	public void agregarPowerUp(Modificador p){
-		toInsert.add(p);
-	}
-	public void powerUpAEliminar(Modificador p){
-		toDelete.add(p);
+	public void agregarAgua(Agua a){
+		toInsert.add(a);
 	}
 	public void terminate(){
 		execute=false;
@@ -46,12 +43,16 @@ public class HiloPowerUps extends Thread{
 			actualizar();
 			if(!pausa){
 				try{
-					Thread.sleep(250);
+					Thread.sleep(1000);
 				}catch(InterruptedException e){
 				}
 				int x= toExecute.size();
 				for(int i=0;i<x;i++){
-					toExecute.get(i).actualizar();
+					toExecute.get(i).decrementarTiempo();;
+					if(toExecute.get(i).getTiempo()==0){
+						toExecute.get(i).kill();
+						toDelete.add(toExecute.get(i));
+					}
 				}
 			}
 		}

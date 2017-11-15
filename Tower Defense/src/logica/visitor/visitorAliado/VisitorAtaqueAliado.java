@@ -30,14 +30,14 @@ public class VisitorAtaqueAliado extends Visitor{
 		}
 
 	}
-	public void visit(Piedra p){
-		if(aliado!=null)
-			if(!filasAtacadas[fila-aliado.getY()]){
-				aliado.atacar(p);
-				for(int i=fila-aliado.getY();(i<filasAtacadas.length)&&(i<p.getDimensionX());i++)
-					filasAtacadas[i]=true;
-		}
-	}
+//	public void visit(Piedra p){
+//		if(aliado!=null)
+//			if(!filasAtacadas[fila-aliado.getY()]){
+//				aliado.atacar(p);
+//				for(int i=fila-aliado.getY();(i<filasAtacadas.length)&&(i<p.getDimensionX());i++)
+//					filasAtacadas[i]=true;
+//		}
+//	}
 	public void filaActualAtacada(int y){
 		fila=y;
 	}

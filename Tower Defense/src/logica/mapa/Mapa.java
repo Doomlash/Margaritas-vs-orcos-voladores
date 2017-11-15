@@ -50,8 +50,7 @@ public class Mapa{
 			columna=r.nextInt(celdas[0].length-3)+1;
 			if(celdas[fila][columna].isEmpty()){
 				Agua a = new Agua(columna,fila,this);
-				Thread t = new Thread(a);
-				t.start();
+				hilos.getAgua().agregarAgua(a);
 				agregarElemento(a);
 				l--;
 			}

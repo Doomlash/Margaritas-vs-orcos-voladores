@@ -122,7 +122,7 @@ public abstract class Enemigo extends Entidad{
 	}
 	private void crearPremio(){
 		Random r = new Random();
-		int i = r.nextInt(5);
+		int i = r.nextInt(10);
 		switch(i){
 			case(0):{
 				map.getAlmacenHilos().getItemsPremio().agregarItem(new ItemDiamante(x,y,map));

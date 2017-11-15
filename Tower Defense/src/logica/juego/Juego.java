@@ -53,13 +53,16 @@ public class Juego{
 		return puntaje;
 	}
 	public void perder(){
-		nivel.getMapa().clear();
-		nivel.getMapa().getAlmacenHilos().terminateAll();
+		finalizar();
 		gui.getPanelPrincipal().remove(nivel.getMapa().getMapaGrafico());
 		gui.getPanelPrincipal().repaint();
+		gui.finalizar("Perdiste!");
+	}
+	public void finalizar(){
+		nivel.getMapa().clear();
+		nivel.getMapa().getAlmacenHilos().terminateAll();
 		generador.terminate();
 		almacen.desactivar();
-		gui.finalizar("Perdiste!");
 	}
 	public void iniciar(){
 		if(generador==null){
@@ -70,5 +73,15 @@ public class Juego{
 	public void ganar(){
 		almacen.desactivar();
 		gui.finalizar("Ganaste!");
+	}
+	public void pausar(){
+		nivel.getMapa().getAlmacenHilos().pausar();
+		generador.pausar();
+		almacen.desactivar();
+	}
+	public void reanudar(){
+		nivel.getMapa().getAlmacenHilos().reanudar();
+		generador.reanudar();
+		almacen.activar();
 	}
 }
