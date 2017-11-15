@@ -172,6 +172,12 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private class OyenteAgregar implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String s =e.getActionCommand();
+<<<<<<< HEAD
+=======
+			String[] aux = {"Bomba x"+itemsPremio.get("Bomba"),"Booster x"+itemsPremio.get("Booster"),
+			"Trampa x"+itemsPremio.get("Trampa"),"Escudo x"+itemsPremio.get("Escudo")};
+			almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+>>>>>>> 46cc0eb5f5316621f6845c9fd0c124007d22ffc5
 			switch(s){
 				case("Swordman"):{
 					almacen.asignarAccion(new CreadorSwordman());

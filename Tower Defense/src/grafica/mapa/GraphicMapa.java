@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class GraphicMapa extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private Image fondo;
+	private Image fondo,grilla,plano;
 	private Mapa mapa;
 	
 	public GraphicMapa(Mapa m){
@@ -23,7 +23,9 @@ public class GraphicMapa extends JPanel{
 		this.setBounds(ancho/17*3,alto/12,ancho/17*14,620);
 		
 		this.addMouseListener(new OyenteMouse());
-		fondo = new ImageIcon("src/Sprites/FondoMapa.png").getImage();
+		plano = new ImageIcon("src/Sprites/FondoMapa.png").getImage();
+		grilla = new ImageIcon("src/Sprites/FondoMapaGrilla.png").getImage();
+		fondo=plano;
 	}
 	
 	public void addGraphicElemento(GraphicGameObject g){
@@ -43,7 +45,14 @@ public class GraphicMapa extends JPanel{
 		setOpaque(false);
 		super.paint(g);
 	}
-	
+	public void añadirGrilla(){
+		fondo=grilla;
+		repaint();
+	}
+	public void quitarGrilla(){
+		fondo=plano;
+		repaint();
+	}
 	
 	private class OyenteMouse implements MouseListener{
 		public void mouseClicked(MouseEvent e){}
