@@ -17,7 +17,7 @@ public class Mago extends Aliado{
 		super(x,y,1,1,m);
 		precio = 80;
 		vida=vidaMax=30;
-		rango=3;
+		rango=4;
 		fuerza=10;
 		duracionAtaque=5;
 		cargaAtaqueNecesaria = duracionAtaque*3;

@@ -8,20 +8,26 @@ import grafica.gameObjects.*;
 public abstract class DisparoEnemigo extends Disparo{
 	protected VisitorDisparoEnemigo visitorDisparoEnemigo;
 
-	public DisparoEnemigo(int x,int y, Mapa m, int a, int dam, int generacion){
-		super(x-1,y,m,a,dam,generacion);
+	public DisparoEnemigo(int x,int y, Mapa m, int a, int dam, int generacion, int cantImp){
+		super(x-1,y,m,a,dam,generacion,cantImp);
 		visitorDisparoEnemigo = new VisitorDisparoEnemigo(this);
 	}
 	public void ejecutar(){
-		if((x<0)||(x==alcance-1))
+		if(cantImpactos==0)
 			kill();
 		else{
-			map.getCelda(x, y).accept(visitorDisparoEnemigo);
-			if(canMove){
-				int aux= x*grafico.getWidthUnaCelda();
-				grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
-				if(grafico.getPos().x<aux)
-					x--;
+			if((x<0)||(x==alcance-1))
+				kill();
+			else{
+				Celda c = map.getCelda(x, y);
+				if(c!=null)
+					c.accept(visitorDisparoEnemigo);
+				if(canMove){
+					int aux= x*grafico.getWidthUnaCelda();
+					grafico.cambiarPos(grafico.getPos().x-velocidad, grafico.getPos().y);
+					if(grafico.getPos().x<aux)
+						x--;
+				}
 			}
 		}
 	}

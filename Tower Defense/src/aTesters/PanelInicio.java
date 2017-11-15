@@ -1,6 +1,5 @@
 package aTesters;
 
-import aTesters.PanelInformacion.*;
 import grafica.gui.GUI;
 
 import java.awt.event.ActionEvent;
@@ -77,6 +76,9 @@ public class PanelInicio extends JPanel{
 					break;
 				}
 				case("Salir"):{
+					GUI g =ventana.getGUIJuego();
+					if(g!=null)
+						g.terminate();
 					ventana.dispose();
 					break;
 				}

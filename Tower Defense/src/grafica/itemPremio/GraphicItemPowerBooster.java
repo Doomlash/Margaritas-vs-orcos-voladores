@@ -10,8 +10,8 @@ public class GraphicItemPowerBooster extends GraphicItemPremio{
 		super(x,y);
 		this.item = i;
 
-		imagenes[0] = new ImageIcon(dir+"BoosterItemChico.png");
-		imagenes[1] = new ImageIcon(dir+"BoosterItemGrande.png");
+		imagenes[0] = new ImageIcon(dir+"ItemsPremios/BoosterItemChico.png");
+		imagenes[1] = new ImageIcon(dir+"ItemsPremios/BoosterItemGrande.png");
 		
 		this.getGrafico().addMouseListener(new Oyente());
 	}

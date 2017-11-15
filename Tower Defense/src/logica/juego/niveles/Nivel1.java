@@ -24,7 +24,7 @@ public class Nivel1 extends Nivel{
 			}
 			aux = r.nextInt(5);
 			hordas[i].agregar(new Lich(map.getCeldas()[0].length-1,aux,map));
-			hordas[i].agregar(new Nigromante(map.getCeldas()[0].length-1,aux,map));
+			hordas[i].agregar(new Ciclope(map.getCeldas()[0].length-1,aux,map));
 		}
 	}
 	

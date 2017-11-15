@@ -172,76 +172,85 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private class OyenteAgregar implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			String s =e.getActionCommand();
-<<<<<<< HEAD
-=======
-			String[] aux = {"Bomba x"+itemsPremio.get("Bomba"),"Booster x"+itemsPremio.get("Booster"),
-			"Trampa x"+itemsPremio.get("Trampa"),"Escudo x"+itemsPremio.get("Escudo")};
-			almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
->>>>>>> 46cc0eb5f5316621f6845c9fd0c124007d22ffc5
 			switch(s){
 				case("Swordman"):{
 					almacen.asignarAccion(new CreadorSwordman());
-					
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();					
 					break;
 				}
 				case("Arquero"):{
 					almacen.asignarAccion(new CreadorArquero());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
 				case("Angel"):{
 					almacen.asignarAccion(new CreadorAngel());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
 				case("Catapulta"):{
 					almacen.asignarAccion(new CreadorCatapulta());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
 				case("Mago"):{
 					almacen.asignarAccion(new CreadorMago());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
 				case("Barricada"):{
 					almacen.asignarAccion(new CreadorBarricada());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
 				case("Stun"):{
 					almacen.asignarAccion(new CreadorStun());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().quitarGrilla();
 					break;
 				}
 				case("Gusano"):{
 					almacen.asignarAccion(new CreadorAgujeroGusano());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
 				case("Curacion"):{
 					almacen.asignarAccion(new CreadorCuracion());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
 				case("Venta"):{
 					almacen.asignarAccion(new Venta());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().quitarGrilla();
 					break;
 				}
 				case("Bomba"):{
 					almacen.asignarAccion(new CreadorBomba());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
 				case("Booster"):{
 					almacen.asignarAccion(new CreadorBooster());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().quitarGrilla();
 					break;
 				}
 				case("Escudo"):{
 					almacen.asignarAccion(new CreadorEscudo());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().quitarGrilla();
 					break;
 				}
 				case("Trampa"):{
 					almacen.asignarAccion(new CreadorTrampa());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
 				case("Upgrade"):{
 					almacen.asignarAccion(new CreadorUpgrade());
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().quitarGrilla();
 					break;
 				}
 				case("Cancelar"):{
 					almacen.asignarAccion(null);
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().quitarGrilla();
 					break;
 				}
 			}

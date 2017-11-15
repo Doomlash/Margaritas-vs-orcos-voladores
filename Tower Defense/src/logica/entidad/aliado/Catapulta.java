@@ -17,7 +17,7 @@ public class Catapulta extends Aliado{
 		super(x,y,2,1,m);
 		precio = 100;
 		vida=vidaMax=70;
-		rango=3;
+		rango=4;
 		fuerza=15;
 		duracionAtaque=13;
 		cargaAtaqueNecesaria = duracionAtaque*3;

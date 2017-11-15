@@ -2,35 +2,36 @@ package logica.visitor.visitorAliado;
 
 import logica.disparo.disparoAliado.*;
 import logica.entidad.enemigo.*;
-import logica.mapa.elementosMapa.destruibles.*;
+import logica.gameObjects.Obstaculo;
 import logica.visitor.Visitor;
 
 public class VisitorDisparoAliado extends Visitor{
-	private DisparoAliado disparo;
+	protected DisparoAliado disparo;
+	private Obstaculo[] impactados;
+	private int agregar=0;
 	
 	public VisitorDisparoAliado(DisparoAliado d){
 		this.disparo = d;
+		impactados = new Obstaculo[d.getImpactos()];
 	}
-
 	public void visit(Enemigo e){
 		if(disparo!=null){
 			e.getEstadoEscudo().recibirGolpe(disparo);
 			if(disparo!=null){
-				e.setVida(e.getVida()-disparo.getDamage());
-				disparo.stop();
-				disparo.kill();
-				kill();
+				boolean pertenece=false;
+				for(int i=0;(i<impactados.length)&&!pertenece;i++){
+					if(impactados[i]==e)
+						pertenece=true;
+				}
+				if(!pertenece){
+					e.setVida(e.getVida()-disparo.getDamage());
+					disparo.impactar();
+					impactados[agregar]=e;
+					agregar++;
+				}
 			}
 		}
 	}
-//	public void visit(Piedra p){
-//		if(disparo!=null){
-//			p.setVida(p.getVida()-disparo.getDamage());
-//			disparo.stop();
-//			disparo.kill();
-//			kill();
-//		}
-//	}
 	
 	public void kill(){
 		disparo = null;

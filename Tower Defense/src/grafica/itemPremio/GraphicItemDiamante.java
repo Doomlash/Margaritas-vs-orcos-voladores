@@ -10,8 +10,8 @@ public class GraphicItemDiamante extends GraphicItemPremio{
 		super(x,y);
 		this.item = i;
 		
-		imagenes[0] = new ImageIcon(dir+"DiamanteItemChico.png");
-		imagenes[1] = new ImageIcon(dir+"DiamanteItemGrande.png");
+		imagenes[0] = new ImageIcon(dir+"ItemsPremios/DiamanteItemChico.png");
+		imagenes[1] = new ImageIcon(dir+"ItemsPremios/DiamanteItemGrande.png");
 		
 		this.getGrafico().addMouseListener(new Oyente());
 	}

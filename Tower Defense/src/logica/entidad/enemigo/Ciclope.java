@@ -19,7 +19,7 @@ public class Ciclope extends Enemigo{
 		puntaje=120;
 		monedas=30;
 		vida=vidaMax=70;
-		rango=5;
+		rango=3;
 		fuerza = 15;
 		cargaAtaqueNecesaria = 30;
 		cargaAtaqueActual = 25;

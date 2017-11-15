@@ -2,7 +2,6 @@ package logica.visitor.visitorAliado;
 
 import logica.entidad.aliado.*;
 import logica.entidad.enemigo.*;
-import logica.mapa.elementosMapa.destruibles.*;
 import logica.visitor.*;
 
 public class VisitorAtaqueAliado extends Visitor{

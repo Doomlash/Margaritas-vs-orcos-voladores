@@ -8,8 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import aTesters.PanelInicio;
-import aTesters.VentanaInicio;
+import aTesters.*;
 
 public class PanelInformacion extends JPanel{
 	private static final long serialVersionUID = 1L;
@@ -90,12 +89,6 @@ public class PanelInformacion extends JPanel{
 			String s=e.getActionCommand();
 			switch(s){
 				case("Aliados"):{
-//					for(int i=0;i<botones.length;i++){
-//						botones[i].setVisible(false);
-//						botones[i].setEnabled(false);
-//					}
-//					fondo.setIcon(fondos[0]);
-//					repaint();
 					cambiar(paneles[0]);
 					break;
 				}

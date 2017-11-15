@@ -1,7 +1,6 @@
 package grafica.entidad;
 
 import grafica.gameObjects.*;
-import grafica.mapa.*;
 
 import javax.swing.ImageIcon;
 
