@@ -77,11 +77,8 @@ public class Juego{
 	public void ganar(){
 		generador.terminate();
 		almacen.desactivar();
-<<<<<<< HEAD
 		gui.ganar();
-=======
 		player.playVictoria();
->>>>>>> 89a9ac49416749cccf6406d0c840c01ce967daa2
 		gui.finalizar("Ganaste!");
 	}
 	public void pausar(){
