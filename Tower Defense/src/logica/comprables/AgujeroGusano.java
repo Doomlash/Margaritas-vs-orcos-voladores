@@ -10,7 +10,7 @@ public class AgujeroGusano extends Elemento implements Comprable{
 	
 	public AgujeroGusano(int x, int y, Mapa m){
 		super(x,y,1,1,m);
-		precio = 200;
+		precio = 500;
 		grafico = new GraphicAgujeroGusano(x,y);
 	}
 	

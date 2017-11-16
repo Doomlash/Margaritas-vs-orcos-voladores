@@ -15,10 +15,10 @@ public class Arquero extends Aliado{
 	 */
 	public Arquero(int x,int y, Mapa m){
 		super(x,y,1,1,m);
-		precio = 50;
+		precio = 100;
 		vida=vidaMax=50;
-		rango=5;
-		fuerza=7;
+		rango=4;
+		fuerza=20;
 		duracionAtaque=9;
 		cargaAtaqueNecesaria = duracionAtaque*3;
 		cargaAtaqueActual = duracionAtaque*2;

@@ -8,10 +8,10 @@ public class Angel extends Aliado{
 	
 	public Angel(int x, int y, Mapa m){
 		super(x,y,2,2,m);
-		precio = 50;
-		vida=vidaMax=190;
+		precio = 800;
+		vida=vidaMax=500;
 		rango=1;
-		fuerza=30;
+		fuerza=80;
 		duracionAtaque=8;
 		cargaAtaqueNecesaria = duracionAtaque*3;
 		cargaAtaqueActual = duracionAtaque*2;

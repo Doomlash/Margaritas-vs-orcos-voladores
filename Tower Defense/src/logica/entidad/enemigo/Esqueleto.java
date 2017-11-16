@@ -11,14 +11,14 @@ public class Esqueleto extends Enemigo{
 		super(x,y,1,1,m);
 		this.comandante=n;
 		velocidad=8;
-		puntaje=50;
-		monedas=5;
-		vida=vidaMax=50;
+		puntaje=5;
+		monedas=0;
+		vida=vidaMax=10;
 		rango=1;
 		fuerza=10;
-		cargaAtaqueNecesaria = 30;
-		cargaAtaqueActual = 20;
 		duracionAtaque=8;
+		cargaAtaqueNecesaria = duracionAtaque*3;
+		cargaAtaqueActual = duracionAtaque*2;
 		grafico = new GraphicEsqueleto(x,y,map.getMapaGrafico());
 	}
 	public void atacar(Obstaculo o){

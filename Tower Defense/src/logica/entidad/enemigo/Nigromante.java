@@ -22,16 +22,16 @@ public class Nigromante extends Enemigo{
 	public Nigromante(int x, int y, Mapa m){
 		super(x,y,1,1,m);
 		velocidad=8;
-		puntaje=90;
-		monedas=20;
-		vida=vidaMax=30;
+		puntaje=100;
+		monedas=150;
+		vida=vidaMax=100;
 		rango=1;
-		fuerza=20;
-		cargaAtaqueNecesaria = 30;
-		cargaAtaqueActual = 20;
+		fuerza=50;
 		cargaInvocacion=20;
 		cargaInvocacionActual=0;
 		duracionAtaque=7;
+		cargaAtaqueNecesaria = duracionAtaque*3;
+		cargaAtaqueActual = duracionAtaque*2;
 		grafico = new GraphicNigromante(x,y,map.getMapaGrafico());
 		ejercito = new ArrayList<Esqueleto>();
 		visitorEsqueleto = new VisitorCeldaEsqueleto(this,map);

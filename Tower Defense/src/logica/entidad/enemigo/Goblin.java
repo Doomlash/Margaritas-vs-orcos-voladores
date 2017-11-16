@@ -9,14 +9,14 @@ public class Goblin extends Enemigo{
 	public Goblin(int x, int y, Mapa m){
 		super(x,y,1,1,m);
 		velocidad=12;
-		puntaje=50;
-		monedas=5;
-		vida=vidaMax=50;
+		puntaje=10;
+		monedas=25;
+		vida=vidaMax=80;
 		rango=1;
-		fuerza=10;
-		cargaAtaqueNecesaria = 30;
-		cargaAtaqueActual = 20;
+		fuerza=25;
 		duracionAtaque=6;
+		cargaAtaqueNecesaria = duracionAtaque*3;
+		cargaAtaqueActual = duracionAtaque*2;
 		grafico = new GraphicGoblin(x,y,map.getMapaGrafico());
 	}
 	

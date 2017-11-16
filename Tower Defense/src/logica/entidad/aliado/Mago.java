@@ -15,10 +15,10 @@ public class Mago extends Aliado{
 	 */
 	public Mago(int x, int y, Mapa m){
 		super(x,y,1,1,m);
-		precio = 80;
-		vida=vidaMax=30;
-		rango=4;
-		fuerza=10;
+		precio = 200;
+		vida=vidaMax=50;
+		rango=3;
+		fuerza=15;
 		duracionAtaque=5;
 		cargaAtaqueNecesaria = duracionAtaque*3;
 		cargaAtaqueActual = duracionAtaque*2;

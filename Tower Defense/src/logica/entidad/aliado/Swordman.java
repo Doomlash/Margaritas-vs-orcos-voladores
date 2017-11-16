@@ -14,10 +14,10 @@ public class Swordman extends Aliado{
 	 */
 	public Swordman(int x, int y, Mapa m){
 		super(x,y,1,1,m);
-		precio = 50;
-		vida=vidaMax=90;
+		precio = 150;
+		vida=vidaMax=200;
 		rango=1;
-		fuerza=14;
+		fuerza=30;
 		duracionAtaque=7;
 		cargaAtaqueNecesaria = duracionAtaque*3;
 		cargaAtaqueActual = duracionAtaque*2;

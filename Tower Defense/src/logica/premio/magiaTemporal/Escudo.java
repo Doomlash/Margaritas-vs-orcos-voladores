@@ -14,7 +14,7 @@ public class Escudo extends ModificadorEntidad{
 	protected GraphicEscudo grafico;
 	
 	public Escudo(Mapa m){
-		tiempo=10;
+		tiempo=30;
 		this.map=m;
 	}
 	public void actualizar(){

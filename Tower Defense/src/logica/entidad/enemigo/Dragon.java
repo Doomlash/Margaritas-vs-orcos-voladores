@@ -17,11 +17,11 @@ public class Dragon extends Enemigo{
 	public Dragon(int x, int y, Mapa m){
 		super(x,y,2,2,m);
 		velocidad=8;
-		puntaje=180;
-		monedas=50;
-		vida=vidaMax=120;
+		puntaje=1000;
+		monedas=1000;
+		vida=vidaMax=200;
 		rango=3;
-		fuerza = 20;
+		fuerza = 50;
 		cargaAtaqueNecesaria = 25;
 		cargaAtaqueActual = 20;
 		duracionAtaque=11;

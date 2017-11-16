@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Bomba extends GameObject{
-	private int damage=50;
+	private int damage=100;
 	private int tiempo=34; //3.4 Segundos
 	private List<Obstaculo> objetivos;
 	

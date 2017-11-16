@@ -15,14 +15,14 @@ public class Ogro extends Enemigo{
 	public Ogro(int x, int y, Mapa m){
 		super(x,y,1,1,m);
 		velocidad=6;
-		puntaje=100;
-		monedas=20;
-		vida=vidaMax=80;
+		puntaje=50;
+		monedas=50;
+		vida=vidaMax=100;
 		rango=1;
-		fuerza=25;
-		cargaAtaqueNecesaria = 30;
-		cargaAtaqueActual = 20;
+		fuerza=50;
 		duracionAtaque=6;
+		cargaAtaqueNecesaria = duracionAtaque*3;
+		cargaAtaqueActual = duracionAtaque*2;
 		grafico = new GraphicOgro(x,y,map.getMapaGrafico());
 	}
 

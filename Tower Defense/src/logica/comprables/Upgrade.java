@@ -13,8 +13,8 @@ public class Upgrade extends ModificadorEntidad implements Comprable{
 	
 	public Upgrade(Mapa m){
 		this.map=m;
-		precio=100;
-		tiempo=25;
+		precio=200;
+		tiempo=30;
 	}
 	public int getPrecio(){
 		return precio;

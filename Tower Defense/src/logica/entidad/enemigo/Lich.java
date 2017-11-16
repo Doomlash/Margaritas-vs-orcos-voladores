@@ -17,14 +17,14 @@ public class Lich extends Enemigo{
 	public Lich(int x, int y, Mapa m){
 		super(x,y,1,1,m);
 		velocidad=12;
-		puntaje=70;
-		monedas=15;
-		vida=vidaMax=60;
+		puntaje=100;
+		monedas=150;
+		vida=vidaMax=80;
 		rango=1;
-		fuerza=13;
-		cargaAtaqueNecesaria = 30;
-		cargaAtaqueActual = 20;
+		fuerza=25;
 		duracionAtaque=7;
+		cargaAtaqueNecesaria = duracionAtaque*3;
+		cargaAtaqueActual = duracionAtaque*2;
 		grafico = new GraphicLich(x,y,map.getMapaGrafico());
 	}
 	public void move(){

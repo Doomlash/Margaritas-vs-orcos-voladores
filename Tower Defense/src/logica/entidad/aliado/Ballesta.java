@@ -16,10 +16,10 @@ public class Ballesta extends Aliado{
 	 */
 	public Ballesta(int x, int y, Mapa m){
 		super(x,y,2,1,m);
-		precio = 100;
-		vida=vidaMax=70;
-		rango=4;
-		fuerza=15;
+		precio = 600;
+		vida=vidaMax=100;
+		rango=5;
+		fuerza=50;
 		duracionAtaque=13;
 		cargaAtaqueNecesaria = duracionAtaque*3;
 		cargaAtaqueActual = duracionAtaque*2;

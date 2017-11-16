@@ -16,8 +16,8 @@ public class Stun extends Thread implements Comprable{
 		almacen=a;
 		almacen.getAtaEnemigo().congelar();
 		almacen.getMovEnemigo().congelar();
-		precio = 40;
-		tiempo = 10;
+		precio = 200;
+		tiempo = 7;
 		execute=true;
 		this.map=m;
 		grafico = new GraphicStun();

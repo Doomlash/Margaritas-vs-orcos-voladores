@@ -16,11 +16,11 @@ public class Ciclope extends Enemigo{
 	public Ciclope(int x, int y, Mapa m){
 		super(x,y,1,1,m);
 		velocidad=8;
-		puntaje=120;
-		monedas=30;
-		vida=vidaMax=70;
-		rango=3;
-		fuerza = 15;
+		puntaje=80;
+		monedas=100;
+		vida=vidaMax=75;
+		rango=2;
+		fuerza = 25;
 		cargaAtaqueNecesaria = 30;
 		cargaAtaqueActual = 25;
 		duracionAtaque=21;

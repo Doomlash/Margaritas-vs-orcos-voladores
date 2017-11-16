@@ -3,7 +3,6 @@ package logica.visitor.visitorPowerUpYPremios;
 import logica.visitor.*;
 import logica.comprables.*;
 import logica.entidad.aliado.*;
-import logica.entidad.enemigo.*;
 import logica.mapa.elementosMapa.destruibles.*;
 
 public class VisitorCuracion extends Visitor{
@@ -15,10 +14,6 @@ public class VisitorCuracion extends Visitor{
 	public void visit(Aliado a){
 		if(curacion!=null)
 			a.setVida(a.getVida()+a.getVidaMax()*curacion.getPorcentaje()/100);
-	}
-	public void visit(Enemigo e){
-		if(curacion!=null)
-			e.setVida(e.getVida()+e.getVidaMax()*curacion.getPorcentaje()/100);
 	}
 	public void visit(Barricada b){
 		if(curacion!=null)

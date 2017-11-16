@@ -11,8 +11,8 @@ public class Barricada extends Obstaculo implements Comprable{
 
 	public Barricada(int x,int y, Mapa m){
 		super(x,y,1,1,m);
-		precio = 20;
-		vida=vidaMax=100;
+		precio = 200;
+		vida=vidaMax=500;
 		grafico = new GraphicBarricada(x,y,m.getMapaGrafico());
 	}
 	public void accept(Visitor v){

@@ -10,11 +10,11 @@ public class Cerberus extends Enemigo{
 	public Cerberus(int x, int y, Mapa m){
 		super(x,y,2,2,m);
 		velocidad=12;
-		puntaje=50;
-		monedas=5;
-		vida=vidaMax=200;
+		puntaje=2000;
+		monedas=1000;
+		vida=vidaMax=500;
 		rango=1;
-		fuerza=40;
+		fuerza=150;
 		cargaAtaqueNecesaria = 30;
 		cargaAtaqueActual = 20;
 		duracionAtaque=10;

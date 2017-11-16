@@ -12,11 +12,11 @@ public class CampoDeCuracion extends Modificador implements Comprable{
 	private GraphicCuracion[] grafico;
 	
 	public CampoDeCuracion(int x, int y, Mapa m){
-		precio=50;
+		precio=200;
 		this.x=x;
 		this.y=y;
 		this.map=m;
-		tiempo=8;
+		tiempo=10;
 		curacion = new VisitorCuracion(this);
 		grafico = new GraphicCuracion[9];
 		int aux=0;
