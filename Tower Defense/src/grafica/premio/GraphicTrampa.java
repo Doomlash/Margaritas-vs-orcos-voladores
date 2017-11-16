@@ -14,13 +14,11 @@ public class GraphicTrampa extends GraphicGameObject{
 	public GraphicTrampa(int x, int y, GraphicMapa m){
 		super(x,y,0,1,1);
 		
-		tiempoAccionar=5;
+		tiempoAccionar=11;
 		this.map=m;
 		imagenes = new ImageIcon[2];
 		imagenes[0] = new ImageIcon(t.createImage(dir+"TrampaIdle.png"));
 		imagenes[1] = new ImageIcon(t.createImage(dir+"Trampa2.gif"));
-		
-		pos.x+=30;
 	}
 
 	public void decrementarTiempoAccionar(){
