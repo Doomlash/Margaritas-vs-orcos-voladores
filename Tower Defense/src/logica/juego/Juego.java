@@ -4,6 +4,7 @@ import logica.juego.niveles.*;
 import logica.almacen.*;
 import logica.hilos.*;
 import Musica.Player;
+import aTesters.PanelDerrota;
 import grafica.gui.*;
 
 public class Juego{
@@ -58,8 +59,10 @@ public class Juego{
 	public void perder(){
 		finalizar();
 		player.playDerrota();
+		gui.getVentana().cambiar(gui, new PanelDerrota(gui.getVentana()));
 		gui.getPanelPrincipal().remove(nivel.getMapa().getMapaGrafico());
 		gui.getPanelPrincipal().repaint();
+		gui.getVentana().cambiar(gui, new PanelDerrota(gui.getVentana()));
 		gui.finalizar("Perdiste!");
 	}
 	public void finalizar(){
