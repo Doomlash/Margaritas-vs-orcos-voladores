@@ -24,18 +24,19 @@ public class Dragon extends Enemigo{
 		fuerza = 20;
 		cargaAtaqueNecesaria = 25;
 		cargaAtaqueActual = 20;
-		duracionAtaque=6;
-		grafico = new GraphicDragon(x,y,map.getMapaGrafico(),this);
+		duracionAtaque=11;
+		grafico = new GraphicDragon(x,y,map.getMapaGrafico());
 		visitorMovimiento = new VisitorMovimientoDragon(this,m);
 	}
-//	public void atacarRango(){
-//		super.atacarRango();
-//		((GraphicDragon)grafico).finalizarAtaque();
-//	}
+	public void atacarRango(){
+		super.atacarRango();
+		((GraphicDragon)grafico).resetearAtaques();
+	}
 	
 	public void atacar(Obstaculo o){
 		canMove=false;
-		((GraphicDragon)grafico).atacar();
-		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,o.getY(),map,x-rango,grafico.getPos().x-40,fuerza,8));
+		BolaDeFuego b = new BolaDeFuego(x,o.getY(),map,x-rango,grafico.getPos().x-60,fuerza,9);
+		((GraphicDragon)grafico).atacar(o.getY(),o.getDimensionY(),y,b.getGraphic());
+		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(b);
 	}
 }
