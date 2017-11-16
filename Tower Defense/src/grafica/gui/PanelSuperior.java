@@ -62,10 +62,10 @@ public class PanelSuperior extends JPanel{
 				gui.cambiar(gui.getVentana().getInicio());
 			}
 		});
-		back.setBounds(45,0,60,60);
-		back.setIcon(new ImageIcon(dir+"IconosBotones/Back.png"));
-		back.setRolloverIcon(new ImageIcon(dir+"IconosBotones/BackEntered.png"));
-		back.setPressedIcon(new ImageIcon(dir+"IconosBotones/BackSelected.png"));
+		back.setBounds(20,0,60,60);
+		back.setIcon(new ImageIcon(dir+"IconosBotones/BackMenu.png"));
+		back.setRolloverIcon(new ImageIcon(dir+"IconosBotones/BackMenuEntered.png"));
+		back.setPressedIcon(new ImageIcon(dir+"IconosBotones/BackMenuSelected.png"));
 		add(back);
 	}
 	private void hordas(){
