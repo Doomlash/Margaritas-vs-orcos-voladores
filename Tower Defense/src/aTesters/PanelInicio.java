@@ -49,6 +49,7 @@ public class PanelInicio extends JPanel{
 	}
 	public void juegoFinalizado(){
 		botones[1].setEnabled(false);
+		ventana.cambiarJuego(null);
 	}
 	private void cambiar(JPanel panel){
 		ventana.cambiar(this, panel);

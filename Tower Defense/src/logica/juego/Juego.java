@@ -74,11 +74,14 @@ public class Juego{
 		}
 	}
 	public void ganar(){
+		generador.terminate();
 		almacen.desactivar();
+		gui.ganar();
 		gui.finalizar("Ganaste!");
 	}
 	public void pausar(){
-		nivel.getMapa().getAlmacenHilos().pausar();
+		if(nivel!=null)
+			nivel.getMapa().getAlmacenHilos().pausar();
 		generador.pausar();
 		almacen.desactivar();
 	}

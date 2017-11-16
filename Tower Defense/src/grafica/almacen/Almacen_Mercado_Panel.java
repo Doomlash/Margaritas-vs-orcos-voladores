@@ -120,7 +120,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 		x=0;
 		while(i<14){
 			x=x%2;
-			colocables[i].setBounds(x*65+(x+1)*4,fila[i]*alto/12+(fila[i])*9+25+((fila[i])/6*4),65,65);
+			colocables[i].setBounds(x*65+(x+1)*14,fila[i]*alto/12+(fila[i])*9+30+((fila[i])/6*4),65,65);
 			i++;
 			x++;
 		}
@@ -139,12 +139,12 @@ public class Almacen_Mercado_Panel extends JPanel{
 		for(int i=0;i<cantidades.length;i++){
 			cantidades[i] = new JLabel();
 			cantidades[i].setBorder(null);
-			cantidades[i].setForeground(Color.WHITE);
+			cantidades[i].setForeground(Color.BLACK);
 			x=x%2;
-			cantidades[i].setBounds(x*65+7,fila[i]*alto/12+(fila[i])*7+22+(i/2)*6,65,20);
+			cantidades[i].setBounds(x*65+2+(x+1)*14,fila[i]*alto/12+(fila[i])*7+25+(i/2)*6,70,20);
 			cantidades[i].setFocusable(false);
 			cantidades[i].setText(c[i+10]+" x"+itemsPremio.get(c[i+10]));
-			cantidades[i].setFont(new Font("Arial",Font.ITALIC,11));
+			cantidades[i].setFont(new Font("Arial",Font.ITALIC,13));
 			this.add(cantidades[i]);
 			x++;
 		}

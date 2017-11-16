@@ -33,10 +33,16 @@ public class GraphicDragon extends GraphicEnemigo{
 		this.getGrafico().setIcon(imagenes[7]);
 	}
 	public void atacar(){
-		imagenes[8].getImage().flush();
-		this.getGrafico().setIcon(imagenes[8]);
-		cargaAtaque.recargar();
-		dragon.setDuracionAtaque(11);
+		if(this.getGrafico().getIcon()==imagenes[1]){
+			super.atacar();
+			dragon.setDuracionAtaque(6);
+		}
+		else{
+			imagenes[8].getImage().flush();
+			this.getGrafico().setIcon(imagenes[8]);
+			cargaAtaque.recargar();
+			dragon.setDuracionAtaque(11);
+		}
 //		cantAtaques++;
 //		if(cantAtaques==1){
 //			imagenes[8].getImage().flush();

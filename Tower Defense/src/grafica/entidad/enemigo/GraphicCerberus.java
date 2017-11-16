@@ -38,23 +38,5 @@ public class GraphicCerberus extends GraphicEnemigo{
 				cargaAtaque.recargar();
 			}
 		}
-				
-//		if(dir==0){
-//			imagenes[5].getImage().flush();
-//			this.getGrafico().setIcon(imagenes[5]);
-//			cargaAtaque.recargar();
-//		}
-//		else
-//			if(dir==1){
-//				imagenes[6].getImage().flush();
-//				this.getGrafico().setIcon(imagenes[6]);
-//				cargaAtaque.recargar();
-//			}
-//			else
-//				if(dir==2){
-//					imagenes[7].getImage().flush();
-//					this.getGrafico().setIcon(imagenes[7]);
-//					cargaAtaque.recargar();
-//				}
 	}
 }

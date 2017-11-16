@@ -36,6 +36,6 @@ public class Dragon extends Enemigo{
 	public void atacar(Obstaculo o){
 		canMove=false;
 		((GraphicDragon)grafico).atacar();
-		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,o.getY(),map,x-rango,grafico.getPos().x-25,fuerza,6));
+		map.getAlmacenHilos().getDisEnemigo().agregarDisparoEnemigo(new BolaDeFuego(x,o.getY(),map,x-rango,grafico.getPos().x-40,fuerza,8));
 	}
 }

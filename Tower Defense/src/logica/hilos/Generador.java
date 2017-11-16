@@ -41,7 +41,7 @@ public class Generador extends Thread{
 					Thread.sleep(1000);
 				}catch(InterruptedException e){
 				}
-				if(tiempoInicialEspera<7){
+				if(tiempoInicialEspera<1){
 					tiempoInicialEspera++;
 				}
 				else{

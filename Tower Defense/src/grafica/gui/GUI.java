@@ -85,6 +85,10 @@ public class GUI extends JPanel {
 	public int getAlto(){
 		return AltoVentana;
 	}
+	public void ganar(){
+		ventana.getInicio().juegoFinalizado();
+		ventana.cambiar(this, ventana.getInicio());
+	}
 	public void pausar(){
 		contador.pausar();
 	}
