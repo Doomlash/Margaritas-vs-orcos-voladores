@@ -8,7 +8,7 @@ public class Generador extends Thread{
 	private Juego juego;
 	private Nivel nivelActual;
 	private Horda hordaActual;
-	private int tiempo;
+	private int tiempo, numEne, cantEne;
 	private int tiempoInicialEspera;
 	private volatile boolean execute;
 	protected boolean pausa=false;
@@ -16,6 +16,9 @@ public class Generador extends Thread{
 	public Generador(Juego j){
 		this.juego=j;
 		this.nivelActual=juego.getNivel();
+		if(nivelActual!=null)
+			cantEne=nivelActual.getCantEnemigosTotal();
+		numEne=0;
 		execute=true;
 		tiempo=0;
 		hordaActual=nivelActual.getHordaActual();
@@ -44,11 +47,14 @@ public class Generador extends Thread{
 				else{
 					if(hordaActual==null){
 						nivelActual = juego.siguienteNivel();
-						juego.getGui().actualizarNumHordas();
+						juego.getGui().getPanelSuperior().actualizarNumHordas();
 						if(nivelActual==null)
 							juego.ganar();
 						else{
 							hordaActual=nivelActual.getHordaActual();
+							cantEne=nivelActual.getCantEnemigosTotal();
+							numEne=0;
+							juego.getGui().getPanelSuperior().actualizarLevelProgress(numEne, cantEne);
 						}
 						juego.getGui().repaint();
 						tiempoInicialEspera=0;
@@ -58,7 +64,7 @@ public class Generador extends Thread{
 							nivelActual.siguienteHorda();
 							hordaActual=nivelActual.getHordaActual();
 							if(execute)
-								juego.getGui().actualizarNumHordas();
+								juego.getGui().getPanelSuperior().actualizarNumHordas();
 							if(hordaActual!=null)
 								nivelActual.getMapa().agregarObstaculos(3, 3);
 						}
@@ -66,6 +72,8 @@ public class Generador extends Thread{
 							if(hordaActual.hayEnemigos()){
 								tiempo++;
 								if(hordaActual.getTiempoCreacional()==tiempo){
+									numEne++;
+									juego.getGui().getPanelSuperior().actualizarLevelProgress(numEne, cantEne);
 									tiempo=0;
 									Enemigo e = nivelActual.getHordaActual().getSiguiente();
 									nivelActual.getMapa().agregarElemento(e);

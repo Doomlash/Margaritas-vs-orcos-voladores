@@ -12,6 +12,9 @@ public class Horda{
 		enemiesToSend = new ArrayList<Enemigo>();
 		enemiesInMap = new ArrayList<Enemigo>();
 	}
+	public int cantEnemigos(){
+		return enemiesToSend.size();
+	}
 	
 	public void setTiempoCreacional(int t){
 		tiempoCreacional=t;

@@ -23,7 +23,7 @@ public class VisitorDisparoAliado extends Visitor{
 					if(impactados[i]==e)
 						pertenece=true;
 				}
-				if(!pertenece){
+				if(!pertenece&&agregar<impactados.length){
 					e.setVida(e.getVida()-disparo.getDamage());
 					disparo.impactar();
 					impactados[agregar]=e;

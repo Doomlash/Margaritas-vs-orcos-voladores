@@ -23,9 +23,9 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private Almacen_Mercado almacen;
 	private JButton colocables[];
 	private Map<String,Integer> itemsPremio;
-	private String c[] = {"Swordman","Arquero","Angel","Mago","Catapulta","Barricada","Stun","Curacion","Upgrade","Gusano","Bomba","Booster","Escudo","Trampa","Venta","Cancelar"};
+	private String c[] = {"Swordman","Arquero","Angel","Mago","Ballesta","Barricada","Stun","Curacion","Upgrade","Gusano","Bomba","Booster","Escudo","Trampa","Venta","Cancelar"};
 	private JLabel[] cantidades;
-	private JLabel presupuesto;
+	private JLabel presupuesto,iconMonedas;
 	protected final String dir = "src/Sprites/";
 	
 	public Almacen_Mercado_Panel(Almacen_Mercado a){
@@ -50,7 +50,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 		}
 	}
 	public void actualizarPresupuesto(){
-		presupuesto.setText("$ "+almacen.getJuego().getNivel().getPresupuesto());
+		presupuesto.setText(""+almacen.getJuego().getNivel().getPresupuesto());
 	}
 	public void disminuirCantidad(String s){
 		itemsPremio.put(s, itemsPremio.get(s)-1);
@@ -150,9 +150,14 @@ public class Almacen_Mercado_Panel extends JPanel{
 		}
 	}
 	private void otrasEtiquetas(int ancho, int alto){
+		iconMonedas = new JLabel(new ImageIcon(dir+"IconosBotones/IconMonedas.png"));
+		iconMonedas.setBounds(110,7,30,30);
+		iconMonedas.setHorizontalAlignment(JLabel.CENTER);
+		iconMonedas.setVerticalAlignment(JLabel.CENTER);
+		
 		presupuesto = new JLabel();
-		presupuesto.setBounds(80,0,160,45);
-		presupuesto.setText("$ "+almacen.getJuego().getNivel().getPresupuesto());
+		presupuesto.setBounds(100,0,160,45);
+		presupuesto.setText(""+almacen.getJuego().getNivel().getPresupuesto());
 		presupuesto.setHorizontalAlignment(JLabel.CENTER);
 		presupuesto.setVerticalAlignment(JLabel.CENTER);
 		presupuesto.setForeground(Color.WHITE);
@@ -165,6 +170,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 		JLabel fondo = new JLabel(new ImageIcon(dir+"IconosBotones/FondoMercado.png"));
 		fondo.setBounds(0, 0, ancho/17*3, alto-100);
 		add(etiquetaShop);
+		add(iconMonedas);
 		add(presupuesto);
 		add(etiquetaPremios);
 		add(fondo);
@@ -189,8 +195,8 @@ public class Almacen_Mercado_Panel extends JPanel{
 					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}
-				case("Catapulta"):{
-					almacen.asignarAccion(new CreadorCatapulta());
+				case("Ballesta"):{
+					almacen.asignarAccion(new CreadorBallesta());
 					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
 					break;
 				}

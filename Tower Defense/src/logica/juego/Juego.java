@@ -27,11 +27,11 @@ public class Juego{
 	public void aumentarPuntaje(int p){
 		if(p>0)
 			puntaje+=p;
-		gui.actualizarPuntaje();
+		gui.getPanelSuperior().actualizarPuntaje();
 	}
 	public void aumentarTemporizador(){
 		tiempo++;
-		gui.actualizarTemporizador();
+		gui.getPanelSuperior().actualizarTemporizador();
 	}
 	public int getTiempo(){
 		return tiempo;
