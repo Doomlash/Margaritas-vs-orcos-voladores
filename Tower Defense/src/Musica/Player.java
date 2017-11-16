@@ -2,20 +2,25 @@ package Musica;
 
 import java.io.File;
 
-import javax.print.attribute.standard.Media;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
 
 public class Player {
-	//victoria, derrota, menu, juego;
+	Clip clip;
+	public Player(){
+		try {
+			clip = AudioSystem.getClip();
+		} catch (LineUnavailableException e) {
+			e.printStackTrace();
+		}
+	}
 	
-	public Player(){}
-	
-	public void playSound() {
+	public void playDerrota() {
 	    try {
 	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sprites/Dark_Souls_Death.wav").getAbsoluteFile());
-	        Clip clip = AudioSystem.getClip();
+	        clip.close();
 	        clip.open(audioInputStream);
 	        clip.start();
 	    } catch(Exception ex) {
@@ -23,4 +28,16 @@ public class Player {
 	        ex.printStackTrace();
 	    }
 	}
+	
+	public void playVictoria() {
+	    try {
+	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sprites/Final_Fantasy_VII_-_Victory_Fanfare.wav").getAbsoluteFile());
+	        clip.close();
+	        clip.open(audioInputStream);
+	        clip.start();
+	    } catch(Exception ex) {
+	        System.out.println("Error with playing sound.");
+	        ex.printStackTrace();
+	    }
+	}	
 }

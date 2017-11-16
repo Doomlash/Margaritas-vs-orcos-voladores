@@ -13,6 +13,7 @@ public class Juego{
 	private int puntaje;
 	private int tiempo;
 	private Generador generador;
+	private Player player;
 	
 	/**
 	 * Se inicializa el juego con el nivel 1.
@@ -24,6 +25,7 @@ public class Juego{
 		almacen = new Almacen_Mercado(this);
 		puntaje=0;
 		tiempo=0;
+		player= new Player();
 	}
 	public void aumentarPuntaje(int p){
 		if(p>0)
@@ -55,8 +57,7 @@ public class Juego{
 	}
 	public void perder(){
 		finalizar();
-		Player player= new Player();
-		player.playSound();
+		player.playDerrota();
 		gui.getPanelPrincipal().remove(nivel.getMapa().getMapaGrafico());
 		gui.getPanelPrincipal().repaint();
 		gui.finalizar("Perdiste!");
@@ -75,6 +76,7 @@ public class Juego{
 	}
 	public void ganar(){
 		almacen.desactivar();
+		player.playVictoria();
 		gui.finalizar("Ganaste!");
 	}
 	public void pausar(){
