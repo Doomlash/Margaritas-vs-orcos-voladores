@@ -3,6 +3,7 @@ package logica.juego;
 import logica.juego.niveles.*;
 import logica.almacen.*;
 import logica.hilos.*;
+import Musica.Player;
 import grafica.gui.*;
 
 public class Juego{
@@ -54,6 +55,8 @@ public class Juego{
 	}
 	public void perder(){
 		finalizar();
+		Player player= new Player();
+		player.playSound();
 		gui.getPanelPrincipal().remove(nivel.getMapa().getMapaGrafico());
 		gui.getPanelPrincipal().repaint();
 		gui.finalizar("Perdiste!");
