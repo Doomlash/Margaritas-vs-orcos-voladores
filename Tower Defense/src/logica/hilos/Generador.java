@@ -63,10 +63,11 @@ public class Generador extends Thread{
 						if(hordaActual.isCompleted()){
 							nivelActual.siguienteHorda();
 							hordaActual=nivelActual.getHordaActual();
-							if(execute)
-								juego.getGui().getPanelSuperior().actualizarNumHordas();
-							if(hordaActual!=null)
+							if(hordaActual!=null){
 								nivelActual.getMapa().agregarObstaculos(3, 3);
+								if(execute)
+									juego.getGui().getPanelSuperior().actualizarNumHordas();
+							}
 						}
 						else{
 							if(hordaActual.hayEnemigos()){

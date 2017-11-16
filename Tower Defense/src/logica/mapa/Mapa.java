@@ -95,7 +95,8 @@ public class Mapa{
 	}
 	public void eliminarEnemigo(Enemigo e){
 		eliminarElemento(e);
-		nivel.getHordaActual().removeEnemieInMap(e);
+		if(nivel.getHordaActual()!=null)
+			nivel.getHordaActual().removeEnemieInMap(e);
 	}
 	
 	public Nivel getNivel(){
