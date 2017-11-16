@@ -56,4 +56,10 @@ public abstract class Nivel{
 		else
 			return null;
 	}
+	public int getCantEnemigosTotal(){
+		int cant=0;
+		for(int i=0;i<hordas.length;i++)
+			cant+=hordas[i].cantEnemigos();
+		return cant;
+	}
 }

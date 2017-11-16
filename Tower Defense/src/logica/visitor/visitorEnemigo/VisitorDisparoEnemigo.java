@@ -26,7 +26,7 @@ public class VisitorDisparoEnemigo extends Visitor{
 					if(impactados[i]==a)
 						pertenece=true;
 				}
-				if(!pertenece){
+				if(!pertenece&&agregar<impactados.length){
 					a.setVida(a.getVida()-disparo.getDamage());
 					disparo.impactar();
 					impactados[agregar]=a;
@@ -42,7 +42,7 @@ public class VisitorDisparoEnemigo extends Visitor{
 				if(impactados[i]==p)
 					pertenece=true;
 			}
-			if(!pertenece){
+			if(!pertenece&&agregar<impactados.length){
 				p.setVida(p.getVida()-disparo.getDamage());
 				disparo.impactar();
 				impactados[agregar]=p;
@@ -57,7 +57,7 @@ public class VisitorDisparoEnemigo extends Visitor{
 				if(impactados[i]==b)
 					pertenece=true;
 			}
-			if(!pertenece){
+			if(!pertenece&&agregar<impactados.length){
 				b.setVida(b.getVida()-disparo.getDamage());
 				disparo.impactar();
 				impactados[agregar]=b;
