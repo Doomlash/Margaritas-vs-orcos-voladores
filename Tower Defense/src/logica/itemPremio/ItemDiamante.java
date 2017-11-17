@@ -11,7 +11,7 @@ public class ItemDiamante extends ItemPremio{
 		m.getMapaGrafico().addGraphicElemento(grafico);
 	}
 	public void clickeado(){
-		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+200);
+		map.getNivel().modificarPresupueto(map.getNivel().getPresupuesto()+500);
 		kill();
 	}
 }

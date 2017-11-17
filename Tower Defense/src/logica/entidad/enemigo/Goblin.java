@@ -8,7 +8,7 @@ public class Goblin extends Enemigo{
 	
 	public Goblin(int x, int y, Mapa m){
 		super(x,y,1,1,m);
-		velocidad=12;
+		velocidad=10;
 		puntaje=10;
 		monedas=25;
 		vida=vidaMax=80;

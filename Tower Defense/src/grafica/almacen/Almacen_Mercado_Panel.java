@@ -46,7 +46,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 	private void crearMapeo(){
 		itemsPremio = new HashMap<String,Integer>();
 		for(int i=10;i<14;i++){
-			itemsPremio.put(c[i], 10);
+			itemsPremio.put(c[i], 2);
 		}
 	}
 	public void actualizarPresupuesto(){

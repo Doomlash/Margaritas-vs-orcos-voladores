@@ -9,7 +9,7 @@ public class Cerberus extends Enemigo{
 	
 	public Cerberus(int x, int y, Mapa m){
 		super(x,y,2,2,m);
-		velocidad=12;
+		velocidad=7;
 		puntaje=2000;
 		monedas=1000;
 		vida=vidaMax=500;

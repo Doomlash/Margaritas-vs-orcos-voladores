@@ -14,7 +14,7 @@ public class Ogro extends Enemigo{
 	 */
 	public Ogro(int x, int y, Mapa m){
 		super(x,y,1,1,m);
-		velocidad=6;
+		velocidad=5;
 		puntaje=50;
 		monedas=50;
 		vida=vidaMax=100;

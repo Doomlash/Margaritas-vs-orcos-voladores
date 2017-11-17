@@ -11,7 +11,6 @@ public abstract class Nivel{
 	protected Juego juego;
 	
 	public Nivel(Juego j){
-		presupuesto= 1000;
 		juego=j;
 		hordaActual=0;
 		hordas= new Horda[3];

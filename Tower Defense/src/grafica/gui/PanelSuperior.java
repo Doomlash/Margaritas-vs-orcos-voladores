@@ -12,10 +12,10 @@ import javax.swing.JPanel;
 
 public class PanelSuperior extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private JLabel puntaje, tiempo, hordas, levelProgress, levelProgressText;
+	private JLabel puntaje, tiempo, hordas, levelProgress, levelProgressText, levelText, numberLevel;
 	protected final String dir = "src/Sprites/";
-	private ImageIcon[] cantHordas, progress;
-	private int hordaActual=0;
+	private ImageIcon[] cantHordas, progress, numLevel;
+	private int hordaActual=0, actualLevel=0;
 	private PanelJuego gui;
 	
 	public PanelSuperior(int AnchoVentana, int AltoVentana, PanelJuego g){
@@ -93,6 +93,22 @@ public class PanelSuperior extends JPanel{
 		levelProgressText.setHorizontalAlignment(JLabel.LEFT);
 		levelProgressText.setVerticalAlignment(JLabel.CENTER);
 		
+		levelText = new JLabel(new ImageIcon(dir+"IconosBotones/LevelText.png"));
+		levelText.setBounds(500,0,150,60);
+		levelText.setHorizontalAlignment(JLabel.LEFT);
+		levelText.setVerticalAlignment(JLabel.CENTER);
+		
+		numLevel = new ImageIcon[3];
+		for(int i=0;i<3;i++){
+			numLevel[i] = new ImageIcon(dir+"IconosBotones/Level"+(i+1)+".png");
+		}
+		numberLevel = new JLabel(numLevel[actualLevel]);
+		numberLevel.setBounds(540,0,150,60);
+		numberLevel.setHorizontalAlignment(JLabel.LEFT);
+		numberLevel.setVerticalAlignment(JLabel.CENTER);
+		
+		add(numberLevel);
+		add(levelText);
 		add(levelProgressText);
 		add(levelProgress);
 		add(hordas);
@@ -111,5 +127,9 @@ public class PanelSuperior extends JPanel{
 	public void actualizarNumHordas(){
 		hordaActual=(hordaActual+1)%cantHordas.length;
 		hordas.setIcon(cantHordas[hordaActual]);
+	}
+	public void nextNumLevel(){
+		actualLevel++;
+		numberLevel.setIcon(numLevel[actualLevel]);
 	}
 }

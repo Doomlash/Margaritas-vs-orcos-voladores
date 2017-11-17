@@ -21,7 +21,7 @@ public class Nigromante extends Enemigo{
 	 */
 	public Nigromante(int x, int y, Mapa m){
 		super(x,y,1,1,m);
-		velocidad=8;
+		velocidad=7;
 		puntaje=100;
 		monedas=150;
 		vida=vidaMax=100;

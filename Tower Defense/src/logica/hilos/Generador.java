@@ -55,6 +55,7 @@ public class Generador extends Thread{
 							cantEne=nivelActual.getCantEnemigosTotal();
 							numEne=0;
 							juego.getGui().getPanelSuperior().actualizarLevelProgress(numEne, cantEne);
+							juego.getGui().getPanelSuperior().nextNumLevel();
 						}
 						juego.getGui().repaint();
 						tiempoInicialEspera=0;
