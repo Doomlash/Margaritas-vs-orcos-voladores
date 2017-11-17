@@ -1,4 +1,4 @@
-package aTesters;
+package interfazGrafica;
 
 import grafica.gui.PanelJuego;
 

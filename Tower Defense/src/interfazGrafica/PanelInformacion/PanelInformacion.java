@@ -1,4 +1,4 @@
-package aTesters.PanelInformacion;
+package interfazGrafica.PanelInformacion;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import aTesters.*;
+import interfazGrafica.*;
 
 public class PanelInformacion extends JPanel{
 	private static final long serialVersionUID = 1L;

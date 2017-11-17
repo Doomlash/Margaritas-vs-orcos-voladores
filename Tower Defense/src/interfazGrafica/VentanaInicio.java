@@ -1,7 +1,7 @@
-package aTesters;
+package interfazGrafica;
 
 import grafica.gui.*;
-import aTesters.PanelInformacion.*;
+import interfazGrafica.PanelInformacion.*;
 
 import java.awt.EventQueue;
 

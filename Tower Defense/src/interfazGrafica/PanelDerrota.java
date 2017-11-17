@@ -1,4 +1,4 @@
-package aTesters;
+package interfazGrafica;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;

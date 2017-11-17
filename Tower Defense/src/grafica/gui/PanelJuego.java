@@ -2,9 +2,10 @@ package grafica.gui;
 
 import logica.juego.*;
 import logica.hilos.*;
-import aTesters.*;
 
 import javax.swing.JPanel;
+
+import interfazGrafica.*;
 
 public class PanelJuego extends JPanel {
 	private static final long serialVersionUID = 1L;

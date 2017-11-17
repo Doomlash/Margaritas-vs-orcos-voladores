@@ -1,4 +1,4 @@
-package aTesters;
+package interfazGrafica;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -18,7 +18,7 @@ public class PanelVictoria extends JPanel{
 			setLayout(null);
 			setBounds(0,0,v.getAncho()-15,v.getAlto()-40);	
 			
-			fondo = new JLabel(new ImageIcon("src/Sprites/Victoria.jpg"));
+			fondo = new JLabel(new ImageIcon("src/Sprites/Victoria.png"));
 			fondo.setOpaque(true);
 			fondo.setBackground(Color.black);
 			fondo.setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
