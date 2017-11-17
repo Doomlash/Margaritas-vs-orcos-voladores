@@ -59,8 +59,15 @@ public class Juego{
 	public void perder(){
 		finalizar();
 		player.playDerrota();
+<<<<<<< HEAD
 		gui.getVentana().cambiar(gui, new PanelDerrota(gui.getVentana()));
 		gui.finalizar();
+=======
+		gui.getPanelPrincipal().remove(nivel.getMapa().getMapaGrafico());
+		gui.getPanelPrincipal().repaint();
+		gui.getVentana().cambiar(gui, new PanelDerrota(gui.getVentana()));
+		gui.finalizar("Perdiste!");
+>>>>>>> 04621b4e6d0e432fce1358e6c947a8226703bb40
 	}
 	public void finalizar(){
 		nivel.getMapa().clear();
@@ -76,8 +83,14 @@ public class Juego{
 	}
 	public void ganar(){
 		generador.terminate();
+<<<<<<< HEAD
 		gui.finalizar();
 		player.playVictoria();
+=======
+		almacen.desactivar();
+		player.playVictoria();
+		gui.finalizar("Ganaste!");
+>>>>>>> 04621b4e6d0e432fce1358e6c947a8226703bb40
 		gui.ganar();
 	}
 	public void pausar(){

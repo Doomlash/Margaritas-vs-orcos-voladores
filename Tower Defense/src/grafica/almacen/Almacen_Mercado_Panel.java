@@ -188,32 +188,32 @@ public class Almacen_Mercado_Panel extends JPanel{
 			switch(s){
 				case("Swordman"):{
 					almacen.asignarAccion(new CreadorSwordman());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();					
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();					
 					break;
 				}
 				case("Arquero"):{
 					almacen.asignarAccion(new CreadorArquero());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();
 					break;
 				}
 				case("Angel"):{
 					almacen.asignarAccion(new CreadorAngel());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();
 					break;
 				}
 				case("Ballesta"):{
 					almacen.asignarAccion(new CreadorBallesta());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();
 					break;
 				}
 				case("Mago"):{
 					almacen.asignarAccion(new CreadorMago());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();
 					break;
 				}
 				case("Barricada"):{
 					almacen.asignarAccion(new CreadorBarricada());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();
 					break;
 				}
 				case("Stun"):{
@@ -223,12 +223,12 @@ public class Almacen_Mercado_Panel extends JPanel{
 				}
 				case("Gusano"):{
 					almacen.asignarAccion(new CreadorAgujeroGusano());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();
 					break;
 				}
 				case("Curacion"):{
 					almacen.asignarAccion(new CreadorCuracion());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();
 					break;
 				}
 				case("Venta"):{
@@ -238,7 +238,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 				}
 				case("Bomba"):{
 					almacen.asignarAccion(new CreadorBomba());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();
 					break;
 				}
 				case("Booster"):{
@@ -253,7 +253,7 @@ public class Almacen_Mercado_Panel extends JPanel{
 				}
 				case("Trampa"):{
 					almacen.asignarAccion(new CreadorTrampa());
-					almacen.getJuego().getNivel().getMapa().getMapaGrafico().añadirGrilla();
+					almacen.getJuego().getNivel().getMapa().getMapaGrafico().aniadirGrilla();
 					break;
 				}
 				case("Upgrade"):{
