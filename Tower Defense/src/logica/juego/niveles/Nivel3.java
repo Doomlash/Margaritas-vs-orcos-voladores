@@ -20,7 +20,7 @@ public class Nivel3 extends Nivel{
 		int aux;
 
 		//Horda1
-		for(int i=0;i<5;i++){
+		for(int i=0;i<6;i++){
 			aux = r.nextInt(map.getCeldas().length-1);
 			hordas[0].agregar(new Goblin(map.getCeldas()[0].length-1,aux,map));
 		}
@@ -28,7 +28,7 @@ public class Nivel3 extends Nivel{
 			aux = r.nextInt(map.getCeldas().length-1);
 			hordas[0].agregar(new Ogro(map.getCeldas()[0].length-1,aux,map));
 		}
-		for(int i=0;i<3;i++){
+		for(int i=0;i<2;i++){
 			aux = r.nextInt(map.getCeldas().length-1);
 			hordas[0].agregar(new Lich(map.getCeldas()[0].length-1,aux,map));
 		}
