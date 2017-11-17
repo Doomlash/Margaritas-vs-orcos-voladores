@@ -8,7 +8,7 @@ import aTesters.PanelDerrota;
 import grafica.gui.*;
 
 public class Juego{
-	private GUI gui;
+	private PanelJuego gui;
 	private Nivel nivel;
 	private Almacen_Mercado almacen;
 	private int puntaje;
@@ -20,7 +20,7 @@ public class Juego{
 	 * Se inicializa el juego con el nivel 1.
 	 * @param g : GUI - Se recibe la GUI asociada.
 	 */
-	public Juego(GUI g){
+	public Juego(PanelJuego g){
 		gui=g;
 		nivel= new Nivel1(this);
 		almacen = new Almacen_Mercado(this);
@@ -44,7 +44,7 @@ public class Juego{
 		nivel= nivel.getSiguiente();
 		return nivel;
 	}
-	public GUI getGui(){
+	public PanelJuego getGui(){
 		return gui;
 	}
 	public Nivel getNivel(){
@@ -60,10 +60,7 @@ public class Juego{
 		finalizar();
 		player.playDerrota();
 		gui.getVentana().cambiar(gui, new PanelDerrota(gui.getVentana()));
-		gui.getPanelPrincipal().remove(nivel.getMapa().getMapaGrafico());
-		gui.getPanelPrincipal().repaint();
-		gui.getVentana().cambiar(gui, new PanelDerrota(gui.getVentana()));
-		gui.finalizar("Perdiste!");
+		gui.finalizar();
 	}
 	public void finalizar(){
 		nivel.getMapa().clear();
@@ -79,10 +76,9 @@ public class Juego{
 	}
 	public void ganar(){
 		generador.terminate();
-		almacen.desactivar();
-		gui.ganar();
+		gui.finalizar();
 		player.playVictoria();
-		gui.finalizar("Ganaste!");
+		gui.ganar();
 	}
 	public void pausar(){
 		if(nivel!=null)

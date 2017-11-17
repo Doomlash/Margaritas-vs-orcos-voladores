@@ -1,6 +1,6 @@
 package aTesters;
 
-import grafica.gui.GUI;
+import grafica.gui.PanelJuego;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,11 +60,11 @@ public class PanelInicio extends JPanel{
 			String s=e.getActionCommand();
 			switch(s){
 				case("Jugar"):{
-					GUI g = ventana.getGUIJuego();
+					PanelJuego g = ventana.getGUIJuego();
 					if(g!=null){
 						g.terminate();
 					}
-					g = new GUI(ventana);
+					g = new PanelJuego(ventana);
 					botones[1].setEnabled(true);
 					g.ejecutar();
 					ventana.cambiarJuego(g);
@@ -81,7 +81,7 @@ public class PanelInicio extends JPanel{
 					break;
 				}
 				case("Salir"):{
-					GUI g =ventana.getGUIJuego();
+					PanelJuego g =ventana.getGUIJuego();
 					if(g!=null)
 						g.terminate();
 					ventana.dispose();

@@ -6,7 +6,7 @@ import aTesters.*;
 
 import javax.swing.JPanel;
 
-public class GUI extends JPanel {
+public class PanelJuego extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private static int AnchoVentana, AltoVentana;
 	private PanelSuperior panelSuperior;
@@ -33,31 +33,16 @@ public class GUI extends JPanel {
 	/**
 	 * Create the frame.
 	 */
-	public GUI(VentanaInicio v){
+	public PanelJuego(VentanaInicio v){
 		ventana=v;
-//		super("Tower Defense");
 		AnchoVentana= 1200; AltoVentana= 720;
-		
-//		this.setResizable(false);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, AnchoVentana, AltoVentana);
-//		contentPane = new JPanel();
-//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(null);
-//		setContentPane(contentPane);
-
-//		j= new Juego(this);
-//		contentPane.add(panelSuperior);
-//		contentPane.add(j.getAlmacen().getAlmacenPanel());
-		
-//		contador=new Contador(j);
-//		contador.start();
-//		j.iniciar();
 	}
 	public JPanel getPanelPrincipal(){
 		return this;
 	}
-	public void finalizar(String s){
+	public void finalizar(){
 		contador.terminate();
 		ventana.getInicio().juegoFinalizado();
 	}
@@ -86,8 +71,10 @@ public class GUI extends JPanel {
 		return AltoVentana;
 	}
 	public void ganar(){
-		ventana.getInicio().juegoFinalizado();
-		ventana.cambiar(this, ventana.getInicio());
+		ventana.cambiar(this, new PanelVictoria(ventana));
+	}
+	public void perder(){
+		ventana.cambiar(this, new PanelDerrota(ventana));
 	}
 	public void pausar(){
 		contador.pausar();

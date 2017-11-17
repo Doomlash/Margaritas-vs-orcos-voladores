@@ -16,7 +16,6 @@ public class PanelInformacion extends JPanel{
 	private JLabel fondo;
 	private VentanaInicio ventana;
 	private JButton back;
-	private ImageIcon[] fondos;
 	private JPanel[] paneles;
 	protected final String dir = "src/Sprites/";
 	
@@ -29,18 +28,17 @@ public class PanelInformacion extends JPanel{
 		fondo.setBounds(0,0,v.getAncho()-15,v.getAlto()-40);
 		crearPaneles();
 		armarBotones();
-		fondos();
 		add(fondo);
 	}
 	private void crearPaneles(){
 		paneles = new JPanel[4];
 		paneles[0] = new PanelInformacionIndividual(ventana,"Aliados");
 		paneles[1] = new PanelInformacionIndividual(ventana,"Enemigos");
-		paneles[2] = new PanelInformacionIndividual(ventana,"Premios");
+		paneles[2] = new PanelAlmacen(ventana);
 		paneles[3] = new PanelInformacionIndividual(ventana,"ComoJugar");
 	}
 	private void armarBotones(){
-		String[] command = {"Aliados","Enemigos","Premios","ComoJugar","Salir"};
+		String[] command = {"Aliados","Enemigos","Almacen","ComoJugar","Salir"};
 		botones = new JButton[command.length];
 		OyenteBotones oyente = new OyenteBotones();
 		
@@ -75,13 +73,6 @@ public class PanelInformacion extends JPanel{
 		back.setPressedIcon(new ImageIcon(dir+"IconosBotones/BackSelected.png"));
 		add(back);
 	}
-	private void fondos(){
-		String[] command = {"Aliados","Enemigos","Salir"};
-		fondos = new ImageIcon[command.length];
-		for(int i=0;i<fondos.length;i++){
-			fondos[i] = new ImageIcon(dir+"IconosBotones/Informacion"+command[i]+".png");
-		}
-	}
 	private void cambiar(JPanel panel){
 		ventana.cambiar(this, panel);
 	}
@@ -97,7 +88,7 @@ public class PanelInformacion extends JPanel{
 					cambiar(paneles[1]);
 					break;
 				}
-				case("Premios"):{
+				case("Almacen"):{
 					cambiar(paneles[2]);
 					break;
 					

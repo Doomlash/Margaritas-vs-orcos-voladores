@@ -15,7 +15,7 @@ public class VentanaInicio extends JFrame {
 	private JPanel contentPane;
 	ImageIcon image = new ImageIcon("src/Sprites/IconosBotones/Hojas.gif");
 	private static final int AnchoVentana=1200,AltoVentana=720;
-	private GUI gui;
+	private PanelJuego gui;
 	private PanelInicio inicio;
 	private PanelInformacion informacion;
 
@@ -65,10 +65,10 @@ public class VentanaInicio extends JFrame {
 	public int getAlto(){
 		return AltoVentana;
 	}
-	public GUI getGUIJuego(){
+	public PanelJuego getGUIJuego(){
 		return gui;
 	}
-	public void cambiarJuego(GUI g){
+	public void cambiarJuego(PanelJuego g){
 		gui=g;
 	}
 	public PanelInicio getInicio(){

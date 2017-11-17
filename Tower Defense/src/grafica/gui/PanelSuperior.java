@@ -16,9 +16,9 @@ public class PanelSuperior extends JPanel{
 	protected final String dir = "src/Sprites/";
 	private ImageIcon[] cantHordas, progress;
 	private int hordaActual=0;
-	private GUI gui;
+	private PanelJuego gui;
 	
-	public PanelSuperior(int AnchoVentana, int AltoVentana, GUI g){
+	public PanelSuperior(int AnchoVentana, int AltoVentana, PanelJuego g){
 		gui=g;
 		setLayout(null);
 		setBounds(0, 0, AnchoVentana-10, AltoVentana/12);

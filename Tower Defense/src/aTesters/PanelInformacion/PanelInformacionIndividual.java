@@ -33,6 +33,10 @@ public class PanelInformacionIndividual extends JPanel{
 				size=4;
 				break;
 			}
+			case("Shop"):{
+				size=3;
+				break;
+			}
 			case("Premios"):{
 				size=3;
 				break;
@@ -64,7 +68,7 @@ public class PanelInformacionIndividual extends JPanel{
 			botones[i].setBorderPainted(false);
 			botones[i].setContentAreaFilled(false);
 			botones[i].setFocusable(false);
-			botones[i].addActionListener(oyente);	
+			botones[i].addActionListener(oyente);
 			botones[i].setIcon(new ImageIcon(dir+"IconosBotones/"+command[i]+".png"));
 			botones[i].setRolloverIcon(new ImageIcon(dir+"IconosBotones/"+command[i]+"Entered.png"));
 			add(botones[i]);

@@ -13,7 +13,7 @@ public class Upgrade extends ModificadorEntidad implements Comprable{
 	
 	public Upgrade(Mapa m){
 		this.map=m;
-		precio=200;
+		precio=320;
 		tiempo=30;
 	}
 	public int getPrecio(){
@@ -40,10 +40,8 @@ public class Upgrade extends ModificadorEntidad implements Comprable{
 		
 	}
 	public void restaurar(){
-		if(tiempo<=0){
-			entidad.setVida(vidaMaxSaved);
-			entidad.setVidaMax(vidaMaxSaved);
-		}
+		entidad.setVida(vidaMaxSaved);
+		entidad.setVidaMax(vidaMaxSaved);
 		entidad.setFuerza(fuerzaSaved);
 		((GraphicEntidad)entidad.getGraphic()).downgrade();
 		((GraphicEntidad)entidad.getGraphic()).actualizarLifeLine(entidad.getVidaMax(), entidad.getVida());;
