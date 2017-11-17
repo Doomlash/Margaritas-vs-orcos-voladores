@@ -46,7 +46,7 @@ public class GraphicMapa extends JPanel{
 		setOpaque(false);
 		super.paint(g);
 	}
-	public void añadirGrilla(){
+	public void aniadirGrilla(){
 		fondo=grilla;
 		repaint();
 	}
