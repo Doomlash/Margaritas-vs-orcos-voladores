@@ -1,7 +1,8 @@
 package interfazGrafica;
 
 import grafica.gui.*;
-import interfazGrafica.PanelInformacion.*;
+import interfazGrafica.Paneles.PanelInicio;
+import interfazGrafica.Paneles.PanelInformacion.PanelInformacion;
 
 import java.awt.EventQueue;
 

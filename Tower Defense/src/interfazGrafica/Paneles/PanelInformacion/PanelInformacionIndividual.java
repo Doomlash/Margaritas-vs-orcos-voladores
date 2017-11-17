@@ -1,4 +1,4 @@
-package interfazGrafica.PanelInformacion;
+package interfazGrafica.Paneles.PanelInformacion;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

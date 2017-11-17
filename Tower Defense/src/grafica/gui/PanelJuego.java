@@ -6,6 +6,8 @@ import logica.hilos.*;
 import javax.swing.JPanel;
 
 import interfazGrafica.*;
+import interfazGrafica.Paneles.PanelDerrota;
+import interfazGrafica.Paneles.PanelVictoria;
 
 public class PanelJuego extends JPanel {
 	private static final long serialVersionUID = 1L;

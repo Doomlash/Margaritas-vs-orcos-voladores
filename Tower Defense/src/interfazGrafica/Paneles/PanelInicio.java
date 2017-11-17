@@ -1,6 +1,7 @@
-package interfazGrafica;
+package interfazGrafica.Paneles;
 
 import grafica.gui.PanelJuego;
+import interfazGrafica.VentanaInicio;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

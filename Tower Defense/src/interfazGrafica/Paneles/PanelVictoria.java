@@ -1,4 +1,4 @@
-package interfazGrafica;
+package interfazGrafica.Paneles;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import interfazGrafica.VentanaInicio;
 
 public class PanelVictoria extends JPanel{
 		private static final long serialVersionUID = 1L;
