@@ -2,7 +2,6 @@ package logica.entidad.aliado;
 
 import logica.entidad.*;
 import logica.comprables.*;
-import logica.premio.magiaTemporal.*;
 import logica.visitor.*;
 import logica.visitor.visitorAliado.VisitorAtaqueAliado;
 import logica.mapa.*;
@@ -14,8 +13,6 @@ import grafica.gameObjects.*;
 
 public abstract class Aliado extends Entidad implements Comprable{
 	protected int precio;
-	protected Stun dragon;
-	protected PowerBooster booster;
 	protected VisitorAtaqueAliado visitorAtaque;
 	
 	/**
